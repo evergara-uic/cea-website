@@ -376,6 +376,29 @@ const COUNCILS = [
 				<!-- Administrative assistant. -->
 				{assistant && (
 					<div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2">
+						{/*
+						 * The frame the department banners use: a 4px copper rule on
+						 * the leading edge, `border-l-4 border-amberprint` there. It is
+						 * drawn as an absolutely positioned bar rather than as a border
+						 * for one reason — a border is inside the box, so it would shift
+						 * this card's text 4px right of the Dean's directly above it,
+						 * and the two cards are the same width with the same padding, so
+						 * that offset would be the only thing misaligned between them.
+						 * `overflow-hidden` and `rounded-xl` clip the bar to the card, so
+						 * it reads identically to the border version.
+						 *
+						 * The banner's navy field is deliberately not copied. This card
+						 * holds a name, a role, an academic background and a functions
+						 * list, and turning it navy would mean restating six text
+						 * colours against a dark ground — and would make the
+						 * administrative assistant look like a department header, which
+						 * is the one thing the card is not.
+						 */}
+						<span
+							class="pointer-events-none absolute inset-y-0 left-0 w-1 bg-amberprint"
+							aria-hidden="true"
+						/>
+
 						<div class="space-y-space-sm">
 							<div class="flex items-center justify-between gap-2">
 								<span class="inline-flex items-center gap-1 rounded bg-brand-200 px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-navy">
