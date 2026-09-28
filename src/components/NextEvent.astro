@@ -1,0 +1,150 @@
+---
+import type { IconName } from './Icon.astro';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+import { EVENTS_OFFICE } from '../consts';
+
+/*
+ * The next real event, given its own section above the design's spotlights.
+ *
+ * The Intramurals entry is deliberately sparse. It is the one event on this
+ * site that is real and dated rather than part of the design, and the only
+ * facts available for it are the name and the dates. Every other field is
+ * either blank or says so in the open, because a plausible-sounding invented
+ * location or description for a real upcoming event is exactly the failure
+ * CONTENT-SOURCING.md exists to catch. Fill the blanks in this component and
+ * they render; leave them and the card says what is missing rather than
+ * inventing it.
+ *
+ * The illustration is the design's own sports plate, reused. None of the
+ * College's 135 photographs are from the Intramurals, and putting a Freshmen
+ * Orientation photograph under a heading about a different event would be the
+ * same miscaptioning in reverse. The plate is already labelled as an
+ * illustration in its alt text.
+ *
+ * The action is a real mail to the events office, the same reasoning as the
+ * spotlight cards' register buttons.
+ */
+interface Props {
+	badge: string;
+	badgeIcon: IconName;
+	image: { src: string; alt: string };
+	date: string;
+	/** Empty renders as an explicit "to be announced" line. */
+	location: string;
+	title: string;
+	/** Empty renders as an explicit placeholder rather than nothing. */
+	body: string;
+	/** Omitted entirely when empty, so the panel never renders empty. */
+	highlightsHeading?: string;
+	highlightsIcon?: IconName;
+	highlights?: string[];
+	action: { label: string; icon: IconName; subject: string };
+	/** True while fields are still blank; drives the "details to follow" note. */
+	incomplete?: boolean;
+}
+
+const {
+	badge,
+	badgeIcon,
+	image,
+	date,
+	location,
+	title,
+	body,
+	highlightsHeading,
+	highlightsIcon = 'verified',
+	highlights = [],
+	action,
+	incomplete = false,
+} = Astro.props;
+
+const mailto = `mailto:${EVENTS_OFFICE.email}?subject=${encodeURIComponent(action.subject)}`;
+---
+
+<article class="overflow-hidden rounded-2xl bg-canvas shadow-elev-2">
+	<div class="grid grid-cols-1 lg:grid-cols-2">
+		<div class="relative min-h-64 bg-midnight lg:min-h-0">
+			<RemoteImage
+				src={image.src}
+				alt={image.alt}
+				width={1024}
+				height={683}
+				loading="lazy"
+				class="size-full object-cover"
+			/>
+			<div
+				class="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/20 to-transparent lg:bg-linear-to-r"
+				aria-hidden="true"
+			></div>
+			<span
+				class="absolute top-space-md left-space-md flex items-center gap-space-xs rounded bg-copper px-3 py-1 text-label-badge font-bold uppercase text-white"
+			>
+				<Icon name={badgeIcon} size="16px" />
+				{badge}
+			</span>
+		</div>
+
+		<div class="flex flex-col justify-center p-space-lg">
+			<p class="flex items-center gap-space-xs text-label-md font-semibold text-copper">
+				<Icon name="calendar_month" size="16px" />
+				{date}
+			</p>
+			<p class="mt-space-xs flex items-center gap-space-xs text-label-md text-brand-700">
+				<Icon name="location-on" size="16px" />
+				{location || <span class="italic">Venue to be announced</span>}
+			</p>
+
+			<h2 class="mt-space-md font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg">
+				{title}
+			</h2>
+
+			{
+				body ? (
+					<p class="mt-space-sm text-body-md leading-relaxed text-brand-700">{body}</p>
+				) : (
+					<p class="mt-space-sm text-body-md leading-relaxed text-brand-700 italic">
+						Programme details will be announced by the CEA Student Council. Enquire at the
+						events office using the button below.
+					</p>
+				)
+			}
+
+			{
+				highlights.length > 0 && highlightsHeading && (
+					<div class="mt-space-md rounded-lg bg-subtle p-space-md">
+						<p class="mb-space-xs flex items-center gap-space-xs text-label-md font-bold uppercase text-navy">
+							<Icon name={highlightsIcon} size="16px" />
+							{highlightsHeading}
+						</p>
+						<ul class="space-y-space-xs">
+							{highlights.map((item) => (
+								<li class="flex items-start gap-space-xs text-body-sm text-brand-700">
+									<Icon name="check_circle" size="16px" class="mt-0.5 shrink-0 text-copper" />
+									{item}
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+
+			<div class="mt-space-lg flex flex-wrap items-center gap-space-md">
+				<a
+				href={mailto}
+				class="inline-flex items-center gap-space-xs rounded-lg bg-navy px-space-lg py-space-sm text-label-lg text-white shadow-sm transition-all hover:translate-y-[-1px] hover:bg-midnight"
+			>
+					<Icon name={action.icon} size="18px" />
+					{action.label}
+				</a>
+				{
+					incomplete && (
+						<p class="text-label-md text-brand-700/80">
+							Venue and programme are not yet announced.
+						</p>
+					)
+				}
+			</div>
+		</div>
+	</div>
+</article>

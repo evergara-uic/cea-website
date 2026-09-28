@@ -204,10 +204,15 @@ rendering an empty card.
 ```text
 logos/               the College's supplied logo files — the source of truth,
                      deliberately outside public/ so they are never deployed
+media/source/        the College's supplied event media: 135 photographs and
+                     4 videos, 570 MB, also outside public/ so it is never
+                     deployed as-is
 src/
   assets/fonts/     Fraunces and Atkinson, self-hosted and subset-free
   assets/logos/     the processed logo WebPs; generated, do not hand-edit
-  components/       ~25 .astro components; Icon.astro holds every inline SVG glyph
+  assets/media/     the processed event photographs and videos; generated, do
+                    not hand-edit
+  components/       ~28 .astro components; Icon.astro holds every inline SVG glyph
   content/          programs.json, works.json, faculty.json, events.json
   layouts/          Base.astro — the document shell
   pages/            the thirteen routes
@@ -217,6 +222,7 @@ public/
   _headers          cache and security headers
 scripts/
   build-logo-assets.mjs   runs before the build; sizes the logos in logos/
+  build-media-assets.mjs  run by hand, NOT in the build; see "The event media"
   verify-classes.py       classes the pages apply with no matching rule
   verify-dist.py          broken links, redirect loops, dead redirect targets
   prune-unused-assets.mjs runs after the build; drops unused _astro output
@@ -229,9 +235,59 @@ tool; Pages does not read it. Its presence would only invite someone to set
 `npx wrangler deploy` as the deploy command, which is what broke the first
 deploy.
 
-`src/assets/` holds the fonts and the processed logos. Every photograph is a
-remote URL declared in `src/consts.ts`, rendered through `RemoteImage.astro`,
-and carries alt text that describes it as an illustration.
+`src/assets/` holds the fonts, the processed logos and the processed event
+media. The remaining eighteen images are remote URLs declared in
+`src/consts.ts`, rendered through `RemoteImage.astro`, and carry alt text that
+describes them as illustrations.
+
+## The event media
+
+`media/source/` holds the 570 MB the College supplied: 135 photographs in five
+sets and four event videos. `npm run media` processes them into
+`src/assets/media/`. **Never hand-edit anything under `src/assets/media/` — it
+is regenerated, and only the originals in `media/source/` are the source of
+truth.**
+
+This does **not** run in `npm run build`, unlike the logos. Transcoding 570 MB of
+source takes several minutes, and Cloudflare Pages times a build out at 20
+minutes. The output is committed instead, so CI never needs ffmpeg and never
+does the work. The logo script runs at build time because it is five files and
+about a second of work; this is a different scale of job and is kept out.
+
+| | |
+| --- | --- |
+| `npm run media` | photographs only |
+| `npm run media -- --video` | also transcodes the video, and needs ffmpeg on `PATH` |
+| `FFMPEG=/path/to/ffmpeg npm run media -- --video` | ffmpeg is not on `PATH` |
+
+ffmpeg is deliberately not a dependency. It is a large binary, it is needed
+once by hand rather than on every build, and adding it to `package.json` would
+put 70 MB into every Cloudflare build to do nothing.
+
+**`media/source/` is not committed**, and this is deliberate. Cloudflare Pages
+clones the whole repository on every build, and the build only ever needs the
+processed output. Committing both would make the repo about 650 MB and make
+every build pay to clone 570 MB it never reads. The originals stay on the
+machine that received them and the College has its own copies; re-transcoding
+needs them re-supplied. The videos are intended to move to YouTube, which would
+make the video originals the only genuinely redundant thing in the directory.
+
+**The video transcode is not optional housekeeping — it is what makes the site
+deployable.** Cloudflare Pages rejects any single file over 25 MiB, and all four
+supplied videos exceeded it, by 27.8 to 166.6 MB. The 460 MB of source becomes
+51 MB of MP4, all four under the limit.
+
+The four videos are expected to be replaced by YouTube links once the College
+has uploaded them. Until then the page plays the files itself. The section is
+driven by one `VIDEOS` array in `src/pages/events-and-retreats.astro`, so the
+switch is a change to that array and to `src/components/EventVideo.astro` — one
+list, one component.
+
+Both the photographs and the videos are referenced from
+`src/pages/events-and-retreats.astro` through `import.meta.glob`, so they are
+fingerprinted and cached like any other asset. Adding a new folder to
+`media/source/` and running `npm run media` is enough to have it appear; add the
+set to `PHOTO_SETS` in that page as well.
 
 ## The logos
 

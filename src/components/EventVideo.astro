@@ -1,0 +1,66 @@
+---
+/*
+ * One supplied event video, played in place.
+ *
+ * Native `<video controls>`, no player library and no script. Every browser
+ * this site might be opened in has one, which is worth more than a custom
+ * player's skin, and the one thing a custom player would add is a thing that can
+ * break without the build noticing.
+ *
+ * `preload="none"` matters more than it looks. Without it a browser starts
+ * pulling all four clips the moment the page loads, so a visitor who scrolls
+ * past this section without pressing play has still spent the bandwidth. The
+ * poster is a single frame, so there is something to look at before that.
+ *
+ * The downloads attribute is left off deliberately. This is event footage, not a
+ * file to hand around, and a forced download prompt on a video is annoying.
+ *
+ * The captions come from the filename, with the duration measured by ffprobe
+ * during `npm run media`. Neither is invented.
+ */
+interface Props {
+	/** The fingerprinted MP4 URL, from the page's asset glob. */
+	src: string;
+	/** The poster frame, same. */
+	poster: string;
+	/** The title, as the file named it. */
+	title: string;
+	/** Measured length, formatted for display. */
+	duration: string;
+	/** The source resolution and frame rate, before transcoding. */
+	source: string;
+	/** One line on what the footage shows. Factual, or omitted. */
+	note?: string;
+}
+
+const { src, poster, title, duration, source, note } = Astro.props;
+---
+
+<figure class="flex flex-col overflow-hidden rounded-xl bg-midnight shadow-elev-1">
+	<video
+		controls
+		preload="none"
+		poster={poster}
+		playsinline
+		class="aspect-video w-full bg-midnight"
+	>
+		<!--
+			The fallback text inside <video> is what a browser with no codec
+			support shows, so it cannot be empty. It deliberately gives the file
+			rather than a dead player.
+		-->
+		<source src={src} type="video/mp4" />
+		Your browser cannot play this video. It is an MP4 file, and the College
+		can send you a copy on request.
+	</video>
+	<figcaption class="flex flex-col gap-1 px-space-md py-space-sm">
+		<span class="flex flex-wrap items-baseline gap-x-space-sm gap-y-1">
+			<span class="text-label-md font-semibold text-white">{title}</span>
+			<span class="text-label-md text-brand-300">{duration}</span>
+		</span>
+		<span class="text-label-md text-brand-400">
+			{source}
+			{note && <span> &middot; {note}</span>}
+		</span>
+	</figcaption>
+</figure>

@@ -7,13 +7,17 @@
  * it meant tens of megabytes of full-size JPEGs sitting in dist next to the WebP
  * renditions the pages actually used.
  *
- * Those photographs are gone. Every image is now a remote URL, so the only
- * things under _astro are the stylesheet and the three font files and there is
- * currently nothing to prune — the build log saying "pruned 0" is the visible
- * sign that no local image crept back in. The script is kept because it is
- * cheap, because it is the only thing that runs after `astro build` and would
- * notice a broken asset reference, and because the next person to add a local
- * image will want it. It is deliberately conservative:
+ * The site now emits its local media deliberately: the College's 135
+ * photographs at two widths each, four videos and four poster frames under
+ * _astro, all referenced from the Events page. So there is now something to
+ * prune, and the log line is worth reading — "pruned 0" means every emitted
+ * asset is used, which is the state this build is in.
+ *
+ * The reason the script stays dangerous enough to be worth its comments is
+ * that it reads markup rather than the build graph. It once deleted four
+ * poster frames because it only knew about `src` and `href`, and both
+ * verifiers passed on a build where every video was a black box. The script is
+ * deliberately conservative:
  *
  *   - only files under _astro are ever considered for deletion
  *   - references are gathered from every text file in the build, not just
@@ -69,8 +73,19 @@ const referenced = new Set();
 for (const source of sources) {
 	const text = await readFile(source, 'utf8');
 
-	// src="..." / href="..." in markup, and url("...") in stylesheets.
-	for (const match of text.matchAll(/(?:src|href)="(\/[^"]+)"/g)) {
+	/*
+	 * Any attribute whose value is a site-absolute path.
+	 *
+	 * This started life as a list of `src` and `href`, and that list was a
+	 * trap: it did not know about `<video poster>`, so it deleted all four
+	 * poster frames and every video rendered as a black box. A build that
+	 * passes both verifiers said nothing was wrong. Matching any quoted
+	 * attribute value that begins with a slash catches `src`, `href`, `poster`,
+	 * `data-src` and anything added later, so a new attribute never again
+	 * needs this script edited before it starts deleting files that are in use.
+	 * The `_astro` filter further down drops the page links it also collects.
+	 */
+	for (const match of text.matchAll(/=["'`](\/[^"'`]+)["'`]/g)) {
 		referenced.add(match[1].split(/[?#]/)[0]);
 	}
 	for (const match of text.matchAll(/url\(\s*['"]?(\/[^)'"]+)['"]?\s*\)/g)) {

@@ -1,0 +1,80 @@
+---
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+
+/*
+ * One event's photographs, as a grid.
+ *
+ * These are the College's own photographs, supplied as files and processed by
+ * `scripts/build-media-assets.mjs` into two WebP widths: 480 for this grid and
+ * 1600 for the full-size link. Nothing here is a generated illustration.
+ *
+ * Each figure links to its own full-size file rather than opening a lightbox.
+ * A lightbox needs script and a focus trap, and the two bugs this site has
+ * shipped — the nav dropdowns and the reveal cascade — were both invisible to
+ * the build and to both verifiers, so a plain link that works without JavaScript
+ * is the safer default here. It is also better for a visitor who wants to save
+ * a photograph or open it in another tab.
+ *
+ * ALT TEXT IS A KNOWN GAP. It reads "Photograph N of M from <event>", which is
+ * the truth and says nothing about what is in the frame. Nobody has yet been
+ * able to describe these 135 photographs, and inventing descriptions of real
+ * students and real events is worse than admitting the gap. See
+ * CONTENT-SOURCING.md; the list of sets to caption is there.
+ */
+interface Props {
+	/** The event as the photographs' own folder names it, e.g. "Freshmen Tour". */
+	event: string;
+	/** The academic year, taken from the folder name. */
+	period: string;
+	/** One line about what the event is. */
+	blurb?: string;
+	/** The 480px variants, in filename order. */
+	thumbs: { src: ImageMetadata; href: ImageMetadata }[];
+}
+
+const { event, period, blurb, thumbs } = Astro.props;
+const total = thumbs.length;
+---
+
+<section class="mt-space-lg">
+	<div class="mb-space-md flex flex-col gap-space-xs md:flex-row md:items-baseline md:justify-between">
+		<h3 class="font-serif text-headline-sm font-bold text-navy">{event}</h3>
+		<p class="text-label-md text-copper">{period}</p>
+	</div>
+
+	{blurb && <p class="mb-space-md max-w-2xl text-body-sm text-brand-700">{blurb}</p>}
+
+	<ul class="grid grid-cols-2 gap-space-sm sm:grid-cols-3 lg:grid-cols-4">
+		{
+			thumbs.map((photo, index) => (
+				<li>
+					<a
+						href={photo.href.src}
+						class="group block overflow-hidden rounded-lg bg-subtle"
+						target="_blank"
+						rel="noopener"
+					>
+						<img
+							src={photo.src.src}
+							width={photo.src.width}
+							height={photo.src.height}
+							alt={`Photograph ${index + 1} of ${total} from ${event}`}
+							loading="lazy"
+							decoding="async"
+							class="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+						/>
+						<span class="sr-only">
+							Open the full-size photograph
+							<Icon name="open_in_new" size="14px" />
+						</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+
+	<p class="mt-space-sm text-label-md text-brand-700/80">
+		{total} {total === 1 ? 'photograph' : 'photographs'} &middot; select one to open it full size
+	</p>
+</section>

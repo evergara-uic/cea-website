@@ -33,3 +33,17 @@ pnpm-debug.log*
 # Local TLS leaf cert + PRIVATE KEY, reissued per machine — never commit
 .infrastructure/traefik/certificates
 # Environment files — data:wire writes here; keep them local
+
+.env.*
+
+# The College's supplied event originals — 570 MB of source photographs and
+# video. Deliberately not committed: Cloudflare Pages clones the whole repo on
+# every build and the build only ever needs the processed output in
+# src/assets/media/, which is committed. Committing both would make the repo
+# about 650 MB and every build would pay for 570 MB it never reads.
+#
+# The originals stay on the machine that received them, and the College has
+# them. Re-transcoding needs them re-supplied; see "The event media" in the
+# README. Note the videos are intended to move to YouTube, which would make
+# the video originals the only thing here that is truly redundant.
+media/source/

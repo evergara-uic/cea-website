@@ -160,6 +160,151 @@ surface for this screen. The three spotlights, the four pillars, the gallery and
 the form's option lists are named in the page's frontmatter, because they are
 three-and-four-item presentational blocks rather than a repeating record type.
 
+## The College's supplied photographs and video
+
+The College supplied 135 photographs in five sets and four event videos, 570 MB
+in total, dropped into `public/`. They are now on the events page. What follows
+is what had to be decided to put them there, and what is still open.
+
+### The videos could not have been deployed at all
+
+Cloudflare Pages rejects any single file over 25 MiB. All four videos exceeded
+it — by 27.8, 114.3, 151.6 and 166.6 MB — so the deploy failed before anything
+else could be diagnosed. This was not a matter of tidying up a heavy page; the
+site did not build.
+
+| Clip | Supplied | Now | Why it was that big |
+| --- | --- | --- | --- |
+| CEA Promotional Video | 27.8 MB, 720p30, 1.1 Mb/s | 13.9 MB | Already close to the limit |
+| EA Program — AVP | 166.6 MB, 1080**p60**, 9.5 Mb/s | 13.2 MB | 60 fps phone capture |
+| CEA Fair | 114.3 MB, 1080**p60**, 10.1 Mb/s | 13.1 MB | 60 fps phone capture |
+| CEA Fair — full recording | 151.6 MB, 1080p24, 10.3 Mb/s | 14.4 MB | Very high bitrate |
+
+Two of the three 1080p clips are 59.94 fps, which is a phone's high-frame-rate
+mode. Halving to 30 removes about half the data with no perceptible loss on
+event footage. The rest is a per-clip rate cap computed from each clip's own
+duration, and a step down to 1600x900, because 1080p at 1.0 Mb/s looks worse
+than 900p at 1.0 Mb/s. The 24 fps recording was left at 24 fps; re-encoding it
+to 30 would duplicate frames and spend bitrate on nothing.
+
+**The encodings are the only thing here that is derived rather than supplied.**
+Nothing in the footage was cut. If a clip is trimmed in the future, the
+transcode has to be redone from `media/source/`, not from the output.
+
+### The videos are expected to move to YouTube
+
+The College intends to upload these four recordings to YouTube and link to them
+from the site, which is very likely the better outcome: 51 MB of hosted video on
+a college site is a lot to ask of a visitor on a phone, and YouTube handles
+mobile playback, captions, bandwidth and the embed's privacy options properly.
+
+Until that happens the page plays the four files itself, because that is what
+deployed. The section is driven by one `VIDEOS` array in
+`src/pages/events-and-retreats.astro`, so switching it over is a change to that
+array and to `EventVideo.astro` — one component, one list. The photographs are
+not affected either way.
+
+Two things worth deciding when the YouTube links arrive:
+
+- **Whether to embed or link.** An embed plays on the page and costs the visitor
+  nothing until they press play, but loads YouTube's player and its tracking.
+  A link is lighter and loses the video from the page entirely. For a College
+  site, a link is the safer default and a thumbnail plus a link is the usual
+  compromise.
+- **Whether the recordings need captions.** Auto-captions on four recordings of
+  a student-led event are usually wrong enough to be embarrassing, and they are
+  also an accessibility failure. If they are not watched and corrected, the
+  embedded version should be muted by default or not embedded at all.
+
+Once YouTube has them, `media/source/` and `src/assets/media/video/` can both be
+deleted and the 570 MB of originals stops being the last copy of anything.
+
+The photographs went through the same problem by another route: 38 of them are
+1920x1080 **PNG** files of photographs, 60.6 MB, because a photograph saved as
+PNG is roughly nine times the size of the same photograph as WebP. They are now
+WebP at two widths, 480 for the grid and 1600 for the full-size link, 108.4 MB
+to 21.5 MB.
+
+### What the photographs are captioned with, and what they are not
+
+The five sets arrived as folders with no captions, no dates and no notes:
+
+| Folder | Photographs |
+| --- | --- |
+| `2024-2025 Research` | 38 |
+| `Freshmen Orientation 2026` | 18 |
+| `Freshmen Tour 2026` | 19 |
+| `Research Forum 2026` | 50 |
+| `Testimonies` | 10 |
+
+**The folder name is the only description any of them has, so the folder name
+is the only description used.** No photograph is captioned with a venue, a
+headcount, an activity or a person's name, because no file states any of those.
+The two gallery cards that used to sit on this page carried exactly that kind of
+caption — "Eden Mountain Chapel", "Bonifacio Gym", "1,240 Participants", "Over
+180 graduating candidates" — and none of it was ever sourced. It has been
+removed along with the illustrations that accompanied it.
+
+**The three spotlights still carry their generated illustrations**, and this is
+a deliberate decision rather than an oversight. They are the only three images
+on the site left uncaptioned by this rule, and they are the illustrations for
+the 2025 retreat, the 2025 sportsfest and the 2025 community extension. Not one
+of the 135 photographs is of any of those three events. Putting a Freshmen
+Orientation 2026 photograph under a heading about the Eden retreat would be the
+same false caption in the opposite direction, so those three cards keep images
+that are already labelled as illustrations. When photography of those events
+exists, the spotlights are where it goes.
+
+### The alt text is a known gap and needs someone who can see the photographs
+
+All 135 photographs have the alt text `"Photograph N of M from <event>"`. That is
+true and it says nothing about what is in the frame. It is what is there because
+nobody has yet been able to describe these photographs, and **inventing
+descriptions of real students and real events is worse than admitting the gap.**
+
+Someone who can see the photographs needs to write alt text for:
+
+1. `2024-2025 Research` — 38
+2. `Freshmen Orientation 2026` — 18
+3. `Freshmen Tour 2026` — 19
+4. `Research Forum 2026` — 50
+5. `Testimonies` — 10
+
+The filenames are numbered in the College's own order, so "N of M" matches what
+the person who took the photographs would recognise. The same gap applies to the
+four poster frames and to what is in the videos.
+
+### The testimonials: photographs shown, quotation still not cleared
+
+The 10 photographs in `Testimonies` show identifiable students and are now on
+the page. The College was asked to confirm consent and **has not yet done so.**
+The College's answer to date has been to publish the photographs and keep the
+warning standing, so that is what has happened — but the photographs themselves
+are a consent question, not only the quotation.
+
+**The fabricated testimonial is unchanged and still must not go live.** See the
+events section above. Nothing in the new media bears on it: a photograph of a
+real student does not make an invented quotation from that student's mouth
+publishable.
+
+### The Intramurals, 7-9 October
+
+This is the one real, dated event on the page, and it sits in its own section
+above the three spotlights. The College supplied a name and a date and nothing
+else, so **the venue, the programme and the eligibility are blank**, and the
+card says so where a visitor would look for them rather than filling the gaps.
+
+**The year is inferred, not supplied.** The College described it as upcoming,
+and this was written on 28 September 2026, so an October still to come is
+October 2026. That is a reading of the date, and it is the one date on this page
+worth checking before the page goes live. The card's photograph is the design's
+existing sports illustration, reused, because no supplied photograph is of the
+Intramurals.
+
+To fill it in, edit `NEXT_EVENT` in `src/pages/events-and-retreats.astro`. The
+component renders placeholder text only while a field is empty, so filling a
+field in is all that is needed; nothing has to be taken out afterwards.
+
 ## Imagery
 
 All nineteen images are remote files on Google's CDN, and **all nineteen are
@@ -180,7 +325,14 @@ there is nothing else available for those slots. **They must be replaced with
 the College's own photography before this is published as a record of the
 institution.** The emblem was the most urgent of the nineteen, being the one
 image a visitor is most likely to read as the institution's own; that one is
-now replaced with the College's actual logo. See below.
+now replaced with the College's actual logo.
+
+The College's own photography has since arrived — 135 photographs and four
+videos — and the events page now uses it for its video section, its photo
+archive and two of its three retrospective gallery cards. **The three event
+scenes in the spotlight row are the illustrations that remain**, because no
+supplied photograph is of any of the three events they stand in for. See
+"The College's supplied photographs and video" above.
 
 The alt text was written to describe the illustration without asserting that the
 scene exists at Bonifacio Campus. The prototype's own alt text claimed it —
