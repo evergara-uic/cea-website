@@ -19,32 +19,46 @@ the local preview serves `dist/` through Caddy with `try_files`. A redirect
 loop in that file is invisible at `http://cea.kube` and fatal in production.
 `scripts/verify-dist.py` checks for it.
 
-## Deploying to Cloudflare
+## Deploying to Cloudflare Pages
 
-This is a **static** Astro site deployed to a **Cloudflare Worker with static
-assets**. It is not Cloudflare Pages, and it does not use the Cloudflare
-adapter. Astro's own documentation on that adapter says: *"If you're using
-Astro as a static site builder, you don't need an adapter."*
+This is a **static** Astro site on **Cloudflare Pages**. No adapter, no Worker,
+no server runtime. Pages serves `dist/` as files, which is all this site needs.
 
-Connect the repository under **Workers & Pages → Create → Connect to Git**, then
-set:
+Connect the repository under **Workers & Pages → Create → Pages → Connect to
+Git**, then set:
 
 | Setting                | Value                      |
 | :--------------------- | :------------------------- |
+| Framework preset       | `Astro`                    |
 | Build command          | `npm run build`            |
-| Deploy command         | `npx wrangler deploy`      |
+| Build output directory | `dist`                     |
 | Root directory         | repository root            |
 
-**`wrangler.jsonc` is load-bearing — do not delete it.** Without it, Wrangler
-auto-configures on first run, decides this is an Astro *server* app, and runs
-`astro add cloudflare` inside the build. That rewrites `astro.config.mjs` to add
-`adapter: cloudflare()`, adds `@astrojs/cloudflare` and `wrangler` as runtime
-dependencies, writes its own `wrangler.jsonc`, and reindents the whole config
-file — none of it committed, all of it changing the build. It moved the output
-from `dist/_astro` to `dist/client/_astro`, which then broke the post-build
-prune step, and it provisioned an unused `IMAGES` binding and `SESSION` KV
-namespace. The committed config pins an assets-only Worker: no `main`, no
-`binding`, no adapter.
+**Leave the deploy command empty.** Pages has none. It uploads `dist/` itself
+after the build succeeds.
+
+### Do not point a Pages project at `wrangler deploy`
+
+A previous deploy was configured with `npx wrangler deploy` as the deploy
+command. That is the **Workers** pipeline, and on a static site it fails:
+
+1. Wrangler sees no Wrangler config, so it auto-configures, decides the project
+   is an Astro *server* app, and runs `astro add cloudflare` **inside the
+   build container**. That rewrites `astro.config.mjs` to add
+   `adapter: cloudflare()`, adds `@astrojs/cloudflare` and `wrangler` as runtime
+   dependencies, writes its own `wrangler.jsonc`, and reindents the config file
+   — none of it committed, all of it changing the build.
+2. The adapter moves the output from `dist/_astro` to `dist/client/_astro`,
+   which broke the post-build prune step with `ENOENT`.
+3. It provisions an `IMAGES` binding and a `SESSION` KV namespace that this site
+   never uses.
+
+Astro's documentation on that adapter opens with: *"If you're using Astro as a
+static site builder, you don't need an adapter."* The same page also records that
+Cloudflare **Pages support was removed from the adapter** in v13, so the two
+cannot be combined. Astro's deploy guide now documents Workers only — that is
+not a statement that Pages stopped working, it is that the documentation moved.
+Pages still reads `_redirects` and `_headers` exactly as this site expects.
 
 `npm run build` is `astro build && node scripts/prune-unused-assets.mjs`. The same
 command produces the same output on a laptop, in the pod, and in Cloudflare.
@@ -53,14 +67,32 @@ Add these under **Settings → Environment variables → Production and Preview*
 
 | Variable        | Value                | Required |
 | :-------------- | :------------------- | :------- |
-| `CEA_SITE_URL`  | the production URL   | yes      |
+| `CEA_SITE_URL`  | the site URL         | yes      |
 | `NODE_VERSION`  | `22`                 | yes      |
 
-`CEA_SITE_URL` must be the site's own origin with no trailing slash, for
-example `https://cea.uic.edu.ph`. Every canonical tag, every `og:url` and the
-whole sitemap are built from it. When it is missing the build still succeeds
-but emits none of those, which is deliberate: a wrong origin gets indexed, a
-missing one does not. A non-absolute value fails the build outright.
+### `CEA_SITE_URL` before you own a domain
+
+You do not need a domain to deploy. Pages assigns every project a free
+subdomain on `pages.dev`, and that is a working URL:
+
+```text
+https://<your-project-name>.pages.dev
+```
+
+Set `CEA_SITE_URL` to that, with no trailing slash. Every canonical tag, every
+`og:url` and every sitemap entry is built from it, so the site is fully correct
+on a `pages.dev` address.
+
+When a domain is attached later, **change this variable and redeploy.** It is
+the one setting that has to be revisited, and forgetting it is the failure mode
+worth naming: the site would serve from `cea.edu.ph` while every canonical tag
+and sitemap entry still said `pages.dev`, telling search engines the live
+address is the wrong one. Two clicks in the dashboard, then a fresh deploy.
+
+A missing value is not fatal — the build succeeds and emits no canonical tags,
+no `og:url` and no sitemap, which is deliberate, because a wrong origin gets
+indexed and a missing one does not. A non-absolute value fails the build
+outright.
 
 `NODE_VERSION` has to be set in the dashboard. The build image ships its own
 default Node, that default has changed over time, and `engines` in
@@ -69,7 +101,7 @@ default Node, that default has changed over time, and `engines` in
 
 Neither value belongs in the repository. `astro.config.mjs` reads the origin
 from the environment precisely so that one build can be served from `cea.kube`
-in review and from a Pages domain in production without a wrong absolute URL
+in review and from a Pages address in production without a wrong absolute URL
 reaching the page.
 
 ### `sharp` is still installed, and that is not a mistake
@@ -88,17 +120,23 @@ stylesheet and three font files.
 
 ### After the first deploy
 
-- Confirm `https://<your-domain>/sitemap-index.xml` opens. If it 404s, the
-  production build ran without `CEA_SITE_URL`.
-- Confirm `/_redirects` was copied: `https://<your-domain>/events` should land
-  on the events page with a 301.
-- Confirm `/_headers` was copied by checking that
-  `https://<your-domain>/_astro/` assets carry
-  `Cache-Control: public, max-age=31536000, immutable`.
-- Page routes end in a trailing slash (`/programs/bs-architecture/`) because
-  Astro's `directory` output format puts an `index.html` in each folder, and
-  both the canonical tags and the sitemap follow it. If you ever change
-  `build.format`, those two move together or they contradict each other.
+Replace `<site>` below with whatever you set `CEA_SITE_URL` to. These are
+`curl -sI` checks, and the fourth is the one that catches the failure this
+project is most exposed to.
+
+- `https://<site>/sitemap-index.xml` returns 200. If it 404s, the production
+  build ran without `CEA_SITE_URL`.
+- `https://<site>/events` returns **301** to `/events-and-retreats/`, proving
+  `_redirects` was copied and is being honoured.
+- `https://<site>/_astro/<the-css-file>.css` returns
+  `Cache-Control: public, max-age=31536000, immutable`, proving `_headers` was
+  copied. The filename is fingerprinted, so read it out of the homepage source.
+- `curl -s https://<site>/ | grep canonical` shows your `CEA_SITE_URL` and not
+  `pages.dev`, if you have since attached a domain.
+
+Also worth a look by hand: the nav at a real window width, and the
+`/events-and-retreats` page. See [`CONTENT-SOURCING.md`](CONTENT-SOURCING.md)
+before treating any of it as publishable.
 
 ## Local development
 
@@ -172,10 +210,14 @@ scripts/
   verify-classes.py        classes the pages apply with no matching rule
   verify-dist.py           broken links, redirect loops, dead redirect targets
   prune-unused-assets.mjs  runs after the build; drops unused _astro output
-wrangler.jsonc      pins the assets-only Worker; without it Wrangler guesses
 Dockerfile.static   static image used by the local k8s preview
 Caddyfile           serves ./dist for that preview
 ```
+
+There is no `wrangler.jsonc` and that is deliberate. Wrangler is the Workers
+tool; Pages does not read it. Its presence would only invite someone to set
+`npx wrangler deploy` as the deploy command, which is what broke the first
+deploy.
 
 `src/assets/` holds only fonts. Every photograph is a remote URL declared in
 `src/consts.ts`, rendered through `RemoteImage.astro`, and carries alt text

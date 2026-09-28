@@ -321,21 +321,32 @@ checking what the pages actually need inline: every image is a remote URL applie
 through an inline `style="background-image: …"` attribute, which a strict
 `style-src` would break.
 
-The site deploys to a **Cloudflare Worker with static assets**, not to Pages,
-and it uses **no adapter**. The deploy is triggered by `npx wrangler deploy`
-with `wrangler.jsonc` committed. That file is not optional: without it Wrangler
-auto-configures on first run, concludes the project is an Astro server
-application, and runs `astro add cloudflare` inside the build container. That
-rewrites `astro.config.mjs` to add `adapter: cloudflare()`, adds
-`@astrojs/cloudflare` and `wrangler` as runtime dependencies, writes a competing
-`wrangler.jsonc`, and reindents the config file — none of it committed, all of
-it altering the build. It moved the build output from `dist/_astro` into
+The site deploys to **Cloudflare Pages** as a plain static build, with **no
+adapter** and no `wrangler.jsonc`. Two failures came from getting that wrong,
+and both are recorded here because the second is invisible locally.
+
+The first attempt configured the deploy command as `npx wrangler deploy`. That
+is the Cloudflare **Workers** pipeline. Wrangler found no Wrangler config,
+auto-configured, and concluded the project was an Astro *server* application, so
+it ran `astro add cloudflare` inside the build container. That rewrote
+`astro.config.mjs` to add `adapter: cloudflare()`, added `@astrojs/cloudflare`
+and `wrangler` as runtime dependencies, wrote its own `wrangler.jsonc`, and
+reindented the config file to four spaces — none of it committed, all of it
+altering the build. It moved the output from `dist/_astro` into
 `dist/client/_astro`, which broke `scripts/prune-unused-assets.mjs` with an
 ENOENT, and it provisioned an `IMAGES` binding and a `SESSION` KV namespace that
-this site never uses. It has been done once and the fix is committed.
+this site never uses.
 
 Astro's documentation on the Cloudflare adapter opens by saying the adapter is
 unnecessary for a static site builder, and its changelog records that Cloudflare
 **Pages support was removed from the adapter** in v13. An adapter build and a
-Pages deploy are therefore mutually exclusive, and the plain static build is the
-one that matches what this site is.
+Pages deploy are therefore mutually exclusive. Astro's Cloudflare *deploy* guide
+now documents Workers only; that reflects where the documentation moved, not
+that Pages stopped working. Pages still reads `public/_redirects` and
+`public/_headers`, which is what this site relies on for its legacy Google
+Sites paths and its cache headers.
+
+No domain is required to deploy. Pages assigns a `pages.dev` subdomain, and
+`CEA_SITE_URL` is set to it. When a domain is attached later that variable must
+be changed and the site redeployed, or the canonical tags and the sitemap will
+keep naming the `pages.dev` address as the site's own origin.
