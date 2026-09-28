@@ -1,0 +1,96 @@
+---
+import Icon from './Icon.astro';
+
+/*
+ * One row of the Collegiate Events & Retreat Matrix.
+ *
+ * The design's own row: a date plate on the left, then the category chip, the
+ * audience, the title and the place-and-led-by line, then the time plate and a
+ * "Details" control on the right.
+ *
+ * That last control is a `<button>` in the prototype with no handler and no
+ * panel behind it — the design promises a detail view for each event and does
+ * not build one. Rather than ship a button that silently does nothing, the row
+ * is its own detail: everything the design would have put in the missing panel
+ * is already on the row, and the control has become a link to the office that
+ * would answer the question. See CONTENT-SOURCING.md.
+ */
+interface Props {
+	day: string;
+	month: string;
+	badge: string;
+	audience: string;
+	title: string;
+	location: string;
+	ledBy: string;
+	schedule: string;
+	/** The filter target, mirrored onto the row so the script has one attribute. */
+	category: string;
+	/** Search text for this row, so the free-text filter does not re-scrape the DOM. */
+	keywords: string;
+	/** Where the Details control points, and what it says it will do. */
+	detailsHref: string;
+}
+
+const {
+	day,
+	month,
+	badge,
+	audience,
+	title,
+	location,
+	ledBy,
+	schedule,
+	category,
+	keywords,
+	detailsHref,
+} = Astro.props;
+---
+
+<div
+	class="flex flex-col justify-between gap-space-md p-space-lg transition-colors hover:bg-subtle md:flex-row md:items-center"
+	data-event-row
+	data-event-category={category}
+	data-event-keywords={keywords}
+>
+	<div class="flex items-start gap-space-lg">
+		<div class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg bg-brand-100 text-navy">
+			<span class="font-serif text-headline-sm font-bold leading-none">{day}</span>
+			<span class="mt-1 text-label-badge font-bold uppercase text-copper">{month}</span>
+		</div>
+
+		<div class="space-y-1">
+			<div class="flex flex-wrap items-center gap-space-xs">
+				<span class="rounded bg-brand-200 px-space-xs py-0.5 text-label-badge uppercase tracking-wide text-navy">
+					{badge}
+				</span>
+				<span class="text-body-sm text-brand-700">• {audience}</span>
+			</div>
+			<h3 class="font-serif text-headline-sm font-bold text-navy">{title}</h3>
+			<p class="flex flex-wrap items-center gap-space-md text-body-sm text-brand-700">
+				<span class="flex items-center gap-1">
+					<Icon name="location-on" size="16px" class="text-amberprint" />
+					{location}
+				</span>
+				<span class="flex items-center gap-1">
+					<Icon name="account_circle" size="16px" class="text-amberprint" />
+					Led by {ledBy}
+				</span>
+			</p>
+		</div>
+	</div>
+
+	<div class="flex shrink-0 items-center gap-space-sm">
+		<span class="inline-flex items-center gap-1 rounded bg-brand-50 px-space-sm py-1 text-label-md text-navy">
+			<Icon name="schedule" size="16px" />
+			{schedule}
+		</span>
+		<a
+			href={detailsHref}
+			class="flex items-center gap-1 rounded p-space-xs text-label-md font-semibold text-copper transition-colors hover:text-accent-700"
+		>
+			Details
+			<Icon name="chevron_right" size="16px" />
+		</a>
+	</div>
+</div>

@@ -6,16 +6,8 @@
 		"fullName": "Bachelor of Science in Architecture",
 		"longDescription": "Fusing technical mastery, environmental bioclimatic architecture, urban design, structural mechanics, building information modeling (BIM), and creative spatial experimentation. Aligned with national board licensure preparation.",
 		"description": "Synthesis of physical space, aesthetic composition, green building innovations, and urban human ecology.",
-		"competencies": [
-			"Architectural Studio",
-			"BIM & CAD",
-			"Urban Design",
-			"Building Laws"
-		],
-		"badges": [
-			"5-Year Professional Degree",
-			"PRC Licensure Track"
-		],
+		"competencies": ["Architectural Studio", "BIM & CAD", "Urban Design", "Building Laws"],
+		"badges": ["5-Year Professional Degree", "PRC Licensure Track"],
 		"guildShort": "UAPSA Student Guild",
 		"guildFull": "United Architects of the Philippines Student Auxiliary",
 		"guild": "UAPSA (United Architects of the Philippines Student Auxiliary)",
@@ -65,16 +57,8 @@
 		"fullName": "Bachelor of Science in Civil Engineering",
 		"longDescription": "Engineering resilient infrastructure for earthquake-prone and coastal regions. Covering structural mechanics, seismic mitigation, water resources, transportation logistics, geotechnical engineering, and high-impact construction management.",
 		"description": "Foundations in structural resilience, seismic design, water resources, highways, and high-impact construction management.",
-		"competencies": [
-			"Structural Design",
-			"Soil Mechanics",
-			"Hydraulics",
-			"Surveying Tech"
-		],
-		"badges": [
-			"4-Year Professional Degree",
-			"Washington Accord Track"
-		],
+		"competencies": ["Structural Design", "Soil Mechanics", "Hydraulics", "Surveying Tech"],
+		"badges": ["4-Year Professional Degree", "Washington Accord Track"],
 		"guildShort": "PICE-SC Student Guild",
 		"guildFull": "Philippine Institute of Civil Engineers Student Chapter",
 		"guild": "PICE-SC (Philippine Institute of Civil Engineers Student Chapter)",
@@ -123,16 +107,8 @@
 		"fullName": "Bachelor of Science in Computer Engineering",
 		"longDescription": "Bridging hardware architecture, cyber-physical edge computing, and applied software engineering. Students build FPGA circuits, AI edge nodes, IoT smart grids, embedded robotics, and high-performance distributed systems.",
 		"description": "Convergence of computational hardware, distributed embedded systems, IoT architectures, and software engineering.",
-		"competencies": [
-			"Embedded Systems",
-			"AI & Robotics",
-			"Cloud Networking",
-			"Microcontrollers"
-		],
-		"badges": [
-			"4-Year Professional Degree",
-			"Cyber-Physical & AI"
-		],
+		"competencies": ["Embedded Systems", "AI & Robotics", "Cloud Networking", "Microcontrollers"],
+		"badges": ["4-Year Professional Degree", "Cyber-Physical & AI"],
 		"guildShort": "ICPEP.SE Student Guild",
 		"guildFull": "Institute of Computer Engineers of the Philippines",
 		"guild": "ICPEP.SE (Institute of Computer Engineers of the Philippines)",
@@ -181,16 +157,8 @@
 		"fullName": "Bachelor of Science in Electronics Engineering",
 		"longDescription": "Driving wireless telecommunications, radio frequency (RF) design, digital signal processing, industrial automation, and microelectronics. Emphasizing state-of-the-art laboratory instrumentation and PRC board readiness.",
 		"description": "Telecommunications, biomedical electronics, signal filtering, RF engineering, power electronics, and autonomous control systems.",
-		"competencies": [
-			"RF & Telecom",
-			"Digital Signal",
-			"Automation & PLC",
-			"Circuit Design"
-		],
-		"badges": [
-			"4-Year Professional Degree",
-			"PRC Licensure Track"
-		],
+		"competencies": ["RF & Telecom", "Digital Signal", "Automation & PLC", "Circuit Design"],
+		"badges": ["4-Year Professional Degree", "PRC Licensure Track"],
 		"guildShort": "IECEP / ECES Student Guild",
 		"guildFull": "Institute of Electronics Engineers of the Philippines / ECES",
 		"guild": "ECES / IECEP (Electronics Engineering Organization)",

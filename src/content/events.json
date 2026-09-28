@@ -1,0 +1,93 @@
+[
+	{
+		"slug": "marilog-highland-water-pipeline",
+		"day": "12",
+		"month": "NOV 2025",
+		"category": "extension",
+		"badge": "Community Extension",
+		"audience": "All Departments & Outreach Volunteers",
+		"title": "Community Tech & Sanitation Drive: Marilog Highland Water Pipeline Installation",
+		"location": "Marilog District, Davao City",
+		"ledBy": "PICE & CEASO Community Service",
+		"schedule": "7:00 AM – 5:00 PM",
+		"order": 1
+	},
+	{
+		"slug": "bayanihan-bamboo-daycare",
+		"day": "20",
+		"month": "JAN 2026",
+		"category": "extension",
+		"badge": "Community Extension",
+		"audience": "Architecture & CpE Guilds",
+		"title": "Bayanihan Bamboo Daycare Design & Solar Literacy Outreach",
+		"location": "Paquibato Child Development Center",
+		"ledBy": "UAPSA & ICpEP Community Volunteers",
+		"schedule": "8:00 AM – 4:00 PM",
+		"order": 2
+	},
+	{
+		"slug": "semestral-spiritual-recollection",
+		"day": "28",
+		"month": "AUG 2025",
+		"category": "retreat",
+		"badge": "Spiritual Retreat",
+		"audience": "Faculty & Administration",
+		"title": "Semestral Faculty & Staff Spiritual Recollection",
+		"location": "UIC Main Chapel, Bonifacio Campus",
+		"ledBy": "Campus Ministry & Dean's Office",
+		"schedule": "8:00 AM – 4:30 PM",
+		"order": 3
+	},
+	{
+		"slug": "freshmen-orientation-camp",
+		"day": "05",
+		"month": "SEP 2025",
+		"category": "guild",
+		"badge": "Guild Teambuilding",
+		"audience": "1st Year Engineering & Arki Freshmen",
+		"title": "CEA Freshmen Orientation & Icebreaker Camp",
+		"location": "Bonifacio Quadrangle & Social Hall",
+		"ledBy": "CEASO Student Council",
+		"schedule": "1:00 PM – 6:00 PM",
+		"order": 4
+	},
+	{
+		"slug": "design-charrette-hackathon",
+		"day": "04",
+		"month": "OCT 2025",
+		"category": "academic",
+		"badge": "Academic Challenge",
+		"audience": "Architecture & Computer Engg Teams",
+		"title": "Design Charrette & Hackathon 48-Hour Challenge",
+		"location": "Design Studios & IoT Innovation Lab",
+		"ledBy": "UAPSA & ICpEP.SE UIC Chapters",
+		"schedule": "48 Hours Continuous",
+		"order": 5
+	},
+	{
+		"slug": "mid-year-faculty-fellowship",
+		"day": "29",
+		"month": "NOV 2025",
+		"category": "sports",
+		"badge": "Collegiate Recreation",
+		"audience": "Faculty & Alumni Network",
+		"title": "Mid-Year CEA Faculty Fellowship & Wellness Day",
+		"location": "Samal Island Nature Reserve",
+		"ledBy": "Dean Engr. Relation & Committee",
+		"schedule": "Whole Day Activity",
+		"order": 6
+	},
+	{
+		"slug": "christmas-thanksgiving-fellowship",
+		"day": "18",
+		"month": "DEC 2025",
+		"category": "guild",
+		"badge": "Christian Community",
+		"audience": "Open to All Students & Families",
+		"title": "CEA Christmas Thanksgiving Fellowship & Caroling",
+		"location": "UIC Bonifacio Main Auditorium",
+		"ledBy": "All Departments & CEA Alumni Association",
+		"schedule": "5:30 PM – 9:00 PM",
+		"order": 7
+	}
+]

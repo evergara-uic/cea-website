@@ -633,10 +633,14 @@
 	/*
 	 * The mobile panel, whose toggle lives inside the navigation row rather than
 	 * beside the panel, so the state has to be read from an ancestor. Scoped to
-	 * the widths at which the toggle is on screen so that `xl:hidden` still wins
-	 * on the desktop bar, whichever order the two end up in.
+	 * the widths at which the toggle is on screen so that the desktop bar's own
+	 * `min-[85rem]:hidden` still wins on it, whichever order the two end up in.
+	 *
+	 * 85rem is the Header's desktop breakpoint, not Tailwind's `xl`; see the note
+	 * in Header.astro for why. Three places state that figure — the two classes
+	 * there, this query and the `matchMedia` in its script.
 	 */
-	@media (width < 80rem) {
+	@media (width < 85rem) {
 		header:has([data-menu-toggle][aria-expanded='true']) #mobile-nav {
 			display: block;
 		}

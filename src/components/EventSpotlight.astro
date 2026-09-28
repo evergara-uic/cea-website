@@ -1,0 +1,142 @@
+---
+import type { IconName } from './Icon.astro';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+import { EVENTS_OFFICE } from '../consts';
+
+/*
+ * One of the three featured spotlights on the Events & Retreats screen.
+ *
+ * The card is the design's, including the plate over the photograph, the copper
+ * badge, the date and place line, the four-bullet highlights panel and the pair
+ * of buttons under it. What is not the design's is the behaviour of those two
+ * buttons.
+ *
+ * In the prototype both were inert: an `<a href="#">` and a `<button>` with no
+ * handler, so a visitor could read "Register for Retreat" and do nothing. The
+ * first is now a real action — it opens a mail to the office named two sections
+ * below, addressed to it, which the visitor can read and send. The second is
+ * not a control at all, because it promises a document this site does not
+ * publish: rendering it as a styled non-interactive element is worse than
+ * saying so. The same reasoning the site's footer uses for its policy links.
+ * See CONTENT-SOURCING.md.
+ */
+interface Props {
+	/** The copper badge over the photograph. */
+	badge: string;
+	badgeIcon: IconName;
+	image: { src: string; alt: string };
+	date: string;
+	location: string;
+	title: string;
+	body: string;
+	/** The heading of the highlights panel, which the design varies per card. */
+	highlightsHeading: string;
+	highlightsIcon: IconName;
+	highlights: string[];
+	/** Card one bullets in amber, the other two in copper — the design's own. */
+	bulletTone: 'amberprint' | 'copper';
+	/** The action the card's own button promises. */
+	action: { label: string; icon: IconName; subject: string };
+	/** The document the design's second button offers to download. */
+	document: { label: string; icon: IconName };
+}
+
+const {
+	badge,
+	badgeIcon,
+	image,
+	date,
+	location,
+	title,
+	body,
+	highlightsHeading,
+	highlightsIcon,
+	highlights,
+	bulletTone,
+	action,
+	document,
+} = Astro.props;
+
+const bullet = bulletTone === 'amberprint' ? 'bg-amberprint' : 'bg-copper';
+---
+
+<article class="group flex flex-col justify-between overflow-hidden rounded-xl bg-canvas shadow-elev-2 transition-all duration-300 hover:shadow-elev-3">
+	<div>
+		<div class="relative h-72 w-full overflow-hidden bg-midnight">
+			<RemoteImage
+				src={image.src}
+				alt={image.alt}
+				width={1024}
+				height={768}
+				loading="lazy"
+				class="size-full object-cover opacity-95 transition-transform duration-700 group-hover:scale-105"
+			/>
+			<div
+				class="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/30 to-transparent"
+				aria-hidden="true"
+			></div>
+
+			<div class="absolute left-space-md top-space-md">
+				<span class="flex items-center gap-space-xs rounded-full bg-copper px-space-sm py-1 text-label-badge font-bold uppercase tracking-wider text-white shadow-sm">
+					<Icon name={badgeIcon} size="14px" />
+					{badge}
+				</span>
+			</div>
+
+			<p class="absolute bottom-space-md left-space-md right-space-md flex flex-wrap items-center gap-space-xs text-label-md text-amberprint">
+				<Icon name="calendar_month" size="16px" />
+				{date}
+				<span class="mx-1" aria-hidden="true">
+					•
+				</span>
+				<Icon name="pin_drop" size="16px" />
+				{location}
+			</p>
+		</div>
+
+		<div class="space-y-space-md p-space-lg">
+			<h3 class="font-serif text-headline-md font-bold leading-snug text-navy transition-colors group-hover:text-copper">
+				{title}
+			</h3>
+			<p class="text-body-md leading-relaxed text-brand-700">{body}</p>
+
+			<div class="space-y-space-xs rounded-lg bg-subtle p-space-md">
+				<h4 class="flex items-center gap-space-xs text-label-md font-bold uppercase tracking-wider text-navy">
+					<Icon name={highlightsIcon} size="18px" class="text-copper" />
+					{highlightsHeading}
+				</h4>
+				<ul class="grid grid-cols-1 gap-space-xs text-body-sm text-brand-700 sm:grid-cols-2">
+					{highlights.map((item) => (
+						<li class="flex items-center gap-space-xs">
+							<span class={`size-1.5 shrink-0 rounded-full ${bullet}`} aria-hidden="true"></span>
+							{item}
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="flex flex-wrap items-center gap-space-md px-space-lg pt-space-xs pb-space-lg">
+		<a
+			href={`mailto:${EVENTS_OFFICE.email}?subject=${encodeURIComponent(action.subject)}`}
+			class="flex items-center gap-space-xs rounded-lg bg-navy px-space-lg py-space-sm text-label-lg text-white shadow-sm transition-all hover:translate-y-[-1px] hover:bg-midnight"
+		>
+			<Icon name={action.icon} size="18px" />
+			{action.label}
+		</a>
+
+		{/*
+		 * The design's second button offered a schedule or guidelines document
+		 * for download. Nothing here is published, so the offer is written out
+		 * rather than dressed up as a control that would not work.
+		 */}
+		<p class="flex items-start gap-space-xs text-body-sm text-brand-700">
+			<Icon name={document.icon} size="16px" class="mt-0.5 text-ink" />
+			<span>
+				{document.label} — not published online. Ask the office below for the current copy.
+			</span>
+		</p>
+	</div>
+</article>

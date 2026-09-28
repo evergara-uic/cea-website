@@ -21,8 +21,20 @@ import RemoteImage from './RemoteImage.astro';
  * its six items looking clickable and doing nothing; this way the label is
  * always the page, and only the chevron is the control.
  *
- * Under xl the whole navigation collapses behind one button, because a bar that
- * needs horizontal room for six items plus a call to action cannot fit a phone.
+ * Below the desktop breakpoint the whole navigation collapses behind one
+ * button, because a bar that needs horizontal room for five items plus a call to
+ * action cannot fit a phone.
+ *
+ * The breakpoint is 85rem (1360px) rather than Tailwind's `xl` (80rem,
+ * 1280px). At 1280 the bar's own parts are the wordmark, the emblem, five nav
+ * items with two of them split into a label and a chevron, and the enrolment
+ * call to action — and they fill the row to within a few pixels of the edge.
+ * A fifth top-level item ("Events & Retreats") tipped that from "fits" to
+ * "depends on the font's metrics", which is not a margin to ship a site header
+ * on: the failure is a nav label that wraps to two lines inside a bar with a
+ * fixed height, or the enrolment button pushed off the end. 1360px gives the
+ * bar room at every width, and the same honest reason is why the widths between
+ * the two keep the button they already had.
  */
 const path = Astro.url.pathname;
 
@@ -111,7 +123,10 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 			</span>
 		</a>
 
-		<nav class="hidden items-center gap-space-sm text-label-lg xl:flex" aria-label="Primary">
+		<nav
+			class="hidden items-center gap-space-sm text-label-lg min-[85rem]:flex"
+			aria-label="Primary"
+		>
 			{NAV.map((item) =>
 				item.children ? (
 					<div class="group relative flex items-center" data-dropdown>
@@ -196,7 +211,7 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 				data-menu-toggle
 				aria-expanded="false"
 				aria-controls="mobile-nav"
-				class="flex size-8 items-center justify-center rounded-full bg-navy text-white transition-colors hover:bg-brand-800 xl:hidden"
+				class="flex size-8 items-center justify-center rounded-full bg-navy text-white transition-colors hover:bg-brand-800 min-[85rem]:hidden"
 			>
 				<Icon name="menu" size="18px" label="Open navigation" />
 			</button>
@@ -206,7 +221,7 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 	<!-- Mobile navigation. Children are listed flat rather than as nested
 	disclosures: a second tap target per item is a worse trade than a
 	slightly longer list on a phone. -->
-	<div id="mobile-nav" class="menu border-t border-white/10 bg-midnight xl:hidden">
+	<div id="mobile-nav" class="menu border-t border-white/10 bg-midnight min-[85rem]:hidden">
 		<nav class="mx-auto max-w-7xl px-space-gutter py-space-md" aria-label="Primary, mobile">
 			{NAV.map((item) => (
 				<div class="border-b border-white/5 last:border-b-0">
@@ -353,9 +368,11 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 		setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
 	});
 
-	// A resize past the xl breakpoint hands navigation back to the desktop bar,
-	// so a panel left open on a phone must not stay open behind it.
-	matchMedia('(min-width: 1280px)').addEventListener('change', (event) => {
+	// A resize past the desktop breakpoint hands navigation back to the desktop
+	// bar, so a panel left open on a phone must not stay open behind it. The
+	// figure matches the `min-[85rem]` classes above and the media query in
+	// global.css; all three have to agree or the panel outlives its button.
+	matchMedia('(min-width: 1360px)').addEventListener('change', (event) => {
 		if (event.matches) setMobileOpen(false);
 	});
 </script>

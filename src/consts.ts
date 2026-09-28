@@ -50,11 +50,21 @@ export const HERO_METRICS = [
  */
 export const CONTACT = {
 	eyebrow: 'College Communications Office',
-	heading: "For inquiries, you may contact us through:",
+	heading: 'For inquiries, you may contact us through:',
 	lead: 'Get in touch with department chairs, academic advisers, and laboratory administrators for campus tours and program enrollment guides.',
 	rows: [
-		{ icon: 'call', label: 'Telephone', value: '227-1573 Local 222', href: 'tel:+63822271573' },
-		{ icon: 'mail', label: 'Email', value: 'cea@uic.edu.ph', href: 'mailto:cea@uic.edu.ph' },
+		{
+			icon: 'call',
+			label: 'Telephone',
+			value: '227-1573 Local 222',
+			href: 'tel:+63822271573',
+		},
+		{
+			icon: 'mail',
+			label: 'Email',
+			value: 'cea@uic.edu.ph',
+			href: 'mailto:cea@uic.edu.ph',
+		},
 		{
 			icon: 'thumb-up',
 			label: 'Facebook',
@@ -121,6 +131,14 @@ export interface NavItem {
  * "Archives" was a third top-level item in the prototype and has been dropped:
  * the prototype is a single screen, so the item had no page behind it and no
  * content to carry. The Featured Works page is the site archive.
+ *
+ * The Events & Retreats screen of the design gave "Events & Retreats" a menu of
+ * four children — All Events & Retreats, Engineering & Architecture Week,
+ * Spiritual Formation Retreats and Archives. Only the first of the four has a
+ * screen, so only the first has a page here, and the bar carries a plain link
+ * rather than a menu whose other three entries would lead nowhere. A bar item
+ * that looks like a menu and opens a page, or worse a menu of dead ends, is the
+ * defect this bar was rebuilt to avoid. See CONTENT-SOURCING.md.
  */
 export const NAV: NavItem[] = [
 	{ label: 'Home', href: '/' },
@@ -139,12 +157,40 @@ export const NAV: NavItem[] = [
 		children: [
 			{ label: 'BS Architecture', href: '/programs/bs-architecture' },
 			{ label: 'BS Civil Engineering', href: '/programs/bs-civil-engineering' },
-			{ label: 'BS Computer Engineering', href: '/programs/bs-computer-engineering' },
-			{ label: 'BS Electronics Engineering', href: '/programs/bs-electronics-engineering' },
+			{
+				label: 'BS Computer Engineering',
+				href: '/programs/bs-computer-engineering',
+			},
+			{
+				label: 'BS Electronics Engineering',
+				href: '/programs/bs-electronics-engineering',
+			},
 		],
 	},
 	{ label: 'Featured Works', href: '/featured-works' },
+	{ label: 'Events & Retreats', href: '/events-and-retreats' },
 ];
+
+/*
+ * The Student Affairs & Retreat Office named on the Events & Retreats screen.
+ *
+ * The design gives this office its own address, its own coordinator and its own
+ * building floor, none of which the College's published record confirms. The
+ * address is used because the page needs somewhere real to send an inquiry to
+ * and because the design names it; the College's own general address is offered
+ * beside it everywhere, so nothing here is the only way to reach the College.
+ * See CONTENT-SOURCING.md.
+ */
+export const EVENTS_OFFICE = {
+	email: 'cea.events@uic.edu.ph',
+	alternate: 'cea@uic.edu.ph',
+	person: 'Treshia Loraine Vitor',
+	role: 'CEASO Executive Coordinator & Administrative Assistant',
+	phone: '(+63 82) 227-1573 Loc. 222',
+	hours: 'Monday – Friday: 8:00 AM – 5:00 PM',
+	building: "Dean's Office & CEASO Headquarters",
+	address: '2nd Floor, Engineering Bldg., Bonifacio Campus, Davao City',
+} as const;
 
 export const FACULTY_FACEBOOK = 'https://www.facebook.com/CEASOwolves';
 export const CAMPUS_MAP = 'https://maps.app.goo.gl/voZkT3ajrhLGqgkNA';
@@ -163,15 +209,16 @@ export const UTILITY_LINKS = [
 /**
  * Imagery.
  *
- * The prototype's ten images are all remote files on Google's CDN and all of
+ * The design's nineteen images are all remote files on Google's CDN and all of
  * them are generated, not photographic records of this College — they depict
- * invented laboratories, invented student projects and an invented emblem. They
- * are kept because they are part of the design being adopted, and because there
- * is no other image available to put in these slots. Alt text describes the
- * illustration without asserting that the scene exists at Bonifacio Campus.
+ * invented laboratories, invented student projects, invented event scenes, two
+ * invented faculty portraits and an invented emblem. They are kept because they
+ * are part of the design being adopted, and because there is no other image
+ * available to put in these slots. Alt text describes the illustration without
+ * asserting that the scene exists at Bonifacio Campus.
  *
- * All ten must be replaced with the College's own photographs before this is
- * published as a record of the institution. See CONTENT-SOURCING.md.
+ * All nineteen must be replaced with the College's own photographs before this
+ * is published as a record of the institution. See CONTENT-SOURCING.md.
  */
 const CDN = 'https://lh3.googleusercontent.com/aida-public';
 
@@ -253,6 +300,25 @@ export const IMAGES = {
 		coordinator: {
 			src: `${CDN}/AB6AXuCP36eAWS-eMJm8nY-DnLQcm1OMQHMDpxXKP-gdI4vZ5DQswqefsyExXaZf-KCzKyD_SNDuGMF62BB1OMoSZnUuOQaGgHtfOrEJbf8GqcWbuaInlh6l-CgYN9zGSi4oAtrVr-GSpUO4Qnei0s5RICbM6-1MoSHrxmxIy5igbBIcylxw2W9rpEcE_hMW4c_n-soakQRgKGh4uF9fWpvQXnEYVV-X4ZMXlyUTZ5W8mK-1RcU4f1tbB6uLrg`,
 			alt: 'Illustration: a portrait of a Filipino architect in studio clothing, used as the Program Coordinator of Architecture.',
+		},
+	},
+	/*
+	 * The Events & Retreats screen. Three generated scenes, each used twice: once
+	 * as the plate on a featured spotlight and once in the retrospective gallery
+	 * beside it, which is how the design itself reuses them.
+	 */
+	events: {
+		retreat: {
+			src: `${CDN}/AB6AXuB_BFVuo-m7j3yy1yRQL9X4kSIkB3MEAXSst4VzR7-rVY6FLIosnf64xWVKhpZv0NtyIbXCz_vFeWqrJG7Gf2tH6hq3ryWO6U-DsEQkq0WtdSGlkWx1Rh_0fQVaqSjs7ZpcdorxB7zULnCmabh2ZGEXmKHaRDBLdDxnoFV6xG3ebuEGtiUYn6G0-CAeTZTDgOFUlqRIgQUcGctza3rgc5EAzUdbA1Mon8j3guKMs_6Dslm26D5Zi5L21Q`,
+			alt: 'Illustration: students at a campus spiritual retreat and reflection session, seated in a circle in an outdoor chapel setting.',
+		},
+		sports: {
+			src: `${CDN}/AB6AXuBJQZ58UiIXdNGsw77eCFV0nB5dBW2rhnqCJFqABb5HiliFi8MauuV1X1dm5RsU6E1fK6o8ebWDIo4Xg9qPR0GQ6FlZq5aS1TAtLJF1MPSCjh59WjP0D5KHhmECSdCUbGig23sD3nBvutlqb3uILfHrRfzEvt5774QFI-By4CTImxwUxpRT1Oy5c_4g9mdp38Zwwei_0d7cmBqOQsrsp6eoQukKp_HuvPT5VP7vxn7Ms2E1tovO9Ev0eQ`,
+			alt: 'Illustration: university students and faculty at a campus outdoor recreation day, taking part in an inter-departmental teambuilding competition.',
+		},
+		extension: {
+			src: `${CDN}/AB6AXuBDYsdPmi5rfh0AiWZc1-crbRk5f2BEv7lbVebd9jAcHLnNzzzlynLuN-AowglVnNncOt3nRqBmPh5AMWLUUNv--ETwg4ENY-UV58LYvB_LlR8_kvqwNIgaK3xrCnJaQF6SWzoELkoLW5LWt0Y60lZbqM0B2QnUPtLRBXfkT5qlig8jGBvU__iCTFxzd-wUJO2KGVmtiQzESOPtmzpBfDrcYPNBoR5UwGfcd-t6R3h5fOH7Uf_AS0SdAw`,
+			alt: 'Illustration: Filipino engineering and architecture students and faculty conducting a community extension project in Davao.',
 		},
 	},
 	map: {

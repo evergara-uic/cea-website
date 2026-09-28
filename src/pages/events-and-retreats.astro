@@ -1,0 +1,768 @@
+---
+import { getCollection } from 'astro:content';
+import { EVENTS_OFFICE, IMAGES } from '../consts';
+import type { IconName } from '../components/Icon.astro';
+import EventRow from '../components/EventRow.astro';
+import EventSpotlight from '../components/EventSpotlight.astro';
+import Icon from '../components/Icon.astro';
+import RemoteImage from '../components/RemoteImage.astro';
+import Base from '../layouts/Base.astro';
+
+/*
+ * Events & Retreats.
+ *
+ * The design's own screen, "UIC-CEA Events, Recreation & Retreats": a midnight
+ * header carrying the breadcrumb, the faith overline, the headline and the six
+ * filter pills; the three featured spotlights; the four formation pillars on a
+ * subtle band; the events matrix with its search field; the retrospective
+ * gallery; and the split contact-and-form block.
+ *
+ * Two controls are live here and both are progressive. The pills filter the
+ * seven matrix rows by category and the search field narrows them by text; with
+ * scripting off all seven rows are present and the pills do nothing, which is
+ * the same bargain the programme and department filters make.
+ *
+ * The counts on the pills are the design's own and do not agree with the number
+ * of rows below them: the design says eleven activities and four community
+ * extension events while listing seven rows. The pills are left as written and
+ * the live count beside the search field is computed from the rows. See
+ * CONTENT-SOURCING.md.
+ */
+const events = (await getCollection('events')).sort((a, b) => a.data.order - b.data.order);
+
+/** The six filter pills, in the design's order. "all" is the initial state. */
+const FILTERS = [
+	{ id: 'all', label: 'All Activities (11)' },
+	{ id: 'extension', label: 'Community Extension & Outreach (4)' },
+	{ id: 'retreat', label: 'Spiritual Retreats & Recollections' },
+	{ id: 'sports', label: 'Collegiate Recreation & Sports Fest' },
+	{ id: 'academic', label: 'Academic Conferences & Seminars' },
+	{ id: 'guild', label: 'Guild Teambuilding' },
+] as const;
+
+/**
+ * The three featured spotlights.
+ *
+ * Presentational rather than repeatable — three records, each with its own
+ * photograph, badge, schedule and bullet tone — so they are named here instead
+ * of carrying a second collection schema. The seven matrix rows, which the page
+ * filters and counts, are in src/content/events.json.
+ */
+const SPOTLIGHTS = [
+	{
+		image: IMAGES.events.retreat,
+		badge: 'Spiritual Formation • Mandatory for Graduating Batch',
+		badgeIcon: 'auto_stories',
+		date: 'October 18–20, 2025',
+		location: 'St. Michael Retreat House, Eden, Toril',
+		title: 'Annual CEA Ignatian Spiritual Retreat & Contemplative Recollection',
+		body: 'A three-day spiritual journey of contemplation, community prayer, and moral discernment for senior engineering and architecture students, led by the Campus Ministry and Basic Ecclesial Community (BEC) facilitators.',
+		highlightsHeading: 'Core Program Highlights:',
+		highlightsIcon: 'verified',
+		highlights: [
+			'Daily Liturgical Masses',
+			'Guided Meditations',
+			'Small-Group Discernment Circles',
+			'Spiritual Accompaniment',
+		],
+		bulletTone: 'amberprint',
+		action: {
+			label: 'Register for Retreat',
+			icon: 'app_registration',
+			subject: 'Retreat registration — Annual CEA Ignatian Spiritual Retreat',
+		},
+		document: { label: 'Download Schedule PDF', icon: 'download' },
+	},
+	{
+		image: IMAGES.events.sports,
+		badge: 'Recreation & Athletics • All Year Levels',
+		badgeIcon: 'sports_soccer',
+		date: 'November 14–16, 2025',
+		location: 'UIC Bonifacio Gymnasium & Grounds',
+		title: 'CEASO Wolves Fest 2025: Engineering & Architecture Sports & Teambuilding',
+		body: 'The premier inter-department sporting spectacle and team recreation day uniting BS Architecture, BS Civil, BS Computer, and BS Electronics Engineering student bodies in spirited competition.',
+		highlightsHeading: 'Featured Tournament brackets:',
+		highlightsIcon: 'trophy',
+		highlights: [
+			'3x3 Basketball & Volleyball Tourneys',
+			'Robotics Obstacle Dash',
+			'Cardboard Structure Relay',
+			'CEA Cheerdance Showdown',
+		],
+		bulletTone: 'copper',
+		action: {
+			label: 'Join Team Rosters',
+			icon: 'group_add',
+			subject: 'Team roster — CEASO Wolves Fest 2025',
+		},
+		document: { label: 'Download Schedule PDF', icon: 'download' },
+	},
+	{
+		image: IMAGES.events.extension,
+		badge: 'Community Extension & Civic Immersion',
+		badgeIcon: 'handshake',
+		date: 'December 6–8, 2025',
+		location: 'Paquibato District, Davao City',
+		title: 'Project "Lantaw Komunidad": Sustainable Solar & Low-Cost Shelter Community Extension',
+		body: 'Annual flagship outreach led by Engr. Johndel Quiño (Coordinator for Community Development Services) alongside UAPSA, PICE, ICpEP, and IECEP student volunteers. Deploying off-grid solar micro-lighting kits, clean bio-sand gravity water filtration systems, and earthquake-resilient bamboo community daycares.',
+		highlightsHeading: 'Featured Project Highlights:',
+		highlightsIcon: 'verified',
+		highlights: [
+			'Off-Grid Solar Electrification Kits',
+			'Clean Gravity Water Filtration Systems',
+			'Resilient Bamboo Structural Work',
+			'STEM & Robotics Youth Workshop',
+		],
+		bulletTone: 'copper',
+		action: {
+			label: 'Join Extension Volunteer Team',
+			icon: 'volunteer_activism',
+			subject: 'Volunteer registration — Project Lantaw Komunidad',
+		},
+		document: { label: 'View Extension Project Brief', icon: 'description' },
+	},
+] as const;
+
+/** The four formation pillars, each with the link line the design gives it. */
+const PILLARS = [
+	{
+		icon: 'volunteer_activism',
+		title: 'Spiritual Grounding',
+		body: 'Integrating Catholic Christian values, ethical discernment, and quiet prayer amidst rigorous technical coursework. Students cultivate contemplative stillness to guide engineering ethics and societal stewardship.',
+		link: 'Campus Ministry Mentorship',
+	},
+	{
+		icon: 'diversity_3',
+		title: 'Community & Recreation',
+		body: 'Strengthening collegiate brotherhood and sisterhood, mental health wellness, and physical vitality through recreational leagues, field days, and outdoor retreats away from CAD stations and testing labs.',
+		link: 'CEASO Athletic Initiatives',
+	},
+	{
+		icon: 'account_tree',
+		title: 'Guild Leadership & Service',
+		body: 'Empowering professional student chapters (UAPSA, PICE, ICpEP, IECEP) to lead humanitarian outreach, low-cost community builds, and regional technical symposia that transform Southern Mindanao communities.',
+		link: 'Professional Student Guilds',
+	},
+	{
+		icon: 'handshake',
+		title: 'Community Extension & Social Stewardship',
+		body: 'Translating classroom engineering calculations and architectural blueprints into compassionate civic action. Bridging infrastructure gaps in underserved Davao and Mindanao communities.',
+		link: 'Community Outreach Portfolio',
+	},
+] as const;
+
+/**
+ * The retrospective gallery: two photographs and the testimonial card.
+ *
+ * The testimonial is a quotation attributed by name and by guild office to a
+ * named student, and the design invented it along with everything else. It is
+ * reproduced because the copy is the design's, and it must not go live until
+ * the person named has agreed to it being published. See CONTENT-SOURCING.md.
+ */
+const GALLERY = [
+	{
+		image: IMAGES.events.retreat,
+		plate: 'Eden Mountain Chapel',
+		plateTone: 'amberprint',
+		title: 'Senior Ignatian Contemplation',
+		body: 'Over 180 graduating candidates paused technical thesis defenses for 48 hours of silent prayer, faculty blessings, and collective thanksgiving.',
+		meta: 'AY 2024-2025',
+		emphasis: 'Eden, Davao City',
+	},
+	{
+		image: IMAGES.events.sports,
+		plate: 'Bonifacio Gym',
+		plateTone: 'copper',
+		title: 'CEASO Sportsfest Championship',
+		body: 'BS Civil Engineering clinched the 2024 Overall Athletic Trophy after an electrifying overtime victory against BS Computer Engineering.',
+		meta: 'AY 2024-2025',
+		emphasis: '1,240 Participants',
+	},
+] as const;
+
+const TESTIMONIAL = {
+	eyebrow: 'Formation Impact',
+	quote:
+		'The silence of the Eden retreat house gave me the perspective I needed before taking on my architectural thesis. Engineering at UIC is not just about steel and stone; it is about building a moral foundation for our people.',
+	name: 'Krystelle Joy Alcantara',
+	role: 'BS Architecture Graduating Class • CEASO Senator',
+} as const;
+
+/** The seven options of the form's two selects, the design's own. */
+const INQUIRY_TYPES = [
+	{ value: 'retreat-slot', label: 'Ignatian Retreat Slot Confirmation' },
+	{ value: 'extension-volunteer', label: 'Community Extension Volunteer / Proposal' },
+	{ value: 'barangay-partnership', label: 'Community Barangay Partnership Request' },
+	{ value: 'retreat-waiver', label: 'Spiritual Retreat Medical Waiver' },
+	{ value: 'sports-roster', label: 'CEASO Wolves Fest Team Roster' },
+	{ value: 'event-proposal', label: 'Student Guild Event Charter Proposal' },
+	{ value: 'venue-reservation', label: 'Gymnasium / Chapel Booking Request' },
+] as const;
+
+const ORGANISATIONS = [
+	{ value: 'CEASO', label: 'CEASO Wolves Student Council' },
+	{
+		value: 'CEA-CDS',
+		label: 'CEA Community Development Services (Engr. Johndel Quiño)',
+	},
+	{ value: 'UAPSA', label: 'UAPSA - BS Architecture' },
+	{ value: 'PICE', label: 'PICE - BS Civil Engineering' },
+	{ value: 'ICpEP', label: 'ICpEP.SE - BS Computer Engineering' },
+	{ value: 'IECEP', label: 'IECEP - BS Electronics Engineering' },
+	{ value: 'Faculty', label: 'CEA Faculty & Staff' },
+] as const;
+
+const OFFICE_ROWS: { icon: IconName; primary: string; secondary: string }[] = [
+	{ icon: 'person', primary: EVENTS_OFFICE.person, secondary: EVENTS_OFFICE.role },
+	{
+		icon: 'mail',
+		primary: EVENTS_OFFICE.email,
+		secondary: `Alternate: ${EVENTS_OFFICE.alternate}`,
+	},
+	{ icon: 'call', primary: EVENTS_OFFICE.phone, secondary: EVENTS_OFFICE.hours },
+	{ icon: 'apartment', primary: EVENTS_OFFICE.building, secondary: EVENTS_OFFICE.address },
+];
+---
+
+<Base
+	title="Events & Retreats"
+	description="Collegiate events, recreation, spiritual retreats and community extension at the UIC College of Engineering and Architecture: featured programs, the academic term chronology, and the Student Affairs & Retreat Office."
+>
+	<!-- Hero. The blueprint grid and the two glow spheres are the design's own
+	     ambient furniture, drawn here with a background image and two blurred
+	     discs rather than an inline SVG pattern and six gradient divs. -->
+	<section class="relative w-full overflow-hidden bg-midnight py-space-xl text-white">
+		<div
+			class="pointer-events-none absolute inset-0 opacity-10"
+			style="background-image:linear-gradient(to right, #E2E8F0 0.75px, transparent 0.75px),linear-gradient(to bottom, #E2E8F0 0.75px, transparent 0.75px);background-size:40px 40px"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-copper/15 blur-3xl"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute -bottom-24 -left-24 size-96 rounded-full bg-amberprint/10 blur-3xl"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-space-gutter">
+			<nav
+				aria-label="Breadcrumb"
+				class="mb-space-md flex items-center gap-space-xs text-body-sm text-white/70"
+			>
+				<a href="/" class="flex items-center gap-space-xs transition-colors hover:text-amberprint">
+					<Icon name="home" size="16px" />
+					Home
+				</a>
+				<span class="text-white/40" aria-hidden="true">
+					/
+				</span>
+				<span class="text-white/70">Events &amp; Formation</span>
+				<span class="text-white/40" aria-hidden="true">
+					/
+				</span>
+				<span class="font-semibold text-label-md text-amberprint">
+					Campus Events &amp; Retreats
+				</span>
+			</nav>
+
+			<div class="max-w-4xl space-y-space-md">
+				<p class="inline-flex items-center gap-space-xs rounded-full bg-brand-200/20 px-space-md py-1 text-label-badge uppercase tracking-widest text-amberprint">
+					<Icon name="church" size="16px" />
+					Faith • Fellowship • Technical Excellence
+				</p>
+				<h1 class="font-serif text-display-hero-mobile font-bold tracking-tight text-white md:text-display-hero">
+					Collegiate Events, Recreation, Retreats &amp; Community Extension
+				</h1>
+				<p class="max-w-3xl text-body-lg leading-relaxed text-white/90">
+					Fostering holistic formation, community fellowship, spiritual grounding, and selfless
+					civic outreach for future engineers and architects through collegiate gatherings, wellness
+					retreats, athletic recreational days, and sustainable community extension initiatives.
+				</p>
+			</div>
+
+			<!--
+				The filter pills. With scripting off they are buttons that do not
+				respond, and every row of the matrix below is present, so the page
+				is complete without them.
+			-->
+			<div
+				class="mt-space-xl flex flex-wrap items-center gap-space-sm"
+				role="group"
+				aria-label="Filter events by category"
+			>
+				{FILTERS.map((filter) => (
+					<button
+						type="button"
+						data-event-filter={filter.id}
+						aria-pressed={filter.id === 'all' ? 'true' : 'false'}
+						class="rounded-full px-space-md py-space-xs text-label-md"
+					>
+						{filter.label}
+					</button>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured spotlights. -->
+	<section class="mx-auto w-full max-w-7xl px-space-gutter py-space-xl">
+		<div class="mb-space-lg flex flex-col justify-between md:flex-row md:items-end">
+			<div>
+				<span class="mb-space-xs block text-label-badge font-bold uppercase tracking-widest text-copper">
+					High-Priority Engagements
+				</span>
+				<h2 class="font-serif text-headline-lg font-bold text-navy">
+					Featured Upcoming Spotlights
+				</h2>
+			</div>
+			<p class="mt-space-xs max-w-md text-body-sm text-brand-700 md:mt-0">
+				Key university formation programs combining contemplative Christian reflection and
+				high-energy inter-departmental athletic unity.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 gap-space-xl lg:grid-cols-3">
+			{SPOTLIGHTS.map((spotlight) => (
+				<EventSpotlight {...spotlight} />
+			))}
+		</div>
+	</section>
+
+	<!-- Formation pillars. -->
+	<section class="w-full bg-subtle py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<div class="mx-auto mb-space-xl max-w-2xl text-center">
+				<span class="text-label-badge font-bold uppercase tracking-widest text-copper">
+					Foundational Triad
+				</span>
+				<h2 class="mt-space-xs font-serif text-headline-lg font-bold text-navy">
+					Pillars of Holistic Student Formation
+				</h2>
+				<p class="mt-space-sm text-body-md text-brand-700">
+					Engineering acumen reaches its highest purpose when forged alongside profound spiritual
+					purpose, community solidarity, and selfless servant leadership.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 gap-space-lg lg:grid-cols-4">
+				{PILLARS.map((pillar) => (
+					<article class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-canvas p-space-xl shadow-elev-1 transition-shadow hover:shadow-elev-2">
+						<div class="absolute inset-x-0 top-0 h-1 bg-amberprint" aria-hidden="true"></div>
+						<div>
+							<div class="mb-space-md flex size-14 items-center justify-center rounded-lg bg-brand-100 text-navy">
+								<Icon name={pillar.icon} size="28px" />
+							</div>
+							<h3 class="mb-space-sm font-serif text-headline-sm font-bold text-navy">
+								{pillar.title}
+							</h3>
+							<p class="text-body-md leading-relaxed text-brand-700">{pillar.body}</p>
+						</div>
+						<p class="mt-space-lg flex items-center gap-space-xs border-t border-grid pt-space-md text-label-md font-bold text-navy">
+							{pillar.link}
+							<Icon name="arrow_forward" size="16px" class="text-amberprint" />
+						</p>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- The matrix. -->
+	<section
+		id="event-matrix"
+		class="mx-auto w-full max-w-7xl scroll-mt-space-scroll-header-tabs px-space-gutter py-space-xl"
+	>
+		<div class="mb-space-lg flex flex-col justify-between md:flex-row md:items-end">
+			<div>
+				<span class="mb-space-xs block text-label-badge font-bold uppercase tracking-widest text-amberprint">
+					Academic Term Chronology
+				</span>
+				<h2 class="font-serif text-headline-lg font-bold text-navy">
+					Collegiate Events &amp; Retreat Matrix
+				</h2>
+			</div>
+			<p class="mt-space-md flex items-center gap-1 text-body-sm text-brand-700 md:mt-0">
+				<span class="inline-block size-2.5 rounded-full bg-copper" aria-hidden="true"></span>
+				Upcoming Term SY 2025-2026
+			</p>
+		</div>
+
+		<div class="overflow-hidden rounded-xl bg-canvas shadow-elev-2">
+			<div class="flex flex-col items-center justify-between gap-space-md bg-subtle p-space-md sm:flex-row">
+				<div class="relative w-full sm:w-80">
+					<label class="sr-only" for="event-search">
+						Search the events matrix
+					</label>
+					<Icon
+						name="search"
+						size="18px"
+						class="pointer-events-none absolute top-2.5 left-3 text-ink"
+					/>
+					<input
+						id="event-search"
+						type="search"
+						placeholder="Search event, date, or organizer..."
+						class="w-full rounded bg-canvas py-2 pr-4 pl-10 text-body-sm text-navy focus:ring-1 focus:ring-navy focus:outline-none"
+						data-event-search
+					/>
+				</div>
+				<p class="flex items-center gap-space-xs text-body-sm text-brand-700">
+					<Icon name="filter_list" size="18px" />
+					Showing:{' '}
+					<strong class="text-navy" data-event-count>
+						{events.length} Scheduled Events
+					</strong>
+				</p>
+			</div>
+
+			<div class="divide-y divide-grid">
+				{events.map((event) => (
+					<EventRow
+						{...event.data}
+						keywords={[
+							event.data.title,
+							event.data.day,
+							event.data.month,
+							event.data.badge,
+							event.data.audience,
+							event.data.location,
+							event.data.ledBy,
+							event.data.schedule,
+						]
+							.join(' ')
+							.toLowerCase()}
+						detailsHref={`mailto:${EVENTS_OFFICE.email}?subject=${encodeURIComponent(
+							`Event details — ${event.data.title}`,
+						)}`}
+					/>
+				))}
+			</div>
+
+			<p
+				class="border-t border-grid bg-subtle p-space-md text-body-sm text-brand-700"
+				hidden
+				data-event-empty
+			>
+				No event on this list matches that. Clear the search box, or write to the office below to
+				ask about an engagement that is not listed yet.
+			</p>
+		</div>
+	</section>
+
+	<!-- Retrospective gallery. -->
+	<section class="mx-auto w-full max-w-7xl px-space-gutter pb-space-xl">
+		<div class="mb-space-lg flex flex-col justify-between md:flex-row md:items-end">
+			<div>
+				<h2 class="font-serif text-headline-lg font-bold text-navy">Retrospective Gallery</h2>
+				<p class="mt-space-xs text-headline-sm text-navy">
+					Moments of Grace, Camaraderie &amp; Victory
+				</p>
+			</div>
+			<p class="mt-space-xs max-w-sm text-body-sm text-brand-700 md:mt-0">
+				Glimpses into spiritual transformations, athletic celebrations, and engineering fraternity
+				life over recent academic semesters.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 gap-space-lg md:grid-cols-3">
+			{GALLERY.map((card) => (
+				<article class="group flex flex-col overflow-hidden rounded-xl bg-canvas shadow-elev-1 transition-shadow hover:shadow-elev-2">
+					<div class="relative h-56 w-full overflow-hidden bg-midnight">
+						<RemoteImage
+							src={card.image.src}
+							alt={card.image.alt}
+							width={1024}
+							height={683}
+							loading="lazy"
+							class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+						/>
+						<div
+							class="absolute inset-0 bg-linear-to-t from-navy/80 to-transparent"
+							aria-hidden="true"
+						></div>
+						<span
+							class={`absolute bottom-space-sm left-space-md rounded px-2 py-0.5 text-label-badge font-bold uppercase ${card.plateTone === 'copper' ? 'bg-copper text-white' : 'bg-amberprint/90 text-midnight'}`}
+						>
+							{card.plate}
+						</span>
+					</div>
+					<div class="flex flex-1 flex-col justify-between p-space-md">
+						<div>
+							<h3 class="mb-1 font-serif text-headline-sm font-bold text-navy">{card.title}</h3>
+							<p class="text-body-sm text-brand-700">{card.body}</p>
+						</div>
+						<p class="mt-space-md flex items-center justify-between text-body-sm text-brand-700/70">
+							<span>{card.meta}</span>
+							<span class="font-semibold text-copper">{card.emphasis}</span>
+						</p>
+					</div>
+				</article>
+			))}
+
+			<article class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-navy p-space-lg text-white shadow-elev-2">
+				<div class="pointer-events-none absolute -right-8 -bottom-8 opacity-10" aria-hidden="true">
+					<Icon name="format_quote" size="180px" />
+				</div>
+				<div class="relative z-10 space-y-space-md">
+					<p class="flex items-center gap-space-xs text-amberprint">
+						<Icon name="stars" size="20px" />
+						<span class="text-label-badge font-bold uppercase tracking-wider">
+							{TESTIMONIAL.eyebrow}
+						</span>
+					</p>
+					<blockquote class="text-body-md leading-relaxed text-white/90 italic">
+						“{TESTIMONIAL.quote}”
+					</blockquote>
+				</div>
+				<div class="relative z-10 mt-space-md border-t border-white/10 pt-space-md">
+					<p class="text-label-lg font-bold text-white">{TESTIMONIAL.name}</p>
+					<p class="text-body-sm text-amberprint">{TESTIMONIAL.role}</p>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<!-- Inquiries and the proposal form. -->
+	<section
+		id="event-inquiry"
+		class="mx-auto w-full max-w-7xl scroll-mt-space-scroll-header-tabs px-space-gutter pb-space-xl"
+	>
+		<div class="grid grid-cols-1 overflow-hidden rounded-2xl bg-canvas shadow-elev-3 lg:grid-cols-12">
+			<div class="relative flex flex-col justify-between overflow-hidden bg-midnight p-space-xl text-white lg:col-span-5">
+				<div
+					class="pointer-events-none absolute -top-16 -left-16 size-64 rounded-full bg-copper/10 blur-3xl"
+					aria-hidden="true"
+				></div>
+
+				<div class="relative z-10 space-y-space-lg">
+					<div>
+						<span class="mb-space-xs block text-label-badge font-bold uppercase tracking-widest text-amberprint">
+							Student Affairs &amp; Retreat Office
+						</span>
+						<h2 class="font-serif text-headline-lg font-bold text-white">
+							Event Inquiries &amp; Coordination
+						</h2>
+						<p class="mt-space-sm text-body-sm leading-relaxed text-white/80">
+							Need assistance booking a retreat slot, submitting a student organization event
+							charter, or coordinating department facilities? Contact the CEA secretariat.
+						</p>
+					</div>
+
+					<div class="space-y-space-md text-body-sm text-white/90">
+						{OFFICE_ROWS.map((row) => (
+							<div class="flex items-start gap-space-sm">
+								<Icon name={row.icon} size="20px" class="mt-0.5 shrink-0 text-copper" />
+								<div>
+									<p class="font-semibold text-white">{row.primary}</p>
+									<p class="text-white/70">{row.secondary}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<p class="relative z-10 mt-space-lg flex items-center justify-between border-t border-white/10 pt-space-md">
+					<span class="text-label-badge uppercase tracking-wider text-amberprint">
+						UIC Ignatian Formation Network
+					</span>
+					<Icon name="shield_with_heart" size="20px" class="text-amberprint" />
+				</p>
+			</div>
+
+			<div class="flex flex-col justify-center bg-canvas p-space-xl lg:col-span-7">
+				<h3 class="mb-space-xs font-serif text-headline-sm font-bold text-navy">
+					Submit an Event Proposal or Retreat Inquiry
+				</h3>
+				<p class="mb-space-lg text-body-sm text-brand-700">
+					Please fill out the form below. Official proposal endorsements and retreat waiver
+					allocations will be returned within 48 operational hours.
+				</p>
+
+				<form
+					class="space-y-space-md"
+					data-mailto-form
+					data-mailto-to={EVENTS_OFFICE.email}
+					data-mailto-subject="Event proposal or retreat inquiry — UIC-CEA"
+					data-mailto-body="Submitted from the Events & Retreats page of the UIC-CEA website."
+				>
+					<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+						<div>
+							<label class="mb-1 block text-label-md font-semibold text-navy" for="inquiry-name">
+								Your Full Name
+							</label>
+							<input
+								id="inquiry-name"
+								name="full_name"
+								type="text"
+								required
+								placeholder="e.g. John Emmanuel Santos"
+								class="w-full rounded bg-subtle px-space-md py-2.5 text-body-sm text-navy focus:ring-2 focus:ring-navy focus:outline-none"
+							/>
+						</div>
+						<div>
+							<label class="mb-1 block text-label-md font-semibold text-navy" for="inquiry-email">
+								UIC Institutional Email
+							</label>
+							<input
+								id="inquiry-email"
+								name="email"
+								type="email"
+								required
+								placeholder="jsantos_2200000@uic.edu.ph"
+								class="w-full rounded bg-subtle px-space-md py-2.5 text-body-sm text-navy focus:ring-2 focus:ring-navy focus:outline-none"
+							/>
+						</div>
+					</div>
+
+					<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+						<div>
+							<label class="mb-1 block text-label-md font-semibold text-navy" for="inquiry-type">
+								Inquiry / Purpose Type
+							</label>
+							<select
+								id="inquiry-type"
+								name="inquiry_type"
+								class="w-full rounded bg-subtle px-space-md py-2.5 text-body-sm text-navy focus:ring-2 focus:ring-navy focus:outline-none"
+							>
+								{INQUIRY_TYPES.map((option) => (
+									<option value={option.value}>{option.label}</option>
+								))}
+							</select>
+						</div>
+						<div>
+							<label class="mb-1 block text-label-md font-semibold text-navy" for="inquiry-unit">
+								Department / Organization
+							</label>
+							<select
+								id="inquiry-unit"
+								name="department"
+								class="w-full rounded bg-subtle px-space-md py-2.5 text-body-sm text-navy focus:ring-2 focus:ring-navy focus:outline-none"
+							>
+								{ORGANISATIONS.map((option) => (
+									<option value={option.value}>{option.label}</option>
+								))}
+							</select>
+						</div>
+					</div>
+
+					<div>
+						<label class="mb-1 block text-label-md font-semibold text-navy" for="inquiry-details">
+							Details &amp; Special Requirements
+						</label>
+						<textarea
+							id="inquiry-details"
+							name="details"
+							rows="4"
+							placeholder="State your batch year level, special dietary or medical needs, and the number of participants."
+							class="w-full rounded bg-subtle px-space-md py-2.5 text-body-sm text-navy focus:ring-2 focus:ring-navy focus:outline-none"
+						></textarea>
+					</div>
+
+					<p class="flex items-center gap-1 text-body-sm text-brand-700">
+						<Icon name="verified_user" size="16px" class="text-ink" />
+						Protected by UIC Data Privacy Policy
+					</p>
+
+					<button type="submit" class="btn btn-primary uppercase tracking-wider shadow-sm">
+						<Icon name="send" size="18px" />
+						Submit Inquiry
+					</button>
+
+					{/*
+						The design's panel here claimed the inquiry had been
+						transmitted and named a reference number for it. Neither is
+						true of a mailto, so what is said instead is what happened.
+					*/}
+					<p
+						hidden
+						data-mailto-status
+						class="flex items-start gap-1 rounded bg-brand-50 p-3 text-body-sm text-navy"
+					>
+						<Icon name="check_circle" size="18px" class="mt-0.5 shrink-0 text-copper" />
+						Your email app is opening with the inquiry addressed to {EVENTS_OFFICE.email} — send it
+						from there. Nothing is submitted until you do.
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		/*
+		 * The category pills and the search field.
+		 *
+		 * Both narrow the same seven rows and neither is required to read the
+		 * page, so both are progressive: with scripting off every row is present
+		 * and the pills are buttons that do not respond.
+		 *
+		 * State lives in exactly one place per control — `aria-pressed` on the
+		 * pill, the input's own value on the field — and the same predicate
+		 * decides what is shown, what the count says and whether the empty
+		 * message appears, so the three cannot disagree. A hidden row is
+		 * `hidden`, not transparent, so it leaves the accessibility tree too.
+		 */
+		const pills = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-event-filter]'));
+		const rows = Array.from(document.querySelectorAll<HTMLElement>('[data-event-row]'));
+		const search = document.querySelector<HTMLInputElement>('[data-event-search]');
+		const count = document.querySelector<HTMLElement>('[data-event-count]');
+		const empty = document.querySelector<HTMLElement>('[data-event-empty]');
+
+		if (pills.length > 0 && rows.length > 0) {
+			const IDLE = 'bg-brand-200/20 text-white transition-colors hover:bg-brand-200/30';
+			const ACTIVE = 'bg-copper text-white shadow-sm transition-colors';
+			const SHAPE = 'rounded-full px-space-md py-space-xs text-label-md';
+
+			// The pressed pill in the markup is the active one, so the initial
+			// category is read from the attribute rather than assumed.
+			let category = pills.find((pill) => pill.getAttribute('aria-pressed') === 'true')?.dataset
+				.eventFilter;
+			let term = '';
+
+			/** One predicate for the row, the count and the empty message. */
+			const matches = (row: HTMLElement) =>
+				(category === 'all' || row.dataset.eventCategory === category) &&
+				row.dataset.eventKeywords?.includes(term) === true;
+
+			const apply = () => {
+				let shown = 0;
+
+				for (const row of rows) {
+					const match = matches(row);
+					row.toggleAttribute('hidden', !match);
+					if (match) shown += 1;
+				}
+
+				if (count) {
+					count.textContent = shown === 1 ? '1 Scheduled Event' : `${shown} Scheduled Events`;
+				}
+
+				if (empty) empty.hidden = shown > 0;
+			};
+
+			for (const pill of pills) {
+				pill.className = `${pill.getAttribute('aria-pressed') === 'true' ? ACTIVE : IDLE} ${SHAPE}`;
+
+				pill.addEventListener('click', () => {
+					category = pill.dataset.eventFilter;
+
+					for (const other of pills) {
+						const active = other === pill;
+						other.setAttribute('aria-pressed', String(active));
+						other.className = `${active ? ACTIVE : IDLE} ${SHAPE}`;
+					}
+
+					apply();
+				});
+			}
+
+			search?.addEventListener('input', () => {
+				term = search.value.trim().toLowerCase();
+				apply();
+			});
+
+			apply();
+		}
+	</script>
+</Base>

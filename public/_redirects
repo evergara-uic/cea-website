@@ -35,6 +35,19 @@
 /featured-works/sy-2026-2027  /featured-works  301
 /featured-works               /featured-works  301
 
+# Events & Retreats. The design gave this section a menu of four pages
+# (events-and-retreats, engineering-week, spiritual-formation-retreats and
+# archives) and screens for one of them. All four addresses therefore resolve to
+# the one page rather than three of them dead-ending; if the other three are
+# ever designed, their own routes take these lines back.
+#
+# The legacy /archives above is a different thing: it is the old Google Sites
+# downloads-and-archives address, and it stays with the works archive.
+/events                            /events-and-retreats  301
+/events-and-retreats               /events-and-retreats  301
+/engineering-week                  /events-and-retreats  301
+/spiritual-formation-retreats      /events-and-retreats  301
+
 # Contact. The design's contact band is a page here as well as a homepage
 # section, so the legacy address lands on it directly.
 /contact-and-inquiries        /contact-and-inquiries  301

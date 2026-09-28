@@ -170,4 +170,40 @@ const faculty = defineCollection({
 	}),
 });
 
-export const collections = { programs, works, faculty };
+/*
+ * The collegiate events calendar.
+ *
+ * Seven rows in the design's own order, which is not chronological: the screen
+ * lists them as its author wrote them down rather than sorted by date, and the
+ * `order` field preserves that. Each row is filtered by `category` and searched
+ * by the free-text field on the screen, so `category` is an enum drawn from the
+ * six filter pills rather than free text — the same reasoning as `mark` on the
+ * programmes.
+ */
+const EVENT_CATEGORIES = ['extension', 'retreat', 'guild', 'academic', 'sports'] as const;
+
+const events = defineCollection({
+	loader: file('./src/content/events.json'),
+	schema: z.object({
+		slug: z.string(),
+		/** Day of the month, set large in the date plate: "12". */
+		day: z.string(),
+		/** Month and year under it, in the plate's own caps: "NOV 2025". */
+		month: z.string(),
+		/** Filter target. One of the five pills other than "All Activities". */
+		category: z.enum(EVENT_CATEGORIES),
+		/** The chip on the row, e.g. "Community Extension". */
+		badge: z.string(),
+		/** Who the row says the event is open to. */
+		audience: z.string(),
+		title: z.string(),
+		location: z.string(),
+		/** The design prefixes this one with the word "Led by". */
+		ledBy: z.string(),
+		/** The time span in the plate beside the row's button. */
+		schedule: z.string(),
+		order: z.number(),
+	}),
+});
+
+export const collections = { programs, works, faculty, events };

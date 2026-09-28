@@ -10,9 +10,15 @@
 		"postnominals": ["PCPE", "MEng-CpE"],
 		"portrait": "dean",
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering Major in Computer Engineering" },
+			{
+				"kind": "degree",
+				"text": "Master of Engineering Major in Computer Engineering"
+			},
 			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
-			{ "kind": "membership", "text": "Lifetime Member, Institute of Computer Engineers of the Philippines" }
+			{
+				"kind": "membership",
+				"text": "Lifetime Member, Institute of Computer Engineers of the Philippines"
+			}
 		],
 		"quote": "Fostering ethical engineering excellence, transformative research, and cutting-edge technopreneurship that responds directly to the technological and urban aspirations of Mindanao and the ASEAN region.",
 		"order": 1
@@ -49,7 +55,10 @@
 		"postnominals": [],
 		"portrait": "coordinator",
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Arts in Urban & Regional Planning" },
+			{
+				"kind": "degree",
+				"text": "Master of Arts in Urban & Regional Planning"
+			},
 			{ "kind": "certification", "text": "BEC Facilitator" }
 		],
 		"note": null,
@@ -67,10 +76,22 @@
 		"portrait": null,
 		"credentials": [
 			{ "kind": "degree", "text": "Master of Christian Education" },
-			{ "kind": "degree", "text": "Master in Environmental Planning (On-going)" },
-			{ "kind": "leadership", "text": "President, SAP Alpha-Davao Chapter (2024-2025)" },
-			{ "kind": "leadership", "text": "President, Philippine Institute of Architects Davao Chapter (2013-2014)" },
-			{ "kind": "leadership", "text": "President, Full Gospel Businessmens Fellowship International Madayaw Chapter (Present)" }
+			{
+				"kind": "degree",
+				"text": "Master in Environmental Planning (On-going)"
+			},
+			{
+				"kind": "leadership",
+				"text": "President, SAP Alpha-Davao Chapter (2024-2025)"
+			},
+			{
+				"kind": "leadership",
+				"text": "President, Philippine Institute of Architects Davao Chapter (2013-2014)"
+			},
+			{
+				"kind": "leadership",
+				"text": "President, Full Gospel Businessmens Fellowship International Madayaw Chapter (Present)"
+			}
 		],
 		"note": null,
 		"order": 2
@@ -86,13 +107,28 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master in Environmental Planning (On-going)" },
-			{ "kind": "industry", "text": "Principal Architect, MAGB Architecture and Interior Design" },
+			{
+				"kind": "degree",
+				"text": "Master in Environmental Planning (On-going)"
+			},
+			{
+				"kind": "industry",
+				"text": "Principal Architect, MAGB Architecture and Interior Design"
+			},
 			{ "kind": "leadership", "text": "Club Moderator, UIC-UAPSA-EKISTICS" },
-			{ "kind": "leadership", "text": "President, Philippine Institute of Architects Davao Chapter (2018)" },
-			{ "kind": "membership", "text": "Member, United Architects of the Philippines Davao Alpha Chapter" },
+			{
+				"kind": "leadership",
+				"text": "President, Philippine Institute of Architects Davao Chapter (2018)"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, United Architects of the Philippines Davao Alpha Chapter"
+			},
 			{ "kind": "membership", "text": "Member, PIA College of Fellows (2026)" },
-			{ "kind": "leadership", "text": "President, Full Gospel Businessmen's Fellowship International Madayaw Chapter (Present)" }
+			{
+				"kind": "leadership",
+				"text": "President, Full Gospel Businessmen's Fellowship International Madayaw Chapter (Present)"
+			}
 		],
 		"note": null,
 		"order": 3
@@ -107,9 +143,7 @@
 		"badgeTone": "navy",
 		"postnominals": [],
 		"portrait": null,
-		"credentials": [
-			{ "kind": "certification", "text": "BEC Facilitator" }
-		],
+		"credentials": [{ "kind": "certification", "text": "BEC Facilitator" }],
 		"note": "Specializing in architectural graphic techniques, building materials application, and vocational design studio mentoring.",
 		"order": 4
 	},
@@ -125,8 +159,14 @@
 		"portrait": null,
 		"credentials": [
 			{ "kind": "degree", "text": "Master of Engineering Program (On-going)" },
-			{ "kind": "leadership", "text": "Moderator, Electronics Engineering Organization" },
-			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+			{
+				"kind": "leadership",
+				"text": "Moderator, Electronics Engineering Organization"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, Philippine Institute of Civil Engineers"
+			}
 		],
 		"note": null,
 		"order": 1
@@ -142,10 +182,16 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Arts in Engineering Education Major in Civil Engineering" },
+			{
+				"kind": "degree",
+				"text": "Master of Arts in Engineering Education Major in Civil Engineering"
+			},
 			{ "kind": "leadership", "text": "Library-in-Charge, CEA" },
 			{ "kind": "membership", "text": "Member, UIC-Research Ethics Committee" },
-			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+			{
+				"kind": "membership",
+				"text": "Member, Philippine Institute of Civil Engineers"
+			}
 		],
 		"note": null,
 		"order": 2
@@ -161,10 +207,22 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering in Civil Engineering Major in Geotechnical Engineering" },
-			{ "kind": "leadership", "text": "Coordinator, Community Development Services" },
-			{ "kind": "leadership", "text": "Moderator, Junior Philippine Institute of Civil Engineers - UIC Chapter" },
-			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+			{
+				"kind": "degree",
+				"text": "Master of Engineering in Civil Engineering Major in Geotechnical Engineering"
+			},
+			{
+				"kind": "leadership",
+				"text": "Coordinator, Community Development Services"
+			},
+			{
+				"kind": "leadership",
+				"text": "Moderator, Junior Philippine Institute of Civil Engineers - UIC Chapter"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, Philippine Institute of Civil Engineers"
+			}
 		],
 		"note": null,
 		"order": 3
@@ -180,10 +238,16 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering Major in Computer Engineering" },
+			{
+				"kind": "degree",
+				"text": "Master of Engineering Major in Computer Engineering"
+			},
 			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
 			{ "kind": "leadership", "text": "Moderator, ICpEP.SE - UIC Chapter" },
-			{ "kind": "leadership", "text": "Professional Membership Officer, ICpEP Region XI Chapter (2025-Present)" }
+			{
+				"kind": "leadership",
+				"text": "Professional Membership Officer, ICpEP Region XI Chapter (2025-Present)"
+			}
 		],
 		"note": null,
 		"order": 2
@@ -217,9 +281,18 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master in Engineering Education Major in Electronics Engineering (Candidate)" },
-			{ "kind": "leadership", "text": "Moderator, College of Engineering and Architecture Students' Organization" },
-			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+			{
+				"kind": "degree",
+				"text": "Master in Engineering Education Major in Electronics Engineering (Candidate)"
+			},
+			{
+				"kind": "leadership",
+				"text": "Moderator, College of Engineering and Architecture Students' Organization"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, Institute of Electronics Engineers of the Philippines"
+			}
 		],
 		"note": null,
 		"order": 1
@@ -235,9 +308,15 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master in Engineering Education Major in Electronics Engineering (Candidate)" },
+			{
+				"kind": "degree",
+				"text": "Master in Engineering Education Major in Electronics Engineering (Candidate)"
+			},
 			{ "kind": "leadership", "text": "CEA Alumni Coordinator" },
-			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+			{
+				"kind": "membership",
+				"text": "Member, Institute of Electronics Engineers of the Philippines"
+			}
 		],
 		"note": null,
 		"order": 2
@@ -253,9 +332,15 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Arts in Engineering Education Major in Electronics Engineering" },
+			{
+				"kind": "degree",
+				"text": "Master of Arts in Engineering Education Major in Electronics Engineering"
+			},
 			{ "kind": "certification", "text": "BEC Facilitator" },
-			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+			{
+				"kind": "membership",
+				"text": "Member, Institute of Electronics Engineers of the Philippines"
+			}
 		],
 		"note": null,
 		"order": 3
@@ -271,8 +356,14 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering Major in Electronics Engineering" },
-			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+			{
+				"kind": "degree",
+				"text": "Master of Engineering Major in Electronics Engineering"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, Institute of Electronics Engineers of the Philippines"
+			}
 		],
 		"note": "Telecommunications engineering systems, high-frequency transmitters, and broadband wave propagation analysis.",
 		"order": 4
@@ -288,10 +379,19 @@
 		"postnominals": [],
 		"portrait": null,
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering Major in Electronics Engineering (Candidate)" },
-			{ "kind": "leadership", "text": "Moderator, Electronics Engineering Organization" },
+			{
+				"kind": "degree",
+				"text": "Master of Engineering Major in Electronics Engineering (Candidate)"
+			},
+			{
+				"kind": "leadership",
+				"text": "Moderator, Electronics Engineering Organization"
+			},
 			{ "kind": "leadership", "text": "Research-in-Charge, CEA" },
-			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+			{
+				"kind": "membership",
+				"text": "Member, Institute of Electronics Engineers of the Philippines"
+			}
 		],
 		"note": null,
 		"order": 5

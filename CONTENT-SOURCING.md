@@ -46,6 +46,10 @@ Two further items, lower risk but worth a decision:
   Electronics guild with a founding year. The College's own listing differs, and
   the 1992 is covered above.
 
+A third section follows, on the events screen, whose single most serious item is
+a testimonial attributed to a named student. See **The events and retreats
+screen** below.
+
 ## The faculty directory
 
 `/about/our-pride` is the design's **"UIC-CEA Our Pride: Dean & Faculty
@@ -115,17 +119,61 @@ Hydro") and the career-pathway lists are the design's own summary of each degree
 rather than an official course sequence.
 
 
+## The events and retreats screen
+
+`/events-and-retreats` is the "UIC-CEA Events, Recreation & Retreats" screen,
+the fourth design screen ported. It is the most name-dense of the four after
+the faculty directory, and most of what it asserts is an event that either has
+not happened or is not on the record.
+
+**The most sensitive item on the site is the testimonial.** The retrospective
+gallery quotes a student by name and by guild office — "Krystelle Joy Alcantara,
+BS Architecture Graduating Class • CEASO Senator" — in a statement about her own
+thesis and her own formation. The design invented the quotation and invented
+the attribution. Publishing an invented remark under a named person's degree
+and office is a false statement about a real-seeming student, and **it must not
+go live until that person has agreed to it in writing.** The same applies to the
+count of "over 180 graduating candidates" in the card above it.
+
+Everything else in the section is an assertion about an event, a venue, a person
+or a number:
+
+| Claim on the page | Why it needs confirming |
+| --- | --- |
+| The three featured dates — 18–20 October, 14–16 November, 6–8 December 2025 | Past events. The Student Affairs Office or the Campus Ministry holds the actual calendar. |
+| "St. Michael Retreat House, Eden, Toril" | A named third-party venue, with what sounds like a booking. Confirm the house exists under that name and that the College has used it. |
+| "Samal Island Nature Reserve", "UIC Bonifacio Gymnasium & Grounds", "Paquibato Child Development Center", "Bonifacio Quadrangle & Social Hall", "UIC Main Chapel", "UIC Bonifacio Main Auditorium" | Six venue bookings, four of them outside the campus. |
+| "CEASO Wolves Fest 2025" and the four tournament brackets | A guild competition with a name, a date range and a fixture list. |
+| "Project 'Lantaw Komunidad'", led by Engr. Johndel Quiño as Coordinator for Community Development Services | A named outreach project with a named coordinator and a named role, and a claim that it deploys solar kits, water filtration and bamboo daycares. |
+| The seven matrix rows with their dates, organisers and time spans | Each names a guild, a department or a committee as the party responsible. |
+| "BS Civil Engineering clinched the 2024 Overall Athletic Trophy" | A result attributed to a named degree. |
+| "1,240 Participants" and "Over 180 graduating candidates" | Headline attendance figures. |
+| `cea.events@uic.edu.ph` | A mailbox the design invented. It is the form's recipient on this page, and the College's own `cea@uic.edu.ph` is printed beside it everywhere, so nothing here is the only way to reach the College. **Confirm the address before launch; if it does not exist, the form falls back to the general mailbox.** |
+| Treshia Loraine Vitor, CEASO Executive Coordinator & Administrative Assistant | A named member of staff in a named office, with a direct line and a floor. |
+| "Proposals and retreat waivers returned within 48 operational hours" | A service commitment the College would then be held to. |
+| "Mandatory for Graduating Batch" on the retreat | An academic requirement. A mandatory formation requirement for a graduating class is a registrar's decision. |
+| The filter pills' counts — "All Activities (11)", "Community Extension & Outreach (4)" | **These do not agree with the page.** The design lists seven events, of which two are community extension. The pills are reproduced as written; the live count beside the search field is computed from the rows and reads 7. Either the numbers are wrong or the list is partial, and the Student Affairs Office should say which. |
+| The reference number in the prototype's success panel, `#UIC-EVT-2025` | Not carried over. A `mailto:` has no reference number to give. |
+
+The seven matrix rows live in `src/content/events.json` and are the editable
+surface for this screen. The three spotlights, the four pillars, the gallery and
+the form's option lists are named in the page's frontmatter, because they are
+three-and-four-item presentational blocks rather than a repeating record type.
+
 ## Imagery
 
-All sixteen images are remote files on Google's CDN, and **all sixteen are
+All nineteen images are remote files on Google's CDN, and **all nineteen are
 generated**. None is a photograph of the College. They depict an invented
 emblem, eight invented laboratory plates, three invented student projects, two
-invented faculty portraits and an invented map plate.
+invented faculty portraits, three invented event scenes and an invented map
+plate.
 
-The two faculty portraits are the most sensitive of the sixteen. A generated
-face beside a real name reads as a photograph of that person, so both are
-labelled as illustrations in their alt text and both are flagged for replacement
-in the faculty section above.
+The two faculty portraits are the most sensitive of the nineteen, and the three
+event scenes are next: a generated crowd at a "campus recreation day" or a
+"community extension in Davao" reads as a photograph of a real CEA activity,
+which is precisely what these screens would be cited as evidence of. All five
+are labelled as illustrations in their alt text, and all five must be replaced
+with the College's own photography before publication.
 
 They are in place because they are part of the design being adopted and because
 there is nothing else available for those slots. **They must be replaced with
@@ -138,7 +186,7 @@ scene exists at Bonifacio Campus. The prototype's own alt text claimed it —
 "students in safety helmets", "in Bonifacio Campus" — and an accessibility
 layer should not state a fact about the real campus that is not true.
 
-All sixteen URLs are in `src/consts.ts` under `IMAGES`, and the loading, decoding
+All nineteen URLs are in `src/consts.ts` under `IMAGES`, and the loading, decoding
 and referrer policy for them live in one place, `src/components/RemoteImage.astro`.
 Replacing them is a change to those two files.
 
@@ -163,19 +211,26 @@ functional and is not.
 | Programme badge marks | Kept as the prototype drew them | They are vector and part of the design, so they cost nothing to carry. Only the label face changed. |
 | Programme tab bar on `/programs` | Kept, and wired | The tab bar that was dropped from the programme grid reappears on the design's own Academic Programs screen, where it does filter: the tabs are "All Programs (4)" plus the four degrees, and pressing one genuinely leaves that degree's plate. The reason it was removed from the other screen does not apply here. |
 | The prototype's `filterPrograms` / `filterDept` inline scripts, which read `event.currentTarget` and assign to a bare `tabs.forEach(tab => tab.className = ...)` | Rewritten against `data-*` attributes, with `aria-pressed` and the `hidden` attribute | The original two had real defects: `event` is not in scope inside a `function` declaration, so the pressed tab never highlighted; and assigning `className` as a string wiped the styling of every tab. Rewritten so the pressed state is announced, and so a filtered-out plate leaves the accessibility tree as well as the layout. |
+| "Events & Retreats" as a nav menu of four pages | A single nav link to the one page that exists | The design's Events screen names four children — All Events & Retreats, Engineering & Architecture Week, Spiritual Formation Retreats, Archives — and supplies a screen for one of them. The other three are redirected to it rather than left as menu entries with nothing behind them. |
+| The prototype's `showSuccessNotice()` on the events form, which showed "Inquiry Transmitted to CEASO Secretariat! An acknowledgment email has been routed to your UIC address with reference ID #UIC-EVT-2025" | Composes a `mailto:` to the office and says what actually happened | Same reason as the Dean's Office form. There is no server, no transmission and no reference number, and a panel claiming all three is the kind of thing that gets quoted back at the College. |
+| The three spotlights' document buttons — "Download Schedule PDF", "Download Schedule PDF", "View Extension Project Brief" | Written out as text: not published, ask the office | The design offers a file for download and builds no file. The same treatment the footer gives its three policy links. |
+| The events matrix's per-row "Details" button | A link that asks the office about that event | The prototype's `<button>` has no handler and no panel behind it. Every field the missing panel would have held is already on the row. |
+| The hero's inline SVG `<pattern>` CAD grid and its two gradient glow spheres | A CSS background grid and two blurred discs | Identical result, and the grid is then the same one the rest of the site uses rather than a second one. |
 
 ## Routes
 
 Taken from the prototype's `data-path` values and from the design's screen
-names. Eleven pages plus a 404.
+names. Twelve pages plus a 404.
 
-The two screens added last are not new routes. The design names them
-"Academic Programs Offered" and "Our Pride: Dean & Faculty Directory", which are
-the pages that already sat at `/programs` and `/about/our-pride` and which the
-design's own navigation, and the legacy Google Sites URLs, already pointed at
-those addresses. Porting them onto the existing routes rather than adding two
-near-duplicates is why `/programs-offered` and `/about-cea/our-pride` in
-`public/_redirects` continue to resolve.
+The screens added last are not new routes, except this one. The design names
+them "Academic Programs Offered" and "Our Pride: Dean & Faculty Directory",
+which are the pages that already sat at `/programs` and `/about/our-pride` and
+which the design's own navigation, and the legacy Google Sites URLs, already
+pointed at those addresses. Porting them onto the existing routes rather than
+adding two near-duplicates is why `/programs-offered` and `/about-cea/our-pride`
+in `public/_redirects` continue to resolve. "Events & Retreats" is the first
+genuinely new route the design has asked for, at the design's own
+`data-path="events-and-retreats"`.
 
 | Route | Source |
 | --- | --- |
@@ -186,11 +241,15 @@ near-duplicates is why `/programs-offered` and `/about-cea/our-pride` in
 | `/about/cea-logo-and-seal` | `data-path="cea-logo-and-seal"` |
 | `/scholarships-offered` | `data-path="scholarships-offered"` |
 | `/featured-works` | Its Featured Works section |
+| `/events-and-retreats` | The "UIC-CEA Events, Recreation & Retreats" screen, at `data-path="events-and-retreats"` |
 | `/contact-and-inquiries` | `data-path="contact-and-inquiries"` |
 
-`public/_redirects` maps the legacy Google Sites addresses onto these, and also
-sends the three legacy routes that have no equivalent here — `/faculty`,
-`/downloads`, `/archives` — to the closest real page rather than a dead end.
+`public/_redirects` maps the legacy Google Sites addresses onto these, sends the
+three legacy routes that have no equivalent here — `/faculty`, `/downloads`,
+`/archives` — to the closest real page rather than a dead end, and sends the
+three undesigned Events siblings — `/engineering-week`,
+`/spiritual-formation-retreats` and `/events-and-retreats` itself — to the one
+Events page there is.
 
 ## Deployment
 
