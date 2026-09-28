@@ -53,7 +53,7 @@ if (d.portrait && !portrait) {
 	<div class="flex items-start gap-space-md">
 		<div class="flex shrink-0 flex-col items-center gap-space-xs">
 			{portrait ? (
-				<picture class="portrait-frame size-44 shrink-0">
+				<picture class="portrait-frame relative size-44 shrink-0 md:size-52">
 					<img
 						src={portrait.src}
 						alt=""
@@ -66,7 +66,7 @@ if (d.portrait && !portrait) {
 				</picture>
 			) : (
 				<span
-					class="flex size-44 shrink-0 items-center justify-center rounded-xl border border-grid bg-brand-100 text-navy"
+					class="flex relative size-44 shrink-0 md:size-52 items-center justify-center rounded-xl border border-grid bg-brand-100 text-navy"
 					aria-hidden="true"
 				>
 					<Icon name="draw" size="32px" />
