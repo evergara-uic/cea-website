@@ -189,7 +189,11 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 							isCurrent(item.href) ? 'bg-navy font-bold' : 'text-white',
 						]}
 					>
-						{item.label}
+						{item.href === '/' ? (
+							<img src="/logos/CEA logo icon.png" alt="CEA" width="24" height="24" class="shrink-0 object-contain" />
+						) : (
+							item.label
+						)}
 					</a>
 				),
 			)}
