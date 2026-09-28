@@ -1,10 +1,10 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { getCollection } from 'astro:content';
-import { ENROLL_URL, IMAGES } from '../../consts';
+import { ENROLL_URL } from '../../consts';
 import type { IconName } from '../../components/Icon.astro';
 import FacultyCard from '../../components/FacultyCard.astro';
 import Icon from '../../components/Icon.astro';
-import RemoteImage from '../../components/RemoteImage.astro';
 import Base from '../../layouts/Base.astro';
 
 /*
@@ -25,6 +25,30 @@ const faculty = (await getCollection('faculty')).sort((a, b) => a.data.order - b
 const inSection = (section: string) => faculty.filter((person) => person.data.section === section);
 
 const [dean, assistant] = inSection('dean');
+
+/**
+ * The Dean's and the assistant's portraits.
+ *
+ * These two are drawn here rather than through FacultyCard, because the design
+ * gives the Dean a large two-column feature and the assistant a narrow card, and
+ * neither is the compact roster card that component draws. The photographs are
+ * the College's own, generated into src/assets/faculty/ like the other
+ * fourteen; the design had two invented faces here and a monogram for the rest.
+ *
+ * Alt text is empty on both, as on the roster: the name is set in a heading
+ * immediately below, so naming the person again is the redundant-alt case.
+ */
+const portraits = import.meta.glob<{ default: ImageMetadata }>('../../assets/faculty/*.webp', {
+	eager: true,
+});
+
+const portraitFor = (person: typeof dean) =>
+	person?.data.portrait
+		? portraits[`../../assets/faculty/${person.data.portrait}.webp`]?.default
+		: undefined;
+
+const deanPortrait = portraitFor(dean);
+const assistantPortrait = portraitFor(assistant);
 
 /**
  * The four teaching departments, in the design's order. Each carries its own
@@ -249,13 +273,21 @@ const COUNCILS = [
 
 						<div class="flex shrink-0 flex-col items-center">
 							<picture class="relative size-44 overflow-hidden rounded-xl border-2 border-grid bg-brand-50 shadow-md md:size-52">
-								<RemoteImage
-									src={IMAGES.faculty.dean.src}
-									alt={IMAGES.faculty.dean.alt}
-									width={1024}
-									height={1024}
-									class="size-full object-cover object-top"
-								/>
+								{deanPortrait ? (
+									<img
+										src={deanPortrait.src}
+										alt=""
+										width={deanPortrait.width}
+										height={deanPortrait.height}
+										loading="lazy"
+										decoding="async"
+										class="size-full object-cover object-top"
+									/>
+								) : (
+									<span class="flex size-full items-center justify-center bg-brand-100 text-navy">
+										<Icon name="draw" size="64px" />
+									</span>
+								)}
 							</picture>
 							<div class="mt-space-sm flex flex-wrap justify-center gap-1">
 								{dean.data.postnominals.map((postnominal, i) => (
@@ -342,6 +374,20 @@ const COUNCILS = [
 								</span>
 								<Icon name="menu_book" size="24px" class="text-brand-300" />
 							</div>
+
+							{assistantPortrait && (
+								<picture class="size-24 overflow-hidden rounded-xl border border-grid bg-brand-50">
+									<img
+										src={assistantPortrait.src}
+										alt=""
+										width={assistantPortrait.width}
+										height={assistantPortrait.height}
+										loading="lazy"
+										decoding="async"
+										class="size-full object-cover object-top"
+									/>
+								</picture>
+							)}
 
 							<div>
 								<h3 class="text-headline-sm font-bold text-navy">{assistant.data.name}</h3>

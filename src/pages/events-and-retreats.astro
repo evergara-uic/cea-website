@@ -218,18 +218,19 @@ const TESTIMONIAL = {
  * originals in media/source. Nothing here is fetched at build time, so the
  * build does not depend on a third party being up, and the whole site works
  * offline. The glob keys are the paths relative to this file.
+ *
+ * The five videos are the exception and are not here: the College uploaded them
+ * to YouTube and they are embedded from there. What is here is one poster frame
+ * per video, so the page does not depend on Google being reachable to render.
  */
 const photoFiles = import.meta.glob<{ default: ImageMetadata }>(
 	'../assets/media/photos/**/*.webp',
 	{ eager: true },
 );
 
-const videoFiles = import.meta.glob<{ default: string }>('../assets/media/video/*.mp4', {
-	eager: true,
-});
-
+/** The local poster for each YouTube video, from the thumbnails in media/youtube. */
 const posterFiles = import.meta.glob<{ default: ImageMetadata }>(
-	'../assets/media/video/*-poster.webp',
+	'../assets/media/youtube/*.webp',
 	{ eager: true },
 );
 
@@ -295,33 +296,82 @@ const photoSets = PHOTO_SETS.flatMap(({ id: set, name, period }) => {
 	return [{ id: set, name, period, thumbs }];
 });
 
-/** The four supplied clips, captioned from their filenames and ffprobe's numbers. */
+/**
+ * The five event recordings, as YouTube links.
+ *
+ * The College uploaded these and the site embeds them rather than serving its
+ * own copies, which is what the 51 MB of local MP4 was for. Titles and
+ * channels are YouTube's own, read back through its oEmbed endpoint rather than
+ * typed from the URLs, and the durations are the measured lengths of the files
+ * the College supplied — the same recordings, checked against YouTube's own
+ * `lengthSeconds` for the EA Program clip at 143 against 142.8.
+ *
+ * `duration` stays even though YouTube shows its own, because the player's
+ * control bar is hidden until playback starts and this is what a visitor reads
+ * before deciding whether to press it.
+ */
 const VIDEOS = [
 	{
-		file: 'cea-promotional-video',
-		title: 'CEA Promotional Video',
-		duration: '3:20',
-		source: '1280x720, 30 fps, supplied at 1.1 Mb/s',
-	},
-	{
-		file: 'ea-program-avp',
-		title: 'EA Program — AVP',
-		duration: '2:23',
-		source: '1920x1080 at 60 fps, supplied at 9.5 Mb/s',
-	},
-	{
-		file: 'cea-fair',
-		title: 'CEA Fair',
+		file: 'cea-fair-2024',
+		id: 'byHKKVE9R_c',
+		title: 'UIC CEA Fair and Design Project Exhibit 2024',
+		channel: 'University of the Immaculate Conception',
 		duration: '1:32',
-		source: '1920x1080 at 60 fps, supplied at 10.1 Mb/s',
 	},
 	{
 		file: 'cea-fair-full',
-		title: 'CEA Fair — full recording',
+		id: 'tmauWwky2SI',
+		title: 'UIC CEA Fair and Design Project Exhibit 2024 — full recording',
+		channel: 'College of Engineering and Architecture',
 		duration: '1:59',
-		source: '1920x1080 at 24 fps, supplied at 10.3 Mb/s',
+	},
+	{
+		file: 'cea-fair',
+		id: 'AkYeJbAEkdg',
+		title: 'CEA Fair 2025',
+		channel: 'University of the Immaculate Conception',
+		duration: '1:32',
+	},
+	{
+		file: 'ea-program-avp',
+		id: 'H-UW9xeUj6M',
+		title: 'EA Program — AVP',
+		channel: 'College of Engineering and Architecture',
+		duration: '2:23',
+	},
+	{
+		file: 'cea-promotional-video',
+		id: 'nD1d7Z7ao8Q',
+		title: 'CEA Promotional Video',
+		channel: 'College of Engineering and Architecture',
+		duration: '3:20',
 	},
 ] as const;
+
+/*
+ * Fail here, by name, rather than three frames into EventVideo.
+ *
+ * The posters are committed output rather than something the build generates —
+ * `npm run media` is deliberately not in `npm run build`, because transcoding
+ * 570 MB does not fit Cloudflare's 20 minutes. So they are a hard dependency
+ * with no build step behind them, and deleting one produces a
+ * `TypeError: Cannot read properties of undefined (reading 'src')` from inside a
+ * component, with nothing pointing at the cause.
+ *
+ * This is the same class of failure as the poster frames the prune script
+ * deleted once, which left four videos rendering as black boxes while every
+ * structural check passed. Both times the check that would have caught it was
+ * the one able to name the file.
+ */
+for (const video of VIDEOS) {
+	if (!posterFiles[`../assets/media/youtube/${video.file}.webp`]) {
+		throw new Error(
+			`Missing poster for "${video.title}" (${video.id}): ` +
+				`src/assets/media/youtube/${video.file}.webp does not exist. ` +
+				`Run \`npm run media\` to regenerate it.`,
+		);
+	}
+}
 
 /*
  * The one real event on this page, given its own section.
@@ -730,11 +780,11 @@ const OFFICE_ROWS: { icon: IconName; primary: string; secondary: string }[] = [
 		<div class="grid grid-cols-1 gap-space-lg md:grid-cols-2">
 			{VIDEOS.map((video) => (
 				<EventVideo
-					src={videoFiles[`../assets/media/video/${video.file}.mp4`]?.default ?? ''}
-					poster={posterFiles[`../assets/media/video/${video.file}-poster.webp`]?.default?.src ?? ''}
+					id={video.id}
+					poster={posterFiles[`../assets/media/youtube/${video.file}.webp`]?.default}
 					title={video.title}
+					channel={video.channel}
 					duration={video.duration}
-					source={video.source}
 				/>
 			))}
 		</div>

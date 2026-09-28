@@ -8,8 +8,9 @@
   "scripts": {
     "dev": "astro dev",
     "logos": "node scripts/build-logo-assets.mjs",
+    "faculty": "node scripts/build-faculty-portraits.mjs",
     "media": "node scripts/build-media-assets.mjs",
-    "build": "node scripts/build-logo-assets.mjs && astro build && node scripts/prune-unused-assets.mjs",
+    "build": "node scripts/build-logo-assets.mjs && node scripts/build-faculty-portraits.mjs && astro build && node scripts/prune-unused-assets.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

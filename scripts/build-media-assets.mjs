@@ -41,6 +41,7 @@
  */
 import sharp from 'sharp';
 import { execFile } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { basename, extname, join } from 'node:path';
 import { promisify } from 'node:util';
@@ -50,6 +51,7 @@ const run = promisify(execFile);
 const SOURCE = 'media/source';
 const PHOTOS_OUT = 'src/assets/media/photos';
 const VIDEO_OUT = 'src/assets/media/video';
+const THUMB_OUT = 'src/assets/media/youtube';
 
 /** Widths emitted per photo, largest first. A width above the source is skipped. */
 const WIDTHS = [1600, 480];
@@ -137,6 +139,99 @@ console.log(
 
 /* ------------------------------------------------------------------ videos */
 
+/**
+ * Each clip, where it lives now, and what it used to be.
+ *
+ * The `youtube` id is the live copy. The local transcode below is kept because
+ * the one video YouTube has published no thumbnail for needs a poster frame
+ * taken from the supplied file, and because re-encoding is cheap to keep and
+ * expensive to reconstruct. `fps: null` keeps the source rate, which matters for
+ * the 24 fps recordings: re-encoding those to 30 would duplicate frames and
+ * spend bitrate on nothing.
+ */
+const VIDEOS = [
+	{
+		src: 'CEA Promotional Video.mp4',
+		out: 'cea-promotional-video',
+		youtube: 'nD1d7Z7ao8Q',
+		width: 1280,
+		fps: 30,
+	},
+	{
+		src: 'EA PROGRAM - AVP [fixed].mp4',
+		out: 'ea-program-avp',
+		youtube: 'H-UW9xeUj6M',
+		width: 1600,
+		fps: 30,
+	},
+	{ src: 'cea fair.mp4', out: 'cea-fair', youtube: 'AkYeJbAEkdg', width: 1600, fps: 30 },
+	{
+		src: 'ceafairfullvid.mp4',
+		out: 'cea-fair-full',
+		youtube: 'tmauWwky2SI',
+		width: 1600,
+		fps: null,
+	},
+	{
+		src: 'ceafairfullvid.mp4',
+		out: 'cea-fair-2024',
+		youtube: 'byHKKVE9R_c',
+		width: 1600,
+		fps: null,
+	},
+];
+
+/*
+ * The YouTube posters.
+ *
+ * The College uploaded the event recordings to YouTube and the site now embeds
+ * them there rather than serving its own copies, which is what removed the
+ * reason this script had to exist for the video at all — see the note at the
+ * top. What survives is the poster frame each facade shows before anyone
+ * presses play.
+ *
+ * A local copy rather than a hotlink to i.ytimg.com, so that rendering the page
+ * does not depend on Google being reachable, and so the request is not made by
+ * every visitor who merely scrolls past. The download is cached as a JPEG beside
+ * the WebP, so re-encoding the posters does not need the network either.
+ *
+ * The EA Program clip is the reason the fallback below exists. Its first
+ * download returned 404 at every size while YouTube was still processing the
+ * upload — the video page's own metadata pointed at an hqdefault.jpg that was
+ * not there yet. A poster script that assumed a 200 and threw would have taken
+ * the build down over a thumbnail. A later run fetched a real 1280x720 frame,
+ * but a re-upload could do it again, and the frame taken from the supplied file
+ * — the same video, 143 seconds as YouTube reports it against 142.8 in the file
+ * — is a correct answer in the meantime.
+ */
+await mkdir(THUMB_OUT, { recursive: true });
+
+for (const video of VIDEOS) {
+	const cached = join(THUMB_OUT, `${video.out}.jpg`);
+	const id = video.youtube;
+	const url = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+
+	const response = await fetch(url).catch(() => null);
+	if (response?.ok) {
+		await writeFile(cached, Buffer.from(await response.arrayBuffer()));
+	} else if (!existsSync(cached)) {
+		// No network, and nothing cached. The page falls back to the frame from
+		// the supplied file, so this is not fatal.
+		console.warn(`  ${video.out.padEnd(22)} no poster from YouTube, using the supplied frame`);
+		continue;
+	}
+
+	const thumb = await sharp(cached)
+		.resize({ width: 640, withoutEnlargement: true })
+		.webp({ quality: 80, effort: 6 })
+		.toBuffer();
+	await write(join(THUMB_OUT, `${video.out}.webp`), thumb);
+	console.log(
+		`  ${video.out.padEnd(22)} ${kb((await readFile(cached)).length).padStart(9)} -> ` +
+			`${kb(thumb.length).padStart(6)}  YouTube poster for ${id}`,
+	);
+}
+
 if (!withVideo) {
 	console.log('videos  skipped; pass --video and have ffmpeg on PATH to include them');
 	process.exit(0);
@@ -144,18 +239,6 @@ if (!withVideo) {
 
 const ffmpeg = process.env.FFMPEG || 'ffmpeg';
 await mkdir(VIDEO_OUT, { recursive: true });
-
-/**
- * Each clip's encode. `fps: null` keeps the source rate, which matters for the
- * 24 fps recording: re-encoding it to 30 would duplicate frames and cost
- * bitrate for nothing.
- */
-const VIDEOS = [
-	{ src: 'CEA Promotional Video.mp4', out: 'cea-promotional-video', width: 1280, fps: 30 },
-	{ src: 'EA PROGRAM - AVP [fixed].mp4', out: 'ea-program-avp', width: 1600, fps: 30 },
-	{ src: 'cea fair.mp4', out: 'cea-fair', width: 1600, fps: 30 },
-	{ src: 'ceafairfullvid.mp4', out: 'cea-fair-full', width: 1600, fps: null },
-];
 
 try {
 	await run(ffmpeg, ['-version']);

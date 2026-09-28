@@ -191,6 +191,7 @@ site. Treat any report of missing or blank content as a cascade question first.
 | Page copy: programmes, works, faculty, events | `src/content/*.json`       |
 | Navigation, contact details, imagery, dates   | `src/consts.ts`            |
 | A programme's logo                          | `logos/`, then `npm run logos` |
+| A faculty photograph                        | `faculties/`, then `npm run faculty` |
 | A glyph                                      | `src/components/Icon.astro` |
 | A section's layout                           | the `.astro` file in `src/pages/` |
 | Type scale, colour, spacing tokens            | `src/styles/global.css`    |
@@ -204,15 +205,20 @@ rendering an empty card.
 ```text
 logos/               the College's supplied logo files — the source of truth,
                      deliberately outside public/ so they are never deployed
+faculties/           the College's 16 faculty portraits, one file per person.
+                     Like the logos, the source of truth, and processed at
+                     build time
 media/source/        the College's supplied event media: 135 photographs and
                      4 videos, 570 MB, also outside public/ so it is never
                      deployed as-is
 src/
   assets/fonts/     Fraunces and Atkinson, self-hosted and subset-free
   assets/logos/     the processed logo WebPs; generated, do not hand-edit
-  assets/media/     the processed event photographs and videos; generated, do
-                    not hand-edit
-  components/       ~28 .astro components; Icon.astro holds every inline SVG glyph
+  assets/faculty/   the processed 256px faculty portraits; generated, do not
+                    hand-edit
+  assets/media/     the processed event photographs and video posters;
+                    generated, do not hand-edit
+  components/       ~29 .astro components; Icon.astro holds every inline SVG glyph
   content/          programs.json, works.json, faculty.json, events.json
   layouts/          Base.astro — the document shell
   pages/            the thirteen routes
@@ -222,6 +228,9 @@ public/
   _headers          cache and security headers
 scripts/
   build-logo-assets.mjs   runs before the build; sizes the logos in logos/
+  build-faculty-portraits.mjs
+                          runs before the build; sizes the portraits in
+                          faculties/
   build-media-assets.mjs  run by hand, NOT in the build; see "The event media"
   verify-classes.py       classes the pages apply with no matching rule
   verify-dist.py          broken links, redirect loops, dead redirect targets
@@ -235,10 +244,34 @@ tool; Pages does not read it. Its presence would only invite someone to set
 `npx wrangler deploy` as the deploy command, which is what broke the first
 deploy.
 
-`src/assets/` holds the fonts, the processed logos and the processed event
-media. The remaining eighteen images are remote URLs declared in
-`src/consts.ts`, rendered through `RemoteImage.astro`, and carry alt text that
-describes them as illustrations.
+`src/assets/` holds the fonts, the processed logos, the processed faculty
+portraits and the processed event media. The remaining seventeen images are
+remote URLs declared in `src/consts.ts`, rendered through `RemoteImage.astro`,
+and carry alt text that describes them as illustrations.
+
+## The faculty portraits
+
+`faculties/` holds the 16 photographs the College supplied, one per person, and
+`npm run build` runs `scripts/build-faculty-portraits.mjs` first, which writes
+256px WebPs into `src/assets/faculty/`. **Never hand-edit anything in
+`src/assets/faculty/` — it is regenerated.**
+
+256 is the measured size, not a round one: the roster card draws the portrait at
+64 CSS pixels, so 128 device pixels on a 2x display. 15 MB of 1125-pixel PNGs
+become 108 KB.
+
+The script maps each roster id to a supplied filename **explicitly**, and fails
+the build if a file is missing. That is deliberate. The supplied filenames are
+in upper case, carry post-nominals, and spell at least one forename out in full
+where `src/content/faculty.json` uses only a suffix — so slugifying both sides
+would work for fifteen of sixteen and fail silently on the sixteenth, which is
+the worst way for it to fail. A missing file stops the build; a wrong face does
+not, so someone who knows the sixteen people should confirm the mapping once.
+
+`portrait` in `src/content/faculty.json` is the roster id, and is always the
+entry's own `id`. Someone added without a photograph gets the drafting-board
+monogram, which is what the design does and is a better answer than an invented
+face.
 
 ## The event media
 
@@ -248,16 +281,17 @@ sets and four event videos. `npm run media` processes them into
 is regenerated, and only the originals in `media/source/` are the source of
 truth.**
 
-This does **not** run in `npm run build`, unlike the logos. Transcoding 570 MB of
-source takes several minutes, and Cloudflare Pages times a build out at 20
-minutes. The output is committed instead, so CI never needs ffmpeg and never
-does the work. The logo script runs at build time because it is five files and
-about a second of work; this is a different scale of job and is kept out.
+This does **not** run in `npm run build`, unlike the logos and the portraits.
+Transcoding 570 MB of source takes several minutes, and Cloudflare Pages times a
+build out at 20 minutes. The output is committed instead, so CI never needs
+ffmpeg and never does the work. The logo and portrait scripts run at build time
+because they are a few seconds of work on 5 and 16 small files respectively;
+this is a different scale of job and is kept out.
 
 | | |
 | --- | --- |
-| `npm run media` | photographs only |
-| `npm run media -- --video` | also transcodes the video, and needs ffmpeg on `PATH` |
+| `npm run media` | photographs and video posters |
+| `npm run media -- --video` | also transcodes the MP4s, and needs ffmpeg on `PATH` |
 | `FFMPEG=/path/to/ffmpeg npm run media -- --video` | ffmpeg is not on `PATH` |
 
 ffmpeg is deliberately not a dependency. It is a large binary, it is needed
@@ -269,23 +303,48 @@ clones the whole repository on every build, and the build only ever needs the
 processed output. Committing both would make the repo about 650 MB and make
 every build pay to clone 570 MB it never reads. The originals stay on the
 machine that received them and the College has its own copies; re-transcoding
-needs them re-supplied. The videos are intended to move to YouTube, which would
-make the video originals the only genuinely redundant thing in the directory.
+needs them re-supplied.
 
-**The video transcode is not optional housekeeping — it is what makes the site
-deployable.** Cloudflare Pages rejects any single file over 25 MiB, and all four
-supplied videos exceeded it, by 27.8 to 166.6 MB. The 460 MB of source becomes
-51 MB of MP4, all four under the limit.
+### The video is on YouTube, and the local MP4s are gone
 
-The four videos are expected to be replaced by YouTube links once the College
-has uploaded them. Until then the page plays the files itself. The section is
-driven by one `VIDEOS` array in `src/pages/events-and-retreats.astro`, so the
-switch is a change to that array and to `src/components/EventVideo.astro` — one
-list, one component.
+**The four videos play from YouTube, embedded, and `src/assets/media/video/` is
+deleted.** The College uploaded the recordings and supplied the links. The
+transcode described in `CONTENT-SOURCING.md` was real work and is what the
+videos would need again, but it is no longer what ships.
 
-Both the photographs and the videos are referenced from
-`src/pages/events-and-retreats.astro` through `import.meta.glob`, so they are
-fingerprinted and cached like any other asset. Adding a new folder to
+Cloudflare Pages rejects any single file over 25 MiB, and all four supplied
+videos exceeded it, by 27.8 to 166.6 MB. **The transcode is what made the site
+deployable at all** — this was a build that could not succeed, not a heavy page.
+Embedding from YouTube removes the constraint rather than satisfying it, and
+takes the whole site from 77 MB to 23 MB.
+
+Each video is a **facade**: a local poster frame and a play button, with nothing
+loaded from Google until the button is pressed. YouTube's player is about a
+megabyte of JavaScript per embed and starts fetching on page load, so five eager
+iframes would put about five megabytes in front of a visitor who may not watch a
+frame. The player is then injected on `youtube-nocookie.com`.
+
+**Without JavaScript the section still works.** Each thumbnail is a real
+`<a href>` to the video on YouTube, so a visitor with no scripting is sent there
+and can watch. That is why it is not a `<button>` — a button with no handler is a
+dead control.
+
+`src/assets/media/youtube/` holds a local copy of each YouTube thumbnail as both
+a JPEG and a 640px WebP. A local copy means the page does not depend on
+`i.ytimg.com` being reachable and every visitor who scrolls past does not make a
+request to Google. `npm run media` refreshes them. A video whose thumbnail 404s
+while YouTube is still processing the upload falls back to a frame from
+`media/source/` rather than failing the script — that happened once, and a
+poster step that assumed a 200 would have taken the script down over a
+thumbnail.
+
+The `VIDEOS` array in `src/pages/events-and-retreats.astro` is the only list.
+Changing a link, a title or a channel is an edit to that array; titles and
+channels were read back from YouTube's oEmbed endpoint rather than typed from
+the URLs.
+
+Both the photographs and the posters are referenced through `import.meta.glob`,
+so they are fingerprinted and cached like any other asset. Adding a new folder to
 `media/source/` and running `npm run media` is enough to have it appear; add the
 set to `PHOTO_SETS` in that page as well.
 

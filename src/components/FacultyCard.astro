@@ -1,19 +1,28 @@
 ---
+import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
-import { IMAGES } from '../consts';
 import type { IconName } from './Icon.astro';
 import Icon from './Icon.astro';
-import RemoteImage from './RemoteImage.astro';
 
 /*
  * One member of the faculty on the Our Pride directory.
  *
  * The design draws a photograph where it has one and a drafting-board monogram
- * where it does not, and the two people it does have photographs of are the Dean
- * and the Architecture programme coordinator. Everything else gets the monogram.
- * That is not a placeholder this component invented: it is what the design
- * itself does, and drawing an invented face for the other thirteen would be a
- * worse lie than drawing no face. See CONTENT-SOURCING.md.
+ * where it does not, and the only two people it had photographs of were the
+ * Dean and the Architecture programme coordinator — both invented. The other
+ * thirteen got the monogram, so fourteen real faculty were represented on this
+ * site by an icon while two fictional people stood in for the roles.
+ *
+ * All sixteen are the College's own photographs now, supplied as files and
+ * processed by `scripts/build-faculty-portraits.mjs` into 256px WebPs. Nothing
+ * on this card is generated. The monogram is still here for anyone added to
+ * `faculty.json` without a photograph, because that is what the design does and
+ * it is a better answer than an invented face.
+ *
+ * The alt text is empty. The name is set in a heading directly beside the
+ * photograph, so naming the person again would only make a screen reader say
+ * it twice — the redundant-alt case, where `alt=""` is the correct answer and
+ * any other value is the wrong one. The card is no less usable without it.
  *
  * The glyph beside each credential comes from the credential's `kind` rather
  * than being written per entry, so editing somebody's record cannot end up
@@ -35,7 +44,16 @@ const KIND_ICON: Record<string, IconName> = {
 	industry: 'briefcase',
 };
 
-const portrait = d.portrait ? IMAGES.faculty[d.portrait] : undefined;
+/** Every generated portrait, keyed by the roster id it belongs to. */
+const portraits = import.meta.glob<{ default: ImageMetadata }>('../assets/faculty/*.webp', {
+	eager: true,
+});
+
+const portrait = d.portrait ? portraits[`../assets/faculty/${d.portrait}.webp`]?.default : undefined;
+
+if (d.portrait && !portrait) {
+	console.warn(`[faculty] "${d.id}" names a portrait "${d.portrait}" that was not generated`);
+}
 ---
 
 <article class="card p-space-md">
@@ -43,11 +61,13 @@ const portrait = d.portrait ? IMAGES.faculty[d.portrait] : undefined;
 		<div class="flex items-start justify-between gap-space-sm">
 			{portrait ? (
 				<picture class="size-16 shrink-0 overflow-hidden rounded-xl border border-grid bg-brand-50 shadow-inner">
-					<RemoteImage
+					<img
 						src={portrait.src}
-						alt={portrait.alt}
-						width={1024}
-						height={1024}
+						alt=""
+						width={portrait.width}
+						height={portrait.height}
+						loading="lazy"
+						decoding="async"
 						class="size-full object-cover object-top"
 					/>
 				</picture>

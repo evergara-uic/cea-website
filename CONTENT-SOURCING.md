@@ -94,10 +94,42 @@ structural claims about who runs each department and should be confirmed
 alongside the roster.
 
 The records live in `src/content/faculty.json`, one entry per person, so the
-roster can be corrected without touching the page. A person with no `portrait` is
-drawn as a drafting-board monogram: the design supplies photographs for the Dean
-and the Architecture coordinator only, and inventing faces for the other thirteen
-would be worse than drawing none.
+roster can be corrected without touching the page.
+
+## The faculty photographs
+
+**The College has since supplied all sixteen portraits, and the invented ones are
+deleted rather than left as fallbacks.** This closed the last invented faces on
+the site, and it closed the wrong way round: the design had drawn photographs of
+a Dean and an Architecture coordinator — two people who do not exist — and given
+the other fourteen real faculty a drafting-board monogram in their place.
+
+The supplied files are in `faculties/`, one per person, named after them. They are
+processed to 256px WebPs in `src/assets/faculty/` by
+`scripts/build-faculty-portraits.mjs`, which runs as part of `npm run build` the
+way the logo script does. 256 is the measured answer: the roster card draws the
+portrait at 64 CSS pixels, so 128 device pixels on a 2x display, and 15 MB of
+1125-pixel PNGs became 108 KB.
+
+**Two things still need doing, and neither is a code problem:**
+
+- **Alt text is empty, deliberately.** The name is set in a heading immediately
+  beside the photograph, so naming the person again would only make a screen
+  reader say it twice. This is the redundant-alt case and `alt=""` is the correct
+  answer. If anyone wants the alternative, it is a one-line change in
+  `FacultyCard.astro`, but the honest description of a portrait of a named person
+  is their name, and it is already there.
+- **Nobody has checked that each photograph is the right person.** The mapping
+  from roster id to filename is written out by hand in
+  `scripts/build-faculty-portraits.mjs` because the supplied filenames are in
+  upper case, carry post-nominals, and spell at least one forename out in full
+  where the roster uses only a suffix. Someone who knows the sixteen people
+  should confirm all sixteen. A build-time check confirms each *file* is present;
+  it cannot confirm each *face* is correctly labelled.
+
+The drafting-board monogram is still in `FacultyCard.astro`, for anyone added to
+`faculty.json` without a photograph. It is the design's own answer to that case,
+and it is a better one than an invented face.
 
 ## The curriculum matrix
 
@@ -163,17 +195,23 @@ three-and-four-item presentational blocks rather than a repeating record type.
 ## The College's supplied photographs and video
 
 The College supplied 135 photographs in five sets and four event videos, 570 MB
-in total, dropped into `public/`. They are now on the events page. What follows
-is what had to be decided to put them there, and what is still open.
+in total, dropped into `public/`. They are now on the events page, and the videos
+play from YouTube. What follows is what had to be decided to put them there, and
+what is still open.
 
 ### The videos could not have been deployed at all
+
+*Kept as the record of why. The transcode described here was real work and is
+what the videos would need again, but the files it produced are now deleted: the
+College uploaded the recordings to YouTube, and the next section is what shipped
+instead.*
 
 Cloudflare Pages rejects any single file over 25 MiB. All four videos exceeded
 it — by 27.8, 114.3, 151.6 and 166.6 MB — so the deploy failed before anything
 else could be diagnosed. This was not a matter of tidying up a heavy page; the
 site did not build.
 
-| Clip | Supplied | Now | Why it was that big |
+| Clip | Supplied | Transcoded to | Why it was that big |
 | --- | --- | --- | --- |
 | CEA Promotional Video | 27.8 MB, 720p30, 1.1 Mb/s | 13.9 MB | Already close to the limit |
 | EA Program — AVP | 166.6 MB, 1080**p60**, 9.5 Mb/s | 13.2 MB | 60 fps phone capture |
@@ -191,33 +229,58 @@ to 30 would duplicate frames and spend bitrate on nothing.
 Nothing in the footage was cut. If a clip is trimmed in the future, the
 transcode has to be redone from `media/source/`, not from the output.
 
-### The videos are expected to move to YouTube
+### The videos are on YouTube, and embedded
 
-The College intends to upload these four recordings to YouTube and link to them
-from the site, which is very likely the better outcome: 51 MB of hosted video on
-a college site is a lot to ask of a visitor on a phone, and YouTube handles
-mobile playback, captions, bandwidth and the embed's privacy options properly.
+**This is what the section above predicted, and it is done.** The College
+uploaded the recordings and supplied the links, so the site now embeds them from
+YouTube instead of serving 51 MB of its own. The local MP4s are deleted.
 
-Until that happens the page plays the four files itself, because that is what
-deployed. The section is driven by one `VIDEOS` array in
-`src/pages/events-and-retreats.astro`, so switching it over is a change to that
-array and to `EventVideo.astro` — one component, one list. The photographs are
-not affected either way.
+| On the site | YouTube title | Channel |
+| --- | --- | --- |
+| CEA Fair and Design Project Exhibit 2024 | *UIC CEA Fair and Design Project Exhibit 2024* | University of the Immaculate Conception |
+| …— full recording | *UIC CEA Fair and Design Project Exhibit 2024* | College of Engineering and Architecture |
+| CEA Fair 2025 | *CEA FAIR 2025* | University of the Immaculate Conception |
+| EA Program — AVP | *EA PROGRAM   AVP fixed* | College of Engineering and Architecture |
+| CEA Promotional Video | *CEA Promotional Video* | College of Engineering and Architecture |
 
-Two things worth deciding when the YouTube links arrive:
+Titles and channels were read back from YouTube's oEmbed endpoint rather than
+typed from the URLs, so they are the videos' own words and not a guess. The
+College's two "2024" links carry identical YouTube titles; the page distinguishes
+them because the College did, in the label it supplied.
 
-- **Whether to embed or link.** An embed plays on the page and costs the visitor
-  nothing until they press play, but loads YouTube's player and its tracking.
-  A link is lighter and loses the video from the page entirely. For a College
-  site, a link is the safer default and a thumbnail plus a link is the usual
-  compromise.
-- **Whether the recordings need captions.** Auto-captions on four recordings of
-  a student-led event are usually wrong enough to be embarrassing, and they are
-  also an accessibility failure. If they are not watched and corrected, the
-  embedded version should be muted by default or not embedded at all.
+**The brief was that a visitor should be able to watch without being sent off
+the site, so these are embeds, not links.** That rules out five eager iframes:
+YouTube's player is roughly a megabyte of JavaScript per embed and starts
+fetching on page load, so five of them would put about five megabytes in front of
+a visitor who may not watch a single frame. Each is instead a **facade** — a
+local poster frame and a play button, with nothing loaded from Google until that
+button is pressed. The player is then injected on
+`youtube-nocookie.com`, which sets no tracking cookies until playback starts.
 
-Once YouTube has them, `media/source/` and `src/assets/media/video/` can both be
-deleted and the 570 MB of originals stops being the last copy of anything.
+**Without JavaScript the section still works**, and that is what decided the
+markup. Each thumbnail is a real `<a href>` to the video on YouTube, so a visitor
+with no scripting is sent there and can watch. The script only intercepts the
+click to do something better. That is why it is not a `<button>`: a button with
+no handler is a dead control.
+
+Three things about this that need a decision or a check:
+
+- **Do the recordings need captions?** This is the one that matters. Four
+  recordings of a student-led event with no captions are an accessibility
+  failure, and YouTube's auto-captions on student voices in a noisy hall are
+  usually wrong enough to be embarrassing. Captions are edited on YouTube, not
+  here, so this cannot be fixed in the repository.
+- **The posters are copies of YouTube's own thumbnails**, downloaded once into
+  `src/assets/media/youtube/` and committed, so the page does not depend on
+  `i.ytimg.com` being reachable and every visitor who merely scrolls past does
+  not make a request to Google. `npm run media` refreshes them. The EA Program
+  clip's first download returned 404 at every size while YouTube was still
+  processing the upload — a poster script that assumed a 200 would have taken the
+  build down over a thumbnail — so the script falls back to a frame from the
+  supplied file, which is the same video at a measured 143 seconds against the
+  file's 142.8.
+- **Nothing describes what is in these videos.** The captions name them. Nobody
+  who can watch has written one line about what a visitor is about to see.
 
 The photographs went through the same problem by another route: 38 of them are
 1920x1080 **PNG** files of photographs, 60.6 MB, because a photograph saved as
@@ -307,25 +370,37 @@ field in is all that is needed; nothing has to be taken out afterwards.
 
 ## Imagery
 
-All nineteen images are remote files on Google's CDN, and **all nineteen are
-generated**. None is a photograph of the College. They depict an invented
-emblem, eight invented laboratory plates, three invented student projects, two
-invented faculty portraits, three invented event scenes and an invented map
-plate.
+**Sixteen of the design's nineteen images are now the College's own
+photographs, and the two invented faculty portraits are deleted rather than left
+as fallbacks.** The College's marks are in `logos/`, its 135 event photographs
+and five video poster frames are in `src/assets/media/`, and all sixteen faculty
+portraits are in `faculties/` and `src/assets/faculty/`.
 
-The two faculty portraits are the most sensitive of the nineteen, and the three
-event scenes are next: a generated crowd at a "campus recreation day" or a
-"community extension in Davao" reads as a photograph of a real CEA activity,
-which is precisely what these screens would be cited as evidence of. All five
-are labelled as illustrations in their alt text, and all five must be replaced
-with the College's own photography before publication.
+What remains of the design's imagery is remote files on Google's CDN, and
+**every one of those is still generated**. None is a photograph of the College.
+They depict an invented emblem, eight invented laboratory plates, three invented
+student projects, three invented event scenes and an invented map plate.
+
+The three event scenes are the most sensitive of what is left, and the map plate
+is next: a generated crowd at a "campus recreation day" or a "community
+extension in Davao" reads as a photograph of a real CEA activity, which is
+precisely what these screens would be cited as evidence of. All four are
+labelled as illustrations in their alt text, and all four must be replaced with
+the College's own photography before publication.
 
 They are in place because they are part of the design being adopted and because
 there is nothing else available for those slots. **They must be replaced with
 the College's own photography before this is published as a record of the
-institution.** The emblem was the most urgent of the nineteen, being the one
-image a visitor is most likely to read as the institution's own; that one is
-now replaced with the College's actual logo.
+institution.**
+
+**The two invented faculty portraits were the last invented faces, and closing
+them went the wrong way round for a while.** The design drew a photograph of a
+Dean and of an Architecture coordinator — two people who do not exist — while
+giving the other fourteen real faculty a drafting-board monogram. For that
+period the site represented fourteen real people as an icon and two imaginary
+people as photographs. All sixteen are the College's own now; see the faculty
+section above for the one check that has not been made, which is that each
+photograph is the right person.
 
 The College's own photography has since arrived — 135 photographs and four
 videos — and the events page now uses it for its video section, its photo
@@ -339,9 +414,10 @@ scene exists at Bonifacio Campus. The prototype's own alt text claimed it —
 "students in safety helmets", "in Bonifacio Campus" — and an accessibility
 layer should not state a fact about the real campus that is not true.
 
-All nineteen URLs are in `src/consts.ts` under `IMAGES`, and the loading, decoding
-and referrer policy for them live in one place, `src/components/RemoteImage.astro`.
-Replacing them is a change to those two files.
+The seventeen remaining URLs are in `src/consts.ts` under `IMAGES`, and the
+loading, decoding and referrer policy for them live in one place,
+`src/components/RemoteImage.astro`. Replacing them is a change to those two
+files.
 
 ### The College's own marks, which are now real
 

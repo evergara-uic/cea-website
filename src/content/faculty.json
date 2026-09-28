@@ -7,14 +7,20 @@
 		"focus": null,
 		"badge": "College Dean",
 		"badgeTone": "copper",
-		"postnominals": ["PCPE", "MEng-CpE"],
+		"postnominals": [
+			"PCPE",
+			"MEng-CpE"
+		],
 		"portrait": "dean",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master of Engineering Major in Computer Engineering"
 			},
-			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
+			{
+				"kind": "licence",
+				"text": "Professional Computer Engineer (CpECB)"
+			},
 			{
 				"kind": "membership",
 				"text": "Lifetime Member, Institute of Computer Engineers of the Philippines"
@@ -32,7 +38,7 @@
 		"badge": "Administrative Support",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "vitor",
 		"credentials": [],
 		"background": "Graduate of Bachelor of Science in Business Administration Major in Human Resource",
 		"functions": [
@@ -53,13 +59,16 @@
 		"badge": "Coordinator",
 		"badgeTone": "copper",
 		"postnominals": [],
-		"portrait": "coordinator",
+		"portrait": "santos",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master of Arts in Urban & Regional Planning"
 			},
-			{ "kind": "certification", "text": "BEC Facilitator" }
+			{
+				"kind": "certification",
+				"text": "BEC Facilitator"
+			}
 		],
 		"note": null,
 		"order": 1
@@ -73,9 +82,12 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "clave",
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Christian Education" },
+			{
+				"kind": "degree",
+				"text": "Master of Christian Education"
+			},
 			{
 				"kind": "degree",
 				"text": "Master in Environmental Planning (On-going)"
@@ -105,7 +117,7 @@
 		"badge": "Fellow & Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "bermudez",
 		"credentials": [
 			{
 				"kind": "degree",
@@ -115,7 +127,10 @@
 				"kind": "industry",
 				"text": "Principal Architect, MAGB Architecture and Interior Design"
 			},
-			{ "kind": "leadership", "text": "Club Moderator, UIC-UAPSA-EKISTICS" },
+			{
+				"kind": "leadership",
+				"text": "Club Moderator, UIC-UAPSA-EKISTICS"
+			},
 			{
 				"kind": "leadership",
 				"text": "President, Philippine Institute of Architects Davao Chapter (2018)"
@@ -124,7 +139,10 @@
 				"kind": "membership",
 				"text": "Member, United Architects of the Philippines Davao Alpha Chapter"
 			},
-			{ "kind": "membership", "text": "Member, PIA College of Fellows (2026)" },
+			{
+				"kind": "membership",
+				"text": "Member, PIA College of Fellows (2026)"
+			},
 			{
 				"kind": "leadership",
 				"text": "President, Full Gospel Businessmen's Fellowship International Madayaw Chapter (Present)"
@@ -142,8 +160,13 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
-		"credentials": [{ "kind": "certification", "text": "BEC Facilitator" }],
+		"portrait": "tanglao",
+		"credentials": [
+			{
+				"kind": "certification",
+				"text": "BEC Facilitator"
+			}
+		],
 		"note": "Specializing in architectural graphic techniques, building materials application, and vocational design studio mentoring.",
 		"order": 4
 	},
@@ -156,9 +179,12 @@
 		"badge": "Coordinator",
 		"badgeTone": "copper",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "ngo",
 		"credentials": [
-			{ "kind": "degree", "text": "Master of Engineering Program (On-going)" },
+			{
+				"kind": "degree",
+				"text": "Master of Engineering Program (On-going)"
+			},
 			{
 				"kind": "leadership",
 				"text": "Moderator, Electronics Engineering Organization"
@@ -180,14 +206,20 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "fuentes",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master of Arts in Engineering Education Major in Civil Engineering"
 			},
-			{ "kind": "leadership", "text": "Library-in-Charge, CEA" },
-			{ "kind": "membership", "text": "Member, UIC-Research Ethics Committee" },
+			{
+				"kind": "leadership",
+				"text": "Library-in-Charge, CEA"
+			},
+			{
+				"kind": "membership",
+				"text": "Member, UIC-Research Ethics Committee"
+			},
 			{
 				"kind": "membership",
 				"text": "Member, Philippine Institute of Civil Engineers"
@@ -205,7 +237,7 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "quino",
 		"credentials": [
 			{
 				"kind": "degree",
@@ -236,14 +268,20 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "alacaba",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master of Engineering Major in Computer Engineering"
 			},
-			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
-			{ "kind": "leadership", "text": "Moderator, ICpEP.SE - UIC Chapter" },
+			{
+				"kind": "licence",
+				"text": "Professional Computer Engineer (CpECB)"
+			},
+			{
+				"kind": "leadership",
+				"text": "Moderator, ICpEP.SE - UIC Chapter"
+			},
 			{
 				"kind": "leadership",
 				"text": "Professional Membership Officer, ICpEP Region XI Chapter (2025-Present)"
@@ -261,11 +299,20 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "vergara",
 		"credentials": [
-			{ "kind": "industry", "text": "DevSecOps at LuchTech" },
-			{ "kind": "certification", "text": "Ethical Hacker" },
-			{ "kind": "industry", "text": "Web Developer" }
+			{
+				"kind": "industry",
+				"text": "DevSecOps at LuchTech"
+			},
+			{
+				"kind": "certification",
+				"text": "Ethical Hacker"
+			},
+			{
+				"kind": "industry",
+				"text": "Web Developer"
+			}
 		],
 		"note": "Specialized instruction in cybersecurity defenses, defensive perimeter operations, and modern cloud deployment pipelines.",
 		"order": 3
@@ -279,7 +326,7 @@
 		"badge": "Coordinator",
 		"badgeTone": "copper",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "quinamot",
 		"credentials": [
 			{
 				"kind": "degree",
@@ -306,13 +353,16 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "tampus",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master in Engineering Education Major in Electronics Engineering (Candidate)"
 			},
-			{ "kind": "leadership", "text": "CEA Alumni Coordinator" },
+			{
+				"kind": "leadership",
+				"text": "CEA Alumni Coordinator"
+			},
 			{
 				"kind": "membership",
 				"text": "Member, Institute of Electronics Engineers of the Philippines"
@@ -330,13 +380,16 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "moso",
 		"credentials": [
 			{
 				"kind": "degree",
 				"text": "Master of Arts in Engineering Education Major in Electronics Engineering"
 			},
-			{ "kind": "certification", "text": "BEC Facilitator" },
+			{
+				"kind": "certification",
+				"text": "BEC Facilitator"
+			},
 			{
 				"kind": "membership",
 				"text": "Member, Institute of Electronics Engineers of the Philippines"
@@ -354,7 +407,7 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "sombilla",
 		"credentials": [
 			{
 				"kind": "degree",
@@ -377,7 +430,7 @@
 		"badge": "Faculty",
 		"badgeTone": "navy",
 		"postnominals": [],
-		"portrait": null,
+		"portrait": "aborde",
 		"credentials": [
 			{
 				"kind": "degree",
@@ -387,7 +440,10 @@
 				"kind": "leadership",
 				"text": "Moderator, Electronics Engineering Organization"
 			},
-			{ "kind": "leadership", "text": "Research-in-Charge, CEA" },
+			{
+				"kind": "leadership",
+				"text": "Research-in-Charge, CEA"
+			},
 			{
 				"kind": "membership",
 				"text": "Member, Institute of Electronics Engineers of the Philippines"

@@ -146,8 +146,14 @@ const faculty = defineCollection({
 		badgeTone: z.enum(['navy', 'copper']),
 		/** Post-nominals, set as filled chips under the Dean's portrait. */
 		postnominals: z.array(z.string()).default([]),
-		/** Key into IMAGES.faculty, or null for the monogram. */
-		portrait: z.enum(['dean', 'coordinator']).nullish(),
+		/**
+		 * The key of this person's portrait in `src/assets/faculty/`, which is
+		 * generated from `faculties/` by `scripts/build-faculty-portraits.mjs`.
+		 * It is always the entry's own `id`. Null renders the drafting-board
+		 * monogram instead, for anyone the College has not supplied a
+		 * photograph of.
+		 */
+		portrait: z.string().nullish(),
 		credentials: z
 			.array(
 				z.object({

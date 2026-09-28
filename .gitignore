@@ -20,6 +20,14 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Windows marks anything downloaded from the internet with an NTFS alternate
+# data stream. Copying such a folder to Linux, macOS or a container turns the
+# stream into a real file with a colon in its name — "portrait.png:Zone.Identifier"
+# — and a colon is not a legal filename character on either of those systems, so
+# a checkout containing one fails outright. Sixteen of these arrived with
+# faculties/ and were committed by accident before this rule existed.
+*:Zone.Identifier
+
 # jetbrains setting folder
 .idea/
 
@@ -47,3 +55,7 @@ pnpm-debug.log*
 # README. Note the videos are intended to move to YouTube, which would make
 # the video originals the only thing here that is truly redundant.
 media/source/
+
+# faculties/ IS committed, unlike the event originals above: it is 15 MB of
+# source, it is processed at build time like logos/, and unlike the event
+# photographs it is not a 570 MB liability on every clone.

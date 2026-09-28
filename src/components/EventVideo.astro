@@ -1,66 +1,166 @@
 ---
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+
 /*
- * One supplied event video, played in place.
+ * One College event video, playing on this page.
  *
- * Native `<video controls>`, no player library and no script. Every browser
- * this site might be opened in has one, which is worth more than a custom
- * player's skin, and the one thing a custom player would add is a thing that can
- * break without the build noticing.
+ * The College uploaded these to YouTube, and the brief was that a visitor
+ * should be able to watch without being sent off the site. That rules out a
+ * plain link and calls for an embed — but five eager iframes is the wrong way
+ * to build one. YouTube's player is roughly a megabyte of JavaScript per embed
+ * and it starts fetching the moment the page loads, so five of them put about
+ * five megabytes in front of a visitor who may not watch a single frame, and
+ * they all share Google's cookies, which is the part a college site should be
+ * least casual about.
  *
- * `preload="none"` matters more than it looks. Without it a browser starts
- * pulling all four clips the moment the page loads, so a visitor who scrolls
- * past this section without pressing play has still spent the bandwidth. The
- * poster is a single frame, so there is something to look at before that.
+ * So this is a facade: a local thumbnail and a play button, and nothing from
+ * Google until that button is pressed. The player is injected on click with
+ * `autoplay=1` and `youtube-nocookie.com`, which does not set tracking cookies
+ * until playback actually starts.
  *
- * The downloads attribute is left off deliberately. This is event footage, not a
- * file to hand around, and a forced download prompt on a video is annoying.
+ * WITHOUT JAVASCRIPT IT STILL WORKS, and this is the part that decides the
+ * markup. The thumbnail is a real `<a href>` pointing at the video on YouTube,
+ * so a visitor with no JavaScript is sent to YouTube and can watch the video
+ * there. The script only intercepts the click to do something better. That is
+ * why this is not a `<button>`: a button with no handler is the dead control
+ * this site has already had to unpick twice, in the prototype's own markup.
  *
- * The captions come from the filename, with the duration measured by ffprobe
- * during `npm run media`. Neither is invented.
+ * The poster is a local copy of YouTube's own thumbnail, so the page does not
+ * depend on i.ytimg.com being reachable to render. Every clip has one: the EA
+ * Program video's thumbnail 404'd at first, while YouTube was still processing
+ * that upload, and the poster script's fallback — a frame taken from the file
+ * the College supplied, which is the same video at a measured 143 seconds
+ * against the file's 142.8 — is what it used until a later run fetched a real
+ * one. See `scripts/build-media-assets.mjs`.
  */
 interface Props {
-	/** The fingerprinted MP4 URL, from the page's asset glob. */
-	src: string;
-	/** The poster frame, same. */
-	poster: string;
-	/** The title, as the file named it. */
+	/** The YouTube video id, e.g. "nD1d7Z7ao8Q". */
+	id: string;
+	/** The local poster frame, from the page's asset glob. */
+	poster: ImageMetadata;
+	/** The video's own title, as YouTube reports it. */
 	title: string;
-	/** Measured length, formatted for display. */
+	/** Which account published it, as YouTube reports it. */
+	channel: string;
+	/** The measured length, formatted for display. */
 	duration: string;
-	/** The source resolution and frame rate, before transcoding. */
-	source: string;
-	/** One line on what the footage shows. Factual, or omitted. */
-	note?: string;
 }
 
-const { src, poster, title, duration, source, note } = Astro.props;
+const { id, poster, title, channel, duration } = Astro.props;
+
+/** Only the id is ever interpolated into markup, so it is checked first. */
+const YOUTUBE_ID = /^[\w-]{11}$/;
+
+if (!YOUTUBE_ID.test(id)) {
+	throw new Error(`EventVideo: "${id}" is not a YouTube video id`);
+}
+const watch = `https://www.youtube.com/watch?v=${id}`;
 ---
 
-<figure class="flex flex-col overflow-hidden rounded-xl bg-midnight shadow-elev-1">
-	<video
-		controls
-		preload="none"
-		poster={poster}
-		playsinline
-		class="aspect-video w-full bg-midnight"
+<figure class="overflow-hidden rounded-xl bg-midnight shadow-elev-1">
+	<!--
+		The ratio box is what reserves the space before the thumbnail loads. A
+		grid cell with no intrinsic size jumps when the image arrives, and five
+		of those jumping at once is a visible lurch.
+	-->
+	<div
+		class="relative aspect-video w-full"
+		data-video-facade
+		data-video-id={id}
+		data-video-title={title}
 	>
-		<!--
-			The fallback text inside <video> is what a browser with no codec
-			support shows, so it cannot be empty. It deliberately gives the file
-			rather than a dead player.
-		-->
-		<source src={src} type="video/mp4" />
-		Your browser cannot play this video. It is an MP4 file, and the College
-		can send you a copy on request.
-	</video>
+		<a
+			href={watch}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group absolute inset-0 block size-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+		>
+			<img
+				src={poster.src}
+				alt=""
+				width={poster.width}
+				height={poster.height}
+				loading="lazy"
+				decoding="async"
+				class="size-full object-cover"
+			/>
+			<span
+				class="absolute inset-0 bg-midnight/25 transition-colors group-hover:bg-midnight/10"
+				aria-hidden="true"
+			></span>
+			<span
+				class="absolute inset-0 m-auto flex size-16 items-center justify-center rounded-full bg-copper text-white shadow-elev-2 transition-transform group-hover:scale-110"
+				aria-hidden="true"
+			>
+				<Icon name="play" size="28px" />
+			</span>
+			<span class="sr-only">
+				Play &ldquo;{title}&rdquo; on this page. Without JavaScript this opens it on YouTube.
+			</span>
+		</a>
+	</div>
+
 	<figcaption class="flex flex-col gap-1 px-space-md py-space-sm">
 		<span class="flex flex-wrap items-baseline gap-x-space-sm gap-y-1">
 			<span class="text-label-md font-semibold text-white">{title}</span>
 			<span class="text-label-md text-brand-300">{duration}</span>
 		</span>
 		<span class="text-label-md text-brand-400">
-			{source}
-			{note && <span> &middot; {note}</span>}
+			{channel} &middot; plays on this page
+			<a
+				href={watch}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="underline decoration-brand-600 underline-offset-2 hover:text-brand-300"
+			>
+				Watch on YouTube
+			</a>
 		</span>
 	</figcaption>
 </figure>
+
+<script>
+	/*
+	 * Swap each facade for a player, on click.
+	 *
+	 * One delegated listener on the document rather than one per card, so
+	 * adding or removing a video never means re-binding anything. The link is
+	 * left in place underneath and is simply covered, which means the page is
+	 * still correct if this script never runs at all.
+	 */
+	document.addEventListener('click', (event) => {
+		const link = (event.target as Element | null)?.closest?.<HTMLAnchorElement>(
+			'a[href^="https://www.youtube.com/watch"]',
+		);
+		if (!link) return;
+
+		// A modified click is a request to open a new tab, and a real click on
+		// the figcaption's "Watch on YouTube" is a request to leave.
+		if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+			return;
+		}
+
+		const box = link.closest<HTMLElement>('[data-video-facade]');
+		if (!box || box.dataset.played === 'true') return;
+
+		event.preventDefault();
+		box.dataset.played = 'true';
+
+		const id = box.dataset.videoId;
+		if (!id) return;
+
+		const frame = document.createElement('iframe');
+		frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+		frame.title = box.dataset.videoTitle ?? 'Video';
+		frame.allow =
+			'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+		frame.allowFullscreen = true;
+		frame.className = 'absolute inset-0 size-full border-0';
+
+		box.replaceChildren(frame);
+		// Without this a keyboard user's focus is left on a node that no longer
+		// exists, and the next Tab press goes to the top of the document.
+		frame.focus();
+	});
+</script>

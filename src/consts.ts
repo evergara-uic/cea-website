@@ -213,22 +213,31 @@ export const UTILITY_LINKS = [
 /**
  * Imagery.
  *
- * The design's nineteen images are all remote files on Google's CDN and all of
- * them are generated, not photographic records of this College — they depict
- * invented laboratories, invented student projects, invented event scenes, two
- * invented faculty portraits and an invented emblem. They are kept because they
- * are part of the design being adopted, and because there is no other image
- * available to put in these slots. Alt text describes the illustration without
- * asserting that the scene exists at Bonifacio Campus.
+ * The design's images are all remote files on Google's CDN and all of them are
+ * generated, not photographic records of this College — they depict invented
+ * laboratories, invented student projects, invented event scenes and an
+ * invented emblem. They are kept because they are part of the design being
+ * adopted, and because there is no other image available to put in these slots.
+ * Alt text describes the illustration without asserting that the scene exists at
+ * Bonifacio Campus.
  *
- * The emblem is the one exception worth naming. It is used in the header and
- * footer as a decorative motif, but the page a visitor is most likely to read
- * as the institution's own identity — /about/cea-logo-and-seal — now shows the
- * College's actual logo instead. The College's real marks, local and processed,
- * are in `logos/` and `src/assets/logos/`.
+ * Two slots have since been closed with the College's own photographs, and the
+ * placeholders they replaced are deleted rather than left lying around:
  *
- * All nineteen must be replaced with the College's own photographs before this
- * is published as a record of the institution. See CONTENT-SOURCING.md.
+ *   - The emblem, used in the header and footer as a decorative motif. The page
+ *     a visitor is most likely to read as the institution's own identity,
+ *     /about/cea-logo-and-seal, shows the College's actual logo instead. The
+ *     College's real marks, local and processed, are in `logos/` and
+ *     `src/assets/logos/`.
+ *
+ *   - The two invented faculty portraits, which were the last invented faces on
+ *     the site. All sixteen are now the College's own photographs, in
+ *     `faculties/` and `src/assets/faculty/`. Before that, fourteen real faculty
+ *     were represented by a drafting-board monogram while two people who do not
+ *     exist stood in for the Dean and the Architecture coordinator.
+ *
+ * What remains here must be replaced with the College's own photographs before
+ * this is published as a record of the institution. See CONTENT-SOURCING.md.
  */
 const CDN = 'https://lh3.googleusercontent.com/aida-public';
 
@@ -294,22 +303,6 @@ export const IMAGES = {
 		electronics: {
 			src: `${CDN}/AB6AXuDdBClni2JuobhyMGulbl9ACfyp4RLIaLO3dkSaXQMZ5PTg5kjPbhIuJ4i3jc2yATj61QwYAT3VWAOQT9nIRgsLDwXCqJtAFlWDorKvZws5iIW7UccoCBF5IHPl8JiTNNpSGR9QHhqS3_q1tf8ejQ6YeSxUwWhuEA6Uph3aVG7qT3-u1pYqZuHnLKaPwsAzDtiK-QeKzCqFhZt2SjBeA72-T1ESZyQXOv0KmS6SO0jTURoIkj2ZTEQlDw`,
 			alt: 'Illustration: an electronics engineering laboratory with oscilloscopes, RF spectrum analysers and telecommunications antennas.',
-		},
-	},
-	/*
-	 * The Faculty Directory draws two portraits. Every other person on that page
-	 * is shown as a drafting-board monogram instead of a face, which is the one
-	 * place the design happens to be honest about the fact that it has no
-	 * photographs of the faculty. See CONTENT-SOURCING.md.
-	 */
-	faculty: {
-		dean: {
-			src: `${CDN}/AB6AXuBM8kNF7aI835g6QeSM5NHhneHv6BT8fO1g3Aa3mkwylrwV0YSJILcWec4u_Vs7JFCYrZMVKY9oG_zPrnA4gpCYijowkmpKPA09ZUAJ3-MFF3s8kO3cxAJbZuyhlcNLsKi6tNo4j4lXDAJ_D0VgYsrFN5gQHVrPWV18F8LVd6PhSvwGrowQc3nUgdR9ELK0dneAIWYKaqDbxhFm42H_TazBZ7N5eJOpPaM2RR-_kSIHu2q6ivpmeD_42w`,
-			alt: 'Illustration: a portrait of a Filipina engineering dean in a blazer, used as the Dean of the College of Engineering and Architecture.',
-		},
-		coordinator: {
-			src: `${CDN}/AB6AXuCP36eAWS-eMJm8nY-DnLQcm1OMQHMDpxXKP-gdI4vZ5DQswqefsyExXaZf-KCzKyD_SNDuGMF62BB1OMoSZnUuOQaGgHtfOrEJbf8GqcWbuaInlh6l-CgYN9zGSi4oAtrVr-GSpUO4Qnei0s5RICbM6-1MoSHrxmxIy5igbBIcylxw2W9rpEcE_hMW4c_n-soakQRgKGh4uF9fWpvQXnEYVV-X4ZMXlyUTZ5W8mK-1RcU4f1tbB6uLrg`,
-			alt: 'Illustration: a portrait of a Filipino architect in studio clothing, used as the Program Coordinator of Architecture.',
 		},
 	},
 	/*
