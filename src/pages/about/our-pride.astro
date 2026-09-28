@@ -268,9 +268,11 @@ const COUNCILS = [
 				Dean's rather than beside them. The design sets them side by side in
 				a 8/4 split, which gave the assistant a third of the row for a card
 				holding a name, a role and two lists — and put a photograph in a
-				slot narrow enough to crop it awkwardly. Stacked, the assistant gets
-				the full width and the Dean keeps a portrait sized to be looked at,
-				which is what the feature card is for.
+				slot narrow enough to crop it awkwardly. Stacked, the assistant's
+				card is the full width of the row, and it lays its own portrait
+				beside its text rather than above it, so it still reads as a
+				portrait-and-text pair like the Dean's without being narrowed to
+				squeeze one.
 			-->
 			<div class="grid grid-cols-1 gap-space-lg">
 				<!-- Dean. -->
@@ -399,22 +401,25 @@ const COUNCILS = [
 							aria-hidden="true"
 						/>
 
-						<div class="space-y-space-sm">
-							<div class="flex items-center justify-between gap-2">
-								<span class="inline-flex items-center gap-1 rounded bg-brand-200 px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-navy">
-									<Icon name="person" size="14px" />
-									{assistant.data.badge}
-								</span>
-								<Icon name="menu_book" size="24px" class="text-brand-300" />
-							</div>
-
+						{/*
+						 * Portrait on the left, the text on the right, from `md` up — the
+						 * same shape as the Dean's card directly above, so the two read as
+						 * a pair. Below `md` it stays stacked: at 208px the portrait
+						 * leaves about 100px of column beside it on a 360px phone,
+						 * which is narrower than the role line and the bullets under it.
+						 *
+						 * `flex-1` on the text column rather than a fixed width, so this
+						 * card's text begins exactly where the Dean's does even though it
+						 * holds a third of the content.
+						 */}
+						<div class="flex flex-col gap-space-lg md:flex-row">
 							{assistantPortrait && (
 								/*
-								 * The same frame as every other portrait, and the same size
-								 * as the Dean's. Only the dimensions are set here; the
-								 * border, radius, background and shadow all come from
-								 * `.portrait-frame`, so the sixteen cannot drift apart
-								 * again. See the note on that class in global.css.
+								 * The same frame as every other portrait, and the same
+								 * size as the Dean's. Only the dimensions are set here;
+								 * the border, radius, background and shadow all come
+								 * from `.portrait-frame`, so the sixteen cannot drift
+								 * apart again. See the note on that class in global.css.
 								 */
 								<picture class="portrait-frame relative size-44 shrink-0 md:size-52">
 									<img
@@ -429,38 +434,48 @@ const COUNCILS = [
 								</picture>
 							)}
 
-							<div>
-								<h3 class="text-headline-sm font-bold text-navy">{assistant.data.name}</h3>
-								<p class="text-label-lg font-semibold text-copper">{assistant.data.role}</p>
+							<div class="flex-1 space-y-space-sm">
+								<div class="flex items-center justify-between gap-2">
+									<span class="inline-flex items-center gap-1 rounded bg-brand-200 px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-navy">
+										<Icon name="person" size="14px" />
+										{assistant.data.badge}
+									</span>
+									<Icon name="menu_book" size="24px" class="text-brand-300" />
+								</div>
+
+								<div>
+									<h3 class="text-headline-sm font-bold text-navy">{assistant.data.name}</h3>
+									<p class="text-label-lg font-semibold text-copper">{assistant.data.role}</p>
+								</div>
+
+								{assistant.data.background && (
+									<div class="space-y-1 rounded-lg border border-grid bg-subtle p-space-sm">
+										<p class="text-label-badge font-bold uppercase tracking-wider text-navy">
+											Academic Background
+										</p>
+										<p class="text-body-sm text-navy">{assistant.data.background}</p>
+									</div>
+								)}
+
+								{assistant.data.functions && (
+									<div class="space-y-1 pt-1">
+										<p class="text-label-badge font-bold uppercase tracking-wider text-brand-400">
+											Key Functional Areas
+										</p>
+										<ul class="space-y-1 text-body-sm text-brand-700">
+											{assistant.data.functions.map((fn) => (
+												<li class="flex items-center gap-2">
+													<span
+														class="size-1.5 shrink-0 rounded-full bg-amberprint"
+														aria-hidden="true"
+													/>
+													<span>{fn}</span>
+												</li>
+											))}
+										</ul>
+									</div>
+								)}
 							</div>
-
-							{assistant.data.background && (
-								<div class="space-y-1 rounded-lg border border-grid bg-subtle p-space-sm">
-									<p class="text-label-badge font-bold uppercase tracking-wider text-navy">
-										Academic Background
-									</p>
-									<p class="text-body-sm text-navy">{assistant.data.background}</p>
-								</div>
-							)}
-
-							{assistant.data.functions && (
-								<div class="space-y-1 pt-1">
-									<p class="text-label-badge font-bold uppercase tracking-wider text-brand-400">
-										Key Functional Areas
-									</p>
-									<ul class="space-y-1 text-body-sm text-brand-700">
-										{assistant.data.functions.map((fn) => (
-											<li class="flex items-center gap-2">
-												<span
-													class="size-1.5 shrink-0 rounded-full bg-amberprint"
-													aria-hidden="true"
-												/>
-												<span>{fn}</span>
-											</li>
-										))}
-									</ul>
-								</div>
-							)}
 						</div>
 
 						<div class="mt-space-md flex items-center justify-between border-t border-grid pt-space-md text-body-sm text-brand-700">
