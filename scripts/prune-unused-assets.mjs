@@ -31,10 +31,18 @@ import { join, relative, resolve, sep } from 'node:path';
 const DIST = resolve(process.argv[2] ?? 'dist');
 const ASSET_DIR = join(DIST, '_astro');
 
-/** Every file under a directory, recursively. */
+/** Every file under a directory, recursively. A missing directory is empty. */
 async function allFiles(dir) {
 	const found = [];
-	for (const entry of await readdir(dir, { withFileTypes: true })) {
+	let entries;
+	try {
+		entries = await readdir(dir, { withFileTypes: true });
+	} catch (error) {
+		// ENOENT only. Anything else is a real problem and propagates.
+		if (error.code === 'ENOENT') return found;
+		throw error;
+	}
+	for (const entry of entries) {
 		const path = join(dir, entry.name);
 		if (entry.isDirectory()) found.push(...(await allFiles(path)));
 		else found.push(path);

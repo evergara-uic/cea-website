@@ -1,0 +1,38 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "cea-website",
+	"compatibility_date": "2026-09-26",
+
+	// Assets-only Worker. There is deliberately no "main" field, and there is
+	// deliberately no @astrojs/cloudflare adapter.
+	//
+	// This site is thirteen prerendered HTML files, one stylesheet and three
+	// font files. Astro's own documentation says: "If you're using Astro as a
+	// static site builder, you don't need an adapter." An adapter turns the
+	// build into a server bundle, which moves the output from dist/ into
+	// dist/client/ and dist/server/ and provisions an IMAGES binding and a
+	// SESSION KV namespace — none of which this site uses.
+	//
+	// This file exists for one reason above all others: without it, `wrangler
+	// deploy` auto-configures on first run, decides the project is an Astro
+	// server app, and runs `astro add cloudflare` inside the build. That
+	// rewrites astro.config.mjs, adds the adapter as a dependency, and
+	// reconfigures the output layout, all without a commit. It happened once
+	// already. Pin the config and the guesswork goes away.
+	//
+	// No "binding" here either. ASSETS is only for a Worker that runs code and
+	// reads its static files from env.ASSETS; in an assets-only Worker the
+	// router serves them directly, and declaring the binding is an error:
+	// "Cannot use assets with a binding in an assets-only Worker."
+	//
+	// 404-page makes the asset router serve dist/404.html for an unmatched
+	// path, which is what Caddy does for the local preview.
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "404-page"
+	},
+
+	"observability": {
+		"enabled": true
+	}
+}

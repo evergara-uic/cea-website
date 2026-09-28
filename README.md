@@ -19,21 +19,35 @@ the local preview serves `dist/` through Caddy with `try_files`. A redirect
 loop in that file is invisible at `http://cea.kube` and fatal in production.
 `scripts/verify-dist.py` checks for it.
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare
 
-Connect the repository under **Workers & Pages → Create → Pages → Connect to
-Git**, then set:
+This is a **static** Astro site deployed to a **Cloudflare Worker with static
+assets**. It is not Cloudflare Pages, and it does not use the Cloudflare
+adapter. Astro's own documentation on that adapter says: *"If you're using
+Astro as a static site builder, you don't need an adapter."*
+
+Connect the repository under **Workers & Pages → Create → Connect to Git**, then
+set:
 
 | Setting                | Value                      |
 | :--------------------- | :------------------------- |
-| Framework preset       | `Astro`                    |
 | Build command          | `npm run build`            |
-| Build output directory | `dist`                     |
+| Deploy command         | `npx wrangler deploy`      |
 | Root directory         | repository root            |
 
-`npm run build` is `astro build && node scripts/prune-unused-assets.mjs`. It is
-not a Pages build image requirement — the same command produces the same output
-on a laptop, in the pod, and in Cloudflare.
+**`wrangler.jsonc` is load-bearing — do not delete it.** Without it, Wrangler
+auto-configures on first run, decides this is an Astro *server* app, and runs
+`astro add cloudflare` inside the build. That rewrites `astro.config.mjs` to add
+`adapter: cloudflare()`, adds `@astrojs/cloudflare` and `wrangler` as runtime
+dependencies, writes its own `wrangler.jsonc`, and reindents the whole config
+file — none of it committed, all of it changing the build. It moved the output
+from `dist/_astro` to `dist/client/_astro`, which then broke the post-build
+prune step, and it provisioned an unused `IMAGES` binding and `SESSION` KV
+namespace. The committed config pins an assets-only Worker: no `main`, no
+`binding`, no adapter.
+
+`npm run build` is `astro build && node scripts/prune-unused-assets.mjs`. The same
+command produces the same output on a laptop, in the pod, and in Cloudflare.
 
 Add these under **Settings → Environment variables → Production and Preview**:
 
@@ -158,6 +172,7 @@ scripts/
   verify-classes.py        classes the pages apply with no matching rule
   verify-dist.py           broken links, redirect loops, dead redirect targets
   prune-unused-assets.mjs  runs after the build; drops unused _astro output
+wrangler.jsonc      pins the assets-only Worker; without it Wrangler guesses
 Dockerfile.static   static image used by the local k8s preview
 Caddyfile           serves ./dist for that preview
 ```
@@ -169,5 +184,6 @@ that describes it as an illustration.
 ## Stack
 
 Astro 7, Tailwind CSS 4 through the Vite plugin, TypeScript in `astro check`
-mode, and vanilla JS in the pages. No hydration framework and no runtime
-dependency, so there is no client bundle to download beyond the browser's own.
+mode, and vanilla JS in the pages. No hydration framework, no adapter, and no
+server runtime, so there is no client bundle to download beyond the browser's
+own and no Worker code to execute.

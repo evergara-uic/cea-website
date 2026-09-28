@@ -320,3 +320,22 @@ There is no Content-Security-Policy, and one should not be added without
 checking what the pages actually need inline: every image is a remote URL applied
 through an inline `style="background-image: …"` attribute, which a strict
 `style-src` would break.
+
+The site deploys to a **Cloudflare Worker with static assets**, not to Pages,
+and it uses **no adapter**. The deploy is triggered by `npx wrangler deploy`
+with `wrangler.jsonc` committed. That file is not optional: without it Wrangler
+auto-configures on first run, concludes the project is an Astro server
+application, and runs `astro add cloudflare` inside the build container. That
+rewrites `astro.config.mjs` to add `adapter: cloudflare()`, adds
+`@astrojs/cloudflare` and `wrangler` as runtime dependencies, writes a competing
+`wrangler.jsonc`, and reindents the config file — none of it committed, all of
+it altering the build. It moved the build output from `dist/_astro` into
+`dist/client/_astro`, which broke `scripts/prune-unused-assets.mjs` with an
+ENOENT, and it provisioned an `IMAGES` binding and a `SESSION` KV namespace that
+this site never uses. It has been done once and the fix is committed.
+
+Astro's documentation on the Cloudflare adapter opens by saying the adapter is
+unnecessary for a static site builder, and its changelog records that Cloudflare
+**Pages support was removed from the adapter** in v13. An adapter build and a
+Pages deploy are therefore mutually exclusive, and the plain static build is the
+one that matches what this site is.
