@@ -44,28 +44,32 @@ if (site && !isAbsolute(site)) {
 
 // https://astro.build/config
 export default defineConfig({
-vite: {
-    plugins: [tailwindcss()],
-    server: {
-      // Astro runs Vite underneath, and Vite 6+ rejects any Host header that
-      // is not localhost — so without this every request through Traefik is
-      // answered "Blocked request. This host is not allowed."
-      allowedHosts: ['cea.kube'],
-      hmr: {
-        // Traefik terminates TLS at the edge; the dev server itself speaks
-        // plain HTTP inside the pod.
-        host: 'cea.kube',
-        protocol: 'wss',
-        clientPort: 443,
-      },
-      watch: {
-        // inotify does not reliably cross the hostPath/VirtioFS boundary on
-        // macOS, so the watcher polls rather than silently missing edits.
-        usePolling: true,
-        interval: 300,
-      },
-    },
-  },
+	// Dev-server only. None of this reaches the Cloudflare Pages build: the
+	// production build has no server to bind, and the deployed output is static
+	// files. It is here because the local preview reaches the dev server through
+	// Traefik on a hostname Vite would otherwise refuse to answer for.
+	vite: {
+		plugins: [tailwindcss()],
+		server: {
+			// Astro runs Vite underneath, and Vite 6+ rejects any Host header that
+			// is not localhost — so without this every request through Traefik is
+			// answered "Blocked request. This host is not allowed."
+			allowedHosts: ['cea.kube'],
+			hmr: {
+				// Traefik terminates TLS at the edge; the dev server itself speaks
+				// plain HTTP inside the pod.
+				host: 'cea.kube',
+				protocol: 'wss',
+				clientPort: 443,
+			},
+			watch: {
+				// inotify does not reliably cross the hostPath/VirtioFS boundary on
+				// macOS, so the watcher polls rather than silently missing edits.
+				usePolling: true,
+				interval: 300,
+			},
+		},
+	},
 
 	// Undefined when CEA_SITE_URL is unset, which is what suppresses canonical
 	// tags and the sitemap rather than filling them with a placeholder host.

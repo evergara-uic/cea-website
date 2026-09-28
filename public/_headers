@@ -1,8 +1,8 @@
 # Cloudflare Pages headers.
 #
-# This site is small: twelve pages, one stylesheet, three self-hosted font files
-# and ten remote images. There is no video and no document library, so the rules
-# are correspondingly short.
+# This site is small: thirteen pages, one stylesheet, three self-hosted font files
+# and nineteen remote images. There is no video and no document library, so the
+# rules are correspondingly short.
 
 /*
   X-Content-Type-Options: nosniff

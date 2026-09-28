@@ -8,6 +8,19 @@
 #
 # Syntax: /from  /to  [status]. Status defaults to 200 (a rewrite); 301 is used
 # throughout because these replacements are permanent.
+#
+# A rule may never name its own destination. Cloudflare matches the incoming
+# path against these lines before it looks for a file, so `/events  /events
+# 301` answers with a redirect to the address the visitor just asked for and the
+# browser gives up with ERR_TOO_MANY_REDIRECTS. A route that already exists at
+# its own address therefore gets no line here at all: Pages serves
+# `dist/events-and-retreats/index.html` for `/events-and-retreats` and for
+# `/events-and-retreats/` on its own, with no redirect involved.
+#
+# This file is only read by Cloudflare. The local preview serves dist through
+# Caddy, which uses `try_files` and never parses these rules — so a loop here is
+# invisible at http://cea.kube and total in production. scripts/verify-dist.py
+# checks it; see the self-redirect test there.
 
 # About.
 #
@@ -33,24 +46,27 @@
 /featured-works/sy-2024-2025  /featured-works  301
 /featured-works/sy-2025-2026  /featured-works  301
 /featured-works/sy-2026-2027  /featured-works  301
-/featured-works               /featured-works  301
 
 # Events & Retreats. The design gave this section a menu of four pages
 # (events-and-retreats, engineering-week, spiritual-formation-retreats and
-# archives) and screens for one of them. All four addresses therefore resolve to
-# the one page rather than three of them dead-ending; if the other three are
-# ever designed, their own routes take these lines back.
+# archives) and screens for one of them. The other three addresses therefore
+# resolve to the one page rather than dead-ending; if any of them is ever
+# designed, its own route takes the line back and this page stops answering for
+# it.
 #
-# The legacy /archives above is a different thing: it is the old Google Sites
-# downloads-and-archives address, and it stays with the works archive.
+# The legacy /archives at the foot of this file is a different thing: it is the
+# old Google Sites downloads-and-archives address, and it stays with the works
+# archive.
+#
+# /events-and-retreats is deliberately absent. The page is served from its own
+# address with no rule.
 /events                            /events-and-retreats  301
-/events-and-retreats               /events-and-retreats  301
 /engineering-week                  /events-and-retreats  301
 /spiritual-formation-retreats      /events-and-retreats  301
 
 # Contact. The design's contact band is a page here as well as a homepage
-# section, so the legacy address lands on it directly.
-/contact-and-inquiries        /contact-and-inquiries  301
+# section, so the legacy address lands on it directly. The page's own address
+# needs no line either.
 /contact                      /contact-and-inquiries  301
 
 # The legacy faculty roster, the downloads index and the archives. None of these

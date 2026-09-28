@@ -1,15 +1,19 @@
 /**
- * Remove source images that Astro copied into the build but nothing renders.
+ * Delete anything under dist/_astro that the build emitted but nothing renders.
  *
  * Astro emits the original file for every image it imports, because the
  * ImageMetadata `src` has to resolve to something. That is necessary at build
- * time but wasteful in the output: for this site's 125 photographs it means
- * tens of megabytes of full-size JPEGs sitting in dist next to the WebP
- * renditions the pages actually use. Uploading them costs deploy time for no
- * benefit.
+ * time but wasteful in the output: when the site carried 125 local photographs
+ * it meant tens of megabytes of full-size JPEGs sitting in dist next to the WebP
+ * renditions the pages actually used.
  *
- * This collects every asset the build references, then deletes anything under
- * _astro that nothing points at. It is deliberately conservative:
+ * Those photographs are gone. Every image is now a remote URL, so the only
+ * things under _astro are the stylesheet and the three font files and there is
+ * currently nothing to prune — the build log saying "pruned 0" is the visible
+ * sign that no local image crept back in. The script is kept because it is
+ * cheap, because it is the only thing that runs after `astro build` and would
+ * notice a broken asset reference, and because the next person to add a local
+ * image will want it. It is deliberately conservative:
  *
  *   - only files under _astro are ever considered for deletion
  *   - references are gathered from every text file in the build, not just

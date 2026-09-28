@@ -4,7 +4,8 @@
     python3 scripts/verify-dist.py
 
 Checks that each HTML file in dist/ has a matching route on disk, that no page
-links to a missing internal path, and reports the total weight of the build.
+links to a missing internal path, that public/_redirects contains no redirect
+loop, and reports the total weight of the build.
 """
 import glob
 import html
@@ -56,6 +57,57 @@ def resolves(path):
     return os.path.isfile(os.path.join(DIST, clean.lstrip("/")))
 
 
+def check_redirects():
+    """Audit dist/_redirects: no loop, no shadowed route, no dead destination.
+
+    This is the one defect that a build on this machine cannot catch and a
+    deploy turns catastrophic. The local preview serves dist through Caddy,
+    which uses `try_files` and never reads _redirects, so a rule here is inert
+    until Cloudflare honours it. A rule whose destination is its own source
+    answers every request with a redirect to the address just requested, and
+    the visitor gets ERR_TOO_MANY_REDIRECTS on a page that works perfectly
+    locally.
+    """
+    path = os.path.join(DIST, "_redirects")
+    if not os.path.isfile(path):
+        return 0
+
+    loops, shadowed, dangling = [], [], []
+    for lineno, raw in enumerate(open(path, encoding="utf-8"), 1):
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        parts = line.split()
+        if len(parts) < 2:
+            continue
+        src, dest = parts[0], parts[1]
+
+        if src.rstrip("/") == dest.rstrip("/"):
+            loops.append((lineno, src, dest))
+        elif resolves(src) and resolves(dest) and src.rstrip("/") != dest.rstrip("/"):
+            # Both addresses are real pages. Redirecting one to the other is
+            # legal but it means one of them can never be reached directly.
+            shadowed.append((lineno, src, dest))
+        elif not resolves(dest):
+            dangling.append((lineno, src, dest))
+
+    total = len(loops) + len(shadowed) + len(dangling)
+    if total:
+        print("REDIRECT PROBLEMS")
+        for lineno, src, dest in loops:
+            print(f"  _redirects:{lineno}  LOOP  {src} -> {dest}")
+        for lineno, src, dest in dangling:
+            print(f"  _redirects:{lineno}  DEAD  {src} -> {dest}  (no such page)")
+        for lineno, src, dest in shadowed:
+            print(f"  _redirects:{lineno}  SHADOW  {src} -> {dest}  (both are real pages)")
+        print()
+    else:
+        print("no redirect loops, dead ends or shadowed routes")
+        print()
+
+    return len(loops) + len(dangling)
+
+
 def main():
     pages = sorted(glob.glob(os.path.join(DIST, "**", "*.html"), recursive=True))
     if not pages:
@@ -88,6 +140,8 @@ def main():
     else:
         print(f"all {ref_count} internal references resolve")
 
+    redirect_failures = check_redirects()
+
     # Weight, and the largest files, which is what a CDN actually has to move.
     files = [os.path.join(r, n) for r, _, ns in os.walk(DIST) for n in ns]
     total = sum(os.path.getsize(p) for p in files)
@@ -97,7 +151,7 @@ def main():
     for p in sorted(files, key=os.path.getsize, reverse=True)[:10]:
         print(f"  {os.path.getsize(p) / 1048576:>7.1f} MB  {os.path.relpath(p, DIST)}")
 
-    return 1 if broken else 0
+    return 1 if (broken or redirect_failures) else 0
 
 
 if __name__ == "__main__":
