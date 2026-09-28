@@ -3,18 +3,25 @@
  * CEA Logo & Seal.
  *
  * The design named this page in its About menu and drew it with the emblem, the
- * acronym, the mission and the accreditation line. The College's actual seal
- * files are not used on this site — the design's emblem is generated, not the
- * College's mark, and the generated one is what the design calls for. That is
- * recorded in CONTENT-SOURCING.md, because the emblem is the one image a
- * visitor is most likely to read as the institution's own.
+ * acronym, the mission and the accreditation line.
+ *
+ * The emblem is now the College's own lockup, supplied in `logos/` and
+ * processed by `scripts/build-logo-assets.mjs`. It previously showed the
+ * design's generated emblem, which is an illustration rather than an
+ * institutional mark and is the one image a visitor is most likely to read as
+ * the College's own. The generated emblem is still used elsewhere as a
+ * decorative motif; it is no longer presented as the seal.
+ *
+ * The accreditation line below is the design's own wording and is recorded as
+ * unsourced in CONTENT-SOURCING.md. The College's real position is one
+ * accredited programme, BS CpE at PAASCU Level II.
  */
 import { getCollection } from 'astro:content';
-import { IMAGES, PARENT_INSTITUTION } from '../../consts';
+import { PARENT_INSTITUTION } from '../../consts';
 import Icon from '../../components/Icon.astro';
 import ProgramMark from '../../components/ProgramMark.astro';
-import RemoteImage from '../../components/RemoteImage.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
+import ceaLogo from '../../assets/logos/cea.webp';
 import Base from '../../layouts/Base.astro';
 
 const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
@@ -55,12 +62,13 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
 		<div class="mx-auto max-w-7xl px-space-gutter">
 			<div class="grid grid-cols-1 items-center gap-space-xl md:grid-cols-2">
 				<figure class="flex aspect-square items-center justify-center rounded-2xl bg-subtle p-space-xl">
-					<RemoteImage
-						src={IMAGES.emblem.src}
-						alt={IMAGES.emblem.alt}
-						width={512}
-						height={512}
+					<img
+						src={ceaLogo.src}
+						width={ceaLogo.width}
+						height={ceaLogo.height}
+						alt="University of the Immaculate Conception College of Engineering and Architecture logo"
 						loading="eager"
+						decoding="async"
 						class="max-h-full w-auto object-contain"
 					/>
 				</figure>
@@ -107,8 +115,12 @@ const programs = (await getCollection('programs')).sort((a, b) => a.data.order -
 			<ul class="grid grid-cols-1 gap-space-md sm:grid-cols-2 lg:grid-cols-4">
 				{programs.map((program) => (
 					<li class="card items-center p-space-lg text-center">
-						<span class="mb-space-md flex size-20 items-center justify-center rounded-full bg-canvas p-3">
-							<ProgramMark mark={program.data.mark} label={program.data.badgeLabel} />
+						<span class="mb-space-md">
+							<ProgramMark
+								mark={program.data.mark}
+								label={program.data.badgeLabel}
+								surface="bg-canvas"
+							/>
 						</span>
 						<span class="block text-headline-sm font-bold text-navy">{program.data.name}</span>
 						<span class="mt-1 block text-label-md text-copper">{program.data.overline}</span>

@@ -60,8 +60,9 @@ cannot be combined. Astro's deploy guide now documents Workers only — that is
 not a statement that Pages stopped working, it is that the documentation moved.
 Pages still reads `_redirects` and `_headers` exactly as this site expects.
 
-`npm run build` is `astro build && node scripts/prune-unused-assets.mjs`. The same
-command produces the same output on a laptop, in the pod, and in Cloudflare.
+`npm run build` is `node scripts/build-logo-assets.mjs && astro build && node
+scripts/prune-unused-assets.mjs`. The same command produces the same output on a
+laptop, in the pod, and in Cloudflare.
 
 Add these under **Settings → Environment variables → Production and Preview**:
 
@@ -104,19 +105,23 @@ from the environment precisely so that one build can be served from `cea.kube`
 in review and from a Pages address in production without a wrong absolute URL
 reaching the page.
 
-### `sharp` is still installed, and that is not a mistake
+### `sharp` is a real dependency, and still should not be removed
 
-`sharp` is not a dependency of this project. It is an *optional* dependency of
-`astro` itself, which uses it for image optimisation. Because this site has no
-local images — every photograph is a remote URL applied through an inline
-`style` attribute — Astro never calls into it, and the build completes
-identically with the package removed.
+`scripts/build-logo-assets.mjs` imports `sharp` directly, so it is declared in
+`dependencies` rather than arriving as an optional dependency of `astro`. It
+resizes and re-encodes the five logo files, which is the only image processing
+this project does — nothing in `src/` runs an image through it at build time.
+
+`sharp` is also an *optional* dependency of `astro`, which uses it for image
+optimisation, and the two are the same install. Because every photograph on the
+site is a remote URL applied through an inline `style` attribute, Astro never
+calls into it for anything else, and the build completes identically with the
+package removed.
 
 `npm ci --omit=optional` does skip it, along with 18 MB of libvips, but it also
 skips Rollup's and esbuild's native binaries and the build then fails. So do not
-set that. The install is about 160 MB either way, and it is build time only:
-nothing from `node_modules` is served, because the deployed output is HTML, one
-stylesheet and three font files.
+set that. Nothing from `node_modules` is ever served, because the deployed output
+is HTML, one stylesheet and five logo files.
 
 ### After the first deploy
 
@@ -185,6 +190,7 @@ site. Treat any report of missing or blank content as a cascade question first.
 | :------------------------------------------- | :-------------------------- |
 | Page copy: programmes, works, faculty, events | `src/content/*.json`       |
 | Navigation, contact details, imagery, dates   | `src/consts.ts`            |
+| A programme's logo                          | `logos/`, then `npm run logos` |
 | A glyph                                      | `src/components/Icon.astro` |
 | A section's layout                           | the `.astro` file in `src/pages/` |
 | Type scale, colour, spacing tokens            | `src/styles/global.css`    |
@@ -196,8 +202,11 @@ rendering an empty card.
 ## Repository layout
 
 ```text
+logos/               the College's supplied logo files — the source of truth,
+                     deliberately outside public/ so they are never deployed
 src/
   assets/fonts/     Fraunces and Atkinson, self-hosted and subset-free
+  assets/logos/     the processed logo WebPs; generated, do not hand-edit
   components/       ~25 .astro components; Icon.astro holds every inline SVG glyph
   content/          programs.json, works.json, faculty.json, events.json
   layouts/          Base.astro — the document shell
@@ -207,9 +216,10 @@ public/
   _redirects        legacy Google Sites paths, mapped to current routes
   _headers          cache and security headers
 scripts/
-  verify-classes.py        classes the pages apply with no matching rule
-  verify-dist.py           broken links, redirect loops, dead redirect targets
-  prune-unused-assets.mjs  runs after the build; drops unused _astro output
+  build-logo-assets.mjs   runs before the build; sizes the logos in logos/
+  verify-classes.py       classes the pages apply with no matching rule
+  verify-dist.py          broken links, redirect loops, dead redirect targets
+  prune-unused-assets.mjs runs after the build; drops unused _astro output
 Dockerfile.static   static image used by the local k8s preview
 Caddyfile           serves ./dist for that preview
 ```
@@ -219,9 +229,37 @@ tool; Pages does not read it. Its presence would only invite someone to set
 `npx wrangler deploy` as the deploy command, which is what broke the first
 deploy.
 
-`src/assets/` holds only fonts. Every photograph is a remote URL declared in
-`src/consts.ts`, rendered through `RemoteImage.astro`, and carries alt text
-that describes it as an illustration.
+`src/assets/` holds the fonts and the processed logos. Every photograph is a
+remote URL declared in `src/consts.ts`, rendered through `RemoteImage.astro`,
+and carries alt text that describes it as an illustration.
+
+## The logos
+
+`logos/` holds the five files the College supplied, unmodified, as the source of
+truth. `npm run build` runs `scripts/build-logo-assets.mjs` first, which writes
+WebPs into `src/assets/logos/`. **Never hand-edit anything in
+`src/assets/logos/` — it is regenerated, and only the originals in `logos/`
+should be changed.**
+
+Two things about that script are worth knowing before you touch it.
+
+It **crops empty margin** rather than rescaling. The originals pad very
+differently — the architecture mark's ink starts 6% in and stops at 84%, the
+Civil mark is edge to edge — so without the crop the padded marks render visibly
+smaller inside the same 80-pixel plate. It does not equalise what is left,
+because that is a judgement about relative visual weight rather than a crop.
+
+It does **not** vectorise, and that was measured rather than assumed. Rendering a
+Potrace of each logo back to a raster and diffing it against its own source
+gives a mean absolute error out of 255: the electronics mark, which is the only
+one that is flat line art, traces to within 1.2; the other three sit between 22
+and 48, with over half their pixels substantially wrong. A traced photograph is a
+cartoon of the College's own mark. If the College supplies AI, EPS or SVG
+originals, this script is the only thing that needs to change.
+
+Net effect: 5,614 KB of source becomes 191 KB of WebP, a 97% reduction, and the
+architecture mark goes from 4,274 KB to 19 KB.
+
 
 ## Stack
 

@@ -178,8 +178,9 @@ with the College's own photography before publication.
 They are in place because they are part of the design being adopted and because
 there is nothing else available for those slots. **They must be replaced with
 the College's own photography before this is published as a record of the
-institution.** The emblem is the most urgent: it is the one image a visitor is
-most likely to read as the institution's own.
+institution.** The emblem was the most urgent of the nineteen, being the one
+image a visitor is most likely to read as the institution's own; that one is
+now replaced with the College's actual logo. See below.
 
 The alt text was written to describe the illustration without asserting that the
 scene exists at Bonifacio Campus. The prototype's own alt text claimed it —
@@ -189,6 +190,74 @@ layer should not state a fact about the real campus that is not true.
 All nineteen URLs are in `src/consts.ts` under `IMAGES`, and the loading, decoding
 and referrer policy for them live in one place, `src/components/RemoteImage.astro`.
 Replacing them is a change to those two files.
+
+### The College's own marks, which are now real
+
+Five logo files were supplied and are now in use. They are the first real
+institutional assets on the site.
+
+| File | Used for |
+| :-- | :-- |
+| `CEA logo.png` | the hero mark on `/about/cea-logo-and-seal` |
+| `architect_logo.png` | the BS Architecture mark |
+| `civilEngineer_logo.webp` | the BS Civil Engineering mark |
+| `ICPEP.SE_logo.png` | the BS Computer Engineering mark |
+| `electronics_engineering_logo.png` | the BS Electronics Engineering mark |
+
+This closes the gap flagged above. `/about/cea-logo-and-seal` previously showed
+the generated emblem — the one image on the site most likely to be read as the
+institution's own identity — and now shows the College's actual lockup. The
+generated emblem remains in `IMAGES.emblem` and is still drawn in the header and
+the footer, where it is a decorative motif rather than a claim about the seal.
+
+**Three things are not yet settled and one of them needs a decision.**
+
+**1. Vector originals should be requested.** The five files are raster, and
+three of them are not line art at all. They were measured before being used:
+rendering a Potrace of each back to a raster and diffing it against its own
+source gives a mean absolute error per pixel out of 255.
+
+| File | Distinct colours | Saturation | MAE | Pixels substantially wrong |
+| :-- | --: | --: | --: | --: |
+| `electronics_engineering_logo.png` | 32 | 0.000 | 1.2 | 1.3% |
+| `CEA logo.png` | 135 | 0.147 | 22.1 | 21.3% |
+| `architect_logo.png` | 456 | 0.026 | 37.9 | 44.5% |
+| `civilEngineer_logo.webp` | 2266 | 0.194 | 44.2 | 56.2% |
+| `ICPEP.SE_logo.png` | 4148 | 0.284 | 47.8 | 53.1% |
+
+Only the electronics mark is flat line art, and it traces to within 1.2/255. The
+other three are tonal or photographic, where Potrace has to invent the greys and
+over half the pixels come out substantially wrong. A traced photograph is a
+cartoon of the College's own mark, so **the logos are served as raster**, sized
+to the 56 CSS pixels they actually occupy. Ask the College for the AI, EPS or
+SVG originals; logos are made in vector tools and these are exports. When they
+arrive, `scripts/build-logo-assets.mjs` is the only thing that has to change.
+
+**2. The Civil mark carries a black field of its own.** `civilEngineer_logo.webp`
+has no alpha channel and its corners are `#000000`. This was confirmed to be part
+of the artwork rather than an artefact of how it was saved, so it is left alone
+and `ProgramMark.astro` gives that one mark a dark plate — a near-black disc the
+same colour as the artwork, so the square's edge disappears and the plate reads
+as a circle like the other three. If that judgement is wrong, the field can be
+knocked out to transparency instead, but that needs care: the mark has dark areas
+of its own and a naive white-key would take them with it.
+
+**3. Alt text is derived, not verified.** The mark alt reads `"<badgeLabel>
+logo"` — "PICE UIC logo", "UAPSA UIC logo", "ICPEP.SE UIC logo", "ECES • EST. 1992
+logo". That states the association and asserts nothing about what the artwork
+depicts, which is deliberate: these were supplied as files and nothing is
+documented about what each one shows. If any mark contains text the site should
+be transcribing, or a seal with a date or founding year on it, that has to be
+read off the artwork by a person and the alt text written to match.
+
+**Not verified: the apparent size difference between the marks.** Empty
+transparent margin is cropped in the build, which is a crop and not a rescale.
+What remains is that the artwork itself fills very different fractions of the
+original canvas — architecture 78%, electronics 84%, civil and ICpEP 99% — so the
+Civil and ICpEP marks will sit larger inside their 80-pixel plates than the other
+two. Equalising them means choosing relative visual weights, which is a design
+judgement, so it has been left alone pending a look at the rendered page.
+
 
 ### The deleted legacy media, and why there is nothing to restore
 

@@ -95,7 +95,11 @@ export const CONTACT = {
 	},
 } as const;
 
-/** The four generated discipline marks carried in ProgramMark.astro. */
+/**
+ * The four programme marks, one per degree. The artwork is the College's own
+ * logo for that programme, held in `logos/`, processed into `src/assets/logos/`
+ * by `scripts/build-logo-assets.mjs` and drawn by `ProgramMark.astro`.
+ */
 export type ProgramMarkName = 'architecture' | 'civil' | 'computer' | 'electronics';
 
 export const COPYRIGHT = `© ${new Date().getFullYear()} University of the Immaculate Conception • College of Engineering and Architecture. All rights reserved.`;
@@ -216,6 +220,12 @@ export const UTILITY_LINKS = [
  * are part of the design being adopted, and because there is no other image
  * available to put in these slots. Alt text describes the illustration without
  * asserting that the scene exists at Bonifacio Campus.
+ *
+ * The emblem is the one exception worth naming. It is used in the header and
+ * footer as a decorative motif, but the page a visitor is most likely to read
+ * as the institution's own identity — /about/cea-logo-and-seal — now shows the
+ * College's actual logo instead. The College's real marks, local and processed,
+ * are in `logos/` and `src/assets/logos/`.
  *
  * All nineteen must be replaced with the College's own photographs before this
  * is published as a record of the institution. See CONTENT-SOURCING.md.
