@@ -1,0 +1,139 @@
+---
+/*
+ * The programme coordinator of a department, drawn as a feature card above that
+ * department's faculty.
+ *
+ * This is the third card on the site and the second of the two that are not the
+ * compact roster card, so it is worth saying what it is a copy of. Its frame is
+ * the administrative assistant's, down to the copper rule on the leading edge
+ * and the portrait at `size-44 md:size-52`, because the two sit in adjacent
+ * sections and a different frame would read as a different kind of person. Its
+ * contents are the Dean's, minus the three things the Dean alone has: a quote,
+ * a postnominal row, and a mailto button. Every one of those is keyed on data
+ * only the Dean's record carries, and a card that renders an empty block for
+ * four of the five people it is given is worse than a card that does not try.
+ *
+ * The Dean herself is drawn through this component as Computer Engineering's
+ * coordinator, because she holds that post — "College Dean & Program
+ * Coordinator, Computer Engineering" in her own record — while being filed
+ * under the dean section in `faculty.json`. Her badge therefore reads "College
+ * Dean" on this card, which is the record's own word and not an invention.
+ *
+ * The name is set in the serif at `headline-md`, as the Dean's is and as the
+ * department banner above it is. A coordinator is the figurehead of the
+ * department the banner names, and this is the one card in the section that is
+ * allowed to speak at the banner's volume.
+ *
+ * Alt text is empty, on the same reasoning as every other portrait here: the name
+ * is set in a heading beside the photograph, so naming the person again is the
+ * redundant-alt case.
+ */
+import type { ImageMetadata } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { credentialIcon } from './credential-icon';
+
+interface Props {
+	person: CollectionEntry<'faculty'>;
+}
+
+const { person } = Astro.props;
+const d = person.data;
+
+/** Every generated portrait, keyed by the roster id it belongs to. */
+const portraits = import.meta.glob<{ default: ImageMetadata }>('../assets/faculty/*.webp', {
+	eager: true,
+});
+
+const portrait = d.portrait ? portraits[`../assets/faculty/${d.portrait}.webp`]?.default : undefined;
+
+if (d.portrait && !portrait) {
+	console.warn(`[faculty] "${d.id}" names a portrait "${d.portrait}" that was not generated`);
+}
+---
+
+<article class="relative flex flex-col overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 md:flex-row md:gap-space-lg">
+	{/*
+	 * The department banners' frame: a 4px copper rule on the leading edge,
+	 * `border-l-4 border-amberprint` there. Absolutely positioned rather than
+	 * a border, because a border sits inside the box and would shift this
+	 * card's text 4px right of everything above it. `overflow-hidden` and
+	 * `rounded-xl` clip the bar to the card, so it reads the same.
+	 */}
+	<span
+		class="pointer-events-none absolute inset-y-0 left-0 w-1 bg-amberprint"
+		aria-hidden="true"
+	/>
+
+	<picture class="portrait-frame relative size-44 shrink-0 md:size-52">
+		{portrait ? (
+			<img
+				src={portrait.src}
+				alt=""
+				width={portrait.width}
+				height={portrait.height}
+				loading="lazy"
+				decoding="async"
+				class="size-full object-cover object-top"
+			/>
+		) : (
+			<span class="flex size-full items-center justify-center bg-brand-100 text-navy">
+				<Icon name="draw" size="64px" />
+			</span>
+		)}
+	</picture>
+
+	<div class="flex-1 space-y-space-sm">
+		<div class="flex items-center justify-between gap-2">
+			{/*
+			 * A solid copper badge rather than the roster card's
+			 * `bg-copper/10`. On a card this size the tint is too quiet to
+			 * read as a marker of rank, and the solid is the Dean's, so
+			 * "Coordinator" and "College Dean" are the same object.
+			 */}
+			<span
+				class:list={[
+					'inline-flex items-center gap-1.5 rounded px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider',
+					d.badgeTone === 'copper' ? 'bg-copper text-white' : 'bg-brand-200 text-navy',
+				]}
+			>
+				<Icon name="stars" size="14px" />
+				{d.badge}
+			</span>
+			<Icon name="menu_book" size="24px" class="text-brand-300" />
+		</div>
+
+		<div class="space-y-1">
+			{d.focus && (
+				<span class="text-label-badge font-bold uppercase tracking-wider text-copper">
+					{d.focus}
+				</span>
+			)}
+			<h3 class="font-serif text-headline-md font-bold leading-tight text-navy">{d.name}</h3>
+			<p class="text-label-lg font-semibold text-copper">{d.role}</p>
+		</div>
+
+		{d.credentials.length > 0 && (
+			<div class="space-y-1 rounded-lg border border-grid bg-subtle p-space-sm">
+				<p class="flex items-center gap-1 text-label-md font-bold uppercase tracking-wider text-navy">
+					<Icon name="verified_user" size="16px" class="text-amberprint" />
+					Verified Credentials &amp; Affiliations
+				</p>
+				<ul class="space-y-1 pl-1 text-body-sm text-brand-700">
+					{d.credentials.map((credential) => (
+						<li class="flex items-start gap-2">
+							<Icon
+								name={credentialIcon(credential.kind)}
+								size="16px"
+								class="mt-0.5 shrink-0 text-copper"
+							/>
+							<span>{credential.text}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		)}
+
+		{d.note && <p class="text-body-sm italic text-brand-700">{d.note}</p>}
+	</div>
+</article>

@@ -22,8 +22,12 @@ const MARKS = ['architecture', 'civil', 'computer', 'electronics'] as const;
  * membership, a case for industry work. Keeping the icon in the kind rather than
  * in the text means editing a credential never risks attaching the wrong glyph
  * to somebody's record.
+ *
+ * Exported so `components/credential-icon.ts` can key its glyph map on this list
+ * through a type-only import, which makes the map exhaustive by construction: a
+ * new kind here with no glyph is a compile error rather than a missing icon.
  */
-const CREDENTIAL_KINDS = [
+export const CREDENTIAL_KINDS = [
 	'degree',
 	'licence',
 	'certification',

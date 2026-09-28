@@ -1,8 +1,8 @@
 ---
 import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
-import type { IconName } from './Icon.astro';
 import Icon from './Icon.astro';
+import { credentialIcon } from './credential-icon';
 
 /*
  * One member of the faculty on the Our Pride directory.
@@ -26,7 +26,9 @@ import Icon from './Icon.astro';
  *
  * The glyph beside each credential comes from the credential's `kind` rather
  * than being written per entry, so editing somebody's record cannot end up
- * pointing a mortarboard at a licence.
+ * pointing a mortarboard at a licence. The map itself is in
+ * `credential-icon.ts`, shared with the coordinator card, and keyed on the
+ * schema's own `CREDENTIAL_KINDS` so the two cannot fall out of step.
  */
 interface Props {
 	person: CollectionEntry<'faculty'>;
@@ -34,15 +36,6 @@ interface Props {
 
 const { person } = Astro.props;
 const d = person.data;
-
-const KIND_ICON: Record<string, IconName> = {
-	degree: 'school',
-	licence: 'verified',
-	certification: 'workspace_premium',
-	membership: 'badge',
-	leadership: 'military_tech',
-	industry: 'briefcase',
-};
 
 /** Every generated portrait, keyed by the roster id it belongs to. */
 const portraits = import.meta.glob<{ default: ImageMetadata }>('../assets/faculty/*.webp', {
@@ -104,7 +97,7 @@ if (d.portrait && !portrait) {
 				{d.credentials.map((credential) => (
 					<li class="flex items-start gap-1.5">
 						<Icon
-							name={KIND_ICON[credential.kind]}
+							name={credentialIcon(credential.kind)}
 							size="15px"
 							class="mt-0.5 shrink-0 text-amberprint"
 						/>

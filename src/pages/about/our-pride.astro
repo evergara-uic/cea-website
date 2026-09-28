@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { ENROLL_URL } from '../../consts';
 import type { IconName } from '../../components/Icon.astro';
 import FacultyCard from '../../components/FacultyCard.astro';
+import CoordinatorCard from '../../components/CoordinatorCard.astro';
 import Icon from '../../components/Icon.astro';
 import Base from '../../layouts/Base.astro';
 
@@ -25,6 +26,9 @@ const faculty = (await getCollection('faculty')).sort((a, b) => a.data.order - b
 const inSection = (section: string) => faculty.filter((person) => person.data.section === section);
 
 const [dean, assistant] = inSection('dean');
+
+const coordinatorOf = (department: string) =>
+	department === 'computer' ? dean : inSection(department).find((p) => p.data.badge === 'Coordinator');
 
 /**
  * The Dean's and the assistant's portraits.
@@ -520,12 +524,21 @@ const COUNCILS = [
 					</div>
 				</div>
 
-				<div class:list={['grid grid-cols-1 gap-space-md', department.columns]}>
-					{inSection(department.id).map((person) => (
+				<div class="space-y-space-md">
+					{coordinatorOf(department.id) && (
 						<div class="reveal">
-							<FacultyCard person={person} />
+							<CoordinatorCard person={coordinatorOf(department.id)} />
 						</div>
-					))}
+					)}
+					<div class:list={['grid grid-cols-1 gap-space-md', department.columns]}>
+						{inSection(department.id)
+							.filter((person) => person.data.id !== (coordinatorOf(department.id)?.data.id || ''))
+							.map((person) => (
+								<div class="reveal">
+									<FacultyCard person={person} />
+								</div>
+							))}
+					</div>
 				</div>
 			</section>
 		))}
