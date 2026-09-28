@@ -29,11 +29,12 @@ const [dean, assistant] = inSection('dean');
 /**
  * The Dean's and the assistant's portraits.
  *
- * These two are drawn here rather than through FacultyCard, because the design
- * gives the Dean a large two-column feature and the assistant a narrow card, and
- * neither is the compact roster card that component draws. The photographs are
- * the College's own, generated into src/assets/faculty/ like the other
- * fourteen; the design had two invented faces here and a monogram for the rest.
+ * These two are drawn here rather than through FacultyCard, because neither is
+ * the compact roster card that component draws: the Dean is a feature and the
+ * assistant, though now full width, carries a background and a functions list
+ * the roster card has no room for. The photographs are the College's own,
+ * generated into src/assets/faculty/ like the other fourteen; the design had two
+ * invented faces here and a monogram for the rest.
  *
  * Alt text is empty on both, as on the roster: the name is set in a heading
  * immediately below, so naming the person again is the redundant-alt case.
@@ -262,10 +263,19 @@ const COUNCILS = [
 				</div>
 			</div>
 
-			<div class="grid grid-cols-1 gap-space-lg lg:grid-cols-12">
+			<!--
+				One column, so the administrative assistant's card sits below the
+				Dean's rather than beside them. The design sets them side by side in
+				a 8/4 split, which gave the assistant a third of the row for a card
+				holding a name, a role and two lists — and put a photograph in a
+				slot narrow enough to crop it awkwardly. Stacked, the assistant gets
+				the full width and the Dean keeps a portrait sized to be looked at,
+				which is what the feature card is for.
+			-->
+			<div class="grid grid-cols-1 gap-space-lg">
 				<!-- Dean. -->
 				{dean && (
-					<div class="relative flex flex-col gap-space-lg overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 md:flex-row lg:col-span-8">
+					<div class="relative flex flex-col gap-space-lg overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 md:flex-row">
 						<span
 							class="pointer-events-none absolute right-0 top-0 size-32 rounded-bl-full bg-amberprint/10"
 							aria-hidden="true"
@@ -365,7 +375,7 @@ const COUNCILS = [
 
 				<!-- Administrative assistant. -->
 				{assistant && (
-					<div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 lg:col-span-4">
+					<div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2">
 						<div class="space-y-space-sm">
 							<div class="flex items-center justify-between gap-2">
 								<span class="inline-flex items-center gap-1 rounded bg-brand-200 px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-navy">
@@ -376,7 +386,15 @@ const COUNCILS = [
 							</div>
 
 							{assistantPortrait && (
-								<picture class="size-24 overflow-hidden rounded-xl border border-grid bg-brand-50">
+								/*
+								 * size-16, the same frame every roster card uses, and not
+								 * larger. This portrait is 64 CSS pixels inside a card that
+								 * is otherwise text, so anything bigger reads as a second
+								 * feature rather than as an identification. The Dean keeps
+								 * 176/208 because that card is a feature and this one is
+								 * not.
+								 */
+								<picture class="size-16 shrink-0 overflow-hidden rounded-xl border border-grid bg-brand-50">
 									<img
 										src={assistantPortrait.src}
 										alt=""
