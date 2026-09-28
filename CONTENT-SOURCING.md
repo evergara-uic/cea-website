@@ -190,6 +190,49 @@ All nineteen URLs are in `src/consts.ts` under `IMAGES`, and the loading, decodi
 and referrer policy for them live in one place, `src/components/RemoteImage.astro`.
 Replacing them is a change to those two files.
 
+### The deleted legacy media, and why there is nothing to restore
+
+There was a real photograph library once, and the reason this site carries no
+local images is a decision rather than an accident. Recorded here because the
+code that did it is gone and this is the only account of it.
+
+The College's previous site was a **Google Sites** export at
+`sites.google.com/uic.edu.ph/collegeofengineeringandarchi`, linked from the
+University site and from Facebook. Migrating it took three scrapers and two
+asset passes, and it did not go well:
+
+- The image CDN served the site from rotating opaque ids, so the first pass had
+  to name every file by **position on the page** rather than by anything
+  meaningful, and matching the export's real filenames back to those positional
+  names needed a grayscale-thumbnail comparison, because the export held
+  originals while the live site had served resized copies — so neither
+  filenames nor byte hashes could pair them up.
+- That first pass used a thread pool, and the CDN **rate-limits by request rate
+  rather than by total volume**, so concurrency bought nothing but 403s. **52 of
+  170 images were lost**, including every photograph from the 2024-2025 school
+  year. A single-threaded retry pass recovered some of them.
+- The CDN is now closed entirely: every direct fetch of `sitesv-images-rt`
+  returns **403**. The originals cannot be re-obtained from the source at all.
+
+Given that, the library was not trustworthy enough to build a new site on — a
+site whose photographs are 30% missing, misnamed and unattributable is worse
+than one that is honestly illustrated. The local media and the legacy copy were
+deleted, and the design's own imagery was used in their place, labelled as
+illustration.
+
+So: **there is no recoverable original in this repository, and no way to fetch
+one.** Reinstating the College's real photography means obtaining the files from
+the College itself — a Takeout archive, the original Google Drive, or a
+photographer's masters — not re-running anything that was here before.
+
+The migration scripts (`migrate-assets.py`, `rebuild-assets.py`,
+`retry-assets.py`, `match-assets.mjs`, `prepare-logos.mjs`, `encode-video.mjs`)
+and the 121 KB `assets-manifest.json` were removed on that basis. They cannot
+run — their input directories are gone and the CDN they read is closed — and two
+of them were the only reason the `sharp` native binary was a production
+dependency, which Cloudflare would have downloaded on every build. This
+paragraph is the record of what they did.
+
 ## Departures from the design
 
 Recorded so they read as decisions rather than as oversights. Each was a place
@@ -246,10 +289,15 @@ genuinely new route the design has asked for, at the design's own
 
 `public/_redirects` maps the legacy Google Sites addresses onto these, sends the
 three legacy routes that have no equivalent here — `/faculty`, `/downloads`,
-`/archives` — to the closest real page rather than a dead end, and sends the
-three undesigned Events siblings — `/engineering-week`,
-`/spiritual-formation-retreats` and `/events-and-retreats` itself — to the one
-Events page there is.
+`/archives` — to the closest real page rather than a dead end, and sends the two
+undesigned Events siblings — `/engineering-week` and
+`/spiritual-formation-retreats` — to the one Events page there is.
+
+No route gets a redirect to itself. A rule whose destination is its own source
+answers every request with a redirect to the address the visitor just asked for,
+and Cloudflare matches those rules before it looks for a file, so the page
+becomes unreachable. Three such rules shipped once and were caught only by
+reading the deployed domain. `scripts/verify-dist.py` now fails on them.
 
 ## Deployment
 
@@ -258,4 +306,17 @@ canonical tag, `og:url` and sitemap entry is built from. Unset, the site still
 builds but emits none of them: a wrong origin gets indexed, a missing one does
 not. It is read from the environment rather than written into
 `astro.config.mjs` because the same build is served from `cea.kube` in review and
-from a Cloudflare Pages domain in production.
+from a Cloudflare Pages domain in production. A value that is not an absolute
+http(s) URL fails the build outright.
+
+`NODE_VERSION` must be set in the Cloudflare Pages dashboard, to `22`. The build
+image's own default selects the version, and `engines` in `package.json` is not
+what it reads.
+
+`public/_redirects` and `public/_headers` are read by Cloudflare and by nothing
+else. The local preview serves `dist/` through Caddy with `try_files`, so a
+defect in either file is invisible at `http://cea.kube` and total in production.
+There is no Content-Security-Policy, and one should not be added without
+checking what the pages actually need inline: every image is a remote URL applied
+through an inline `style="background-image: …"` attribute, which a strict
+`style-src` would break.

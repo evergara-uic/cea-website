@@ -58,6 +58,20 @@ from the environment precisely so that one build can be served from `cea.kube`
 in review and from a Pages domain in production without a wrong absolute URL
 reaching the page.
 
+### `sharp` is still installed, and that is not a mistake
+
+`sharp` is not a dependency of this project. It is an *optional* dependency of
+`astro` itself, which uses it for image optimisation. Because this site has no
+local images — every photograph is a remote URL applied through an inline
+`style` attribute — Astro never calls into it, and the build completes
+identically with the package removed.
+
+`npm ci --omit=optional` does skip it, along with 18 MB of libvips, but it also
+skips Rollup's and esbuild's native binaries and the build then fails. So do not
+set that. The install is about 160 MB either way, and it is build time only:
+nothing from `node_modules` is served, because the deployed output is HTML, one
+stylesheet and three font files.
+
 ### After the first deploy
 
 - Confirm `https://<your-domain>/sitemap-index.xml` opens. If it 404s, the
@@ -140,7 +154,10 @@ src/
 public/
   _redirects        legacy Google Sites paths, mapped to current routes
   _headers          cache and security headers
-scripts/            the two verifiers, plus the post-build asset prune
+scripts/
+  verify-classes.py        classes the pages apply with no matching rule
+  verify-dist.py           broken links, redirect loops, dead redirect targets
+  prune-unused-assets.mjs  runs after the build; drops unused _astro output
 Dockerfile.static   static image used by the local k8s preview
 Caddyfile           serves ./dist for that preview
 ```
