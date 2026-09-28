@@ -1,0 +1,130 @@
+---
+/*
+ * Scholarships Offered.
+ *
+ * The design's scholarship section, as a page. Its three commitments —
+ * "Academic merit discounts, DOST scholarship accredited status, and CEASO alumni
+ * endowment incentives" — are reproduced verbatim, together with the enrolment
+ * and inquiry routes the design attached to them. The College publishes no
+ * amounts, eligibility rules, deadlines or award counts, and none have been
+ * invented to fill the gaps; that is recorded in CONTENT-SOURCING.md.
+ */
+import { ENROLL_URL, IMAGES } from '../consts';
+import ContactBlock from '../components/ContactBlock.astro';
+import Icon from '../components/Icon.astro';
+import RemoteImage from '../components/RemoteImage.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Base from '../layouts/Base.astro';
+
+const COMMITMENTS = [
+	{
+		icon: 'military_tech',
+		title: 'Academic Merit Discounts',
+		body: 'Merit-based tuition support for students admitted on academic standing.',
+	},
+	{
+		icon: 'verified_user',
+		title: 'DOST Scholarship Accredited Status',
+		body: 'The College carries DOST scholarship accredited status for graduating students.',
+	},
+	{
+		icon: 'precision_manufacturing',
+		title: 'CEASO Alumni Endowment Incentives',
+		body: 'Alumni endowment incentives support continuing students of the College.',
+	},
+] as const;
+---
+
+<Base
+	title="Scholarships Offered"
+	description="Academic merit discounts, DOST scholarship accredited status, and CEASO alumni endowment incentives."
+>
+	<!-- Header. -->
+	<section class="w-full bg-midnight py-space-xl text-white">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<nav aria-label="Breadcrumb" class="mb-space-md">
+				<ol class="flex items-center gap-1 text-label-md text-white/60">
+					<li>
+						<a href="/" class="transition-colors hover:text-copper">
+							Home
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-white/30">
+						/
+					</li>
+					<li class="text-amberprint" aria-current="page">
+						Scholarships Offered
+					</li>
+				</ol>
+			</nav>
+
+			<span class="eyebrow eyebrow-on-dark">The UIC Advantage</span>
+			<h1 class="mt-2 font-serif text-headline-lg-mobile font-bold text-white md:text-headline-lg">
+				Scholarships &amp; Grants Offered
+			</h1>
+			<p class="mt-3 max-w-2xl text-body-lg leading-relaxed text-white/85">
+				Academic merit discounts, DOST scholarship accredited status, and CEASO alumni endowment
+				incentives.
+			</p>
+		</div>
+	</section>
+
+	<!-- The three commitments. -->
+	<section class="w-full bg-canvas py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<SectionHeading class="mb-space-lg">
+				<span slot="eyebrow">What Is Offered</span>
+				<h2 class="font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg">
+					Three sources of support
+				</h2>
+			</SectionHeading>
+
+			<ul class="grid grid-cols-1 gap-space-lg md:grid-cols-3">
+				{COMMITMENTS.map((item) => (
+					<li class="card p-space-lg">
+						<div class="mb-space-md flex size-12 items-center justify-center rounded-lg bg-subtle">
+							<Icon name={item.icon} size="24px" class="text-copper" />
+						</div>
+						<h3 class="text-headline-sm font-bold text-navy">{item.title}</h3>
+						<p class="mt-2 text-body-sm leading-relaxed text-brand-700">{item.body}</p>
+					</li>
+				))}
+			</ul>
+
+			<div class="mt-space-xl rounded-xl bg-subtle p-space-lg">
+				<p class="text-body-md leading-relaxed text-navy">
+					Scholarship slots and priority laboratory placements are open. Entrance assessments for
+					the BS Architecture and Engineering degree tracks run daily at Bonifacio Hall, and queries
+					on credit evaluation, transferees, second-degrees and scholarship qualifying exams go to
+					the Dean's Office.
+				</p>
+				<div class="mt-space-md flex flex-wrap items-center gap-space-sm">
+					<a href="/contact-and-inquiries" class="btn btn-ghost">
+						Send an Inquiry
+					</a>
+					<a href={ENROLL_URL} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+						<Icon name="how_to_reg" size="18px" />
+						Enroll Now
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Enquiries. -->
+	<section class="w-full bg-brand-50/40 py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<ContactBlock headingLevel="h2" showInquiryCta>
+				<div class="flex h-full flex-col justify-center">
+					<RemoteImage
+						src={IMAGES.hero.src}
+						alt={IMAGES.hero.alt}
+						width={900}
+						height={675}
+						class="w-full rounded-xl object-cover"
+					/>
+				</div>
+			</ContactBlock>
+		</div>
+	</section>
+</Base>

@@ -1,0 +1,35 @@
+[
+	{
+		"slug": "biophilic-resilience-davao-coastal-transit-hub",
+		"programme": "bs-architecture",
+		"badge": "BS Architecture • Thesis 2026",
+		"badgeTone": "navy",
+		"title": "Biophilic Resilience: Davao Coastal Transit Hub",
+		"abstract": "An eco-responsive transit intermodal facility addressing coastal storm surges through mangrove-inspired biomimetic structural supports and passive cooling louvers.",
+		"credit": "UAPSA Chapter",
+		"image": 0,
+		"order": 1
+	},
+	{
+		"slug": "agribot-autonomous-crop-health-telemetry-rover",
+		"programme": "bs-computer-engineering",
+		"badge": "BS Computer Eng • Capstone",
+		"badgeTone": "copper",
+		"title": "AgriBot: Autonomous Crop Health Telemetry Rover",
+		"abstract": "Edge AI embedded robotics navigating cacao plantations to detect pest anomalies using custom lightweight convolutional neural networks with LoRa transmission.",
+		"credit": "ICPEP.SE Awardee",
+		"image": 1,
+		"order": 2
+	},
+	{
+		"slug": "tuned-mass-dampers-davao-seismic-zones",
+		"programme": "bs-civil-engineering",
+		"badge": "BS Civil Eng • Research",
+		"badgeTone": "navy",
+		"title": "Tuned Mass Dampers for Davao Seismic Zones",
+		"abstract": "Experimental performance analysis of modular liquid column dampers in mid-rise structural frames exposed to Eastern Mindanao fault line ground acceleration curves.",
+		"credit": "PICE Research Guild",
+		"image": 2,
+		"order": 3
+	}
+]

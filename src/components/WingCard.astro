@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { IMAGES } from '../consts';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * One of the four department wings in the UIC Advantage grid: an illustration of
+ * the lab, then its name and what it holds.
+ */
+interface Props {
+	program: CollectionEntry<'programs'>;
+}
+
+const { program } = Astro.props;
+const image = IMAGES.wings[program.data.wing.image];
+---
+
+<article class="rounded-xl bg-canvas p-space-md shadow-elev-2 transition-shadow hover:shadow-elev-3">
+	<div class="mb-space-sm h-44 w-full overflow-hidden rounded-lg bg-subtle">
+		<RemoteImage
+			src={image.src}
+			alt={image.alt}
+			width={640}
+			height={480}
+			class="size-full object-cover"
+		/>
+	</div>
+	<div>
+		<h3 class="text-headline-sm font-bold text-navy">{program.data.wing.title}</h3>
+		<p class="mt-1 text-label-md text-copper">{program.data.wing.lab}</p>
+		<p class="mt-2 text-body-sm leading-relaxed text-brand-700">{program.data.wing.description}</p>
+	</div>
+</article>

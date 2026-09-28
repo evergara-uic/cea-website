@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { ENROLL_URL } from '../consts';
+import Icon from './Icon.astro';
+import ProgramMark from './ProgramMark.astro';
+
+/*
+ * A programme card, on the homepage grid, on /programs and on the programme
+ * page's own grid.
+ *
+ * The anatomy is the design's: an 80px mark in a circular cradle, the copper
+ * degree overline, the name, the description, the competency chips, the guild
+ * block, then a full-width primary and a copper secondary stacked as the
+ * footer. `justify-between` on the card and on its single wrapper is what keeps
+ * the footer pinned to the bottom so four cards of different text lengths still
+ * line up.
+ */
+interface Props {
+	program: CollectionEntry<'programs'>;
+	/** Where "View Curriculum & Plan" points. On a card grid, the programme. */
+	href?: string;
+}
+
+const { program, href = `/programs/${program.data.slug}` } = Astro.props;
+const { name, overline, description, competencies, guild, badgeLabel, mark } = program.data;
+---
+
+<article class="card p-space-lg">
+	<div>
+		<div class="mb-space-md mx-auto flex size-20 items-center justify-center rounded-full bg-subtle p-3 shadow-sm">
+			<ProgramMark mark={mark} label={badgeLabel} />
+		</div>
+
+		<div class="mb-space-md text-center">
+			<span class="block text-label-badge font-bold uppercase tracking-wider text-copper">
+				{overline}
+			</span>
+			<h3 class="mt-1 text-headline-sm font-bold text-navy">{name}</h3>
+			<p class="mt-2 text-body-sm leading-relaxed text-brand-700">{description}</p>
+		</div>
+
+		<div class="mb-space-lg space-y-space-xs">
+			<span class="block text-label-badge font-bold uppercase tracking-wider text-navy">
+				Key Competencies
+			</span>
+			<div class="flex flex-wrap gap-1">
+				{competencies.map((item) => (
+					<span class="chip">{item}</span>
+				))}
+			</div>
+		</div>
+
+		<div class="mb-space-md rounded bg-subtle p-space-sm text-body-sm text-brand-700">
+			<span class="block font-semibold text-navy">Student Guild:</span>
+			<span>{guild}</span>
+		</div>
+	</div>
+
+	<div class="space-y-space-xs pt-space-sm">
+		<a
+			href={href}
+			class="block w-full rounded bg-midnight px-space-md py-2.5 text-center text-label-md font-bold text-white transition-colors hover:bg-navy"
+		>
+			View Curriculum &amp; Plan
+		</a>
+		<a
+			href={ENROLL_URL}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="block w-full rounded px-space-md py-2 text-center text-label-md font-bold text-copper transition-colors hover:bg-subtle"
+		>
+			Enroll Now
+			<Icon name="arrow_forward" size="14px" class="inline" />
+		</a>
+	</div>
+</article>

@@ -1,0 +1,299 @@
+[
+	{
+		"id": "dean",
+		"section": "dean",
+		"name": "Engr. Juvie Pauline L. Relacion, PCPE, MEng-CpE",
+		"role": "College Dean & Program Coordinator, Computer Engineering",
+		"focus": null,
+		"badge": "College Dean",
+		"badgeTone": "copper",
+		"postnominals": ["PCPE", "MEng-CpE"],
+		"portrait": "dean",
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering Major in Computer Engineering" },
+			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
+			{ "kind": "membership", "text": "Lifetime Member, Institute of Computer Engineers of the Philippines" }
+		],
+		"quote": "Fostering ethical engineering excellence, transformative research, and cutting-edge technopreneurship that responds directly to the technological and urban aspirations of Mindanao and the ASEAN region.",
+		"order": 1
+	},
+	{
+		"id": "vitor",
+		"section": "dean",
+		"name": "Treshia Loraine T. Vitor",
+		"role": "College Administrative Assistant",
+		"focus": null,
+		"badge": "Administrative Support",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [],
+		"background": "Graduate of Bachelor of Science in Business Administration Major in Human Resource",
+		"functions": [
+			"Faculty Coordination & Scheduling",
+			"Student Records & Academic Inquiries",
+			"Department Logistics & Council Clearances"
+		],
+		"hours": "8:00 AM - 5:00 PM (M-F)",
+		"location": "Loc. 222",
+		"order": 2
+	},
+	{
+		"id": "santos",
+		"section": "architecture",
+		"name": "Ar. Leonida D. Santos",
+		"role": "Program Coordinator, Architecture",
+		"focus": "UAP / PIA Registered",
+		"badge": "Coordinator",
+		"badgeTone": "copper",
+		"postnominals": [],
+		"portrait": "coordinator",
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Arts in Urban & Regional Planning" },
+			{ "kind": "certification", "text": "BEC Facilitator" }
+		],
+		"note": null,
+		"order": 1
+	},
+	{
+		"id": "clave",
+		"section": "architecture",
+		"name": "Ar. Jacob G. Clave",
+		"role": "Faculty, Architecture",
+		"focus": "PIA / SAP Leadership",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Christian Education" },
+			{ "kind": "degree", "text": "Master in Environmental Planning (On-going)" },
+			{ "kind": "leadership", "text": "President, SAP Alpha-Davao Chapter (2024-2025)" },
+			{ "kind": "leadership", "text": "President, Philippine Institute of Architects Davao Chapter (2013-2014)" },
+			{ "kind": "leadership", "text": "President, Full Gospel Businessmens Fellowship International Madayaw Chapter (Present)" }
+		],
+		"note": null,
+		"order": 2
+	},
+	{
+		"id": "bermudez",
+		"section": "architecture",
+		"name": "Ar. Marco Antonio G. Bermudez",
+		"role": "Faculty, Architecture",
+		"focus": "PIA College of Fellows (2026)",
+		"badge": "Fellow & Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master in Environmental Planning (On-going)" },
+			{ "kind": "industry", "text": "Principal Architect, MAGB Architecture and Interior Design" },
+			{ "kind": "leadership", "text": "Club Moderator, UIC-UAPSA-EKISTICS" },
+			{ "kind": "leadership", "text": "President, Philippine Institute of Architects Davao Chapter (2018)" },
+			{ "kind": "membership", "text": "Member, United Architects of the Philippines Davao Alpha Chapter" },
+			{ "kind": "membership", "text": "Member, PIA College of Fellows (2026)" },
+			{ "kind": "leadership", "text": "President, Full Gospel Businessmen's Fellowship International Madayaw Chapter (Present)" }
+		],
+		"note": null,
+		"order": 3
+	},
+	{
+		"id": "tanglao",
+		"section": "architecture",
+		"name": "Ar. Ramon D. Tanglao",
+		"role": "Faculty, Architecture",
+		"focus": "Registered Architect",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "certification", "text": "BEC Facilitator" }
+		],
+		"note": "Specializing in architectural graphic techniques, building materials application, and vocational design studio mentoring.",
+		"order": 4
+	},
+	{
+		"id": "ngo",
+		"section": "civil",
+		"name": "Engr. Peter Adrian T. NGO, CE",
+		"role": "Program Coordinator, Civil Engineering",
+		"focus": "Licensed CE • PICE",
+		"badge": "Coordinator",
+		"badgeTone": "copper",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering Program (On-going)" },
+			{ "kind": "leadership", "text": "Moderator, Electronics Engineering Organization" },
+			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+		],
+		"note": null,
+		"order": 1
+	},
+	{
+		"id": "fuentes",
+		"section": "civil",
+		"name": "Engr. Emma Concepcion M. Fuentes, CE",
+		"role": "Faculty, Civil Engineering",
+		"focus": "Licensed CE • Ethics Board",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Arts in Engineering Education Major in Civil Engineering" },
+			{ "kind": "leadership", "text": "Library-in-Charge, CEA" },
+			{ "kind": "membership", "text": "Member, UIC-Research Ethics Committee" },
+			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+		],
+		"note": null,
+		"order": 2
+	},
+	{
+		"id": "quino",
+		"section": "civil",
+		"name": "Engr. Johndel V. Quiño, CE",
+		"role": "Faculty, Civil Engineering",
+		"focus": "Licensed CE • Geotechnical Specialist",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering in Civil Engineering Major in Geotechnical Engineering" },
+			{ "kind": "leadership", "text": "Coordinator, Community Development Services" },
+			{ "kind": "leadership", "text": "Moderator, Junior Philippine Institute of Civil Engineers - UIC Chapter" },
+			{ "kind": "membership", "text": "Member, Philippine Institute of Civil Engineers" }
+		],
+		"note": null,
+		"order": 3
+	},
+	{
+		"id": "alacaba",
+		"section": "computer",
+		"name": "Engr. Eddie Vic S. Alacaba, PCPE, MEng-CpE",
+		"role": "Faculty, Computer Engineering",
+		"focus": "PCPE • ICpEP Region XI Officer",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering Major in Computer Engineering" },
+			{ "kind": "licence", "text": "Professional Computer Engineer (CpECB)" },
+			{ "kind": "leadership", "text": "Moderator, ICpEP.SE - UIC Chapter" },
+			{ "kind": "leadership", "text": "Professional Membership Officer, ICpEP Region XI Chapter (2025-Present)" }
+		],
+		"note": null,
+		"order": 2
+	},
+	{
+		"id": "vergara",
+		"section": "computer",
+		"name": "Engr. Emmanuel Jr E. Vergara",
+		"role": "Faculty, Computer Engineering",
+		"focus": "DevSecOps & Cybersecurity",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "industry", "text": "DevSecOps at LuchTech" },
+			{ "kind": "certification", "text": "Ethical Hacker" },
+			{ "kind": "industry", "text": "Web Developer" }
+		],
+		"note": "Specialized instruction in cybersecurity defenses, defensive perimeter operations, and modern cloud deployment pipelines.",
+		"order": 3
+	},
+	{
+		"id": "quinamot",
+		"section": "electronics",
+		"name": "Engr. Shiela Mae V. Quinamot, ECE",
+		"role": "Program Coordinator, Electronics Engineering",
+		"focus": "Licensed ECE • IECEP",
+		"badge": "Coordinator",
+		"badgeTone": "copper",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master in Engineering Education Major in Electronics Engineering (Candidate)" },
+			{ "kind": "leadership", "text": "Moderator, College of Engineering and Architecture Students' Organization" },
+			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+		],
+		"note": null,
+		"order": 1
+	},
+	{
+		"id": "tampus",
+		"section": "electronics",
+		"name": "Engr. Rhenan G. Tampus, ECE, ECT",
+		"role": "Faculty, Electronics Engineering",
+		"focus": "Licensed ECE, ECT • Alumni Relations",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master in Engineering Education Major in Electronics Engineering (Candidate)" },
+			{ "kind": "leadership", "text": "CEA Alumni Coordinator" },
+			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+		],
+		"note": null,
+		"order": 2
+	},
+	{
+		"id": "moso",
+		"section": "electronics",
+		"name": "Engr. Raymundo S. Moso, ECE, MAEE",
+		"role": "Faculty, Electronics Engineering",
+		"focus": "Licensed ECE • MAEE",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Arts in Engineering Education Major in Electronics Engineering" },
+			{ "kind": "certification", "text": "BEC Facilitator" },
+			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+		],
+		"note": null,
+		"order": 3
+	},
+	{
+		"id": "sombilla",
+		"section": "electronics",
+		"name": "Engr. Aylmer Ronnel L. Sombilla, ECE, MEng-ECE",
+		"role": "Faculty, Electronics Engineering",
+		"focus": "Licensed ECE • MEng-ECE",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering Major in Electronics Engineering" },
+			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+		],
+		"note": "Telecommunications engineering systems, high-frequency transmitters, and broadband wave propagation analysis.",
+		"order": 4
+	},
+	{
+		"id": "aborde",
+		"section": "electronics",
+		"name": "Engr. Mel Christian V. Aborde, ECE",
+		"role": "Faculty, Electronics Engineering",
+		"focus": "Licensed ECE • Research Officer",
+		"badge": "Faculty",
+		"badgeTone": "navy",
+		"postnominals": [],
+		"portrait": null,
+		"credentials": [
+			{ "kind": "degree", "text": "Master of Engineering Major in Electronics Engineering (Candidate)" },
+			{ "kind": "leadership", "text": "Moderator, Electronics Engineering Organization" },
+			{ "kind": "leadership", "text": "Research-in-Charge, CEA" },
+			{ "kind": "membership", "text": "Member, Institute of Electronics Engineers of the Philippines" }
+		],
+		"note": null,
+		"order": 5
+	}
+]

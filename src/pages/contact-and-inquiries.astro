@@ -1,0 +1,56 @@
+---
+/*
+ * Contact and inquiries.
+ *
+ * The homepage's contact band as a page of its own, so the Dean's Office form is
+ * reachable by URL as well as by scrolling — the form, the five channels and the
+ * campus map are the design's, and the form's mail-to behaviour is explained in
+ * InquiryForm.astro.
+ */
+import ContactBlock from '../components/ContactBlock.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+	title="Contact and Inquiries"
+	description="Contact the College of Engineering and Architecture: telephone, email, Facebook, address and campus map, or send an inquiry to the Dean's Office."
+>
+	<!-- Header. -->
+	<section class="w-full bg-midnight py-space-xl text-white">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<nav aria-label="Breadcrumb" class="mb-space-md">
+				<ol class="flex items-center gap-1 text-label-md text-white/60">
+					<li>
+						<a href="/" class="transition-colors hover:text-copper">
+							Home
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-white/30">
+						/
+					</li>
+					<li class="text-amberprint" aria-current="page">
+						Contact and Inquiries
+					</li>
+				</ol>
+			</nav>
+
+			<span class="eyebrow eyebrow-on-dark">College Communications Office</span>
+			<h1 class="mt-2 font-serif text-headline-lg-mobile font-bold text-white md:text-headline-lg">
+				Contact and Inquiries
+			</h1>
+			<p class="mt-3 max-w-2xl text-body-lg leading-relaxed text-white/85">
+				Get in touch with department chairs, academic advisers, and laboratory administrators for
+				campus tours and program enrollment guides.
+			</p>
+		</div>
+	</section>
+
+	<section class="w-full bg-brand-50/40 py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<ContactBlock headingLevel="h2">
+				<InquiryForm />
+			</ContactBlock>
+		</div>
+	</section>
+</Base>

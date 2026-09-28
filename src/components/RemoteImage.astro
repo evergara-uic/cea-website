@@ -1,0 +1,46 @@
+---
+/*
+ * An image loaded from the design's CDN.
+ *
+ * All the imagery in the design is remote and generated; see CONTENT-SOURCING.md.
+ * This component exists so that stays in one place: the eager/lazy decision, the
+ * decoding hint and the referrer policy are set here once rather than repeated
+ * across the eight places an image appears, and swapping in the College's own
+ * photography later is a change to this file plus the URLs in src/consts.ts.
+ */
+interface Props {
+	src: string;
+	/** Required. Every image on this site carries a description. */
+	alt: string;
+	/** Intrinsic size, reserved so the layout does not shift on load. */
+	width?: number;
+	height?: number;
+	/** `eager` for anything in the first viewport, `lazy` for the rest. */
+	loading?: 'eager' | 'lazy';
+	/** `high` for the hero, which is the Largest Contentful Paint element. */
+	fetchpriority?: 'high' | 'auto';
+	class?: string;
+}
+
+const {
+	src,
+	alt,
+	width = 1280,
+	height = 853,
+	loading = 'lazy',
+	fetchpriority = 'auto',
+	class: className,
+} = Astro.props;
+---
+
+<img
+	src={src}
+	alt={alt}
+	width={width}
+	height={height}
+	loading={loading}
+	fetchpriority={fetchpriority}
+	decoding={loading === 'eager' ? 'sync' : 'async'}
+	referrerpolicy="no-referrer"
+	class={className}
+/>

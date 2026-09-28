@@ -1,0 +1,186 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { ENROLL_URL, IMAGES } from '../consts';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * One programme on the Academic Programs screen.
+ *
+ * This is not the same object as ProgramCard. That one is a mark, a name and a
+ * list of competencies, built for a four-across grid of equal cards; this one is
+ * a full-width plate with a photograph on one side and the curriculum on the
+ * other, alternating left and right down the page. Both are the design's — the
+ * design draws programmes two different ways on two different screens — so they
+ * are two components rather than one component with a variant.
+ *
+ * The `id` is the filter target: the sticky tab bar on the page hides every card
+ * except the one whose `id` matches the pressed tab, and scrolls that one to the
+ * middle of the viewport.
+ */
+interface Props {
+	program: CollectionEntry<'programs'>;
+	/** 1-based position, used to decide which side the photograph sits on. */
+	position: number;
+}
+
+const { program, position } = Astro.props;
+const d = program.data;
+
+/** Odd positions put the photograph first, even positions put it second. */
+const imageFirst = position % 2 === 1;
+
+const plate = IMAGES.programCards[d.cardImage];
+---
+
+<article
+	class="card p-space-lg md:p-space-xl"
+	id={`program-${d.mark}`}
+	data-program={d.mark}
+	aria-labelledby={`program-${d.mark}-title`}
+>
+	<div class="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+		<!-- Photograph, spec bar, and the three-up figures under it. -->
+		<div class:list={['space-y-space-md lg:col-span-6', imageFirst ? 'lg:order-1' : 'lg:order-2']}>
+			<div class="group relative overflow-hidden rounded-lg bg-brand-50 shadow-elev-1">
+				<RemoteImage
+					src={plate.src}
+					alt={plate.alt}
+					width={1376}
+					height={768}
+					class="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-96"
+				/>
+
+				<div class="absolute left-space-md top-space-md flex flex-wrap gap-1">
+					{d.badges.map((badge, i) => (
+						<span
+							class:list={[
+								'rounded px-space-md py-1 text-label-badge uppercase tracking-wider shadow',
+								i === 0 ? 'bg-midnight text-white' : 'bg-amberprint font-bold text-midnight',
+							]}
+						>
+							{badge}
+						</span>
+					))}
+				</div>
+
+				<div class="absolute bottom-space-md right-space-md rounded bg-canvas/90 px-space-md py-1 text-label-badge font-bold uppercase text-navy backdrop-blur">
+					{d.guildShort}
+				</div>
+			</div>
+
+			<dl class="grid grid-cols-3 gap-space-sm rounded-lg bg-subtle p-space-md text-center">
+				{[
+					{ label: 'Total Units', value: d.units },
+					{ label: 'Internship / OJT', value: d.ojt },
+					{ label: 'Accreditation', value: d.accreditation, accent: true },
+				].map((stat) => (
+					<div>
+						<dt class="text-label-badge uppercase text-brand-700">{stat.label}</dt>
+						<dd
+							class:list={['text-headline-sm font-bold', stat.accent ? 'text-copper' : 'text-navy']}
+						>
+							{stat.value}
+						</dd>
+					</div>
+				))}
+			</dl>
+		</div>
+
+		<!-- Curriculum. -->
+		<div class:list={['space-y-space-md lg:col-span-6', imageFirst ? 'lg:order-2' : 'lg:order-1']}>
+			<div class="space-y-1">
+				<span class="eyebrow">College of Engineering &amp; Architecture</span>
+				<h2
+					class="font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg"
+					id={`program-${d.mark}-title`}
+				>
+					{d.fullName}
+				</h2>
+				<p class="text-body-md leading-relaxed text-brand-700">{d.longDescription}</p>
+			</div>
+
+			<div class="space-y-2">
+				<h3 class="text-label-md font-bold uppercase tracking-wider text-navy">
+					Core Pillars &amp; Specializations
+				</h3>
+				<ul class="flex flex-wrap gap-1">
+					{d.pillars.map((pillar) => (
+						<li class="rounded-full bg-brand-100 px-space-md py-1 text-body-sm text-brand-900">
+							{pillar}
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!--
+				One cell per year. The last is the capstone year and is drawn in
+				copper, which is how the design marks the year a degree ends.
+			-->
+			<div class="space-y-2 rounded-lg bg-brand-50 p-space-md">
+				<span class="text-label-badge font-bold uppercase tracking-wider text-navy">
+					Curriculum Roadmap (Years 1–{d.roadmap.length})
+				</span>
+				<ol
+					class="grid gap-1 text-center text-body-sm"
+					style={`grid-template-columns: repeat(${d.roadmap.length}, minmax(0, 1fr))`}
+				>
+					{d.roadmap.map((step, i) => {
+						const last = i === d.roadmap.length - 1;
+						return (
+							<li
+								class:list={[
+									'rounded p-space-xs shadow-elev-1',
+									last ? 'bg-copper text-white' : 'bg-canvas',
+								]}
+							>
+								<span class:list={['block font-bold', last ? '' : 'text-navy']}>{step.year}</span>
+								<span
+									class:list={[
+										'block text-[11px] leading-tight',
+										last ? 'text-white' : 'text-brand-700',
+									]}
+								>
+									{step.label}
+								</span>
+							</li>
+						);
+					})}
+				</ol>
+			</div>
+
+			<p class="flex flex-wrap items-center gap-1 text-body-sm text-brand-700">
+				<strong class="text-label-md uppercase text-navy">Career Pathways:</strong>
+				{d.careerPathways.map((career, i) => (
+					<>
+						{i > 0 && <span aria-hidden="true">•</span>}
+						<span>{career}</span>
+					</>
+				))}
+			</p>
+
+			<div class="flex flex-wrap items-center gap-space-sm pt-1">
+				<a
+					href={ENROLL_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn-primary uppercase tracking-wider"
+				>
+					<Icon name="how_to_reg" size="18px" />
+					{d.enrollLabel}
+				</a>
+				<a
+					href={`mailto:cea@uic.edu.ph?subject=${encodeURIComponent(`${d.fullName} Curriculum Inquiry`)}`}
+					class="btn btn-ghost"
+				>
+					<Icon name="download" size="18px" />
+					Curriculum PDF
+				</a>
+				<a href="#comparison-matrix" class="arrow-link text-label-md!">
+					Compare Tracks
+					<Icon name="arrow_forward" size="16px" />
+				</a>
+			</div>
+		</div>
+	</div>
+</article>

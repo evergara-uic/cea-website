@@ -1,0 +1,1447 @@
+{
+  "base": "https://sites.google.com/uic.edu.ph/collegeofengineeringandarchi",
+  "images": [
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tdTrS_FUV3-_RdO3ky2SWLqTzDWfuv1lizzrDjiRXLAqE3QwN75mQKvrid6PksS_C6UT8l7nPgtTqBSDT5JSigkWrhTO2XZPswQ7rLcnhDpu_jPA-3ufknv6bmwgLLvv-W8V-aVolHkSpgh8nm6Gdvnof6YZs3ji4tpRPhsvlhBlHKEja4FHbsmojXP0t4i2i9QNSSacavGcqmUw9siqAy-Q",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tdTrS_FUV3-_RdO3ky2SWLqTzDWfuv1lizzrDjiRXLAqE3QwN75mQKvrid6PksS_C6UT8l7nPgtTqBSDT5JSigkWrhTO2XZPswQ7rLcnhDpu_jPA-3ufknv6bmwgLLvv-W8V-aVolHkSpgh8nm6Gdvnof6YZs3ji4tpRPhsvlhBlHKEja4FHbsmojXP0t4i2i9QNSSacavGcqmUw9siqAy-Q",
+      "file": "src/assets/gallery/home-000.png",
+      "bytes": 291133
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sNGPx92_9wguqYYSQClqX2AOJQkp47-H3-tk8Fx2vF92YgImlfSpco4iQGatbVKkj3gBCPUPl3--RUXVYug4-II8xRaC7GWfXhMBiTi8ZGAKyv7S-QZ67GIkmA6ftgd-aSJmOVPoPqVksDkWXVVJp5IsN3vmylyFkt_27GT3ZA2gIvmpOVH3dTtovyx8Q",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sNGPx92_9wguqYYSQClqX2AOJQkp47-H3-tk8Fx2vF92YgImlfSpco4iQGatbVKkj3gBCPUPl3--RUXVYug4-II8xRaC7GWfXhMBiTi8ZGAKyv7S-QZ67GIkmA6ftgd-aSJmOVPoPqVksDkWXVVJp5IsN3vmylyFkt_27GT3ZA2gIvmpOVH3dTtovyx8Q=w16383",
+      "file": "src/assets/gallery/home-001.png",
+      "bytes": 248808
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72t5NsqutvZE2zcvBWyS6klFULZYLwanMlNXRWrTt3cVyUcH5Fb_BUZfdzSxSRBxc98jJvv5YvvQvhlWJJmgfag83NF_Xd7jllW-j6dhn1ADTyN3qkh6nHTf-AIekMFsLEwKlLsHuTI-1cPejhvnxJG-Ktfjh0ItWMc_b7kdTLYfkPaDmYMwWveXZlKN",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72t5NsqutvZE2zcvBWyS6klFULZYLwanMlNXRWrTt3cVyUcH5Fb_BUZfdzSxSRBxc98jJvv5YvvQvhlWJJmgfag83NF_Xd7jllW-j6dhn1ADTyN3qkh6nHTf-AIekMFsLEwKlLsHuTI-1cPejhvnxJG-Ktfjh0ItWMc_b7kdTLYfkPaDmYMwWveXZlKN=w16383",
+      "file": "src/assets/gallery/home-002.png",
+      "bytes": 1646101
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tuMasVp-ILjyEBtaFfcacDcCWR5tdTTlrvn2LdoOxOghd6f6HOIF_M873qirGIB73PbSxkxVZb4iZfv8j2uUFQvnM-rJ-_ti3fBvRh1lw3hgtJfbAC-RlF1CVb1ZLA0Tiw_0GB4WwiNZSJyjtvKGgLJkNXnGt6fuL3-ONv8uSnbOe4xEHX7pm6H0bVEyw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tuMasVp-ILjyEBtaFfcacDcCWR5tdTTlrvn2LdoOxOghd6f6HOIF_M873qirGIB73PbSxkxVZb4iZfv8j2uUFQvnM-rJ-_ti3fBvRh1lw3hgtJfbAC-RlF1CVb1ZLA0Tiw_0GB4WwiNZSJyjtvKGgLJkNXnGt6fuL3-ONv8uSnbOe4xEHX7pm6H0bVEyw=w1280",
+      "file": "src/assets/gallery/home-003.png",
+      "bytes": 1500901
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sSKnNZntUJy-BnCy6OJHdXUFLxpi5VV2Y5HMO3OBnVEmRitRtDaR7LNfgpUPbzxMVK_LDXgJ2FY77og_Y_SrDAzXW5EnaFJvqKAOk7oy0Cwxawq_PYCwzBJKbxoDvWJfd0pBoyLubpJt1LWF56Zr-bgXqQi-5wPRKrgoJRfIY1ATcO2DkxzqgmM16K",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sSKnNZntUJy-BnCy6OJHdXUFLxpi5VV2Y5HMO3OBnVEmRitRtDaR7LNfgpUPbzxMVK_LDXgJ2FY77og_Y_SrDAzXW5EnaFJvqKAOk7oy0Cwxawq_PYCwzBJKbxoDvWJfd0pBoyLubpJt1LWF56Zr-bgXqQi-5wPRKrgoJRfIY1ATcO2DkxzqgmM16K=w1280",
+      "file": "src/assets/gallery/home-004.png",
+      "bytes": 1644641
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vgwVkQibrFXW-1a78rwIKEqG83-JjlNDhWLXY_225S_6t8L1fbuN36XMRdjKdjK_W0WwtCmzuTAR7BxMcimWq7zlNHUhYo0WOelNLNxAKNVB0ZNwHtElJPmzgBqUtb1pK5_bQZzrVFiv7y56v7QbiZYOoeMzx8_Qt8FEpMynXI2SkFZ82wYr_wa7MWKKQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vgwVkQibrFXW-1a78rwIKEqG83-JjlNDhWLXY_225S_6t8L1fbuN36XMRdjKdjK_W0WwtCmzuTAR7BxMcimWq7zlNHUhYo0WOelNLNxAKNVB0ZNwHtElJPmzgBqUtb1pK5_bQZzrVFiv7y56v7QbiZYOoeMzx8_Qt8FEpMynXI2SkFZ82wYr_wa7MWKKQ=w1280",
+      "file": "src/assets/gallery/home-005.png",
+      "bytes": 2966411
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s8hWS7Cgk76rBpsE9v8Ue-VSNhf2lqTWJMBHhmUJugCBz9JUxp8xv8sWd2oZK_6S9z09qR-SKVQax6jdTr3yISvznx-oRpO307rvXU11EzEHN3QkBu9lzMjLJTau2FLQIjbrEAXTv_tmg0zLuZ0r-orDX0gF1pOd7b4ugI96V3nfRHtnpVba_oK5R5",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s8hWS7Cgk76rBpsE9v8Ue-VSNhf2lqTWJMBHhmUJugCBz9JUxp8xv8sWd2oZK_6S9z09qR-SKVQax6jdTr3yISvznx-oRpO307rvXU11EzEHN3QkBu9lzMjLJTau2FLQIjbrEAXTv_tmg0zLuZ0r-orDX0gF1pOd7b4ugI96V3nfRHtnpVba_oK5R5=w1280",
+      "file": "src/assets/gallery/home-006.png",
+      "bytes": 291060
+    },
+    {
+      "page": "/home",
+      "slug": "home",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u595PZJ_MmlzHi4C2olR64jAL64rTNJ6ObCCoZ3drs2QoChypqayP16B83elR83Eb415qNEiWLcgqbd3-oJ5BmdIK70wOeoljWnQ5Lp6VB0mwVa5hH9YD0LnDR2HUP5f3YXa2f3ySUP5qYtUnVP6gE9uKR2naZUTgu3MoSdOeJEPPWZX09I0C5lune",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u595PZJ_MmlzHi4C2olR64jAL64rTNJ6ObCCoZ3drs2QoChypqayP16B83elR83Eb415qNEiWLcgqbd3-oJ5BmdIK70wOeoljWnQ5Lp6VB0mwVa5hH9YD0LnDR2HUP5f3YXa2f3ySUP5qYtUnVP6gE9uKR2naZUTgu3MoSdOeJEPPWZX09I0C5lune=w1280",
+      "file": "src/assets/gallery/home-007.png",
+      "bytes": 310491
+    },
+    {
+      "page": "/about-cea",
+      "slug": "about-cea",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tFa1wFKoLHG_vyomAFeNza6UksWcfEZVC97EZ0UK8iNyTBedFRQsK0TvOXG29Kr9fK6KfWIysYnCBk5hqh4rN3_yy4G0rLUSNCf973ualDkjjsy68vIio-F6ShjGASQFdDJq4CAEDBJSOcVuDl9NWMi5X6I4jhtWarC86Dd1gEt-nQKCMFH1gQ8L-Jkys",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tFa1wFKoLHG_vyomAFeNza6UksWcfEZVC97EZ0UK8iNyTBedFRQsK0TvOXG29Kr9fK6KfWIysYnCBk5hqh4rN3_yy4G0rLUSNCf973ualDkjjsy68vIio-F6ShjGASQFdDJq4CAEDBJSOcVuDl9NWMi5X6I4jhtWarC86Dd1gEt-nQKCMFH1gQ8L-Jkys=w16383",
+      "file": "src/assets/gallery/about-cea-008.png",
+      "bytes": 2364930
+    },
+    {
+      "page": "/about-cea",
+      "slug": "about-cea",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uGboaprmRuFa_Z7nlDz2uQqSJS2j2a1TJeuIRxsdrkeedwte2-3CLEdLWYBiJlTOZ1lRAkYJWTlwii4YEvEus7oei6EV0e1bu7AvVoPpf66ysldBz3lHuIceRHPdu7SjD7XpEyU-KUYH7i0wsRTrzKYDek2OZBE-30PwH9CHQryigs49VStVuyOl1L3zg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uGboaprmRuFa_Z7nlDz2uQqSJS2j2a1TJeuIRxsdrkeedwte2-3CLEdLWYBiJlTOZ1lRAkYJWTlwii4YEvEus7oei6EV0e1bu7AvVoPpf66ysldBz3lHuIceRHPdu7SjD7XpEyU-KUYH7i0wsRTrzKYDek2OZBE-30PwH9CHQryigs49VStVuyOl1L3zg=w1280",
+      "file": "src/assets/gallery/about-cea-009.jpg",
+      "bytes": 226478
+    },
+    {
+      "page": "/about-cea",
+      "slug": "about-cea",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uZzhIWGJqz_2t1_srVD9E8vXrixma10IYaHnEEfgNEdfSqewnRcelUiuOwauhNWkWCHwzFGiY7y-V8r-taAaydAw7UAju55k2_qG-24vIeibZaQX5TmoLr6EolcG74X4IQGEpZo9UX5ow6F95gii-g-8zuxc9C-pw6ObIUgDxFdxendijoUynMgbBh",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uZzhIWGJqz_2t1_srVD9E8vXrixma10IYaHnEEfgNEdfSqewnRcelUiuOwauhNWkWCHwzFGiY7y-V8r-taAaydAw7UAju55k2_qG-24vIeibZaQX5TmoLr6EolcG74X4IQGEpZo9UX5ow6F95gii-g-8zuxc9C-pw6ObIUgDxFdxendijoUynMgbBh=w1280",
+      "file": "src/assets/gallery/about-cea-010.jpg",
+      "bytes": 173463
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72udZUpSMPRwP6OI2tDoPkML2Em-4qzQIzPm4SXhNk9YPNR09aUHiZpzT9YAmEL3Qei89BwPuKS2_nMVyLJIF4o4eHh5GCwXQXbtLTANk3Du2O-maNpl7IlxdRelJcQcmUvrTFDY66RoQnfXUGS0e7RNfX0tB3fVAFAsa4igVBn_jcqhn8v-DIUezocYtKU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72udZUpSMPRwP6OI2tDoPkML2Em-4qzQIzPm4SXhNk9YPNR09aUHiZpzT9YAmEL3Qei89BwPuKS2_nMVyLJIF4o4eHh5GCwXQXbtLTANk3Du2O-maNpl7IlxdRelJcQcmUvrTFDY66RoQnfXUGS0e7RNfX0tB3fVAFAsa4igVBn_jcqhn8v-DIUezocYtKU=w16383",
+      "file": "src/assets/gallery/about-cea-our-pride-011.png",
+      "bytes": 2510998
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v8QU9Jdmp46sTXvIc1FUKddMfHMydmIhkYflhcEM-RDn5mDhIDXnbVU9y2VaYzaTe7911TO02QSraGqvYqdiVXuRL4aWtOwG3Fb0wIK0e9_ZKrw_1dfoPN8pBotBln831o9LjTMDHW4W_RmmO_cQpIHP31SpllSh0fdwE1GKGUh3m-FjaUW_up84gOta8",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v8QU9Jdmp46sTXvIc1FUKddMfHMydmIhkYflhcEM-RDn5mDhIDXnbVU9y2VaYzaTe7911TO02QSraGqvYqdiVXuRL4aWtOwG3Fb0wIK0e9_ZKrw_1dfoPN8pBotBln831o9LjTMDHW4W_RmmO_cQpIHP31SpllSh0fdwE1GKGUh3m-FjaUW_up84gOta8=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-012.png",
+      "bytes": 1160294
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s8Z7IX5jAyF9dv47uZbD5WNp0eZe79IXgHiokKGyWC62bp7_iV1uIoxXDen-7IdlBvM1DeLQz7stVUDRNOq4ctNVbRR3_hmI7YqUi8YogJBc6GoxU4Jkf1lkCx8psHJ8QKlpGO_fQybJz6tARqQ_fGJNkcNjbnysAznDp2M1nWjbKz9yXYs8Te4M0XeXw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s8Z7IX5jAyF9dv47uZbD5WNp0eZe79IXgHiokKGyWC62bp7_iV1uIoxXDen-7IdlBvM1DeLQz7stVUDRNOq4ctNVbRR3_hmI7YqUi8YogJBc6GoxU4Jkf1lkCx8psHJ8QKlpGO_fQybJz6tARqQ_fGJNkcNjbnysAznDp2M1nWjbKz9yXYs8Te4M0XeXw=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-013.png",
+      "bytes": 1026364
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sEb82wu2J_a6qrQA64W5GGD78Ox0nLXKRLXYB5UWn4-tIzNztYkaSEWYIiVlowSkBMVLwgc6DJOuPSEDuwwGsTquAetVWD3UdeVAg5yUHObrbFtox8Tx9hkpI4sGNd3lnBQuuS2oEgmHDj3kBYqvK3WtZuTTb5YfV99-fBUPu2neSqenCQgq3sE-Ts",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sEb82wu2J_a6qrQA64W5GGD78Ox0nLXKRLXYB5UWn4-tIzNztYkaSEWYIiVlowSkBMVLwgc6DJOuPSEDuwwGsTquAetVWD3UdeVAg5yUHObrbFtox8Tx9hkpI4sGNd3lnBQuuS2oEgmHDj3kBYqvK3WtZuTTb5YfV99-fBUPu2neSqenCQgq3sE-Ts=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-014.png",
+      "bytes": 1000026
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u_gptURWlwCoLyECIvcLgI2-Nt8Y8V4FZMlcaGlFZ28VxYgzZNQCf0ORwB6SO8UVmf0LJrU-d8-MHEREUpu7qICuid3UkpRz0AptWPj5748WCHz1aoyoGxwM4GGEklc4ga58j9IGspkQaftZ8apuDSfhKQpx9jf1P2GXen0Zf977273301iqV26t-1",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u_gptURWlwCoLyECIvcLgI2-Nt8Y8V4FZMlcaGlFZ28VxYgzZNQCf0ORwB6SO8UVmf0LJrU-d8-MHEREUpu7qICuid3UkpRz0AptWPj5748WCHz1aoyoGxwM4GGEklc4ga58j9IGspkQaftZ8apuDSfhKQpx9jf1P2GXen0Zf977273301iqV26t-1=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-015.png",
+      "bytes": 901568
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72udciHxxi88VrlyQIbLYZZShGlyQURXzrFnn1Xs5m671darOUJBLNCMNi3BxjrnbcBIqJuWHJ3UpJE94xBDIcGeeGc7KfOuogdMEpCR_EuLpLD5JjFk4Jv3GR2oOEPwg3ZTpt8w1AASAzGu5YqN9NU8MvZEHyZXo4VtCDsU6iNv9ZblcHSzQr24J7UMg18",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72udciHxxi88VrlyQIbLYZZShGlyQURXzrFnn1Xs5m671darOUJBLNCMNi3BxjrnbcBIqJuWHJ3UpJE94xBDIcGeeGc7KfOuogdMEpCR_EuLpLD5JjFk4Jv3GR2oOEPwg3ZTpt8w1AASAzGu5YqN9NU8MvZEHyZXo4VtCDsU6iNv9ZblcHSzQr24J7UMg18=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-016.png",
+      "bytes": 940018
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vYpvHhhaE5skKXsnq-lLlCvpgBq3zIWGUTZHaiAxCvi5oGj3X7VM3h9WI-28I5nOKU90sClUzK0GVEvJvb5_6tLOUiHQfmDSCjh-ET7fzlCyA3jopfTxhwGLe-sASfE6xyvXKg5N8zX6A-XbsMdRalnqUvHRsrGNH68pUiHI1qalxugBTfzZuRRy4heys",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vYpvHhhaE5skKXsnq-lLlCvpgBq3zIWGUTZHaiAxCvi5oGj3X7VM3h9WI-28I5nOKU90sClUzK0GVEvJvb5_6tLOUiHQfmDSCjh-ET7fzlCyA3jopfTxhwGLe-sASfE6xyvXKg5N8zX6A-XbsMdRalnqUvHRsrGNH68pUiHI1qalxugBTfzZuRRy4heys=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-017.png",
+      "bytes": 931849
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vMEKHoLhdQQH6-fKOQ3dQjmKTasWeqKFu9fIFTflB2Ryx8_XpUKMOMag8HGSco877vazG6demV92Hpr3Gdcsvd0-V2cjJDPbbgwPBq2dG9AnLKaiWtBf06qOEwLb68iurZvO6lplmmXlLqIDG2uJ3Qjc5TOwO9Jbd0oGUskYT5D2-edR535DrHrVLCnRA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vMEKHoLhdQQH6-fKOQ3dQjmKTasWeqKFu9fIFTflB2Ryx8_XpUKMOMag8HGSco877vazG6demV92Hpr3Gdcsvd0-V2cjJDPbbgwPBq2dG9AnLKaiWtBf06qOEwLb68iurZvO6lplmmXlLqIDG2uJ3Qjc5TOwO9Jbd0oGUskYT5D2-edR535DrHrVLCnRA=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-018.png",
+      "bytes": 1065141
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vaSxu9-pdQUtrxKbYEtFRDT0aSuj48kqE1V9_McdAKEtOYd5YP_cly1F7sDhyWC8rXfthWBxT3bmLTVWZ30X6UboOQnnqSvE-Myy4Ly6NI2Fnz8P7C7AIOnBW06InZz86WxhYzlqsQJF1CDvcLhQnu1rgWaQ5gwjvr6bMaizdYSxoX1Trvw8fNAA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vaSxu9-pdQUtrxKbYEtFRDT0aSuj48kqE1V9_McdAKEtOYd5YP_cly1F7sDhyWC8rXfthWBxT3bmLTVWZ30X6UboOQnnqSvE-Myy4Ly6NI2Fnz8P7C7AIOnBW06InZz86WxhYzlqsQJF1CDvcLhQnu1rgWaQ5gwjvr6bMaizdYSxoX1Trvw8fNAA=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-019.png",
+      "bytes": 956135
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tjVYon5t-6nCKTiaKFSjCYtj8Z7Txo8QLfvZ_WOdPzqlO046VuyhknMzRFaQB4VK4bSUngbs7_lx3Wg92WLjPkpDzdNVO5ZXj0X8ab-oBEAdoXkgNpLQXjIOwpBJKp1nnd_jykW7BP8Uu-yt_KG4ez8Gt5rlAJDqcgoxh0N6WZ2WBTfYqQ_4BIXUXI0OE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tjVYon5t-6nCKTiaKFSjCYtj8Z7Txo8QLfvZ_WOdPzqlO046VuyhknMzRFaQB4VK4bSUngbs7_lx3Wg92WLjPkpDzdNVO5ZXj0X8ab-oBEAdoXkgNpLQXjIOwpBJKp1nnd_jykW7BP8Uu-yt_KG4ez8Gt5rlAJDqcgoxh0N6WZ2WBTfYqQ_4BIXUXI0OE=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-020.png",
+      "bytes": 899027
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sXYhAs0TTSVUB9TidGCVmZMxx6uJPSu-MN5-KW5ox6uYLESv1y82cmbClIuxFqMSRvWWsouexqCxcSgvR0T-DUrOIMGTlZ99z7iGPheUe1bXNb-UcfpJ41LZTYk37tRHwflusExmZYeEx13DiMedGY7Y1l-lq2lPmpE61bsQPTZFR1CPabVwMc8Os6",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sXYhAs0TTSVUB9TidGCVmZMxx6uJPSu-MN5-KW5ox6uYLESv1y82cmbClIuxFqMSRvWWsouexqCxcSgvR0T-DUrOIMGTlZ99z7iGPheUe1bXNb-UcfpJ41LZTYk37tRHwflusExmZYeEx13DiMedGY7Y1l-lq2lPmpE61bsQPTZFR1CPabVwMc8Os6=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-021.png",
+      "bytes": 655444
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72utmAZgV_Eu0ZzNqaWSw624nb40Qf3HFmyD6lCE56uhUUD9c4TAB1bIOo10JNr6RnUEAYsghqELrfKSZoEDix_5GqTz0nf9PrS3AUs_Q0q3hC6d8UpI36-4uuX89VmMeiPUFhQEdzmtxSHaWtUwVXOPyEH6_1lAwaSPEACvl2rsBfo_W0sZpqrAZJywIqA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72utmAZgV_Eu0ZzNqaWSw624nb40Qf3HFmyD6lCE56uhUUD9c4TAB1bIOo10JNr6RnUEAYsghqELrfKSZoEDix_5GqTz0nf9PrS3AUs_Q0q3hC6d8UpI36-4uuX89VmMeiPUFhQEdzmtxSHaWtUwVXOPyEH6_1lAwaSPEACvl2rsBfo_W0sZpqrAZJywIqA=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-022.png",
+      "bytes": 941266
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vYDjdnL25122FvGWmti04W3HMxEoAnyzouSM6dYzRi9C46nvaxQ8AtgARA7saAly9r-5aAiUb0rqD5H3q8HkOGIA_GpQk7y0TCwb2YcqDGV01k4XAEdvoOcpoXAOUMI6VZXL2Go8IqMOZUbmvwKpgQ08SHrHfHjH9ipU1bEQsTH7ni0PrdiUF_cW9t",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vYDjdnL25122FvGWmti04W3HMxEoAnyzouSM6dYzRi9C46nvaxQ8AtgARA7saAly9r-5aAiUb0rqD5H3q8HkOGIA_GpQk7y0TCwb2YcqDGV01k4XAEdvoOcpoXAOUMI6VZXL2Go8IqMOZUbmvwKpgQ08SHrHfHjH9ipU1bEQsTH7ni0PrdiUF_cW9t=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-023.png",
+      "bytes": 934976
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uxWeEZKDxRbjmRkv9a2LAeGfc4NAawJeE04eouzGzXU30YaR0GNpsLH8OjjTNGDgJfSL2Z2RgRVu7nT3ye4A1uhdWUx3NOTWa5xuxX7NZNqZNRUa4jWOsuXy51O-1mkN3hJDdP8J0S6fEa1YZZzWjMx7U0RiWtMLWaWhVQ589Rne511e2FUh6an2e_T-4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uxWeEZKDxRbjmRkv9a2LAeGfc4NAawJeE04eouzGzXU30YaR0GNpsLH8OjjTNGDgJfSL2Z2RgRVu7nT3ye4A1uhdWUx3NOTWa5xuxX7NZNqZNRUa4jWOsuXy51O-1mkN3hJDdP8J0S6fEa1YZZzWjMx7U0RiWtMLWaWhVQ589Rne511e2FUh6an2e_T-4=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-024.png",
+      "bytes": 942051
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sa4fCXMAxv2kFSqz_f1x-w7NEW-NDaQ7nvnQxHl3-YxX1EAt0hlLpLt6aY8LS8M1ejCJCr9jV-oR4CQR53xtptv8BEArMEKp0SUEEbKC_kxMvsXeAE_jauThNksJw2jAsjYQEV_vhSctHyV3zN4UVgfq0SloBs-qx16bVlQLVhyT9inaY7wkX48wBRCJo",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sa4fCXMAxv2kFSqz_f1x-w7NEW-NDaQ7nvnQxHl3-YxX1EAt0hlLpLt6aY8LS8M1ejCJCr9jV-oR4CQR53xtptv8BEArMEKp0SUEEbKC_kxMvsXeAE_jauThNksJw2jAsjYQEV_vhSctHyV3zN4UVgfq0SloBs-qx16bVlQLVhyT9inaY7wkX48wBRCJo=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-025.png",
+      "bytes": 935816
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72seoTGu9FcsFRbbzasDUenAFw_vPr57Isaqv4zGQiiBk2JPpflIswSRa0dW3DxB92e1qcuUt1mropY5o2MvfX5zVnkqExFCEwavtwMb1881ZmxvWYV3tPGMDG11O66FrWXVui3aanv1vzJXBaQh_1QiIpX4we0a1s1NpawxOKvvIH09FluFoogCZaKT",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72seoTGu9FcsFRbbzasDUenAFw_vPr57Isaqv4zGQiiBk2JPpflIswSRa0dW3DxB92e1qcuUt1mropY5o2MvfX5zVnkqExFCEwavtwMb1881ZmxvWYV3tPGMDG11O66FrWXVui3aanv1vzJXBaQh_1QiIpX4we0a1s1NpawxOKvvIH09FluFoogCZaKT=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-026.png",
+      "bytes": 963058
+    },
+    {
+      "page": "/about-cea/our-pride",
+      "slug": "about-cea-our-pride",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tblE4kr1pPfvH2NvAoqbHI9nlUGN0D2cMHI2eUqpYnJVVmil_lpu6mnxTFRwE913mfCJG1DDHBsg8TlkFfjl0xEv5li9jnI5eAUaclEqQdyhR9Oq3hfeb6HsageVcD-3aepa4JdsKS4dRDL6nrMFNG7q4q5VXeMXVCu42wpD3IMQSd-1iaKabB7qvTI7M",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tblE4kr1pPfvH2NvAoqbHI9nlUGN0D2cMHI2eUqpYnJVVmil_lpu6mnxTFRwE913mfCJG1DDHBsg8TlkFfjl0xEv5li9jnI5eAUaclEqQdyhR9Oq3hfeb6HsageVcD-3aepa4JdsKS4dRDL6nrMFNG7q4q5VXeMXVCu42wpD3IMQSd-1iaKabB7qvTI7M=w1280",
+      "file": "src/assets/gallery/about-cea-our-pride-027.png",
+      "bytes": 890155
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vHjHgaepJ5qQkTpVIm6dJ9GnJaK5wrhZZEcyB9wD2rTTjzefDSLDjtiz5Z1pqpRtSVbP4LP-IUst6hvuIAzfKEwMaOvA-kPazEXB_yRZy5LsfzAUfjywcv-995XkgszpMcmm6AKC6hY0qhSbiOEN5ATF1JCBXYXh5_06iE_0tOQNEQkrHtTKa03MieFPI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vHjHgaepJ5qQkTpVIm6dJ9GnJaK5wrhZZEcyB9wD2rTTjzefDSLDjtiz5Z1pqpRtSVbP4LP-IUst6hvuIAzfKEwMaOvA-kPazEXB_yRZy5LsfzAUfjywcv-995XkgszpMcmm6AKC6hY0qhSbiOEN5ATF1JCBXYXh5_06iE_0tOQNEQkrHtTKa03MieFPI=w16383",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-028.png",
+      "bytes": 2412390
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v0h2v2vTTyThWD4Y_pi1_EE-vvKUHYBu_oW2Bg_otXISTUVH2UqZeuNQCr98EjmbkH59TKtGWixMzHlKjpxqIMQbv7NnjCHCDhYQ6M393h002imfKKwUidOMZKacxoFrePIuf6J0RANXMmXmZ-8XAOGSdA5rL-T0jrgaIaa8CYUWB-G9ktk_y0BQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v0h2v2vTTyThWD4Y_pi1_EE-vvKUHYBu_oW2Bg_otXISTUVH2UqZeuNQCr98EjmbkH59TKtGWixMzHlKjpxqIMQbv7NnjCHCDhYQ6M393h002imfKKwUidOMZKacxoFrePIuf6J0RANXMmXmZ-8XAOGSdA5rL-T0jrgaIaa8CYUWB-G9ktk_y0BQ=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-029.png",
+      "bytes": 248808
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tzakuudmNizy-KoXeKXBInBW1ILQZ4TBHViMH9MhbhOSGoKcwnJto7T_hLZ1TZ5Bg9g2dhE-FhpF09MqFkMnoLN1Np5vu0YKCAmTOymXdq-pg8WF7oPdfPZpy0n5GCNqckj1c_S-ZQX_A655hregMqZXW3jVSYQXZyiTf_VpYH-ZmgGLHrVQxqAW8kwtuIZVcz9oDx4olY0cIUPW1kgPu3p7kfzK8Q6_q8RZ140Nw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tzakuudmNizy-KoXeKXBInBW1ILQZ4TBHViMH9MhbhOSGoKcwnJto7T_hLZ1TZ5Bg9g2dhE-FhpF09MqFkMnoLN1Np5vu0YKCAmTOymXdq-pg8WF7oPdfPZpy0n5GCNqckj1c_S-ZQX_A655hregMqZXW3jVSYQXZyiTf_VpYH-ZmgGLHrVQxqAW8kwtuIZVcz9oDx4olY0cIUPW1kgPu3p7kfzK8Q6_q8RZ140Nw=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-030.png",
+      "bytes": 73817
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uZnmiOEuobPqEVoQIC3EgaJY-MBoIIF8TLqj45gCQHtnWKD3pYNYp_A0W_s9czDcPakVZkPopB_mjzOYQKS1iBqvv_ke02eR7eiyXHQxAGzmMBDqEKcp58BW-jqn0gDjilFrpdFyRRDOLW4hwDZ0INGolBrEsYcmrVvhXllpD1zmv_eIO-aTmjdLysyZ9FYZJbH84IfKJG8bWNvQj7VESkNYBtpu6fFQb5fMiFZkI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uZnmiOEuobPqEVoQIC3EgaJY-MBoIIF8TLqj45gCQHtnWKD3pYNYp_A0W_s9czDcPakVZkPopB_mjzOYQKS1iBqvv_ke02eR7eiyXHQxAGzmMBDqEKcp58BW-jqn0gDjilFrpdFyRRDOLW4hwDZ0INGolBrEsYcmrVvhXllpD1zmv_eIO-aTmjdLysyZ9FYZJbH84IfKJG8bWNvQj7VESkNYBtpu6fFQb5fMiFZkI=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-031.png",
+      "bytes": 14651
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uo5hyFnBz3jBMfbH-c6stTPJuQVeeRqp7Y5ra0xBZWPQvEfvy_7zAOQMBF7R5dl3foa6C2oAp8E2pAdPjla1jR6ihFji4e2admdbRLFupm2SRTN-n6k1Nl7JEGehv497MR1qBkAObG_OS6yuGKoY1C5oC1vmWBBwEX8hET-tIC4PxSCTaNa1RxoQ-zP8SVmpN43oTpNtCgCnQMYUpyRaQN-_G0-CLU6vKs_0oRli4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uo5hyFnBz3jBMfbH-c6stTPJuQVeeRqp7Y5ra0xBZWPQvEfvy_7zAOQMBF7R5dl3foa6C2oAp8E2pAdPjla1jR6ihFji4e2admdbRLFupm2SRTN-n6k1Nl7JEGehv497MR1qBkAObG_OS6yuGKoY1C5oC1vmWBBwEX8hET-tIC4PxSCTaNa1RxoQ-zP8SVmpN43oTpNtCgCnQMYUpyRaQN-_G0-CLU6vKs_0oRli4=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-032.png",
+      "bytes": 31598
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vP2O5BEj3lg9dvGU7x_1Jqc7HKRcVJJ-Pyd25mK9KvJxtD7a7KFecfFUTKfOoeBuWErsxHW6w6cUBnl8xVkM4Aly4nsKVOnwhNbE68yLYcuG0m-y120kmy3fm3OY_oAw4SgNLKTxiHRxG_p4bp2Wk8nWCBNR_HSEhtilA-RYM3SKulWcAWAIomHRfmj4bXpeYi2ug-qTViZyElgt3gq568TZ-f_HPDYXjvgtSY2Qk",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vP2O5BEj3lg9dvGU7x_1Jqc7HKRcVJJ-Pyd25mK9KvJxtD7a7KFecfFUTKfOoeBuWErsxHW6w6cUBnl8xVkM4Aly4nsKVOnwhNbE68yLYcuG0m-y120kmy3fm3OY_oAw4SgNLKTxiHRxG_p4bp2Wk8nWCBNR_HSEhtilA-RYM3SKulWcAWAIomHRfmj4bXpeYi2ug-qTViZyElgt3gq568TZ-f_HPDYXjvgtSY2Qk=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-033.png",
+      "bytes": 13093
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tYQZ-UAqTfEZ8erSWw3NiVoz4xsqqaE_IGMc4Ybqi7sGKbACTcFWj4-jzFQQeAMRNZzynEspl-S4jYeMaditZmmM407GQAW3emvKNQ91YdrbLJH45lvcUlqJTVpmBwNWwnK2cCXpJhhv-yFJ-5exTCRxVtVX6NVpzUtfUf-aSUm0zaJc7I48gxbGLEJPz7HJBsXdJwP0FLmOBE_SQ_3PNwSrVM6ySirHhUNt5GYzg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tYQZ-UAqTfEZ8erSWw3NiVoz4xsqqaE_IGMc4Ybqi7sGKbACTcFWj4-jzFQQeAMRNZzynEspl-S4jYeMaditZmmM407GQAW3emvKNQ91YdrbLJH45lvcUlqJTVpmBwNWwnK2cCXpJhhv-yFJ-5exTCRxVtVX6NVpzUtfUf-aSUm0zaJc7I48gxbGLEJPz7HJBsXdJwP0FLmOBE_SQ_3PNwSrVM6ySirHhUNt5GYzg=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-034.png",
+      "bytes": 500849
+    },
+    {
+      "page": "/about-cea/cea-logo-seal",
+      "slug": "about-cea-cea-logo-seal",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tgrMa0dS9uY0jr26mhkNsg_AVPXGEyQ6eCkrXePDpoLpgv-39yfHFlFCs1Pjv4Em7m2S7DYtdwhJOB1Wc4FLiQF1Wbuuz-A2-hOiPP-RTRno48s9bNNXs1ET77DkP4-bpEtsq_zOgbP1jPT8pE0zatOuqwBEfxttXMt0ot-DFigzLDv4sW21gDHbBf",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tgrMa0dS9uY0jr26mhkNsg_AVPXGEyQ6eCkrXePDpoLpgv-39yfHFlFCs1Pjv4Em7m2S7DYtdwhJOB1Wc4FLiQF1Wbuuz-A2-hOiPP-RTRno48s9bNNXs1ET77DkP4-bpEtsq_zOgbP1jPT8pE0zatOuqwBEfxttXMt0ot-DFigzLDv4sW21gDHbBf=w1280",
+      "file": "src/assets/gallery/about-cea-cea-logo-seal-035.png",
+      "bytes": 310491
+    },
+    {
+      "page": "/about-cea/scholarships-offered",
+      "slug": "about-cea-scholarships-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tItbRahwXGjvOvkeOTqrkyugaf-WuIdu4Ff5ELFclFscUDAlNPaO9XUpGKVUd8XfnVtJh2G0iHU_hbqTwqf5NjKx5ktse5x1L481wgZAgZgBHb6r0B9L6rcautm7mFZ-q0QneAWzAIi17KHirQ8zTrO4hriV8kcN1pPE-rQOaSGOQDqWPtEmxBggGY4Pc",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tItbRahwXGjvOvkeOTqrkyugaf-WuIdu4Ff5ELFclFscUDAlNPaO9XUpGKVUd8XfnVtJh2G0iHU_hbqTwqf5NjKx5ktse5x1L481wgZAgZgBHb6r0B9L6rcautm7mFZ-q0QneAWzAIi17KHirQ8zTrO4hriV8kcN1pPE-rQOaSGOQDqWPtEmxBggGY4Pc=w16383",
+      "file": "src/assets/gallery/about-cea-scholarships-offered-036.png",
+      "bytes": 2351262
+    },
+    {
+      "page": "/about-cea/scholarships-offered",
+      "slug": "about-cea-scholarships-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u3hMcd29eXKsF-C9MDfPjZX2EE5tu3HK_1U3jCpv-mJVTsB7os0cNpgZwlQral0nocAUhWEvay--km84iDwGP2ry25k0udeDTdjrDJe6QTfQ6UJcdM1JkaWg57gcqzhyVhgxH_ItMDgKBi1J14lWIdhIkKb1LJYshbBo1ImhpY8KdxeN1lnp2h48oHg8d043W1_PYkWmdpV-G_lWEeTyYUP0CKoW5v0_jWqOak",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u3hMcd29eXKsF-C9MDfPjZX2EE5tu3HK_1U3jCpv-mJVTsB7os0cNpgZwlQral0nocAUhWEvay--km84iDwGP2ry25k0udeDTdjrDJe6QTfQ6UJcdM1JkaWg57gcqzhyVhgxH_ItMDgKBi1J14lWIdhIkKb1LJYshbBo1ImhpY8KdxeN1lnp2h48oHg8d043W1_PYkWmdpV-G_lWEeTyYUP0CKoW5v0_jWqOak=w1280",
+      "file": "src/assets/gallery/about-cea-scholarships-offered-037.png",
+      "bytes": 1352570
+    },
+    {
+      "page": "/about-cea/scholarships-offered",
+      "slug": "about-cea-scholarships-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tLLRYH8QDVcrnek0Bj9TA8oYMgxIDldncGcMU_4kkFXZY8UDae0LLXQcvnveCB5V5JYdaKOagizuhpK4hILzRdDadRpsFzuqqzflfaJjOMHP6EyyYyTX2mjoBkavZPmk3IDbHR0LZnbtpFvkzP4479b8JhtZkcp7hMBU8sftAj6b5fnjOsGi7mLYMiZcFJSZmAwskmYsTJnWRkCAwzltmTzN8A7PGORo1e9TPbs5U",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tLLRYH8QDVcrnek0Bj9TA8oYMgxIDldncGcMU_4kkFXZY8UDae0LLXQcvnveCB5V5JYdaKOagizuhpK4hILzRdDadRpsFzuqqzflfaJjOMHP6EyyYyTX2mjoBkavZPmk3IDbHR0LZnbtpFvkzP4479b8JhtZkcp7hMBU8sftAj6b5fnjOsGi7mLYMiZcFJSZmAwskmYsTJnWRkCAwzltmTzN8A7PGORo1e9TPbs5U=w1280",
+      "file": "src/assets/gallery/about-cea-scholarships-offered-038.png",
+      "bytes": 1493808
+    },
+    {
+      "page": "/programs-offered",
+      "slug": "programs-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tpIWwrAWBW-f0mjt8LRNNikeN0ZBxF0ewB5tdsJBE01dvFsO1JcB5yvVOeSs1Se3yvgySaaMr0a7-a0PCzokbmvUAbLaLBB6X0Lduwbn0_AoJkcPl9xYrpRtJ4MyXgW1Nx2qiLjzczLfic999PZjbrzuGW0qVE2RbcHmPAB-RuiTOTdsCp07nrbDBXW7s",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tpIWwrAWBW-f0mjt8LRNNikeN0ZBxF0ewB5tdsJBE01dvFsO1JcB5yvVOeSs1Se3yvgySaaMr0a7-a0PCzokbmvUAbLaLBB6X0Lduwbn0_AoJkcPl9xYrpRtJ4MyXgW1Nx2qiLjzczLfic999PZjbrzuGW0qVE2RbcHmPAB-RuiTOTdsCp07nrbDBXW7s=w16383",
+      "file": "src/assets/gallery/programs-offered-039.png",
+      "bytes": 2357591
+    },
+    {
+      "page": "/programs-offered",
+      "slug": "programs-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sK1GfCITLAQDJg6xey89zgXq9y2lX0XVWeAkuciu4yUijEln9a-GBCrUCTqhpr9GZJbhMXND29K2LCYN-uEisyX2zE9pgEK3bkFpOCsmty1Qls50Q1zULkPn6ktxpJiFkJBbfoV3IaylsMB8Enpu4RDQ5DS0WpYhavBfqXd1jJczYBgnkl98Z9AWDx",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sK1GfCITLAQDJg6xey89zgXq9y2lX0XVWeAkuciu4yUijEln9a-GBCrUCTqhpr9GZJbhMXND29K2LCYN-uEisyX2zE9pgEK3bkFpOCsmty1Qls50Q1zULkPn6ktxpJiFkJBbfoV3IaylsMB8Enpu4RDQ5DS0WpYhavBfqXd1jJczYBgnkl98Z9AWDx=w1280",
+      "file": "src/assets/gallery/programs-offered-040.png",
+      "bytes": 1523224
+    },
+    {
+      "page": "/programs-offered",
+      "slug": "programs-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72veiu5UxPEgTEZ9BO8xUCDtGFgjrw2aJ6-_F-ZcHizfH-0Re1kBN_OZFcBrbaj_2rMBd2_iu4oWerXv-pqbcpDpc7_twEOmnoz7f4kPLX0IFSkp4188PPc6GHIhuHkLnT7mDfiQUHWVRdVuhptEincw3D3iM59tvgYyRQZ6Vnji_pI-GzutewQRCZdsjZI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72veiu5UxPEgTEZ9BO8xUCDtGFgjrw2aJ6-_F-ZcHizfH-0Re1kBN_OZFcBrbaj_2rMBd2_iu4oWerXv-pqbcpDpc7_twEOmnoz7f4kPLX0IFSkp4188PPc6GHIhuHkLnT7mDfiQUHWVRdVuhptEincw3D3iM59tvgYyRQZ6Vnji_pI-GzutewQRCZdsjZI=w1280",
+      "file": "src/assets/gallery/programs-offered-041.png",
+      "bytes": 1644641
+    },
+    {
+      "page": "/programs-offered",
+      "slug": "programs-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sT10PVmxF5ObXlNHQEGPpPDZYLxhuxT50aB0wh8IWQidHU5DCoEsM8QT6uTCJ9zQvILVF3j9w9kQp_2lF6XiVyPD6Mxjk5PtaXlFs50wJms6pt_uqpD1xX8vMp9W0Qa6q09LwjmF-YBexP0Z1Z1qaOB4j_seNtJoZn5jMaCwFBKgltblueoa-VfD78Gzg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sT10PVmxF5ObXlNHQEGPpPDZYLxhuxT50aB0wh8IWQidHU5DCoEsM8QT6uTCJ9zQvILVF3j9w9kQp_2lF6XiVyPD6Mxjk5PtaXlFs50wJms6pt_uqpD1xX8vMp9W0Qa6q09LwjmF-YBexP0Z1Z1qaOB4j_seNtJoZn5jMaCwFBKgltblueoa-VfD78Gzg=w1280",
+      "file": "src/assets/gallery/programs-offered-042.png",
+      "bytes": 2996794
+    },
+    {
+      "page": "/programs-offered",
+      "slug": "programs-offered",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sz4GNapLizmxTCBkGnMsQqqmEvmEcT1cT79eRTFM8PFH092YTpp1LYYwEPrARKPQEJ5T6Oaa8-lAY3Ma6479dzd-OwTAv9WcO9gUV7ubaNuX3t9UALqhpT5XesbB0-zdudLHSQ_pQmlWSgdox8I0crGNHDHbSwDbfF7Dr8kUojw-g1iU5c1vcAOg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sz4GNapLizmxTCBkGnMsQqqmEvmEcT1cT79eRTFM8PFH092YTpp1LYYwEPrARKPQEJ5T6Oaa8-lAY3Ma6479dzd-OwTAv9WcO9gUV7ubaNuX3t9UALqhpT5XesbB0-zdudLHSQ_pQmlWSgdox8I0crGNHDHbSwDbfF7Dr8kUojw-g1iU5c1vcAOg=w1280",
+      "file": "src/assets/gallery/programs-offered-043.png",
+      "bytes": 291060
+    },
+    {
+      "page": "/programs-offered/bs-architecture",
+      "slug": "programs-offered-bs-architecture",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u0rgNB63w-ZJSwqfGsn7LlEUYUqwO-2vy7rZhIr3rxndSnYC4fVLgU7gZ5QE88C_ZWG4qOVlAxdOkET7ZeYwvBTWFq7v21RiSaJHNnd8bj7PIjAnTQQ0seH8bxhWWHTZ0hDGbx1FjB-TbYTcfbEYDqBC4wgsj3mBOtmul_lzUoA-KqlNd0RRfU9JEkiKI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u0rgNB63w-ZJSwqfGsn7LlEUYUqwO-2vy7rZhIr3rxndSnYC4fVLgU7gZ5QE88C_ZWG4qOVlAxdOkET7ZeYwvBTWFq7v21RiSaJHNnd8bj7PIjAnTQQ0seH8bxhWWHTZ0hDGbx1FjB-TbYTcfbEYDqBC4wgsj3mBOtmul_lzUoA-KqlNd0RRfU9JEkiKI=w16383",
+      "file": "src/assets/gallery/programs-offered-bs-architecture-044.png",
+      "bytes": 2461103
+    },
+    {
+      "page": "/programs-offered/bs-architecture",
+      "slug": "programs-offered-bs-architecture",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vGOqmAbgO1YN2tsJaEI9z8S7WCQ_DHZAYDg09lgXQ6m1QdJJ7Ju77Wuil6Q2wDgIsP2meJKb3C4uXuaJz7Vz8vDV8RdWNc_aHbr4ff-wzJ33_3zRz6WLchR-FetKMKNz4DNV9wcNEfafXJxbPtXM_ujU9siQW7mbDOuDK09OGmzeRtYn8-1J8BlEKyHZs",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vGOqmAbgO1YN2tsJaEI9z8S7WCQ_DHZAYDg09lgXQ6m1QdJJ7Ju77Wuil6Q2wDgIsP2meJKb3C4uXuaJz7Vz8vDV8RdWNc_aHbr4ff-wzJ33_3zRz6WLchR-FetKMKNz4DNV9wcNEfafXJxbPtXM_ujU9siQW7mbDOuDK09OGmzeRtYn8-1J8BlEKyHZs=w1280",
+      "file": "src/assets/gallery/programs-offered-bs-architecture-045.jpg",
+      "bytes": 226478
+    },
+    {
+      "page": "/programs-offered/bs-electronics-engineering",
+      "slug": "programs-offered-bs-electronics-engineering",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72stwChQCcV83QOLSeJcPWyVeZmg4CFeBt8egCE-mBD3agG-Di9-8nvVo-k4_Y-FzB9FBOH-b-ap1ek1kjOH9TODnt9lERDfmxNugJyWa60C-5CAyrXGO1ZUAmvIfnh35dATqbf42tnqh7n_T74CI9zOsQBb7ShhiR2RCscD8UYvkedTzhDZPFYn_K6hyxQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72stwChQCcV83QOLSeJcPWyVeZmg4CFeBt8egCE-mBD3agG-Di9-8nvVo-k4_Y-FzB9FBOH-b-ap1ek1kjOH9TODnt9lERDfmxNugJyWa60C-5CAyrXGO1ZUAmvIfnh35dATqbf42tnqh7n_T74CI9zOsQBb7ShhiR2RCscD8UYvkedTzhDZPFYn_K6hyxQ=w16383",
+      "file": "src/assets/gallery/programs-offered-bs-electronics-engineering-046.png",
+      "bytes": 2311624
+    },
+    {
+      "page": "/programs-offered/bs-civil-engineering",
+      "slug": "programs-offered-bs-civil-engineering",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72suFx2OtZyYfxQfqigvLeIfXinxQWYZXPG1Cz7YpYGGJdanUb_lurwfkapLIzJsF8XrhfekeCFtyebZWgsfce5O1OiZ-cb5XVTYfsti6EJO8ZvcGDE-7hYXMKK8ukavmShHI0QRSS35T0ftZ78u3nSONFnY9kgE_zq3XP8rZBYqa7qQmIwFeMbHIXDw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72suFx2OtZyYfxQfqigvLeIfXinxQWYZXPG1Cz7YpYGGJdanUb_lurwfkapLIzJsF8XrhfekeCFtyebZWgsfce5O1OiZ-cb5XVTYfsti6EJO8ZvcGDE-7hYXMKK8ukavmShHI0QRSS35T0ftZ78u3nSONFnY9kgE_zq3XP8rZBYqa7qQmIwFeMbHIXDw=w16383",
+      "file": "src/assets/gallery/programs-offered-bs-civil-engineering-047.png",
+      "bytes": 2371889
+    },
+    {
+      "page": "/programs-offered/bs-computer-engineering",
+      "slug": "programs-offered-bs-computer-engineering",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u5ErismLpO6CyHrCpDAvdQqiXUBAVb5k48QVceMr5tucbn7054JSXjhmRtB_dHu-SAF0SlWkKcO9UpgpiyNEykubfsBA-hXZlZXICpLQGdPlVWV4DYd5D0A0NInQvLzu59kySoy_TfHM60Na3y3I2CBiJGF5vo1HeZC0Rvb1aFkQaplkTNCsSB7eonRjk",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u5ErismLpO6CyHrCpDAvdQqiXUBAVb5k48QVceMr5tucbn7054JSXjhmRtB_dHu-SAF0SlWkKcO9UpgpiyNEykubfsBA-hXZlZXICpLQGdPlVWV4DYd5D0A0NInQvLzu59kySoy_TfHM60Na3y3I2CBiJGF5vo1HeZC0Rvb1aFkQaplkTNCsSB7eonRjk=w16383",
+      "file": "src/assets/gallery/programs-offered-bs-computer-engineering-048.png",
+      "bytes": 2476364
+    },
+    {
+      "page": "/featured-works",
+      "slug": "featured-works",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uEdzeZNZyQ41bBOvZmHwGNGo1dyXTW-_9jVdWLj7R8CIbMXLycJigyHd53LOGE2HtPJgV1nJYOGiDU_o3k3EqPCYsT5zh01yLHrZp71gYtTQhsOkj1XrlFFZPZVTwbNZ0Ijj8BlptEAyrrrl0jHW4I_N6A3S_Oyq0Bd5QZH62KBwDMHMA21UV-Q_B9tUA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uEdzeZNZyQ41bBOvZmHwGNGo1dyXTW-_9jVdWLj7R8CIbMXLycJigyHd53LOGE2HtPJgV1nJYOGiDU_o3k3EqPCYsT5zh01yLHrZp71gYtTQhsOkj1XrlFFZPZVTwbNZ0Ijj8BlptEAyrrrl0jHW4I_N6A3S_Oyq0Bd5QZH62KBwDMHMA21UV-Q_B9tUA=w16383",
+      "file": "src/assets/gallery/featured-works-049.png",
+      "bytes": 2376363
+    },
+    {
+      "page": "/featured-works",
+      "slug": "featured-works",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vBIsZ4kZyuR0-nC7x7Wx6V5rlAHLGsqkqRS-aH71-k5TBh6UAhA4FU5tgLr7FR672FMtPeeuRfRQ5OO_qsVZX2ilTjTHqKnMGr0Veasm-JhJzV-5G_ph0sVXmxjDoToVw9CORuA1b4ZXNwP8vRIlQM4cjK-rLVs9b8y0smKxYgobqIeiU3C3mzqkiI-VTkerJ-0D_2pR8gqMEfeRMDw7UPrsHhILNcA-NRw83Uivs",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vBIsZ4kZyuR0-nC7x7Wx6V5rlAHLGsqkqRS-aH71-k5TBh6UAhA4FU5tgLr7FR672FMtPeeuRfRQ5OO_qsVZX2ilTjTHqKnMGr0Veasm-JhJzV-5G_ph0sVXmxjDoToVw9CORuA1b4ZXNwP8vRIlQM4cjK-rLVs9b8y0smKxYgobqIeiU3C3mzqkiI-VTkerJ-0D_2pR8gqMEfeRMDw7UPrsHhILNcA-NRw83Uivs=w1280",
+      "file": "src/assets/gallery/featured-works-050.png",
+      "bytes": 1360274
+    },
+    {
+      "page": "/featured-works",
+      "slug": "featured-works",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vcb6AuT5_Y5g0T48M91WWllfj6Mpxa70-Dgblo4Z-3o-Qf4PbcrOd7Y0aW87eIx_JUuILwwDM52LalGwyrHiuLx45N2MT07MpXSlKsw7ozdmJ0wBniW7XFmV0dSM5edw1ODS2NOLUJyhWLfg6N3mC4D7IBsIht32gNmFBo-_2_YvQRFsQKpQYBUPeoC08",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vcb6AuT5_Y5g0T48M91WWllfj6Mpxa70-Dgblo4Z-3o-Qf4PbcrOd7Y0aW87eIx_JUuILwwDM52LalGwyrHiuLx45N2MT07MpXSlKsw7ozdmJ0wBniW7XFmV0dSM5edw1ODS2NOLUJyhWLfg6N3mC4D7IBsIht32gNmFBo-_2_YvQRFsQKpQYBUPeoC08=w1280",
+      "file": "src/assets/gallery/featured-works-051.png",
+      "bytes": 1555676
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tRd8g8CF5-0Iyp_d9TR2ur5iOX9gCPjMejXowJfN4UcWdVTckr-7-TGhHI0LXBaOzUu-fGdXfV73C8etS9IRXoL7_3cM2ljdHbFYAjh8w9-ZjRYfYSFQsHOlVsz6biLChKbuxfKjLZPWNvnnGaXzFr4y7zJYLZY-zORyGuNeEHcfvyXzriDASoKA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tRd8g8CF5-0Iyp_d9TR2ur5iOX9gCPjMejXowJfN4UcWdVTckr-7-TGhHI0LXBaOzUu-fGdXfV73C8etS9IRXoL7_3cM2ljdHbFYAjh8w9-ZjRYfYSFQsHOlVsz6biLChKbuxfKjLZPWNvnnGaXzFr4y7zJYLZY-zORyGuNeEHcfvyXzriDASoKA=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-052.jpg",
+      "bytes": 394805
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u0mG8oTAq-d8JKTNKOK_9JULw9vxTzYHPFvHL62gOgA9hg8oiCR7Omgvm2DdaXhaPLXH_Imlz2ympymA3NMx-5hLT8HfEnNvg3tNcL8IUcygMdEXLoO4UvMS4VoR7bBqupJ2ZgUS-UK_miv6qYxGCvbqulJ7RWY9m6k4DGTNWoenkQ8Mj7skMQ1x1hRqU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u0mG8oTAq-d8JKTNKOK_9JULw9vxTzYHPFvHL62gOgA9hg8oiCR7Omgvm2DdaXhaPLXH_Imlz2ympymA3NMx-5hLT8HfEnNvg3tNcL8IUcygMdEXLoO4UvMS4VoR7bBqupJ2ZgUS-UK_miv6qYxGCvbqulJ7RWY9m6k4DGTNWoenkQ8Mj7skMQ1x1hRqU=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-053.jpg",
+      "bytes": 346104
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sK7SwkrHDI40rQxFCag_Tn0enTq9xtadj_MiYzDUTzVbyn3J8Zow00PPCLAzBJgeKnNjGo_M5W1PQ26ZR_21xmiOHUySf2cak08NoONwOPa2g4KjL9W9a5XBatH9yDfuUaGvHDhBp85vtWvaKp5igO-utaYQ2OqWetBoLQaP08FIZNBchSdCILS4FXhe8",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sK7SwkrHDI40rQxFCag_Tn0enTq9xtadj_MiYzDUTzVbyn3J8Zow00PPCLAzBJgeKnNjGo_M5W1PQ26ZR_21xmiOHUySf2cak08NoONwOPa2g4KjL9W9a5XBatH9yDfuUaGvHDhBp85vtWvaKp5igO-utaYQ2OqWetBoLQaP08FIZNBchSdCILS4FXhe8=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-054.jpg",
+      "bytes": 426807
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u9nQaLaZDH3iRJuTEd3bHWaCTVoivFQUn2JC5g10UGr_jLpKxySTXo5sNXKkQXq4d4xo9FHbwhWEgy4vmrUWB9yinSPiCFTKrkYIBWfkaDtHai4PcUOckZwnu8j2B_6YGkyWEYKlYZFQmarAYxmhg6G_ZC6oPJ4keKAbIKyAJnMIEU0IV7RHtym2-Auok",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u9nQaLaZDH3iRJuTEd3bHWaCTVoivFQUn2JC5g10UGr_jLpKxySTXo5sNXKkQXq4d4xo9FHbwhWEgy4vmrUWB9yinSPiCFTKrkYIBWfkaDtHai4PcUOckZwnu8j2B_6YGkyWEYKlYZFQmarAYxmhg6G_ZC6oPJ4keKAbIKyAJnMIEU0IV7RHtym2-Auok=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-055.jpg",
+      "bytes": 336534
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vaOE1VENEygW4L8T14oHRQLJSNV4GQQyJTrAkwN1EOeWdV5easz2PxpTyCKcj9LZQR2RaZ9TBIRW6r3asVZ9lN48LSTHpoD198Yo4Xv3OwGb7u1506zHz3rPd0tgJRsJ-zblOQSzUfP_fVLasIzHuvYm6nnx8lCYQWrgeHBEK-sM9XPFawZ7rmou0uILo",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vaOE1VENEygW4L8T14oHRQLJSNV4GQQyJTrAkwN1EOeWdV5easz2PxpTyCKcj9LZQR2RaZ9TBIRW6r3asVZ9lN48LSTHpoD198Yo4Xv3OwGb7u1506zHz3rPd0tgJRsJ-zblOQSzUfP_fVLasIzHuvYm6nnx8lCYQWrgeHBEK-sM9XPFawZ7rmou0uILo=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-056.jpg",
+      "bytes": 305200
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vxP21ZNI0ehAzUQY27Jv3GU3m2rtuOIh0hSl3wP3Hy5Tn8ik8r_mUwPrxGlYPBRcK4fXOjEQKbNrYMP0VKkm9MGdtpBpVvmtFFngE9keqyIPrKrYdLKEAM5hYJDWztRJnvk47wDzt_1ru9j-MicFTqqGojDh_CFbZvq-FTLzYm5B2vudojbU9H-KkfyS0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vxP21ZNI0ehAzUQY27Jv3GU3m2rtuOIh0hSl3wP3Hy5Tn8ik8r_mUwPrxGlYPBRcK4fXOjEQKbNrYMP0VKkm9MGdtpBpVvmtFFngE9keqyIPrKrYdLKEAM5hYJDWztRJnvk47wDzt_1ru9j-MicFTqqGojDh_CFbZvq-FTLzYm5B2vudojbU9H-KkfyS0=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-057.jpg",
+      "bytes": 295585
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tjZM-NGheJnIPToABISEUfrQxVnj79dYrSqeySl-J5C0RAwjLthYVrL4Y44sHw1QhyXApBqnvcmlsAGf7h3rmWhoMmX8zJ76vjykToBRIoW4Z26P4DyWMfNSZpIXY7wpO58glMiqV_bV0vmY_E9UR9pBfL1n2OfZ2kE2HqQTa5YIHxWJ1dg0nS6m4QREQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tjZM-NGheJnIPToABISEUfrQxVnj79dYrSqeySl-J5C0RAwjLthYVrL4Y44sHw1QhyXApBqnvcmlsAGf7h3rmWhoMmX8zJ76vjykToBRIoW4Z26P4DyWMfNSZpIXY7wpO58glMiqV_bV0vmY_E9UR9pBfL1n2OfZ2kE2HqQTa5YIHxWJ1dg0nS6m4QREQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-058.jpg",
+      "bytes": 242265
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v4SMbDsfxxD7XwbPqgaa6bT9bPB6Duf6mPMVGysu3lDDHMSceJAdoctAhMEtxC-5aaTbPBuKp2W_W2X2bFJTyBtZJqnSzXCm8yMxHWwagQMh49Dr0tOshXw0cWavDFMjYdrTLv8CrLWfLAAsL7ssUnnE4aq9htBtpUjkc2wKsU9XiDEknzCyFmeqxp",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v4SMbDsfxxD7XwbPqgaa6bT9bPB6Duf6mPMVGysu3lDDHMSceJAdoctAhMEtxC-5aaTbPBuKp2W_W2X2bFJTyBtZJqnSzXCm8yMxHWwagQMh49Dr0tOshXw0cWavDFMjYdrTLv8CrLWfLAAsL7ssUnnE4aq9htBtpUjkc2wKsU9XiDEknzCyFmeqxp=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-059.jpg",
+      "bytes": 229315
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sx60ONGD3X3ZahsRLjIXG0G8jUQrN6ET-M9j0B7M2Y7Zis2xcvscH3eG1Ky1wmiACkTIFCCyrahukIFUfen9m14_eDoY7ZrDjxELLUMN-2PcVRIMCNNpLB3og4SEIpR9y4WvQnY6PR5pJPerfa41rR2EfdIlDgCDe_QccIZ93H-Rbtzh_N76RCMWBdCbs",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sx60ONGD3X3ZahsRLjIXG0G8jUQrN6ET-M9j0B7M2Y7Zis2xcvscH3eG1Ky1wmiACkTIFCCyrahukIFUfen9m14_eDoY7ZrDjxELLUMN-2PcVRIMCNNpLB3og4SEIpR9y4WvQnY6PR5pJPerfa41rR2EfdIlDgCDe_QccIZ93H-Rbtzh_N76RCMWBdCbs=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-060.jpg",
+      "bytes": 267849
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vwpQvK1IICaahfFAUvESBYZmg73_mZch84LcYfGpz33sTsmDr35onqFrpmF7lvDojupD_mNrqKuLhDqjW6VziMr3JNaRVaMbJW-cRz2JJj4cg_VtGxbXEby8nK2ptQ0yawIXIQLk-d1dbns8CPKsIzzysx8xT1A_Kx6pj0bCk0uRVwb5chLzQedwJ9rtM",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vwpQvK1IICaahfFAUvESBYZmg73_mZch84LcYfGpz33sTsmDr35onqFrpmF7lvDojupD_mNrqKuLhDqjW6VziMr3JNaRVaMbJW-cRz2JJj4cg_VtGxbXEby8nK2ptQ0yawIXIQLk-d1dbns8CPKsIzzysx8xT1A_Kx6pj0bCk0uRVwb5chLzQedwJ9rtM=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-061.jpg",
+      "bytes": 233717
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tyTx4TSu4qm9ugMtULjKhpM7YYaQYpDBDxl-KPkd_XXzxmFdEkbozVLZMxADK8TEkBNf1N3knbvKwQCsf__LXRwPNzOn9Fc8LPLdWfTn8CldxVtm-28-6k2snV-sMnLQwmBRVqAWI1rH-ihUW1lM8l--F-DhjLaOlewtzdjMatPyOUwhd1Pohsm5Vw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tyTx4TSu4qm9ugMtULjKhpM7YYaQYpDBDxl-KPkd_XXzxmFdEkbozVLZMxADK8TEkBNf1N3knbvKwQCsf__LXRwPNzOn9Fc8LPLdWfTn8CldxVtm-28-6k2snV-sMnLQwmBRVqAWI1rH-ihUW1lM8l--F-DhjLaOlewtzdjMatPyOUwhd1Pohsm5Vw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-062.jpg",
+      "bytes": 324866
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vvH2oTwvCephZZrt20T1E9dyo_KHHmDC_b173mhpLOQA2OyIdduOlZgnYhmYqjqnOqg6MN-QYuvo0rje9ztvXE0n459F-DE4LSPAXWkYE45shBoZKkF84eA1Hd5R1ulzKc2PRmZ0oZQf3FWiq5lTomzcoDCTXl9X2smMFMhBaOvjRdCt2ILywXfaBPSAg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vvH2oTwvCephZZrt20T1E9dyo_KHHmDC_b173mhpLOQA2OyIdduOlZgnYhmYqjqnOqg6MN-QYuvo0rje9ztvXE0n459F-DE4LSPAXWkYE45shBoZKkF84eA1Hd5R1ulzKc2PRmZ0oZQf3FWiq5lTomzcoDCTXl9X2smMFMhBaOvjRdCt2ILywXfaBPSAg=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-063.jpg",
+      "bytes": 319501
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ti45UhUeWaqecsEEb9__sh-kYALIOW4i2GfHsQyyD1rSbWRbmfNR_1MUFfFTLrfIxa5z3dVGpYj35ILfeO66AP8UdHXw4ZyFfvuVlIFaJgpDS7nqsLLfwBdbLsTmsoGEKLefvouqkyOl0fbLSBB1GkkOqxbEmh5IRv49h3fgbl_xlFRw-AFFkgX8Op_Qs",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ti45UhUeWaqecsEEb9__sh-kYALIOW4i2GfHsQyyD1rSbWRbmfNR_1MUFfFTLrfIxa5z3dVGpYj35ILfeO66AP8UdHXw4ZyFfvuVlIFaJgpDS7nqsLLfwBdbLsTmsoGEKLefvouqkyOl0fbLSBB1GkkOqxbEmh5IRv49h3fgbl_xlFRw-AFFkgX8Op_Qs=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-064.jpg",
+      "bytes": 340102
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72smwYVpnGEDULjq3yziXHabnAa6cfGhj9IgJMy3QVeXc8jRe1hSolvNezwpaP2p91d5neMyZDVCzD88PNnLGeH1i4z-supFxB-SqoqMbuJQHuD7VQVFGBvvdlf3w815q7893iHKE8exuLjFv7VpTJQ4zIvneNU8_nXKW0_Y5CDH3vigJQkKBxLzJJ6n",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72smwYVpnGEDULjq3yziXHabnAa6cfGhj9IgJMy3QVeXc8jRe1hSolvNezwpaP2p91d5neMyZDVCzD88PNnLGeH1i4z-supFxB-SqoqMbuJQHuD7VQVFGBvvdlf3w815q7893iHKE8exuLjFv7VpTJQ4zIvneNU8_nXKW0_Y5CDH3vigJQkKBxLzJJ6n=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-065.jpg",
+      "bytes": 237700
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sPUAi7TGVUopWwm5xZiFixyoGrKmLl7aF7HR37UsHZw_WBuxkcChPP5qK83KW6t4gws-oyuy2QIgp43WGa1RUIGfvYX01YNfbUlq61cEtEE1UKTK4hDlLMB_PgLN9Lp4ZmfRDlQ9FDe3jSQic33KKLLQhnqDQWn8p6toXAibuat7K1fMKgSllyh1WQork",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sPUAi7TGVUopWwm5xZiFixyoGrKmLl7aF7HR37UsHZw_WBuxkcChPP5qK83KW6t4gws-oyuy2QIgp43WGa1RUIGfvYX01YNfbUlq61cEtEE1UKTK4hDlLMB_PgLN9Lp4ZmfRDlQ9FDe3jSQic33KKLLQhnqDQWn8p6toXAibuat7K1fMKgSllyh1WQork=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-066.jpg",
+      "bytes": 333538
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uVocKVLw6G8mGv0mqLiNLoT9tnmH_drOOQWdmGBC_cq8rFkjAX3loAExEQurPqMUdu32BQuQGFZoR1YoGSd_I9LHJNGKSvC-diyXYz5RaYspD_SPpyWYmvGhiXvfadYy_ADF_ULfqw3sWh_rMdiFd87FvQ_X0gVl9cDB4mnjQp0AsNtYQzA7OCKZXXYD0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uVocKVLw6G8mGv0mqLiNLoT9tnmH_drOOQWdmGBC_cq8rFkjAX3loAExEQurPqMUdu32BQuQGFZoR1YoGSd_I9LHJNGKSvC-diyXYz5RaYspD_SPpyWYmvGhiXvfadYy_ADF_ULfqw3sWh_rMdiFd87FvQ_X0gVl9cDB4mnjQp0AsNtYQzA7OCKZXXYD0=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-067.jpg",
+      "bytes": 433603
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sZbBLdVNhWTZ0B76LzAv3O5uRw4PXWpmCz2haFAuW40oPLTx722XKZkgbdPj7p7shrhnMWt8Boabsf1KSC9MpKpeUCadDHuFNtg_1bUqtEGgFEOfMMPxJh16GLon4FwO5eqZAjGcO93FHAJCsXvqpXZobbjKhkyMq-5Q8CtstvvtXScoS3EfxZ1J9Z",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sZbBLdVNhWTZ0B76LzAv3O5uRw4PXWpmCz2haFAuW40oPLTx722XKZkgbdPj7p7shrhnMWt8Boabsf1KSC9MpKpeUCadDHuFNtg_1bUqtEGgFEOfMMPxJh16GLon4FwO5eqZAjGcO93FHAJCsXvqpXZobbjKhkyMq-5Q8CtstvvtXScoS3EfxZ1J9Z=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-068.jpg",
+      "bytes": 297529
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vRbI6o6chDYEk6Cx_6qBYNjuEU9lrZQMOLLtCRmvlM0p6hU7WxMsTb8S3SSYN-Q1EOQqw-X_joH5noFWhEqeHIaoJQmsivjx-hRqq_7itZKb890wK4tgYotk71dvZWpU4inmdtNSM1QgZJ3OqmoJLPxQLHLTV9ob9TW8LIoUCJK6nZAH9_UMgogVv60JQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vRbI6o6chDYEk6Cx_6qBYNjuEU9lrZQMOLLtCRmvlM0p6hU7WxMsTb8S3SSYN-Q1EOQqw-X_joH5noFWhEqeHIaoJQmsivjx-hRqq_7itZKb890wK4tgYotk71dvZWpU4inmdtNSM1QgZJ3OqmoJLPxQLHLTV9ob9TW8LIoUCJK6nZAH9_UMgogVv60JQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-069.jpg",
+      "bytes": 391631
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vVI7Dj4HazSL7yxOws0IOpbjs4jTMuQSx_CRuiuyKK3ITOsr6MHY0ifXjwMeeUdbq9RHzENcA1kl_GpV8hCqUcN8rmdLA0AZXkdp6pEgB41LxYpp6Nnj9nSzxyp-iYE5Gu6HLsUtVUlhXx6qllnJ476ko0ppQC2xtGMRHHUclFhahTmMuE2ccVBfyizFE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vVI7Dj4HazSL7yxOws0IOpbjs4jTMuQSx_CRuiuyKK3ITOsr6MHY0ifXjwMeeUdbq9RHzENcA1kl_GpV8hCqUcN8rmdLA0AZXkdp6pEgB41LxYpp6Nnj9nSzxyp-iYE5Gu6HLsUtVUlhXx6qllnJ476ko0ppQC2xtGMRHHUclFhahTmMuE2ccVBfyizFE=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-070.jpg",
+      "bytes": 486780
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vVCeixevZdoi6YjqOMOW12rha2PQReCEwH30TLcQvHmzS-JfKv4tgeHtVRaXe5QHiYSGA9MHsHOQ4x5NltNPt17NNd_VbXOGWYYWN7JKyHcGSjDJwOlSPBpepKFENQMeKiDNhwO0fYlQtIu79zlGrACqKsdPjcaeDg9tIAetiHAtWEjKhsnnQH4D-PiRg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vVCeixevZdoi6YjqOMOW12rha2PQReCEwH30TLcQvHmzS-JfKv4tgeHtVRaXe5QHiYSGA9MHsHOQ4x5NltNPt17NNd_VbXOGWYYWN7JKyHcGSjDJwOlSPBpepKFENQMeKiDNhwO0fYlQtIu79zlGrACqKsdPjcaeDg9tIAetiHAtWEjKhsnnQH4D-PiRg=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-071.jpg",
+      "bytes": 500594
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s0R31d-xpfxrjSPQsMYHgVtwtldk1qCYxHdLccZLrYmtKitFqSEIvV3WKkK9h4x-srMYcS9WsmEpYOWcush5myH8_G_MxpwvXlSML9vmaNOOYByG31OvLxtNCuNXt9IobF4_6kaY3gBzohV_0NDAubeAgtK8g67LjiwM7EU9EQZEAYKh2s9xSoIs0c",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s0R31d-xpfxrjSPQsMYHgVtwtldk1qCYxHdLccZLrYmtKitFqSEIvV3WKkK9h4x-srMYcS9WsmEpYOWcush5myH8_G_MxpwvXlSML9vmaNOOYByG31OvLxtNCuNXt9IobF4_6kaY3gBzohV_0NDAubeAgtK8g67LjiwM7EU9EQZEAYKh2s9xSoIs0c=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-072.jpg",
+      "bytes": 511441
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uVOH2qOczRVd_k6rCFRrfMOlRyqGEQwhlbXnS7AnGWwBu2EtdnSvBZdu_J90UJRjBT29KEaCfNLeXmKkBxRMSYvtebL4IrCqTA5ihMugMde9_aLW7drEE2gJq6iYl_d0Dr8qTvCvGYz9URhK45Futr4sAqIuqUUNtSktQIfZ0lIcelMLvobnAZ-ST8gtE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uVOH2qOczRVd_k6rCFRrfMOlRyqGEQwhlbXnS7AnGWwBu2EtdnSvBZdu_J90UJRjBT29KEaCfNLeXmKkBxRMSYvtebL4IrCqTA5ihMugMde9_aLW7drEE2gJq6iYl_d0Dr8qTvCvGYz9URhK45Futr4sAqIuqUUNtSktQIfZ0lIcelMLvobnAZ-ST8gtE=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-073.jpg",
+      "bytes": 375472
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vSJLNrWny9DknvTM9D6SHFxvf0QG1fC-QF0zvD0whLCNLkM7peZ1T-R_EFXXt5DvXssoVk73bbokeSAycBS7kAuYW_Wsf6UP0WfgE1I_NfvhSgj84TVTXw4wM_B9hA16wMJW4IU7hqCMrPACV2BdvUwqkoXUpse1eEdoD7rcXZG3VnWKBzPEibKYA-jeE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vSJLNrWny9DknvTM9D6SHFxvf0QG1fC-QF0zvD0whLCNLkM7peZ1T-R_EFXXt5DvXssoVk73bbokeSAycBS7kAuYW_Wsf6UP0WfgE1I_NfvhSgj84TVTXw4wM_B9hA16wMJW4IU7hqCMrPACV2BdvUwqkoXUpse1eEdoD7rcXZG3VnWKBzPEibKYA-jeE=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-074.jpg",
+      "bytes": 329148
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sXEmlLbdsgrxiPcR7tH759xMclJISTtupf6lPvoXJH4gfnyWDTGt8XmRAD3k_oNqOhA1JrMQ9LbkYhiJJzscWTok8e3KdQQUn3Tf1UWdK_Ec2mH6jduG8VSstRrgX-fXKj2wtBE3VPEixitEa7VmS0qYO6Eg8vItJHgCSKxiKrYfijTbD_F5m2pHJb3J8",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sXEmlLbdsgrxiPcR7tH759xMclJISTtupf6lPvoXJH4gfnyWDTGt8XmRAD3k_oNqOhA1JrMQ9LbkYhiJJzscWTok8e3KdQQUn3Tf1UWdK_Ec2mH6jduG8VSstRrgX-fXKj2wtBE3VPEixitEa7VmS0qYO6Eg8vItJHgCSKxiKrYfijTbD_F5m2pHJb3J8=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-075.jpg",
+      "bytes": 439332
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tOejJpdTiIH3ijymY9pEQ-SL6wVn3pJ4FSG8ZKQnvhJHHAOyCFl7VrhxCHf_Tb7qxHK-UPXolnQX32T0XVSNluXsuvHdfrskutyx4IzpHRZgpQiEazYHFShy9A5IxbkWMEADLg8e0Gfo_HopD8SP_ixl78zttR87aYXezwKolLD3hr222y6ji3ZUNBC7o",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tOejJpdTiIH3ijymY9pEQ-SL6wVn3pJ4FSG8ZKQnvhJHHAOyCFl7VrhxCHf_Tb7qxHK-UPXolnQX32T0XVSNluXsuvHdfrskutyx4IzpHRZgpQiEazYHFShy9A5IxbkWMEADLg8e0Gfo_HopD8SP_ixl78zttR87aYXezwKolLD3hr222y6ji3ZUNBC7o=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-076.jpg",
+      "bytes": 392508
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vbjBPdXykKCbX6quJ5to7L5NCssfTIoWukbiWURWsPL4KXyzmmNYHIbtdEwOG2BzqixmAvlNZrWyny73cB_FUH3iiKZa6jh7_3PxlPf9Jp1DIqkzQAs32730-BsIj3d_nEbceTGc1a4TR4K_KQiffPFxmWjOJRaLa08gMGJWGGNl6kFcoCncOpJNbI5Z4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vbjBPdXykKCbX6quJ5to7L5NCssfTIoWukbiWURWsPL4KXyzmmNYHIbtdEwOG2BzqixmAvlNZrWyny73cB_FUH3iiKZa6jh7_3PxlPf9Jp1DIqkzQAs32730-BsIj3d_nEbceTGc1a4TR4K_KQiffPFxmWjOJRaLa08gMGJWGGNl6kFcoCncOpJNbI5Z4=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-077.jpg",
+      "bytes": 389428
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v8cXI-U6ZlcOCMcNGONPYJibxrE6bgVQbB02UNf-RRDJZ2d2thvDMqMJdlz5g_qyTw2XvoNfdcYINLLGuEErZSPugJItuYgVJMKHlFfSdvxopHx9BvWZ4kidPEyGHMj2fXS_-EyOwFymDiJE_lEU20ZAresyOs2_r3lToUJMDFGkZZ4pn0WanqfNgZBpk",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v8cXI-U6ZlcOCMcNGONPYJibxrE6bgVQbB02UNf-RRDJZ2d2thvDMqMJdlz5g_qyTw2XvoNfdcYINLLGuEErZSPugJItuYgVJMKHlFfSdvxopHx9BvWZ4kidPEyGHMj2fXS_-EyOwFymDiJE_lEU20ZAresyOs2_r3lToUJMDFGkZZ4pn0WanqfNgZBpk=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-078.jpg",
+      "bytes": 386176
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tPndMyduw9n7dfL3MGypc4tODotQ6NfBkdfkYI1maMFELF4LcNIB_qb7x5WgmbVEeFn0nw8E3qxNiyzCmBNx80cxTkzowqYMHoDBWJYEaTPnue9CptJggoKTsF9oJR7DxwZEXRmuWoOARQ_gVpsgs79Rxc9DLiOcnGFuGNvnZdYr866ZQd2Hj3TRWNxUY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tPndMyduw9n7dfL3MGypc4tODotQ6NfBkdfkYI1maMFELF4LcNIB_qb7x5WgmbVEeFn0nw8E3qxNiyzCmBNx80cxTkzowqYMHoDBWJYEaTPnue9CptJggoKTsF9oJR7DxwZEXRmuWoOARQ_gVpsgs79Rxc9DLiOcnGFuGNvnZdYr866ZQd2Hj3TRWNxUY=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-079.jpg",
+      "bytes": 378152
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72t5bPMDdh0RiTryYtNQXDwwpwENd4aHxs46w1GucKHop9coUlJwn5fa_AX7-AzHfPeQGgjnB4jDJvLMStKRGRXanDRokYeF1Bhy8SaN2UyoQJST42B1kyQHdZjqdTKzAOoZT2iVDlPuBPYsj2iIjqOIGWAXBocd8imoskjfA6zvg2Mty8yBiqdhMzNp",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72t5bPMDdh0RiTryYtNQXDwwpwENd4aHxs46w1GucKHop9coUlJwn5fa_AX7-AzHfPeQGgjnB4jDJvLMStKRGRXanDRokYeF1Bhy8SaN2UyoQJST42B1kyQHdZjqdTKzAOoZT2iVDlPuBPYsj2iIjqOIGWAXBocd8imoskjfA6zvg2Mty8yBiqdhMzNp=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-080.jpg",
+      "bytes": 339025
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vGV5InqmYAugbroQWZyUpQDycCzG09s-sZSRGVMBvegwJ2o8SSuWcqsFTQh9035hwWz0y5kg7NeCfe7wflIdsYQhIVk7iknB8B6-31Pt2TLKPlMKgdwTspIcMbCvl-PUhiurm83lPgH7pLgJ1VIB_rkQDp6FbBc6NwUz21jW2fGuYQhrUWe9k5zCwNszk",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vGV5InqmYAugbroQWZyUpQDycCzG09s-sZSRGVMBvegwJ2o8SSuWcqsFTQh9035hwWz0y5kg7NeCfe7wflIdsYQhIVk7iknB8B6-31Pt2TLKPlMKgdwTspIcMbCvl-PUhiurm83lPgH7pLgJ1VIB_rkQDp6FbBc6NwUz21jW2fGuYQhrUWe9k5zCwNszk=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-081.jpg",
+      "bytes": 327853
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ue-bzR987KJENsjWIw-rcDxXFW5mO_0Gyvpnlx-MYdhZW5xhOaIN07b0Nfcg0WbB7dzwp5eFcKDdRkJXtjmDKXZb67guhMo0KAGmrEP_RX-8daKTyv8ULLy_zZTbMlGW8ikrKVYgZSqPVDz6smaVkdgzVwNbVfbpwU7Uul8NBjPHg8-jDhwsbCQj68l6Y",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ue-bzR987KJENsjWIw-rcDxXFW5mO_0Gyvpnlx-MYdhZW5xhOaIN07b0Nfcg0WbB7dzwp5eFcKDdRkJXtjmDKXZb67guhMo0KAGmrEP_RX-8daKTyv8ULLy_zZTbMlGW8ikrKVYgZSqPVDz6smaVkdgzVwNbVfbpwU7Uul8NBjPHg8-jDhwsbCQj68l6Y=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-082.jpg",
+      "bytes": 346780
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v6HEaQSmTHedRjRrkebaNGUtKpXvpub3Q7zZAuGi7fhk_OtQcZDsrTV8LJCZDA6lT0LyqCFIbhgEl51ZviRhK66oYC0bUwljet3lXn0cJ5bo9YsgMJd_Z7-Nb92YmLO8jmLLfp0jw2J-2Q3fs4BQZP5SOzUbpKuYeycSpKMgj2XqcRS0WzPXGpDnq0CoU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v6HEaQSmTHedRjRrkebaNGUtKpXvpub3Q7zZAuGi7fhk_OtQcZDsrTV8LJCZDA6lT0LyqCFIbhgEl51ZviRhK66oYC0bUwljet3lXn0cJ5bo9YsgMJd_Z7-Nb92YmLO8jmLLfp0jw2J-2Q3fs4BQZP5SOzUbpKuYeycSpKMgj2XqcRS0WzPXGpDnq0CoU=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-083.jpg",
+      "bytes": 371812
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sioZtTveYCB_T8mFzvySbduBHXEi7DtdT98Mu4BKV_qUFUGLwBxO1UuuYQCMk0i0vU3q_av2Ih8XgQgGWMNGutmXvduaFBHBH-a9Su2H38HEyJsW-LXVsTBsqyYnzq13ulQVQFHgLfVhUNumIgzUVDzT2S6_2VQ6II4msl6H6Kvk8JqNCVqTI4vKCEcTg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sioZtTveYCB_T8mFzvySbduBHXEi7DtdT98Mu4BKV_qUFUGLwBxO1UuuYQCMk0i0vU3q_av2Ih8XgQgGWMNGutmXvduaFBHBH-a9Su2H38HEyJsW-LXVsTBsqyYnzq13ulQVQFHgLfVhUNumIgzUVDzT2S6_2VQ6II4msl6H6Kvk8JqNCVqTI4vKCEcTg=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-084.jpg",
+      "bytes": 360570
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uXI_Zzo-_mxoCFgaUExnuXozpQ-MaC6WfssVhmHCWpPZb0CpjPFCZS3c3Ox9dPU3NUMrOOKLCG8Ev2VkD2jWam3Fa0RcIgW6Q5Y8QXUpQoR8jkkPM0tNSz0a9cU4V5Kxz-LHbck_F5w-HnJhr_YhfMvlm1jrihWFL2haC8QoOcAXE5pdSv-9NZRghl97Q",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uXI_Zzo-_mxoCFgaUExnuXozpQ-MaC6WfssVhmHCWpPZb0CpjPFCZS3c3Ox9dPU3NUMrOOKLCG8Ev2VkD2jWam3Fa0RcIgW6Q5Y8QXUpQoR8jkkPM0tNSz0a9cU4V5Kxz-LHbck_F5w-HnJhr_YhfMvlm1jrihWFL2haC8QoOcAXE5pdSv-9NZRghl97Q=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-085.jpg",
+      "bytes": 408225
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v2BzIa58zaEQ-NR90XDmVJ8TNeFNttG1WSEjohE7WNiKzEw26S4fatp93UjrVR8oJ81oN5bCQmEsHN1nxNL9LETlwgVHYxo2IDacQ-l5sR0m2HhXOFk7gkKI9lgUuOBLLXmjtAdu_RT0xXuufGBD9lqqa960Pi7vbbG_iCA-BFchSeiTrA8ya0B_7Z",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v2BzIa58zaEQ-NR90XDmVJ8TNeFNttG1WSEjohE7WNiKzEw26S4fatp93UjrVR8oJ81oN5bCQmEsHN1nxNL9LETlwgVHYxo2IDacQ-l5sR0m2HhXOFk7gkKI9lgUuOBLLXmjtAdu_RT0xXuufGBD9lqqa960Pi7vbbG_iCA-BFchSeiTrA8ya0B_7Z=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-086.jpg",
+      "bytes": 618012
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72td4ZfREHbcHTvoiCDKYBjA887vaONa45OrOOFWaHkNHkED5Yh_PWyToSclXWp_bn8Yp0JMZ0G8ilIEliSRbfMYbZtZHsiRdX6LTtExzyMy4_Jz_Mc2DQSwgf1eZsjQwtH6VYnlmGz_7JBUJ5QWqdw5SOxcRbTB3epeN4FpM-Hdef2HKK6iBXAgf9WQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72td4ZfREHbcHTvoiCDKYBjA887vaONa45OrOOFWaHkNHkED5Yh_PWyToSclXWp_bn8Yp0JMZ0G8ilIEliSRbfMYbZtZHsiRdX6LTtExzyMy4_Jz_Mc2DQSwgf1eZsjQwtH6VYnlmGz_7JBUJ5QWqdw5SOxcRbTB3epeN4FpM-Hdef2HKK6iBXAgf9WQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2026-2027-087.jpg",
+      "bytes": 80267
+    },
+    {
+      "page": "/featured-works/sy-2026-2027",
+      "slug": "featured-works-sy-2026-2027",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sBW7aUcqs7pUlOcfOD5m_GUdHH-VWHmy6NM8pPvd6HbOpjtJ5QRmyigu973OwQO9nXJm5Gjlu3EZrkkxdR5G45mlmKIMa31WpwaniCCqzHPspMjSinylvvcAOp6_WtIkeNgXGSCLBD9KmiQ1F767K9_0Hk6GVgp3YPhxOomZnS0xTbbu1rpCmftcIcfXQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sBW7aUcqs7pUlOcfOD5m_GUdHH-VWHmy6NM8pPvd6HbOpjtJ5QRmyigu973OwQO9nXJm5Gjlu3EZrkkxdR5G45mlmKIMa31WpwaniCCqzHPspMjSinylvvcAOp6_WtIkeNgXGSCLBD9KmiQ1F767K9_0Hk6GVgp3YPhxOomZnS0xTbbu1rpCmftcIcfXQ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vq0kT1xvBkBFbPqE9041QiaLmPSGYmdNBRaJ2RdgULCzBv4Z5mA_2onden4ZbKuti6CF4_hmJ3Yw1C7ojGZvE8qbPKGxS5m9Xgi_wufZKQLRTuroi84q7QRdzgFuYhswtSXbyaD03vqu6H6K2iLznGdgoI7qG_9TKPgVLAIyuAlHZTO1ufB_1kHj80zCnDTpziJivrJ5NqsYnp1hsJ-esjkQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vq0kT1xvBkBFbPqE9041QiaLmPSGYmdNBRaJ2RdgULCzBv4Z5mA_2onden4ZbKuti6CF4_hmJ3Yw1C7ojGZvE8qbPKGxS5m9Xgi_wufZKQLRTuroi84q7QRdzgFuYhswtSXbyaD03vqu6H6K2iLznGdgoI7qG_9TKPgVLAIyuAlHZTO1ufB_1kHj80zCnDTpziJivrJ5NqsYnp1hsJ-esjkQ",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-089.png",
+      "bytes": 291133
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vahdAnE6uDveW4FV5AJzqj6SmHHENN90onTUzhz8I1NUY7cqWDvgY8JX2UNO3ZljSjKUdsI_XnLuJ9jVWrqpgeRr5XF7CgYR-4dLGj_F8ofHv0oKasmST14uf7_jKKlVWJhaXIboVYAUWb5tAAG57b2WozSQBeTG8w0Rc1sXpAkA7_7-msShzQzHPtmsY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vahdAnE6uDveW4FV5AJzqj6SmHHENN90onTUzhz8I1NUY7cqWDvgY8JX2UNO3ZljSjKUdsI_XnLuJ9jVWrqpgeRr5XF7CgYR-4dLGj_F8ofHv0oKasmST14uf7_jKKlVWJhaXIboVYAUWb5tAAG57b2WozSQBeTG8w0Rc1sXpAkA7_7-msShzQzHPtmsY=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-090.jpg",
+      "bytes": 266900
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s2V-J_ABTDwCkVGRN5W5woF-Q-EmAqvDiVCRvYo3KqzN4KAySDbb6sYUpWAESlmSN_tJvLepAfaIRLFQyUzIa39B4o570IGp2c6ectmObkMo2aprUSkkAevEhZhuSEdX9BZtrod7dSUHuW6T8_x2mvodJxa0hXujcIbHS6MKAfIOKSgA0F0DRKyZJ7jOY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s2V-J_ABTDwCkVGRN5W5woF-Q-EmAqvDiVCRvYo3KqzN4KAySDbb6sYUpWAESlmSN_tJvLepAfaIRLFQyUzIa39B4o570IGp2c6ectmObkMo2aprUSkkAevEhZhuSEdX9BZtrod7dSUHuW6T8_x2mvodJxa0hXujcIbHS6MKAfIOKSgA0F0DRKyZJ7jOY=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-091.jpg",
+      "bytes": 238501
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s74yYyHHV43Bsv9XWpEpgPz-_JhbGLGzn8zmgw86Mk_Z3HMJF5EDnLU8nG-oq9OpKX9NltTr5hJLYDfsN9hTK1S1LyHvDqWU__OpAlNCI8iBkbsKzGjlFuPMN3uann9PcNJNjIVOqPn38XWEWvoJF9gKboBuO_1vXaLgyD41BOwKumg2KPaAG6UO9TNlw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s74yYyHHV43Bsv9XWpEpgPz-_JhbGLGzn8zmgw86Mk_Z3HMJF5EDnLU8nG-oq9OpKX9NltTr5hJLYDfsN9hTK1S1LyHvDqWU__OpAlNCI8iBkbsKzGjlFuPMN3uann9PcNJNjIVOqPn38XWEWvoJF9gKboBuO_1vXaLgyD41BOwKumg2KPaAG6UO9TNlw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-092.jpg",
+      "bytes": 271410
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tE3-spf5f18FyBQeOT-7YvNAaUj3Hqvd0oGAsabuHFVkcsc3UZd4zlvTc8uYCyDDmBsahiaSLc0C5hpfZE29oIboUGxlV7gEHMNsxqnyppc6SADGlq7atjWJBfch9wM5mP3nQb2lHyIJKRYUUTEiX5EKhG4LbawnfYvCTqnEP_0g4EgbJi4_466Cw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tE3-spf5f18FyBQeOT-7YvNAaUj3Hqvd0oGAsabuHFVkcsc3UZd4zlvTc8uYCyDDmBsahiaSLc0C5hpfZE29oIboUGxlV7gEHMNsxqnyppc6SADGlq7atjWJBfch9wM5mP3nQb2lHyIJKRYUUTEiX5EKhG4LbawnfYvCTqnEP_0g4EgbJi4_466Cw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-093.jpg",
+      "bytes": 239315
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vxENa8RCUWwpwo5KNzhB-Qzij1RFI7KZ5ynKFbtp5y5zL2bVEQPKc4qmMq3Njl8qf3GAbKlAtd6HQeY1RU_cR9-nyprlTt1HhYO6w8zsOKW7LxKrNCSZpyBP6y9izxh5rp1jbSAWGnMbKYy6qywtIiiBlp9C7UKk_eBI6A5_nTp5UYsNDtw2zPODoQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vxENa8RCUWwpwo5KNzhB-Qzij1RFI7KZ5ynKFbtp5y5zL2bVEQPKc4qmMq3Njl8qf3GAbKlAtd6HQeY1RU_cR9-nyprlTt1HhYO6w8zsOKW7LxKrNCSZpyBP6y9izxh5rp1jbSAWGnMbKYy6qywtIiiBlp9C7UKk_eBI6A5_nTp5UYsNDtw2zPODoQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-094.jpg",
+      "bytes": 277532
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uyj7zDseRIE7cIzG2sH7YXap8dbIH3tanCj2Vg4T8x86GyYB437jfpmo6qTPntY6xfgwtg4Cmri6i0nocDYNnJ5eC2a-YTOBo0XChhZGTxMY99WrYWdLnEsWcfk0Su99HYbTESk9kGorwajqOeJNaECRUNtBAM-b_ksI1OtjAWM6ikZn28wrGAC-MNGG0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uyj7zDseRIE7cIzG2sH7YXap8dbIH3tanCj2Vg4T8x86GyYB437jfpmo6qTPntY6xfgwtg4Cmri6i0nocDYNnJ5eC2a-YTOBo0XChhZGTxMY99WrYWdLnEsWcfk0Su99HYbTESk9kGorwajqOeJNaECRUNtBAM-b_ksI1OtjAWM6ikZn28wrGAC-MNGG0=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-095.jpg",
+      "bytes": 271226
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72szdYxDJYP1MyNOv5Gn5K5QEjIT2oDVx0qCFa70Fk1ZrmQIgKCDF8HfpTBA84P5HLuzVHTAJaEXAZGZTZNjbTGc5PcdcvTnpXjfb_XYfU9LLyAKiaa50R3tGikD-ll46BtiDwCGeOLz8_VAw2b0AubXIxpgjEKyg2kdAOC2XKZg77kBXiGA8cYzfkc_DLw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72szdYxDJYP1MyNOv5Gn5K5QEjIT2oDVx0qCFa70Fk1ZrmQIgKCDF8HfpTBA84P5HLuzVHTAJaEXAZGZTZNjbTGc5PcdcvTnpXjfb_XYfU9LLyAKiaa50R3tGikD-ll46BtiDwCGeOLz8_VAw2b0AubXIxpgjEKyg2kdAOC2XKZg77kBXiGA8cYzfkc_DLw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-096.jpg",
+      "bytes": 325516
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tBBimFNwXQvPBbpRD7ahdMUdUck-a-UJBo9xfclVkqWZi74_w0nLjg4mrNp-A2c0Mxx5EBEl9O4SzVLQUOfHFm7JlIOhvLg_Sg8o_xZRnzu1UgZ0WS4IeY6XOFAyhQ3B3xJdjiKFgXh2Ull5mNjvN2dUuViOGtAj7DfD0VeQHXDcUlvbRjwgk8aWYEbaQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tBBimFNwXQvPBbpRD7ahdMUdUck-a-UJBo9xfclVkqWZi74_w0nLjg4mrNp-A2c0Mxx5EBEl9O4SzVLQUOfHFm7JlIOhvLg_Sg8o_xZRnzu1UgZ0WS4IeY6XOFAyhQ3B3xJdjiKFgXh2Ull5mNjvN2dUuViOGtAj7DfD0VeQHXDcUlvbRjwgk8aWYEbaQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-097.jpg",
+      "bytes": 404154
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72slc8DAedCk9PR3Ca6eUVwoTg2s7uuYOYYPeyQC6WGwcDGTEvo2kMiGTtBvouFbsqx-3UO432RXXCGWJckMLpMz2TfJLSHZ4MuSRrxkrT59Wkx_NR41KhuNZWZl7RDnMTLVQ9Fivuba1-eZ5eHRApxg8cK8psEaXYM2AV5EPpRW0b_d9WT9ivGflu7ikPI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72slc8DAedCk9PR3Ca6eUVwoTg2s7uuYOYYPeyQC6WGwcDGTEvo2kMiGTtBvouFbsqx-3UO432RXXCGWJckMLpMz2TfJLSHZ4MuSRrxkrT59Wkx_NR41KhuNZWZl7RDnMTLVQ9Fivuba1-eZ5eHRApxg8cK8psEaXYM2AV5EPpRW0b_d9WT9ivGflu7ikPI=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-098.jpg",
+      "bytes": 281874
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ut0cMFku29EVzXrASYFFPI_beh5f2bdDxGHL7tzW_cIltDVw_nessw670HAgqQJRVVLBJz7g2KeHZJQBvp5LHbBBWu4bwIiYDETPqC4eBmms2SyDsyUYIDWJjS-xSnHb72TYkQfHbKEL342X4XgRjF1KrgahO9I1ltyZ-HGPlX2v-NTeUkUef0j35V4o0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ut0cMFku29EVzXrASYFFPI_beh5f2bdDxGHL7tzW_cIltDVw_nessw670HAgqQJRVVLBJz7g2KeHZJQBvp5LHbBBWu4bwIiYDETPqC4eBmms2SyDsyUYIDWJjS-xSnHb72TYkQfHbKEL342X4XgRjF1KrgahO9I1ltyZ-HGPlX2v-NTeUkUef0j35V4o0=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-099.jpg",
+      "bytes": 302516
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sApWNbRYMQCFLO4KtRb-7OVDSYD3S29RZov3pMldgyjv048gTQ8qQkqNNRy3ACqMrxD0BpzOKPD7740RhTHYiYhZIInq4bBkvsat6TQAqQF5fXJ9Uy-Yce9Q-wcxQZCTYbWHSXY4ecxl7_b3C0Po2rFINXOVXJeKzRgOpRl31LcxVOirjFnTaZRT6G",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sApWNbRYMQCFLO4KtRb-7OVDSYD3S29RZov3pMldgyjv048gTQ8qQkqNNRy3ACqMrxD0BpzOKPD7740RhTHYiYhZIInq4bBkvsat6TQAqQF5fXJ9Uy-Yce9Q-wcxQZCTYbWHSXY4ecxl7_b3C0Po2rFINXOVXJeKzRgOpRl31LcxVOirjFnTaZRT6G=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sUL2GUbrtJtgDiZ1ZdABxrjPx6KREHYg1nHRe-WW1fdWmjctzBsIMVCqgLcsbGM7SWZEGudC-BP4lA4GzqYzoqMf0nM26LvI8qDmYEF-mX4_UyICwSPHQ32QqR4D__9b-Bwlz_-SSJ7JBX4XxuHHY5fJASalSJ-gra3-CnLjAdOko1yFRC3Ruo2e2BFAA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sUL2GUbrtJtgDiZ1ZdABxrjPx6KREHYg1nHRe-WW1fdWmjctzBsIMVCqgLcsbGM7SWZEGudC-BP4lA4GzqYzoqMf0nM26LvI8qDmYEF-mX4_UyICwSPHQ32QqR4D__9b-Bwlz_-SSJ7JBX4XxuHHY5fJASalSJ-gra3-CnLjAdOko1yFRC3Ruo2e2BFAA=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-101.jpg",
+      "bytes": 242604
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sLAj8ErL7LjLycY3DXso_qYBV8rVGl3nxwjlDRwXUltw8Va7tcPgnawBPR4IRTOt7pSmYpUlj4IPCYyMNsv80c_plCb1hioIStgf4f7-MK76ArAo0ifliVATAxyjG6BsoForJyXj5llCmDpBO4wO7FYT6GW1in2xLm3mmcte4OAq9jJKL2IoOHAHryLi0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sLAj8ErL7LjLycY3DXso_qYBV8rVGl3nxwjlDRwXUltw8Va7tcPgnawBPR4IRTOt7pSmYpUlj4IPCYyMNsv80c_plCb1hioIStgf4f7-MK76ArAo0ifliVATAxyjG6BsoForJyXj5llCmDpBO4wO7FYT6GW1in2xLm3mmcte4OAq9jJKL2IoOHAHryLi0=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-102.jpg",
+      "bytes": 277346
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72swnqkHFxsAU3POLLX5PPjpWmwmHNxtp7FXi4oA7pwAY0689QotuhDtv5NDLmlbWYvc4OxYVxxmSIPXG3Qd3JEFIueaQlthP0cOCMjvBGsqtg9mWomyef3cXpXLOqUUBNYvrrzfeVnS-G7wE8gI8BoJEuy_ews2AcAupkKy5QhR38zel6lRDADF7tS6bTQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72swnqkHFxsAU3POLLX5PPjpWmwmHNxtp7FXi4oA7pwAY0689QotuhDtv5NDLmlbWYvc4OxYVxxmSIPXG3Qd3JEFIueaQlthP0cOCMjvBGsqtg9mWomyef3cXpXLOqUUBNYvrrzfeVnS-G7wE8gI8BoJEuy_ews2AcAupkKy5QhR38zel6lRDADF7tS6bTQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-103.jpg",
+      "bytes": 274943
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vJ8ujbD6LpIj9keXlPm9qiMvD4AbhGUMXYwu6F2G2G-St7g52DYjOJbvvJeb0BgNg2iyjapKG1aVXHQxFDb4gu38gmcU3ZYmuheh7P_88ZeOmnVfj88clV6OTIAJiE4zGuyVaNjR3wDUfJyDMocSvhQVmrQP3F7qZio1q2JzQvKvMIIB7eLqFDL4z43cQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vJ8ujbD6LpIj9keXlPm9qiMvD4AbhGUMXYwu6F2G2G-St7g52DYjOJbvvJeb0BgNg2iyjapKG1aVXHQxFDb4gu38gmcU3ZYmuheh7P_88ZeOmnVfj88clV6OTIAJiE4zGuyVaNjR3wDUfJyDMocSvhQVmrQP3F7qZio1q2JzQvKvMIIB7eLqFDL4z43cQ=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-104.jpg",
+      "bytes": 350269
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u9n-3BDqCDFBc-PnScrJ0B46SXCqMyMGDl7NsohF-DZ4QIaGe6mqAoXit0DQxTTNvvmdGE4BT256wboRHfmRp4wEQGizIN_AMQoxKze4g6mTFY4Ok-YSet53in_dG8FZp1-GE8dgPKA-D8ZkmtI-eWgWapC1-wClxjvDQNKLEEJ5sRsmi-p7eNpxoYskc",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u9n-3BDqCDFBc-PnScrJ0B46SXCqMyMGDl7NsohF-DZ4QIaGe6mqAoXit0DQxTTNvvmdGE4BT256wboRHfmRp4wEQGizIN_AMQoxKze4g6mTFY4Ok-YSet53in_dG8FZp1-GE8dgPKA-D8ZkmtI-eWgWapC1-wClxjvDQNKLEEJ5sRsmi-p7eNpxoYskc=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-105.jpg",
+      "bytes": 452907
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uYG7IquU3D1QcdMZbXyXN9P3RxIOijXlspo3EDAcZvE9iAc95vEj3BivdhqtU5AfC7GzVDBr5KTCOJTuEhgPTErfmiPn2GdOttWYD56hC0BgMazQM06jtli10AIHFiwgQVYhj4rQEGHRdS8J77mub23AmJTumxAp1oohsQbdHt53tbcHABAKPcX6d_6LE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uYG7IquU3D1QcdMZbXyXN9P3RxIOijXlspo3EDAcZvE9iAc95vEj3BivdhqtU5AfC7GzVDBr5KTCOJTuEhgPTErfmiPn2GdOttWYD56hC0BgMazQM06jtli10AIHFiwgQVYhj4rQEGHRdS8J77mub23AmJTumxAp1oohsQbdHt53tbcHABAKPcX6d_6LE=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-106.jpg",
+      "bytes": 343758
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vzFsmrEgGSNbEFGGi_opoU6GW6CExb7JQ-B923Gdh6gFGh84DecYBY2-p_qukCHtelBINcgwUmQ7UGFIIVDkjabbPYZRK45Ajqb576zG438ag3x_IcdDvd3w_8_Vblq6bX0DQKGIc_8irnVhMrEZq1J-dpIBl_4yaYHcfLPdoF0QnqFubagTCP-qBP",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vzFsmrEgGSNbEFGGi_opoU6GW6CExb7JQ-B923Gdh6gFGh84DecYBY2-p_qukCHtelBINcgwUmQ7UGFIIVDkjabbPYZRK45Ajqb576zG438ag3x_IcdDvd3w_8_Vblq6bX0DQKGIc_8irnVhMrEZq1J-dpIBl_4yaYHcfLPdoF0QnqFubagTCP-qBP=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-107.jpg",
+      "bytes": 368485
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tfaLjaTCjc3T6Zua_fMtIZPFPHsuXntdQ0QTu1aXUrVwC_VGGTRwNFmJhutIFoONq_v_-bEIl8mgZ_qpfZ2Lath4OOZZSCbDp_F5CyPwiYuUft5ly3ZpDYY7gMmuhaKTDE7ED9pRJADui9EPT_zyDeFihmpIklRerkzngGQjGYGNP5EJUk7E5dobVV7eU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tfaLjaTCjc3T6Zua_fMtIZPFPHsuXntdQ0QTu1aXUrVwC_VGGTRwNFmJhutIFoONq_v_-bEIl8mgZ_qpfZ2Lath4OOZZSCbDp_F5CyPwiYuUft5ly3ZpDYY7gMmuhaKTDE7ED9pRJADui9EPT_zyDeFihmpIklRerkzngGQjGYGNP5EJUk7E5dobVV7eU=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-108.jpg",
+      "bytes": 297973
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vuCM7h9pI702eGmQA4RGG-MnK2eDCJM-jUhUQFOduPDFsrPFUgklWrRzrKl_06J0FQwzFjrcCjbd1Ljszg-Etx_WwidaoF9U5AKPptNL5vcW8jfc47K8Cv5-2KWcEGRG1Qlg8SRYnX3UE6XnXHlpv1r4oXtO0ZNuhbGkWCy41KN4QV05DxpQmenwqwSXU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vuCM7h9pI702eGmQA4RGG-MnK2eDCJM-jUhUQFOduPDFsrPFUgklWrRzrKl_06J0FQwzFjrcCjbd1Ljszg-Etx_WwidaoF9U5AKPptNL5vcW8jfc47K8Cv5-2KWcEGRG1Qlg8SRYnX3UE6XnXHlpv1r4oXtO0ZNuhbGkWCy41KN4QV05DxpQmenwqwSXU=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-109.jpg",
+      "bytes": 371529
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72u2SHg2rPYFWbIpuZL5q4At4vtmXqgYyx7Y2HsYU_MwXNEvRqXu9FdZFb_SJU-k0vBzwwXHoW5d20X34GjR4IXkq4iiBsauD4dODF8V-a0JZIHA4cmxWJURLGVke1eDIxuT1ejjsigniZ6t31HbAYk_a7_rAjrIXMqVFWlFOXAp7LVunwUyzFJgTReA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72u2SHg2rPYFWbIpuZL5q4At4vtmXqgYyx7Y2HsYU_MwXNEvRqXu9FdZFb_SJU-k0vBzwwXHoW5d20X34GjR4IXkq4iiBsauD4dODF8V-a0JZIHA4cmxWJURLGVke1eDIxuT1ejjsigniZ6t31HbAYk_a7_rAjrIXMqVFWlFOXAp7LVunwUyzFJgTReA=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-110.jpg",
+      "bytes": 243948
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s9_DO7hKvfaGJyfxumph76ppre8jIMZpiFsI_1nzqowqfq6_-1KGe5R_mJi9hQr_nhT8_cDps88eBpoPU1rDMW_tK9u5xkMoMMWS3bfVSCKRxdZXrbulejrGWQAKmM36QeI5ReHMfFQp10i_IZBO7X7ejz0743Dxb0d05-Tl2LKM8MO-95kiaBJvM_90Q",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s9_DO7hKvfaGJyfxumph76ppre8jIMZpiFsI_1nzqowqfq6_-1KGe5R_mJi9hQr_nhT8_cDps88eBpoPU1rDMW_tK9u5xkMoMMWS3bfVSCKRxdZXrbulejrGWQAKmM36QeI5ReHMfFQp10i_IZBO7X7ejz0743Dxb0d05-Tl2LKM8MO-95kiaBJvM_90Q=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-111.jpg",
+      "bytes": 371046
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vIIBRK7tuUT9ORh6VEETLrnVZX5uA85vYOv6gZSwHsDv998BNMnstOjJKDAiGUtKjoNy1tMcJZJ2uunpN6ioebyLhHxxCsj1e-67BnebieyKRJx-VbRkqzHvFy15hlwo-87j-6WmMqESD2Uqj-1EVyimXxvM2v7OTb3tw5pLr73iUKztPd2UDlhKjEaOc",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vIIBRK7tuUT9ORh6VEETLrnVZX5uA85vYOv6gZSwHsDv998BNMnstOjJKDAiGUtKjoNy1tMcJZJ2uunpN6ioebyLhHxxCsj1e-67BnebieyKRJx-VbRkqzHvFy15hlwo-87j-6WmMqESD2Uqj-1EVyimXxvM2v7OTb3tw5pLr73iUKztPd2UDlhKjEaOc=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-112.jpg",
+      "bytes": 259886
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ulh0A762PX8VI36y0jMIcfrPQuoftx2kOXO9rmrn4cEq2Q-WkLuI0vjYBHE0aqYtP1YnTsg1P5g6cRHj2RSSuLXKhOoYLdN4ZAogKJ2VIqZUT8bFtTZWc5oWpYRMWSHPFnF2xE4Y3HkT8C5XWHx10PcoQikUYlolkX0i8Tgh8hsp7TYjor6CrPdoBw8tA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ulh0A762PX8VI36y0jMIcfrPQuoftx2kOXO9rmrn4cEq2Q-WkLuI0vjYBHE0aqYtP1YnTsg1P5g6cRHj2RSSuLXKhOoYLdN4ZAogKJ2VIqZUT8bFtTZWc5oWpYRMWSHPFnF2xE4Y3HkT8C5XWHx10PcoQikUYlolkX0i8Tgh8hsp7TYjor6CrPdoBw8tA=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uzOdBMDsjCc9fC2SSGOXSNqFoX9o0CnCNuaWGE_wgsply0DiCz0hioXIr9ga5Edm7yyApzIZ2W5NYRs9zDCUw6gHlZgrivs4y3oLCmddz1-1frUj3b67qbaYDGd1L-FkVmrdUTS6hiuQkD_Wy-IrzSpE3WFQ5MfQ8MxuYqZvsOEC-2YjM-Q0qVOKCz",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uzOdBMDsjCc9fC2SSGOXSNqFoX9o0CnCNuaWGE_wgsply0DiCz0hioXIr9ga5Edm7yyApzIZ2W5NYRs9zDCUw6gHlZgrivs4y3oLCmddz1-1frUj3b67qbaYDGd1L-FkVmrdUTS6hiuQkD_Wy-IrzSpE3WFQ5MfQ8MxuYqZvsOEC-2YjM-Q0qVOKCz=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-114.jpg",
+      "bytes": 326634
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72saKgDM084F6GfStLxepW9bA109e41-0U8Opu0UB3BOwCjRR1NKdXKdJB5JQoq6E7p3Hyji5oSknzcpOmstBfiiaoRGlIjBv_7TmjLosukazo4vA9W-fm1ul0IymTm3MAs0tAzGBXivlDCPnMe5RemFVbux2iNIotELsW2w1n15BpplnCuQJwzJ0gKqEiQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72saKgDM084F6GfStLxepW9bA109e41-0U8Opu0UB3BOwCjRR1NKdXKdJB5JQoq6E7p3Hyji5oSknzcpOmstBfiiaoRGlIjBv_7TmjLosukazo4vA9W-fm1ul0IymTm3MAs0tAzGBXivlDCPnMe5RemFVbux2iNIotELsW2w1n15BpplnCuQJwzJ0gKqEiQ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uIhXm9gmaISwncEChEOL-s1Ioz9A9tVe3KuVAP083soxfGmvfw3iL1k9tzcrYDw73JPAM7Alng_Pdm7N1Kn2D0P7V6n1I5msTnfSxDTAcS3g50kHasm8dErHr85_geDPFjq9PtJAfJQvqaBgkXsEwAyecOJZJj5rF6W_LZgXSWea2uS1NDE745G_IEa_s",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uIhXm9gmaISwncEChEOL-s1Ioz9A9tVe3KuVAP083soxfGmvfw3iL1k9tzcrYDw73JPAM7Alng_Pdm7N1Kn2D0P7V6n1I5msTnfSxDTAcS3g50kHasm8dErHr85_geDPFjq9PtJAfJQvqaBgkXsEwAyecOJZJj5rF6W_LZgXSWea2uS1NDE745G_IEa_s=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-116.jpg",
+      "bytes": 289174
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tz4zaHG5lV68ywA5HTcyH4pCm016KHRllY3cb5dHMwhr7gwqz7_NPW6mFkkARsgEVI8wIbvTAey-pgCGXosRjqxhO5JEcKewmNlcfIurxgp78zUHwQ9RYjdb-zTQS64QPG_k5KjjGF3ZAxKfRjjdAcEtAXaD1q5UdKPBYbIdImvjqR9SiXz_OUCJjg8Sw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tz4zaHG5lV68ywA5HTcyH4pCm016KHRllY3cb5dHMwhr7gwqz7_NPW6mFkkARsgEVI8wIbvTAey-pgCGXosRjqxhO5JEcKewmNlcfIurxgp78zUHwQ9RYjdb-zTQS64QPG_k5KjjGF3ZAxKfRjjdAcEtAXaD1q5UdKPBYbIdImvjqR9SiXz_OUCJjg8Sw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-117.jpg",
+      "bytes": 322522
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uZ_dn0Bhm2L9kmx9ZeeQppSY2uxMuYnN2QjSjKiz5ciH2ZDgiERtDLTiw7gnyMnU57c6urReqiFIXvHGzGeQ3qx_W8SytxVaQvVqso64JVEJd-h5WHvseJvWIMgfn_oaTNoodtV9anKZF-U0O6yW_6w877JzTa2Xs2NaQCL0o_pzX2mETYUK4FnO5meU4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uZ_dn0Bhm2L9kmx9ZeeQppSY2uxMuYnN2QjSjKiz5ciH2ZDgiERtDLTiw7gnyMnU57c6urReqiFIXvHGzGeQ3qx_W8SytxVaQvVqso64JVEJd-h5WHvseJvWIMgfn_oaTNoodtV9anKZF-U0O6yW_6w877JzTa2Xs2NaQCL0o_pzX2mETYUK4FnO5meU4=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-118.jpg",
+      "bytes": 441371
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vIpmvnO-sD9hMTfPeXW0z-oUeSzNIrAL_6B7RjwNqyN2c8Sj5x239gnIXsofHcufjtJ4Jw08NK5pqOkUdCRAOJItCK7y7RKoDfvQHwbuBjbLbQi03Mb8X-IMrDhKL8gdJISPTQHq8aJYj90-M9Ai_s68qoi7-rvVaw2NDmHkGl3IbUEDBG-VAH9hS3ouA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vIpmvnO-sD9hMTfPeXW0z-oUeSzNIrAL_6B7RjwNqyN2c8Sj5x239gnIXsofHcufjtJ4Jw08NK5pqOkUdCRAOJItCK7y7RKoDfvQHwbuBjbLbQi03Mb8X-IMrDhKL8gdJISPTQHq8aJYj90-M9Ai_s68qoi7-rvVaw2NDmHkGl3IbUEDBG-VAH9hS3ouA=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-119.jpg",
+      "bytes": 356477
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vGT6SdSe_Xk_YQTiVOeCvevgaZtes98rVnEWBXzB-mkG5yJqrktKwQUcl3w1hZKPmsg5CKAjv1T0z73aY-RpBI2d7nDHY8BhMncaFcgwVR1xcKdgCacCvf3laIvJow--2nlO8M3cZyeo6Nkuiuy8gYU0VxAUNTDPv5nM-E6uKxwf5lrfcFY1K6lfhh8oY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vGT6SdSe_Xk_YQTiVOeCvevgaZtes98rVnEWBXzB-mkG5yJqrktKwQUcl3w1hZKPmsg5CKAjv1T0z73aY-RpBI2d7nDHY8BhMncaFcgwVR1xcKdgCacCvf3laIvJow--2nlO8M3cZyeo6Nkuiuy8gYU0VxAUNTDPv5nM-E6uKxwf5lrfcFY1K6lfhh8oY=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-120.jpg",
+      "bytes": 347954
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vutYLZmuJB49jrvH5LS6uR3_Z8Ibn97b_nvzRWiZZuqswYLjTgX1Q9y2yfr4hBTjSiICrmBZE8OGpW7fM5I7V6aRBfX-xYbuvbVdgL1Wau-vyGl1NJ0yjv8zw2pvgBHZ7Lfp5He4NfhrmtzlFGQDGAorUrlmfVxJVzPCLr4JnGsjtrB6j7Aq7UiaBMD4s",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vutYLZmuJB49jrvH5LS6uR3_Z8Ibn97b_nvzRWiZZuqswYLjTgX1Q9y2yfr4hBTjSiICrmBZE8OGpW7fM5I7V6aRBfX-xYbuvbVdgL1Wau-vyGl1NJ0yjv8zw2pvgBHZ7Lfp5He4NfhrmtzlFGQDGAorUrlmfVxJVzPCLr4JnGsjtrB6j7Aq7UiaBMD4s=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tFjuhrx4svqYSa5vEeK1fwev_Aw2o4KPJuBmz_aKG3Y3vJZhttBL83D0DrHdbtO38mQps2FSFIT6e7jtiOGi1ym55uDs8zIxw-kObqSzmAnGA_LRGoyeQF_lP1nmqTnP2KHMH7AQ-yOevKJsDp2ywMw8eaSRyKVDKTI3-JeQz3KtyVjymYVt6bm8of7Uw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tFjuhrx4svqYSa5vEeK1fwev_Aw2o4KPJuBmz_aKG3Y3vJZhttBL83D0DrHdbtO38mQps2FSFIT6e7jtiOGi1ym55uDs8zIxw-kObqSzmAnGA_LRGoyeQF_lP1nmqTnP2KHMH7AQ-yOevKJsDp2ywMw8eaSRyKVDKTI3-JeQz3KtyVjymYVt6bm8of7Uw=w16383",
+      "file": "src/assets/gallery/featured-works-sy-2025-2026-122.jpg",
+      "bytes": 311029
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tOqqdF51ZJRCQv_GAKLulpXkoISLvDiAn_eYSzYGF5vFZ-bb54aTbDHTlI5bc_gfNlaF3sgELJNb1Y6HKEpA2eZBSn_mZSpBx8pVBvsV55NYrdSdgIy0Q902UNTyB6ch5_XzuU1ojaiNuA5sSbHjrDO1FAtPzQ1DoK_uRVPXQwSyCI6mjjUMmP6wqWalo",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tOqqdF51ZJRCQv_GAKLulpXkoISLvDiAn_eYSzYGF5vFZ-bb54aTbDHTlI5bc_gfNlaF3sgELJNb1Y6HKEpA2eZBSn_mZSpBx8pVBvsV55NYrdSdgIy0Q902UNTyB6ch5_XzuU1ojaiNuA5sSbHjrDO1FAtPzQ1DoK_uRVPXQwSyCI6mjjUMmP6wqWalo=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sUkzaURHy3ngXV4vjV1iWYYS1LDOBiPTe38yVAA8_W3287WAFUDgQ78StvVa4_VDo1SrPqT7UchKKqOIe0HayC4eomzepp893RFNYZXdgeIQdd67kpJeGw0rnRiR-uv4J4DJgv1qmrf1sryRys6l6MrXOETyEIuU3GWLgh71XryrPL4x-3rqPm_neEVfo",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sUkzaURHy3ngXV4vjV1iWYYS1LDOBiPTe38yVAA8_W3287WAFUDgQ78StvVa4_VDo1SrPqT7UchKKqOIe0HayC4eomzepp893RFNYZXdgeIQdd67kpJeGw0rnRiR-uv4J4DJgv1qmrf1sryRys6l6MrXOETyEIuU3GWLgh71XryrPL4x-3rqPm_neEVfo=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uWi3YLB8hpmjr9E_7_7r0Q4bErDMZrgbfS07IkDjg2xdfcvghmnI1g6_sJR9RsamqDU5FMoIva2lqenBKr-ztOQ-ZUE6HBnClFNX3VDe80QoOUN-EjtpN0YlOv-LzvM2wgK_eSKLoSrjtsZ4KVDofr6Kxj0R6QuKIW2NikKxHzAlgrUyo-et0NCwMSxtQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uWi3YLB8hpmjr9E_7_7r0Q4bErDMZrgbfS07IkDjg2xdfcvghmnI1g6_sJR9RsamqDU5FMoIva2lqenBKr-ztOQ-ZUE6HBnClFNX3VDe80QoOUN-EjtpN0YlOv-LzvM2wgK_eSKLoSrjtsZ4KVDofr6Kxj0R6QuKIW2NikKxHzAlgrUyo-et0NCwMSxtQ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vTdWL1Lzx8vdQ9HAEM9TwxM4M8unFDLBBv-uUSWv0hQ00cKu3Rke0FVJD-H0nKZ57MjtiCHxiUEfb_xEaOmdTt9sqwY3BxUU0KcuIe4M2Mmoddt8IdgE4BSeNQXRHRiNS6K1xhYWxDW2WioehMAoC546NyBRH-w8aIgr9Fm56sRkCkB-kutNC7ARagvec",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vTdWL1Lzx8vdQ9HAEM9TwxM4M8unFDLBBv-uUSWv0hQ00cKu3Rke0FVJD-H0nKZ57MjtiCHxiUEfb_xEaOmdTt9sqwY3BxUU0KcuIe4M2Mmoddt8IdgE4BSeNQXRHRiNS6K1xhYWxDW2WioehMAoC546NyBRH-w8aIgr9Fm56sRkCkB-kutNC7ARagvec=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v2va9BQ9R2K2DnfvEvY3Aa2xe-Pen5V1hlzX6HF5dUtnupn2EdI9u07qD4AgPJa56dJVogilu-Rton5pa7Tqf7nl0aEuC4gEyAaCNqdAnDUaf3aaHxcpV3I_yCMYS0IKLZo5pWyAdSSOsBqH-bXUFo39FpthMwdW3guMPkfG_20-tmNiAXyBy52aM9brU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v2va9BQ9R2K2DnfvEvY3Aa2xe-Pen5V1hlzX6HF5dUtnupn2EdI9u07qD4AgPJa56dJVogilu-Rton5pa7Tqf7nl0aEuC4gEyAaCNqdAnDUaf3aaHxcpV3I_yCMYS0IKLZo5pWyAdSSOsBqH-bXUFo39FpthMwdW3guMPkfG_20-tmNiAXyBy52aM9brU=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tOw1JW-CWhzv_8g_6wBSN8KPmpoYu5SW4MEIn0EczbJZM102GduGhAiQ_FvUshrsWQUIGpXGrrSC02jWYjBVGHP_B4_wG7zEcdlUZSMqef7EKI9c-Yh0Os8SdINsMkIGTErdYUsIojaObyUps8VLPnV-ymHZ1DzBalSy9NlpVJRqsdSVFFBVBUKU-3tZY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tOw1JW-CWhzv_8g_6wBSN8KPmpoYu5SW4MEIn0EczbJZM102GduGhAiQ_FvUshrsWQUIGpXGrrSC02jWYjBVGHP_B4_wG7zEcdlUZSMqef7EKI9c-Yh0Os8SdINsMkIGTErdYUsIojaObyUps8VLPnV-ymHZ1DzBalSy9NlpVJRqsdSVFFBVBUKU-3tZY=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vHwj6wmF5TmzWrW77VPzvykNKz6zJ_tetE3GGGS32r9rnHjgjz8bGjbo6Ku8EjGvW_af7LD7Sp5uXsgo4ofLxiUmAwr6wJRTWhg-IFxDfJQ6oHWIXSRwmINEkfW1lJjd0QggSQZmputtgaXG5sUpw_maSpOSiWQWVrW_YSGzdZauawN7ma3Qr3FvfTLig",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vHwj6wmF5TmzWrW77VPzvykNKz6zJ_tetE3GGGS32r9rnHjgjz8bGjbo6Ku8EjGvW_af7LD7Sp5uXsgo4ofLxiUmAwr6wJRTWhg-IFxDfJQ6oHWIXSRwmINEkfW1lJjd0QggSQZmputtgaXG5sUpw_maSpOSiWQWVrW_YSGzdZauawN7ma3Qr3FvfTLig=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72upF7hRcFlU9fjsEO8EzLraOsZhtRFxfgjiPB8ApfOZCSVhsOCKpbrVVnd8ACVUEbk8mLppAdhicSKuZGvNsyUECbrG8y35lIT16g2KsyiuvZFu6r9NVeIcjsP6c_1GD5EyAtCWiq-r5bPm9qT8lXyM1CgsCtDfn3EkJKL9xeVam2ZjOScSSyNrLj0hS38",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72upF7hRcFlU9fjsEO8EzLraOsZhtRFxfgjiPB8ApfOZCSVhsOCKpbrVVnd8ACVUEbk8mLppAdhicSKuZGvNsyUECbrG8y35lIT16g2KsyiuvZFu6r9NVeIcjsP6c_1GD5EyAtCWiq-r5bPm9qT8lXyM1CgsCtDfn3EkJKL9xeVam2ZjOScSSyNrLj0hS38=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vyGxcqu3025jPTUeeDzixYm8az3mNoDTyVS5SXohiZfIZq3Jkex4MWt5X7Rb39BWwFLA44K7_DGLcEY8dpsYc7FnTB9S30cWMKSTwuJwcZPBGXjMu94GLWP9HImfIzzek_Dmiq52bHZfGcTRrLh6VDmKav2ebK6jdjRo2iL5zez3snaRAy8dITJhNJk-E",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vyGxcqu3025jPTUeeDzixYm8az3mNoDTyVS5SXohiZfIZq3Jkex4MWt5X7Rb39BWwFLA44K7_DGLcEY8dpsYc7FnTB9S30cWMKSTwuJwcZPBGXjMu94GLWP9HImfIzzek_Dmiq52bHZfGcTRrLh6VDmKav2ebK6jdjRo2iL5zez3snaRAy8dITJhNJk-E=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tKsDnpusJPmG1mAPXwKZsliwQbonzWAFiJgbH0tggmCC9ExKpzfe1oIyfkdi-ndi0_CaDtVOG0BrfmYZLK6hJAaBNRBY5MwV4W0WNmOhiVFpt5f-L_Ag19qQtwqN3RzQhEfNpnOuwE72La4XIFR8XchaQcgsfsIaQFhf2ah3LZx5m6gvv_QCi12wvNQaM",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tKsDnpusJPmG1mAPXwKZsliwQbonzWAFiJgbH0tggmCC9ExKpzfe1oIyfkdi-ndi0_CaDtVOG0BrfmYZLK6hJAaBNRBY5MwV4W0WNmOhiVFpt5f-L_Ag19qQtwqN3RzQhEfNpnOuwE72La4XIFR8XchaQcgsfsIaQFhf2ah3LZx5m6gvv_QCi12wvNQaM=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tXisdZjOT7jIMIZ-b8fB706OTxndfJUbtS8OLetXkly7V-fnwgt8FBalnLYhnFZuZBTGN62Swgu9MsOI5OSn1bZ6Nh3gS5qGruRKj9dg8GL6DwuyLno4wPZwJXBmcRC5R0c0TxxFg5fYn7OTU-LAJaAL10jcjRtlH4wHyq_h3NI1Q-9nlLKjftSPE_3T8",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tXisdZjOT7jIMIZ-b8fB706OTxndfJUbtS8OLetXkly7V-fnwgt8FBalnLYhnFZuZBTGN62Swgu9MsOI5OSn1bZ6Nh3gS5qGruRKj9dg8GL6DwuyLno4wPZwJXBmcRC5R0c0TxxFg5fYn7OTU-LAJaAL10jcjRtlH4wHyq_h3NI1Q-9nlLKjftSPE_3T8=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72srPy3dvt7I8Tj9_CVZat6KOE2GHr05FjuslFdeFxMyOvaxXRMilBf-vakoPjcCdj4ObZJXruGSn4ebvIYYq1QGzyrCuS5_NNzgCwI14Y59kY2PHCCNgxOKQywoY4uf1Gno7XJk9YVsS3rTQ4If6JNEJBDh05uvwB7FPVcWJs2JqaeBrOmCLLvSV4Nnypo",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72srPy3dvt7I8Tj9_CVZat6KOE2GHr05FjuslFdeFxMyOvaxXRMilBf-vakoPjcCdj4ObZJXruGSn4ebvIYYq1QGzyrCuS5_NNzgCwI14Y59kY2PHCCNgxOKQywoY4uf1Gno7XJk9YVsS3rTQ4If6JNEJBDh05uvwB7FPVcWJs2JqaeBrOmCLLvSV4Nnypo=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vplljKw6YZa5tnZQzL-BmlyIj3_qOuSWL7UoqxaVhJ_utVQxlyz_ZylvFrb3Hrfr9i45Ct6cxxSVSKbQiF84HpQQfKQyEnC2Ant6l_tlI8DbwE2QKyqMxtM0v4fXTHc-hC5IX9fFxhPULn-IR9RcY0ieqqm_4z4DpYj6jg2HlSxzZEzxeLWZ0VYd7cl0c",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vplljKw6YZa5tnZQzL-BmlyIj3_qOuSWL7UoqxaVhJ_utVQxlyz_ZylvFrb3Hrfr9i45Ct6cxxSVSKbQiF84HpQQfKQyEnC2Ant6l_tlI8DbwE2QKyqMxtM0v4fXTHc-hC5IX9fFxhPULn-IR9RcY0ieqqm_4z4DpYj6jg2HlSxzZEzxeLWZ0VYd7cl0c=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uBa_e2035fVMQu1qtzdfWNQc1yQ-cIyL7y5vU5pGcDtm8SfTs7J1vrUDnDQL5ny7RwPl1GPARqq25XIHYSuxB1tknKKiksT67D3b5Mf65D4S-rRTJaj6M3PYSpEo3Pzsa7DnPKVb_zxV_SLSCMkC6Pm3DPyNkurwZm4sAli_Zj2q2RApNcFgDCxvFUWL4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uBa_e2035fVMQu1qtzdfWNQc1yQ-cIyL7y5vU5pGcDtm8SfTs7J1vrUDnDQL5ny7RwPl1GPARqq25XIHYSuxB1tknKKiksT67D3b5Mf65D4S-rRTJaj6M3PYSpEo3Pzsa7DnPKVb_zxV_SLSCMkC6Pm3DPyNkurwZm4sAli_Zj2q2RApNcFgDCxvFUWL4=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vc-pGv2T-T_430YFcWhELNSPPnMoxH6Z7FIuC0Ggriif0I_bbENbFMB3gWQH15PGmr9hwVZhp9cqOPIffRQiCID48QoqbMGUyl7dXp7GT5klekAQOMHlA45Q1EpLfe9_cxONOPrx0Ev1s_zmi3cDoxRuzJM2F_fzxg8scdltPUg4U5hEsH5EF-lPGb6Ac",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vc-pGv2T-T_430YFcWhELNSPPnMoxH6Z7FIuC0Ggriif0I_bbENbFMB3gWQH15PGmr9hwVZhp9cqOPIffRQiCID48QoqbMGUyl7dXp7GT5klekAQOMHlA45Q1EpLfe9_cxONOPrx0Ev1s_zmi3cDoxRuzJM2F_fzxg8scdltPUg4U5hEsH5EF-lPGb6Ac=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72um8RXjLafqNH6b8YkHWL_tP-7i7yyCPYAHpyeYcXSRklBeDqq-Jj4JOnOPfqbareC-GurqZlDFIARKf4hRudqdgI8EcSsENi3BckorgbpbASmEONN--SrLX0-vA5Pre7HmwTrNKZ3HTqVRoo1SnTNT3ta2Hr_wXk6z5VSg19aybJJ-INCLUNc27pea",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72um8RXjLafqNH6b8YkHWL_tP-7i7yyCPYAHpyeYcXSRklBeDqq-Jj4JOnOPfqbareC-GurqZlDFIARKf4hRudqdgI8EcSsENi3BckorgbpbASmEONN--SrLX0-vA5Pre7HmwTrNKZ3HTqVRoo1SnTNT3ta2Hr_wXk6z5VSg19aybJJ-INCLUNc27pea=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sLSnPojbsdwn6N9V6MngJVYKxl9NsILQUDtPNwgZoQ5CGVDx3YRc2TP78um2-fn12bGck3RLOjpUc7ngLu2-Df0UQ9O8Xa1G9gFPy2TN8fMBxvxpXCo2dLqxvfcB53UiJGBEYGtcrh2LKrAFF78iB5YAHF9HR3JA91ybWG7PIn17sjG4FPSfJS",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sLSnPojbsdwn6N9V6MngJVYKxl9NsILQUDtPNwgZoQ5CGVDx3YRc2TP78um2-fn12bGck3RLOjpUc7ngLu2-Df0UQ9O8Xa1G9gFPy2TN8fMBxvxpXCo2dLqxvfcB53UiJGBEYGtcrh2LKrAFF78iB5YAHF9HR3JA91ybWG7PIn17sjG4FPSfJS=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v1tC7Dnw3hhOfEfAK5ZS5O84opy4z_Nx17jl_aR16hOyinJhAzfKA8QiQM85sJn_apOCB8VsuxL0crC-qyy8h8jBjgEnI8j12MbYR4zT_1mRcOPCo_XxhZmkueFVMYwyDG5UNPOwby0MWDvlehd-iXtyBwPbHlrxVTv_8p7slSEswKK2Y6cvypzMQ4",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v1tC7Dnw3hhOfEfAK5ZS5O84opy4z_Nx17jl_aR16hOyinJhAzfKA8QiQM85sJn_apOCB8VsuxL0crC-qyy8h8jBjgEnI8j12MbYR4zT_1mRcOPCo_XxhZmkueFVMYwyDG5UNPOwby0MWDvlehd-iXtyBwPbHlrxVTv_8p7slSEswKK2Y6cvypzMQ4=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72t8n2hp-5Uu6c2YnMbWauBGnNYN_yVOg2b1ZgmaSe1hVLs2FhPkdnPc111dhNzKYmq5r3pwUOhRzs-557bDbblFP0DFof_GDtLy-dtfTsC41R1Na6HfRJ2gb2ra22AMLEKw8f8YNMxRnpQAuECIeprqTZnb-IpHd1K2vGWUlwMTG2WQLUk147NuizrGOqI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72t8n2hp-5Uu6c2YnMbWauBGnNYN_yVOg2b1ZgmaSe1hVLs2FhPkdnPc111dhNzKYmq5r3pwUOhRzs-557bDbblFP0DFof_GDtLy-dtfTsC41R1Na6HfRJ2gb2ra22AMLEKw8f8YNMxRnpQAuECIeprqTZnb-IpHd1K2vGWUlwMTG2WQLUk147NuizrGOqI=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sGAalTx3GIXlLE2-CgDj67MZML3Xkn9uQAyzKHsNT_VEo4xugeVcaThiqPfWVCwYcci3iB7H8qQgO1KvrkP6SANkSklQL7WAe07eaXIq4698CIT5DpYbo3_bgJgXInv4wzEgF9H35INbQHN2Q4SQSMXdqO2aLOLP6PczXk_J9SMP6qice_QlVdOgT5",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sGAalTx3GIXlLE2-CgDj67MZML3Xkn9uQAyzKHsNT_VEo4xugeVcaThiqPfWVCwYcci3iB7H8qQgO1KvrkP6SANkSklQL7WAe07eaXIq4698CIT5DpYbo3_bgJgXInv4wzEgF9H35INbQHN2Q4SQSMXdqO2aLOLP6PczXk_J9SMP6qice_QlVdOgT5=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sJZZ1_wotWDjVcKKvJU7HXVuLU4_xz1xQfkkj7uOHMDSxELzKlXpbT6oyqoiXK-LnV86sPYQTQKv7dBhQbP1fRtanuKHHPiN25hUxrd2Ykj19wR66wFzlkRx1rS7zfOQ1KVfRYUw999YBGlL6Tdew1m4MG9UuNJT-ssYbvvmG_EDYWxlXouFUFPSY7g98",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sJZZ1_wotWDjVcKKvJU7HXVuLU4_xz1xQfkkj7uOHMDSxELzKlXpbT6oyqoiXK-LnV86sPYQTQKv7dBhQbP1fRtanuKHHPiN25hUxrd2Ykj19wR66wFzlkRx1rS7zfOQ1KVfRYUw999YBGlL6Tdew1m4MG9UuNJT-ssYbvvmG_EDYWxlXouFUFPSY7g98=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ucisQN2KM4Pww5t3Tqlz-gy1vfLdTM0sE3vMhiieQ4Slw8tuBel-d3F8oBb-wK8-8xhJ_TrdhoUyalRbva_6SeaVN9GUgeGwPItME8GbVHPf_Y9jiM45VSWmDlhae0h8XEEouoCLwNBldB4OPss32L18BBIvExYwmJxbpmJca_ejMpTc8fE6cEGEijVUE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ucisQN2KM4Pww5t3Tqlz-gy1vfLdTM0sE3vMhiieQ4Slw8tuBel-d3F8oBb-wK8-8xhJ_TrdhoUyalRbva_6SeaVN9GUgeGwPItME8GbVHPf_Y9jiM45VSWmDlhae0h8XEEouoCLwNBldB4OPss32L18BBIvExYwmJxbpmJca_ejMpTc8fE6cEGEijVUE=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sWy_3FThYAwHsbkmOzdcM3Ff9NUNegRYY259xdbpxlL6WveOm1HcUg2w_j987M5Oa6SbzmzY__6frPT791Dwlt4g7LIiKuaYksnTPfzYp0P-m7bUYSrDS-Xq1Oqfr3UzuqCVSw58M31fO67BvNdMrFofbaW2L9Y_owTSxUcbssuTB0ydTEBB1Tj5RhPWE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sWy_3FThYAwHsbkmOzdcM3Ff9NUNegRYY259xdbpxlL6WveOm1HcUg2w_j987M5Oa6SbzmzY__6frPT791Dwlt4g7LIiKuaYksnTPfzYp0P-m7bUYSrDS-Xq1Oqfr3UzuqCVSw58M31fO67BvNdMrFofbaW2L9Y_owTSxUcbssuTB0ydTEBB1Tj5RhPWE=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vvaSkNnz67TcUF8jPr3yIzOP1YBrMmLp3vbd_OClJ0S8M86V6Uya7R36YI1qIXFETAZLOnCSkP1kS-cIr7SN-bb17y2bNwAtpVT-DsDvGiPvbmPHmgGWnbQckkFxFZs0Zj3BtbuF0b90O6l38JJ2vBZO_ExNTUroU83YShfjEnP0TL9pHAqmG1skel",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vvaSkNnz67TcUF8jPr3yIzOP1YBrMmLp3vbd_OClJ0S8M86V6Uya7R36YI1qIXFETAZLOnCSkP1kS-cIr7SN-bb17y2bNwAtpVT-DsDvGiPvbmPHmgGWnbQckkFxFZs0Zj3BtbuF0b90O6l38JJ2vBZO_ExNTUroU83YShfjEnP0TL9pHAqmG1skel=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tHWshm2GJERuPUzLqbI5VAxLIpk6kZ0ZQ1Djrgz-fVIQFwy1v3PVmoi8IzDOpjZVAZjTkLsuCXCCzm5R3S_HzZ9KVy8SpcyQ_2LhlRC6j3mXmY2XKKeq2gku8KMQH3Gmm76AvosEjtua40lH8vKF4R_g_4JiWclAc5LDDN_2f1KfkP66v62lYN8vdkoGQ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tHWshm2GJERuPUzLqbI5VAxLIpk6kZ0ZQ1Djrgz-fVIQFwy1v3PVmoi8IzDOpjZVAZjTkLsuCXCCzm5R3S_HzZ9KVy8SpcyQ_2LhlRC6j3mXmY2XKKeq2gku8KMQH3Gmm76AvosEjtua40lH8vKF4R_g_4JiWclAc5LDDN_2f1KfkP66v62lYN8vdkoGQ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vNce2FNJ_RREJRaIt7o5aUDX_7bXDIF2zFczpxD9cYVW0CVg7s51OjdpSOWTAfPC3f4JPzTXGWGd0jkPvt7URpaVceokUGhQMdCK4EtwqWWu8Td80BamKarL48hI5L-owszD8IlhJUaMweCNfvav49WEe_dzu7v5TGLUJ4W3BOW9nfG-7ovPyhFEuH_rE",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vNce2FNJ_RREJRaIt7o5aUDX_7bXDIF2zFczpxD9cYVW0CVg7s51OjdpSOWTAfPC3f4JPzTXGWGd0jkPvt7URpaVceokUGhQMdCK4EtwqWWu8Td80BamKarL48hI5L-owszD8IlhJUaMweCNfvav49WEe_dzu7v5TGLUJ4W3BOW9nfG-7ovPyhFEuH_rE=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vzO5mMwTy5qhHRd0Y1GRjQD6d28_mEV5T7vV8ssIfLxwdE8VyuD8p9Klo8Y9sQBPFcLWzk3KmjispveMopQ5mHgtzHJovuzXnkvIoSieVYD1uqJG1NFSY3l2GtHQflVdd75WXfFIxWTEvIdQ_EzTrIeAnh4L6mdJ8W2-YylGe_0KzLXwUFgH4f3mWc",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vzO5mMwTy5qhHRd0Y1GRjQD6d28_mEV5T7vV8ssIfLxwdE8VyuD8p9Klo8Y9sQBPFcLWzk3KmjispveMopQ5mHgtzHJovuzXnkvIoSieVYD1uqJG1NFSY3l2GtHQflVdd75WXfFIxWTEvIdQ_EzTrIeAnh4L6mdJ8W2-YylGe_0KzLXwUFgH4f3mWc=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vnGLDH-g7JSNtrrP0TxZ0PTRy9Cs0bLoi4VBby_gPsjR3_ynMmLXJM2A5dv__QkU9AnMmtp6NgNTBC9jOLH1_XOc7OsbtvJPYVfucJsROgIudIjMsQ2yJWhjGzmvzLCfTjZv4MqEBO212Y6nruURZ_5ZL-o-7e8_1XB8LxYzVFJdAvoNLdBwRCsapYsq0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vnGLDH-g7JSNtrrP0TxZ0PTRy9Cs0bLoi4VBby_gPsjR3_ynMmLXJM2A5dv__QkU9AnMmtp6NgNTBC9jOLH1_XOc7OsbtvJPYVfucJsROgIudIjMsQ2yJWhjGzmvzLCfTjZv4MqEBO212Y6nruURZ_5ZL-o-7e8_1XB8LxYzVFJdAvoNLdBwRCsapYsq0=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ttpQQ3gcdKbg-M6KlknbnSsMILE37VXMz6YuVvTVhkWGhQEkEI9Vjq7_pIoR2xVP16ubyLCwJdh4TMZ0TwlwIcXRaBJG_-hkPHZs5kOj9sEZuXZrpv1UgHkIvuVUM_bQO3pNxzm-QMDISdA30M7lCcT3PcfCowlK9T_jgDPZz9pYwDAaqjoqv8eA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ttpQQ3gcdKbg-M6KlknbnSsMILE37VXMz6YuVvTVhkWGhQEkEI9Vjq7_pIoR2xVP16ubyLCwJdh4TMZ0TwlwIcXRaBJG_-hkPHZs5kOj9sEZuXZrpv1UgHkIvuVUM_bQO3pNxzm-QMDISdA30M7lCcT3PcfCowlK9T_jgDPZz9pYwDAaqjoqv8eA=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vBtrKd0Jome8t2fqKrNIwSInynX3LhNiyi_bDsPwYrVKMyoTO0vcPV6eMtffQT-cZF4in2ZwHHRHDpNKEjMyI7qZg9wdcU0zGLMbMVHHKWGHe3amNY8siuJ-hryt1FzedUFlYBw2RtnIkTEBHZg17xMsCMFvJM691e0bHC_2kd8d_UezlZvua6PsJ6",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vBtrKd0Jome8t2fqKrNIwSInynX3LhNiyi_bDsPwYrVKMyoTO0vcPV6eMtffQT-cZF4in2ZwHHRHDpNKEjMyI7qZg9wdcU0zGLMbMVHHKWGHe3amNY8siuJ-hryt1FzedUFlYBw2RtnIkTEBHZg17xMsCMFvJM691e0bHC_2kd8d_UezlZvua6PsJ6=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2025-2026",
+      "slug": "featured-works-sy-2025-2026",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vT75oVkjEny61bPKl1H2fw0Lwkn1QJ0gzgWrzIhB6e7KZyBdCI1k_06y6LPL-4TFi3JvX0o71PesdNNdaPPmgodAIyBkvw2gNrhaTZzqpAWgIWzQTL9bO8yEgb8Y1K_KNQ7Enr-1gj25SQzpJIVr043TIZ4qc6tly1Lzo0rdee30OMtjhMevAAYEOCqPY",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vT75oVkjEny61bPKl1H2fw0Lwkn1QJ0gzgWrzIhB6e7KZyBdCI1k_06y6LPL-4TFi3JvX0o71PesdNNdaPPmgodAIyBkvw2gNrhaTZzqpAWgIWzQTL9bO8yEgb8Y1K_KNQ7Enr-1gj25SQzpJIVr043TIZ4qc6tly1Lzo0rdee30OMtjhMevAAYEOCqPY=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vIVjRfmBlDvLYdALcBnCKElreAeJ8hAtP9Ixp_md4-HU5v0opbYd8DJu1tOxwsyvo3K5wNIAnFAVHVNQ4aM_5lPDG7LPdqjxoDffX_Lcvg5SvO1lFpsa8ywcFkgdMqghktAy6W94E6NgcJoBXHB_Wan7h80fZSVLmr5P1BkI4t1WxZ4J5rTXuRm1N_yao",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vIVjRfmBlDvLYdALcBnCKElreAeJ8hAtP9Ixp_md4-HU5v0opbYd8DJu1tOxwsyvo3K5wNIAnFAVHVNQ4aM_5lPDG7LPdqjxoDffX_Lcvg5SvO1lFpsa8ywcFkgdMqghktAy6W94E6NgcJoBXHB_Wan7h80fZSVLmr5P1BkI4t1WxZ4J5rTXuRm1N_yao=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tHadc2RRgyHoLIX1YnoC0hxqH7GZ5r50JA7yJ7s-Vw82QjmhdjM8UccyV5zp8CmIumwbGONHjgcMI-6vBItogM1Knau7tC7i0l8uLQ9SkGmICQciSduh88yYuBMjD3RCGTKYJ21eVPjh8G9cLRj6WzAFJ36moZWBjsQ8NG1S6bGExwZksOGFi0jqUBhWA",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tHadc2RRgyHoLIX1YnoC0hxqH7GZ5r50JA7yJ7s-Vw82QjmhdjM8UccyV5zp8CmIumwbGONHjgcMI-6vBItogM1Knau7tC7i0l8uLQ9SkGmICQciSduh88yYuBMjD3RCGTKYJ21eVPjh8G9cLRj6WzAFJ36moZWBjsQ8NG1S6bGExwZksOGFi0jqUBhWA=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tJ6a53Ndzr2MNc02ftRdS-CRW5xc0Jnsa4nrPDV6RCjsrKMbviFKSSMIwyB-iMsxKA1Mlj1gGfgz3pQpwHY0dgzC9AqlDnzbX_WwigZWIl9-QQHrIkGoniET7DTarWChlvQtaNSltIL8GNOM00kW-mQN1R1CJdDm1If7l0OynDaUoY8xmvxL8nO1eG",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tJ6a53Ndzr2MNc02ftRdS-CRW5xc0Jnsa4nrPDV6RCjsrKMbviFKSSMIwyB-iMsxKA1Mlj1gGfgz3pQpwHY0dgzC9AqlDnzbX_WwigZWIl9-QQHrIkGoniET7DTarWChlvQtaNSltIL8GNOM00kW-mQN1R1CJdDm1If7l0OynDaUoY8xmvxL8nO1eG=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72ubIXvsWEPw9H2IYSEgnFlR2RQmcu_28VoWXmui-A5FCuNn1YkGaG_UHy0MzIfh9eOcBI3wjrL5LKuUpZj1zXIM7nGWhVuCv9yBy1EqtSuYE0z2C0ZprxzyH70ZyeZFaYGNUGRoJJ5H4GcT64e1-9e2ZtKxbIXOhQO-SdrT3pjnYt6Din-M48LRNWiJ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72ubIXvsWEPw9H2IYSEgnFlR2RQmcu_28VoWXmui-A5FCuNn1YkGaG_UHy0MzIfh9eOcBI3wjrL5LKuUpZj1zXIM7nGWhVuCv9yBy1EqtSuYE0z2C0ZprxzyH70ZyeZFaYGNUGRoJJ5H4GcT64e1-9e2ZtKxbIXOhQO-SdrT3pjnYt6Din-M48LRNWiJ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72t8vFvYN_E3yIjBsm68bDaYATu-lJNV7JdlCL-1dggjm3AU59BsZQsw2cO8ojesy3jYfSCKsZCNNGLnRnUSLg-Src6lpIRD2X4gA0WXlA0OxiqndOC4ThZmRFT9RITYv-KUYuYsYO2aU0j2Dt74QRQsZD5hCh4oeOehR4uNyJEz747O4zHZLB2yYGk93F0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72t8vFvYN_E3yIjBsm68bDaYATu-lJNV7JdlCL-1dggjm3AU59BsZQsw2cO8ojesy3jYfSCKsZCNNGLnRnUSLg-Src6lpIRD2X4gA0WXlA0OxiqndOC4ThZmRFT9RITYv-KUYuYsYO2aU0j2Dt74QRQsZD5hCh4oeOehR4uNyJEz747O4zHZLB2yYGk93F0=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72s6StwiFqcD5o3UEQWtE30CDmIRKMOIV5q66B6dKob84Sp04P4mcO2_1NiLc7hM0eYrtfMXMfU80oUmrfTDwMcX1uE28pRa_KAWf2jCM8S8q9PmB300yDzQU302VwXnGTKN-Pi-uqQt4JmshvbCFmRcBf1-JG7nMaAKzE0Int28HoiOctWjEzx_qJR8jFg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72s6StwiFqcD5o3UEQWtE30CDmIRKMOIV5q66B6dKob84Sp04P4mcO2_1NiLc7hM0eYrtfMXMfU80oUmrfTDwMcX1uE28pRa_KAWf2jCM8S8q9PmB300yDzQU302VwXnGTKN-Pi-uqQt4JmshvbCFmRcBf1-JG7nMaAKzE0Int28HoiOctWjEzx_qJR8jFg=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72tIghwUY5YerRyVY4ilkB3K-QlkHmYV1U5koGSXFM5ZH05jjA1UQo9LiEyW9ylNi8nGuh6Mff59832HUVs7x5zV5Wrticnklfadz8OZKeL8osUPop5YtCunylmVqiFuCCAQ3ycUIDh3s1snUI_q9-VFktvy_3N_bvdyGVOtBV1zMcBHEHbN0sTurmDZ",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72tIghwUY5YerRyVY4ilkB3K-QlkHmYV1U5koGSXFM5ZH05jjA1UQo9LiEyW9ylNi8nGuh6Mff59832HUVs7x5zV5Wrticnklfadz8OZKeL8osUPop5YtCunylmVqiFuCCAQ3ycUIDh3s1snUI_q9-VFktvy_3N_bvdyGVOtBV1zMcBHEHbN0sTurmDZ=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uukIt7gHkWuZhqF90eJIW_gd0HOq34W6rHpHhjWT9VzLZZHVY9c0p4lR10p8qy113CpYlGN0O681jqr14D6rWvfAipJ4j7pjNGBcTPEjEiczsipSpDKNJr_mxAh_svfGS3wPpBibOVGb59u5edjPmEKmix2Ihrt89Us6cW2QetHMbK-J9RxAnG1nJy9yg",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uukIt7gHkWuZhqF90eJIW_gd0HOq34W6rHpHhjWT9VzLZZHVY9c0p4lR10p8qy113CpYlGN0O681jqr14D6rWvfAipJ4j7pjNGBcTPEjEiczsipSpDKNJr_mxAh_svfGS3wPpBibOVGb59u5edjPmEKmix2Ihrt89Us6cW2QetHMbK-J9RxAnG1nJy9yg=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72v51wUqnH7nWhEzHnjC6l9lhsE9cqWPhp39AD6Cf4IvyKgoozNcxc2rVGEsu2kIMOvUNwRzwrTMhx1CD3I5yr24uSrVZvkG-mOZGzPDnAIgsEbWSMZNq2-E1CSEIOTD0yL-IeIAE61iDNHzZE-F8rcuV-OFcx2b2ip_Mf9b79Oxd2U0nWySrAcUgkbz",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72v51wUqnH7nWhEzHnjC6l9lhsE9cqWPhp39AD6Cf4IvyKgoozNcxc2rVGEsu2kIMOvUNwRzwrTMhx1CD3I5yr24uSrVZvkG-mOZGzPDnAIgsEbWSMZNq2-E1CSEIOTD0yL-IeIAE61iDNHzZE-F8rcuV-OFcx2b2ip_Mf9b79Oxd2U0nWySrAcUgkbz=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72vdd6I8KhSTWv3WFqNgbzouoxzunKUU_MKfldI2gqDZxwa8elj8Xrc3sSHQVzrD1qNlZICjZrFOF18lI0YX_Sw5MuLhoORo76UGwKB6x5qG11Fs3fepR0RbKHh0WOr4FcMPMf2RrLCU1taftorM8sYeShJhDc-Gkv_D18Wy2ApFkk-IPFFfSU-V9a30",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72vdd6I8KhSTWv3WFqNgbzouoxzunKUU_MKfldI2gqDZxwa8elj8Xrc3sSHQVzrD1qNlZICjZrFOF18lI0YX_Sw5MuLhoORo76UGwKB6x5qG11Fs3fepR0RbKHh0WOr4FcMPMf2RrLCU1taftorM8sYeShJhDc-Gkv_D18Wy2ApFkk-IPFFfSU-V9a30=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72us5niqEBOyJVAZeWJfFRV7qZ-JhJ0sDmZr7B6MjRyoITyPBRcmU0lWHTpFwUO6PLBx7OXX1YKMcryFLZbXi4n09lQiMxwI40boh4XrREOtTZ7X2VDC4tQCmy6T0lSCQEOVn3xXimrN2A5xrvRSvKYT_HjiNF5WzLN6_xiMv4GuF9XzwMjA42cnYw",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72us5niqEBOyJVAZeWJfFRV7qZ-JhJ0sDmZr7B6MjRyoITyPBRcmU0lWHTpFwUO6PLBx7OXX1YKMcryFLZbXi4n09lQiMxwI40boh4XrREOtTZ7X2VDC4tQCmy6T0lSCQEOVn3xXimrN2A5xrvRSvKYT_HjiNF5WzLN6_xiMv4GuF9XzwMjA42cnYw=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sRTRp2Eo3Ixsnta0U9UkA__f6TNim_r56tSQxU6q1GmqohishmnHbyRliaywW4M3cEyMAAiSGCXZhtHMdhAahhh17oJMn6tx7lHNoTRCqwJEinrl9UNMfA3WWdcJXXOl8trYANkDgRyW697sJcIO_kAqhz_AtdeFicyTAMxMHUYgmJmfxayNtR7In6ccI",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sRTRp2Eo3Ixsnta0U9UkA__f6TNim_r56tSQxU6q1GmqohishmnHbyRliaywW4M3cEyMAAiSGCXZhtHMdhAahhh17oJMn6tx7lHNoTRCqwJEinrl9UNMfA3WWdcJXXOl8trYANkDgRyW697sJcIO_kAqhz_AtdeFicyTAMxMHUYgmJmfxayNtR7In6ccI=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72t9W35oszyujJj5UvFRnTebFodUA0BT9_uVL0njYKyo0zVbiQIak8hez53owCeCl1l4KIVY3st2fRxzmjNcskLA1AOibuNBefnxzn9OgJQJenz7QSk0j2hcgaWyVQQeUl4fvDlK_cOYfu-Qc-ggc5RUWnGdc_77r_E3N5r3SQaI2udmANmzQG3dynpcOVU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72t9W35oszyujJj5UvFRnTebFodUA0BT9_uVL0njYKyo0zVbiQIak8hez53owCeCl1l4KIVY3st2fRxzmjNcskLA1AOibuNBefnxzn9OgJQJenz7QSk0j2hcgaWyVQQeUl4fvDlK_cOYfu-Qc-ggc5RUWnGdc_77r_E3N5r3SQaI2udmANmzQG3dynpcOVU=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72uCjQnuTjwfR1CtY8A9CazTOrA7LGTOWktgWCJgCArspIgmTe9q8QJK6_XLRniSKGXAxwnsQMZ9-D04on8BhcXxR2IeJAgFhKyGZdBvThFS6i9fXhaZATFCOJw0ULWC3uujS7kj7LrvjT9y4RPJEZVm9v5pS4cHauK6CXzdmCG4evYiTKNUQ4kte0sU",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72uCjQnuTjwfR1CtY8A9CazTOrA7LGTOWktgWCJgCArspIgmTe9q8QJK6_XLRniSKGXAxwnsQMZ9-D04on8BhcXxR2IeJAgFhKyGZdBvThFS6i9fXhaZATFCOJw0ULWC3uujS7kj7LrvjT9y4RPJEZVm9v5pS4cHauK6CXzdmCG4evYiTKNUQ4kte0sU=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/featured-works/sy-2024-2025",
+      "slug": "featured-works-sy-2024-2025",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72snJfnP8f1ZZpglz1ejj3V6YHbkZUc7xl8--_xPGtfxSET_PHcPVUDyyk1Fc_GQ_fOMDdT9Sua2vjEREWYWo5A3ez6TccCiwj6HMgJJZl5aSB_D5XTRYPogHBTmgRJWaXM8rTwbCv7G8H4wvfkbAEv32-6kPYh3Xx3pn-90dDVOBldjVpQy8kwPCW7q",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72snJfnP8f1ZZpglz1ejj3V6YHbkZUc7xl8--_xPGtfxSET_PHcPVUDyyk1Fc_GQ_fOMDdT9Sua2vjEREWYWo5A3ez6TccCiwj6HMgJJZl5aSB_D5XTRYPogHBTmgRJWaXM8rTwbCv7G8H4wvfkbAEv32-6kPYh3Xx3pn-90dDVOBldjVpQy8kwPCW7q=w16383",
+      "file": null,
+      "error": "download failed"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "url": "https://sites.google.com/sitesv-images-rt/AMxu72sCG-2CuzWo662kK0F5_h-dNJ4FQ4mkZ7vxbNp-w5fMaYHUtedE6ROYOlvMUnyekapi2dHvrbnFzgb9nAkg35R7g8RkU6PrGKwm_Fkj03R7q3NBcMpX2XjpdX3n2e7-xiNltesq-98f5j4pHtWaFiuzmXIjzv48MuNNcAIOQ5pqvKDMqOEOLWQS87U0",
+      "hint": "https://sites.google.com/sitesv-images-rt/AMxu72sCG-2CuzWo662kK0F5_h-dNJ4FQ4mkZ7vxbNp-w5fMaYHUtedE6ROYOlvMUnyekapi2dHvrbnFzgb9nAkg35R7g8RkU6PrGKwm_Fkj03R7q3NBcMpX2XjpdX3n2e7-xiNltesq-98f5j4pHtWaFiuzmXIjzv48MuNNcAIOQ5pqvKDMqOEOLWQS87U0=w16383",
+      "file": null,
+      "error": "download failed"
+    }
+  ],
+  "documents": [
+    {
+      "page": "/programs-offered/bs-architecture",
+      "slug": "programs-offered-bs-architecture",
+      "id": "1JTjA1iuLNqJDS74VA44-1ZiuenKJqeK1",
+      "file": "public/documents/arki-2023-2024.pdf",
+      "bytes": 517606,
+      "title": "ARKI 2023-2024.pdf"
+    },
+    {
+      "page": "/programs-offered/bs-electronics-engineering",
+      "slug": "programs-offered-bs-electronics-engineering",
+      "id": "1YQy_jMkfQsueiyxHeUu-Cl0G9JdCx2_l",
+      "file": "public/documents/ece-ay-2023-2024-updated.pdf",
+      "bytes": 398717,
+      "title": "ECE AY 2023-2024(updated).pdf"
+    },
+    {
+      "page": "/programs-offered/bs-civil-engineering",
+      "slug": "programs-offered-bs-civil-engineering",
+      "id": "16wTWbqxchMGMcIuiHrfGmxxIUCwuUgvt",
+      "file": "public/documents/updated-ce-ay-2023-2024.pdf",
+      "bytes": 443307,
+      "title": "(updated) CE AY 2023-2024.pdf"
+    },
+    {
+      "page": "/programs-offered/bs-computer-engineering",
+      "slug": "programs-offered-bs-computer-engineering",
+      "id": "16bLqW4rSSqwYQqFK0LazsJv4-4CaxqiK",
+      "file": "public/documents/cpe-ay-2023-2024-updated.pdf",
+      "bytes": 464022,
+      "title": "CPE AY 2023-2024(updated).pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "1_DaZOGTsX1llulJ917KxQYIzQ50JYmyV",
+      "file": "public/documents/cpe-handbook-2023-edition.pdf",
+      "bytes": 746834,
+      "title": "CPE Handbook 2023 Edition.pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "1IBqPiFsIuIeAP45RThw1mQIAahXp-gJK",
+      "file": "public/documents/uic-college-handbook-2023-edition.pdf",
+      "bytes": 1687145,
+      "title": "UIC College Handbook 2023 Edition.pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "1s8-E5H4GG8GAHKq-IYVsNJNwn8l6R_lQ",
+      "file": "public/documents/cmo-87-s-2017-psg-for-bscpe.pdf",
+      "bytes": 1001227,
+      "title": "CMO 87, s. 2017 - PSG FOR BSCpE.pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "1zNe5dcFRM27keagov8rrVfGYcc1tqrOX",
+      "file": "public/documents/cmo-101-s-2017-bs-electronics-engineering.pdf",
+      "bytes": 5852140,
+      "title": "CMO-101-s.-2017-BS-Electronics-Engineering.pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "1jBKEWlKd4JwRcJIDHjQ-Ku5fD1tn7tbu",
+      "file": "public/documents/cmo-92-s-2017-psg-for-bsce.pdf",
+      "bytes": 994291,
+      "title": "CMO 92, s. 2017 - PSG FOR BSCE.pdf"
+    },
+    {
+      "page": "/archives",
+      "slug": "archives",
+      "id": "15FSQ_1tsSDUWD8TKucQOqy96XHgUxy67",
+      "file": "public/documents/cmo-no-61-series-2017-policies-standards-and-guidelines-for-the-bachelor-of-science-in-architecture-bs-archi.pdf",
+      "bytes": 10139993,
+      "title": "CMO-No.-61-Series-2017-Policies-Standards-and-Guidelines-for-the-Bachelor-of-Science-in-Architecture-BS-Archi.pdf"
+    }
+  ]
+}

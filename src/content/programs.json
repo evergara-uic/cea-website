@@ -1,0 +1,235 @@
+[
+	{
+		"slug": "bs-architecture",
+		"name": "BS Architecture",
+		"overline": "5-Year Professional Degree",
+		"fullName": "Bachelor of Science in Architecture",
+		"longDescription": "Fusing technical mastery, environmental bioclimatic architecture, urban design, structural mechanics, building information modeling (BIM), and creative spatial experimentation. Aligned with national board licensure preparation.",
+		"description": "Synthesis of physical space, aesthetic composition, green building innovations, and urban human ecology.",
+		"competencies": [
+			"Architectural Studio",
+			"BIM & CAD",
+			"Urban Design",
+			"Building Laws"
+		],
+		"badges": [
+			"5-Year Professional Degree",
+			"PRC Licensure Track"
+		],
+		"guildShort": "UAPSA Student Guild",
+		"guildFull": "United Architects of the Philippines Student Auxiliary",
+		"guild": "UAPSA (United Architects of the Philippines Student Auxiliary)",
+		"matrixGuild": "UAPSA (UIC Chapter)",
+		"board": "PRC Architect Board",
+		"accreditation": "PACUCOA III",
+		"duration": "5 Years",
+		"units": "198 Units",
+		"ojt": "240 Hours",
+		"pillars": [
+			"Architectural Design & Theory",
+			"Building Technology & Utilities",
+			"Urban & Regional Planning",
+			"BIM & Digital Twin Modeling",
+			"Heritage & Tropical Design"
+		],
+		"roadmap": [
+			{ "year": "Yr 1", "label": "Visual Tech" },
+			{ "year": "Yr 2", "label": "Design Studios" },
+			{ "year": "Yr 3", "label": "Structures & BIM" },
+			{ "year": "Yr 4", "label": "Urban Contexts" },
+			{ "year": "Yr 5", "label": "Thesis & OJT" }
+		],
+		"careerPathways": [
+			"Licensed Architect",
+			"Urban Designer",
+			"BIM Coordinator",
+			"Sustainable Consultant",
+			"Interior Architect"
+		],
+		"enrollLabel": "Enroll BS Arch",
+		"badgeLabel": "UAPSA UIC",
+		"mark": "architecture",
+		"cardImage": "architecture",
+		"wing": {
+			"title": "Architecture Wing",
+			"lab": "Design Studios & BIM Lab",
+			"description": "Fully outfitted drafting boards, high-performance rendering terminals, and physical scale model construction workspaces.",
+			"image": "architecture"
+		},
+		"order": 1
+	},
+	{
+		"slug": "bs-civil-engineering",
+		"name": "BS Civil Engineering",
+		"overline": "4-Year Professional Degree",
+		"fullName": "Bachelor of Science in Civil Engineering",
+		"longDescription": "Engineering resilient infrastructure for earthquake-prone and coastal regions. Covering structural mechanics, seismic mitigation, water resources, transportation logistics, geotechnical engineering, and high-impact construction management.",
+		"description": "Foundations in structural resilience, seismic design, water resources, highways, and high-impact construction management.",
+		"competencies": [
+			"Structural Design",
+			"Soil Mechanics",
+			"Hydraulics",
+			"Surveying Tech"
+		],
+		"badges": [
+			"4-Year Professional Degree",
+			"Washington Accord Track"
+		],
+		"guildShort": "PICE-SC Student Guild",
+		"guildFull": "Philippine Institute of Civil Engineers Student Chapter",
+		"guild": "PICE-SC (Philippine Institute of Civil Engineers Student Chapter)",
+		"matrixGuild": "PICE Student Chapter",
+		"board": "PRC Civil Eng. Board",
+		"accreditation": "PTC-ACBET",
+		"duration": "4 Years",
+		"units": "168 Units",
+		"ojt": "240 Hours",
+		"pillars": [
+			"Structural Analysis & Earthquake Eng",
+			"Geotechnical & Foundation Eng",
+			"Hydraulics & Water Systems",
+			"Transportation & Highway Planning",
+			"Construction Project Management"
+		],
+		"roadmap": [
+			{ "year": "Yr 1", "label": "Math & Physics" },
+			{ "year": "Yr 2", "label": "Survey & Mechanics" },
+			{ "year": "Yr 3", "label": "Steel, Concrete, Hydro" },
+			{ "year": "Yr 4", "label": "Capstone & OJT" }
+		],
+		"careerPathways": [
+			"Structural Design Engineer",
+			"Geotechnical Consultant",
+			"Infrastructure Project Manager",
+			"Water Systems Analyst",
+			"Coastal Defense Engineer"
+		],
+		"enrollLabel": "Enroll BS CE",
+		"badgeLabel": "PICE UIC",
+		"mark": "civil",
+		"cardImage": "civil",
+		"wing": {
+			"title": "Civil Engineering Wing",
+			"lab": "Materials & Geotechnics Lab",
+			"description": "Universal testing machines, concrete curing tanks, and automated total stations for high-precision geospatial surveys.",
+			"image": "civil"
+		},
+		"order": 2
+	},
+	{
+		"slug": "bs-computer-engineering",
+		"name": "BS Computer Engineering",
+		"overline": "4-Year Professional Degree",
+		"fullName": "Bachelor of Science in Computer Engineering",
+		"longDescription": "Bridging hardware architecture, cyber-physical edge computing, and applied software engineering. Students build FPGA circuits, AI edge nodes, IoT smart grids, embedded robotics, and high-performance distributed systems.",
+		"description": "Convergence of computational hardware, distributed embedded systems, IoT architectures, and software engineering.",
+		"competencies": [
+			"Embedded Systems",
+			"AI & Robotics",
+			"Cloud Networking",
+			"Microcontrollers"
+		],
+		"badges": [
+			"4-Year Professional Degree",
+			"Cyber-Physical & AI"
+		],
+		"guildShort": "ICPEP.SE Student Guild",
+		"guildFull": "Institute of Computer Engineers of the Philippines",
+		"guild": "ICPEP.SE (Institute of Computer Engineers of the Philippines)",
+		"matrixGuild": "ICPEP.SE Chapter",
+		"board": "CpE Certification Track",
+		"accreditation": "PTC Candidate",
+		"duration": "4 Years",
+		"units": "165 Units",
+		"ojt": "300 Hours",
+		"pillars": [
+			"Embedded Systems & Microcontrollers",
+			"Artificial Intelligence & Edge Vision",
+			"IoT Systems & Sensor Networks",
+			"Cloud Infrastructure & Hardware Security",
+			"Robotics & Cyber-Physical Systems"
+		],
+		"roadmap": [
+			{ "year": "Yr 1", "label": "Programming & Math" },
+			{ "year": "Yr 2", "label": "Circuits & Logic Design" },
+			{ "year": "Yr 3", "label": "Microprocessors & AI" },
+			{ "year": "Yr 4", "label": "Design Capstone & OJT" }
+		],
+		"careerPathways": [
+			"Embedded Firmware Engineer",
+			"Robotics Systems Integrator",
+			"IoT Solutions Architect",
+			"Hardware Validation Engineer",
+			"Edge AI Developer"
+		],
+		"enrollLabel": "Enroll BS CpE",
+		"badgeLabel": "ICPEP.SE UIC",
+		"mark": "computer",
+		"cardImage": "computer",
+		"wing": {
+			"title": "Computer Engineering Wing",
+			"lab": "Embedded Systems & IoT Lab",
+			"description": "FPGA platforms, microcontroller kits, sensory network hubs, and high-speed enterprise switching racks.",
+			"image": "computer"
+		},
+		"order": 3
+	},
+	{
+		"slug": "bs-electronics-engineering",
+		"name": "BS Electronics Engineering",
+		"overline": "4-Year Professional Degree",
+		"fullName": "Bachelor of Science in Electronics Engineering",
+		"longDescription": "Driving wireless telecommunications, radio frequency (RF) design, digital signal processing, industrial automation, and microelectronics. Emphasizing state-of-the-art laboratory instrumentation and PRC board readiness.",
+		"description": "Telecommunications, biomedical electronics, signal filtering, RF engineering, power electronics, and autonomous control systems.",
+		"competencies": [
+			"RF & Telecom",
+			"Digital Signal",
+			"Automation & PLC",
+			"Circuit Design"
+		],
+		"badges": [
+			"4-Year Professional Degree",
+			"PRC Licensure Track"
+		],
+		"guildShort": "IECEP / ECES Student Guild",
+		"guildFull": "Institute of Electronics Engineers of the Philippines / ECES",
+		"guild": "ECES / IECEP (Electronics Engineering Organization)",
+		"matrixGuild": "IECEP / ECES",
+		"board": "PRC ECE & ECT Boards",
+		"accreditation": "PACUCOA & IECEP",
+		"duration": "4 Years",
+		"units": "170 Units",
+		"ojt": "300 Hours",
+		"pillars": [
+			"RF, Microwave & Satellite Comm",
+			"Industrial Automation, SCADA & PLC",
+			"Digital Signal & Image Processing",
+			"Biomedical Instrumentation",
+			"Semiconductor & Microelectronics"
+		],
+		"roadmap": [
+			{ "year": "Yr 1", "label": "Math & Chem/Phys" },
+			{ "year": "Yr 2", "label": "Electronic Devices" },
+			{ "year": "Yr 3", "label": "Telecom & Signals" },
+			{ "year": "Yr 4", "label": "Thesis & Licensure Prep" }
+		],
+		"careerPathways": [
+			"Licensed ECE Engineer",
+			"RF Systems Specialist",
+			"Industrial Automation Engineer",
+			"Avionics & Radar Specialist",
+			"Biomedical Engineer"
+		],
+		"enrollLabel": "Enroll BS ECE",
+		"badgeLabel": "ECES • EST. 1992",
+		"mark": "electronics",
+		"cardImage": "electronics",
+		"wing": {
+			"title": "Electronics Engineering Wing",
+			"lab": "RF & Telecommunications Lab",
+			"description": "High-bandwidth spectrum analyzers, signal generators, PLC training benches, and antenna radiation pattern rigs.",
+			"image": "electronics"
+		},
+		"order": 4
+	}
+]

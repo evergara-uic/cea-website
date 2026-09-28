@@ -1,0 +1,71 @@
+---
+import { ENROLL_URL, IMAGES } from '../consts';
+import RemoteImage from '../components/RemoteImage.astro';
+import Base from '../layouts/Base.astro';
+
+/*
+ * The 404. Styled from the design's own surfaces — the midnight band, the
+ * copper eyebrow, the blueprint-amber accent — rather than a new treatment, so
+ * a dead address still looks like this site.
+ */
+---
+
+<Base title="Page not found">
+	<section class="relative w-full overflow-hidden bg-midnight text-white">
+		<div
+			class="pointer-events-none absolute inset-0 opacity-15 [background-image:radial-gradient(#dce9ff_1px,transparent_1px)] [background-size:24px_24px]"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute -right-20 -top-24 size-96 rounded-full bg-copper/15 blur-3xl"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-space-gutter py-space-xl">
+			<div class="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+				<div class="lg:col-span-7">
+					<span class="eyebrow eyebrow-on-dark">Error 404</span>
+					<h1 class="mt-2 bg-gradient-to-r from-copper via-amberprint to-brand-200 bg-clip-text font-serif text-display-hero-mobile font-bold leading-[1.08] text-transparent md:text-display-hero">
+						Designing Spaces,
+						<br />
+						Engineering the Future
+					</h1>
+					<p class="mt-space-md max-w-2xl text-body-lg leading-relaxed text-white/85">
+						The page you asked for is not here. It may have been moved, or the address may have a
+						typo in it.
+					</p>
+					<div class="mt-space-lg flex flex-wrap items-center gap-space-md">
+						<a href="/" class="btn btn-primary">
+							Back to the Homepage
+						</a>
+						<a href="/programs" class="btn btn-ghost on-dark">
+							Explore Programs
+						</a>
+					</div>
+					<div class="mt-space-lg flex flex-wrap items-center gap-space-md">
+						<a
+							href={ENROLL_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-space-xs text-label-lg font-bold uppercase tracking-wider text-amberprint transition-colors hover:text-copper"
+						>
+							Enroll for SY 2025-2026
+						</a>
+					</div>
+				</div>
+
+				<div class="lg:col-span-5">
+					<RemoteImage
+						src={IMAGES.hero.src}
+						alt={IMAGES.hero.alt}
+						width={1024}
+						height={768}
+						loading="eager"
+						fetchpriority="high"
+						class="aspect-[4/3] w-full rounded-xl object-cover opacity-80 mix-blend-luminosity"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+</Base>

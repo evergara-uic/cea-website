@@ -1,0 +1,26 @@
+# Cloudflare Pages headers.
+#
+# This site is small: twelve pages, one stylesheet, three self-hosted font files
+# and ten remote images. There is no video and no document library, so the rules
+# are correspondingly short.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Astro fingerprints everything under /_astro, so a given URL is that exact
+# file forever — the stylesheet and the three font files included.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
+
+# HTML must revalidate, or a deploy would never reach a returning visitor.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate

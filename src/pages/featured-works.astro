@@ -1,0 +1,99 @@
+---
+/*
+ * Featured Works.
+ *
+ * The design carries three works, a school-year strip and an "All Archives"
+ * link. The strip and the link are not carried over: the three works state no
+ * school year except one ("Thesis 2026"), so a year tab either shows one work
+ * or shows nothing, and this page already is the full set, which is what
+ * "All Archives" pointed at. The design's own claim that these are "from recent
+ * UIC-CEA graduating cohorts" is reproduced on the page as written.
+ */
+import { getCollection } from 'astro:content';
+import SectionHeading from '../components/SectionHeading.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Base from '../layouts/Base.astro';
+
+const programs = await getCollection('programs');
+const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
+
+const programName = (slug: string) =>
+	programs.find((program) => program.data.slug === slug)?.data.name ?? '';
+---
+
+<Base
+	title="Featured Works"
+	description="Capstone projects, architectural masterplans and robotic prototypes from recent UIC-CEA graduating cohorts."
+>
+	<!-- Header. -->
+	<section class="w-full bg-midnight py-space-xl text-white">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<nav aria-label="Breadcrumb" class="mb-space-md">
+				<ol class="flex items-center gap-1 text-label-md text-white/60">
+					<li>
+						<a href="/" class="transition-colors hover:text-copper">
+							Home
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-white/30">
+						/
+					</li>
+					<li class="text-amberprint" aria-current="page">
+						Featured Works
+					</li>
+				</ol>
+			</nav>
+
+			<span class="eyebrow eyebrow-on-dark">Excellence in Practice</span>
+			<h1 class="mt-2 font-serif text-headline-lg-mobile font-bold text-white md:text-headline-lg">
+				Featured Works &amp; Thesis Innovations
+			</h1>
+			<p class="mt-3 max-w-2xl text-body-lg leading-relaxed text-white/85">
+				Selected capstone projects, architectural masterplans, and robotic prototypes from recent
+				UIC-CEA graduating cohorts.
+			</p>
+		</div>
+	</section>
+
+	<!-- The works. -->
+	<section class="w-full bg-canvas py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<div class="grid grid-cols-1 gap-space-lg md:grid-cols-3">
+				{works.map((work) => (
+					<WorkCard
+						work={work}
+						href={`#${work.data.slug}`}
+						programmeName={programName(work.data.programme)}
+					/>
+				))}
+			</div>
+
+			<SectionHeading class="mt-space-xl">
+				<span slot="eyebrow">Provenance</span>
+				<h2 class="font-serif text-headline-md font-bold text-navy">About these entries</h2>
+				<p slot="lead" class="mt-2 max-w-2xl text-body-md text-brand-700">
+					Each entry below carries the programme it belongs to, the abstract as the College
+					publishes it, and the proponent or awarding body credited on the work.
+				</p>
+			</SectionHeading>
+
+			<dl class="grid grid-cols-1 gap-space-md md:grid-cols-3">
+				{works.map((work) => (
+					<div
+						id={work.data.slug}
+						class="scroll-mt-space-scroll-header rounded-lg bg-subtle p-space-lg"
+					>
+						<dt class="text-label-badge uppercase tracking-wider text-copper">{work.data.badge}</dt>
+						<dd>
+							<span class="mt-2 block text-headline-sm font-bold text-navy">{work.data.title}</span>
+							<span class="mt-2 block text-body-sm text-brand-700">{work.data.abstract}</span>
+							<span class="mt-3 block text-label-md text-brand-600">
+								Proponent: {work.data.credit} • {programName(work.data.programme)}
+							</span>
+						</dd>
+					</div>
+				))}
+			</dl>
+		</div>
+	</section>
+</Base>

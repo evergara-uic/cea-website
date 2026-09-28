@@ -1,0 +1,335 @@
+---
+import { getCollection } from 'astro:content';
+import { ACADEMIC_YEAR, CONTACT, ENROLL_URL } from '../../consts';
+import Icon from '../../components/Icon.astro';
+import ProgramShowcase from '../../components/ProgramShowcase.astro';
+import Base from '../../layouts/Base.astro';
+
+/*
+ * Academic Programs Offered.
+ *
+ * The design's own screen for this: a midnight banner carrying the academic year
+ * and the two accreditation tiles, a sticky tab bar that filters the four
+ * programme plates to one, the four plates themselves alternating left and right,
+ * the comparison matrix, and the advisement band.
+ *
+ * The filter is real and it is the one interactive control on the page: each tab
+ * hides the other three plates and scrolls the one it names to the middle of the
+ * viewport. It is progressive — with scripting off every plate is visible and
+ * every tab is an ordinary in-page link, so nothing is lost.
+ */
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+	title="Academic Programs Offered"
+	description="The four undergraduate academic programs of the UIC College of Engineering and Architecture, with their curricula, accreditation status, practicum hours and licensure tracks for Academic Year 2026-2027."
+>
+	<!-- Academic year banner. -->
+	<section class="relative w-full overflow-hidden bg-midnight py-space-xl text-white">
+		<div
+			class="pointer-events-none absolute inset-0 opacity-10"
+			style="background-image:linear-gradient(to right, #E2E8F0 0.75px, transparent 0.75px),linear-gradient(to bottom, #E2E8F0 0.75px, transparent 0.75px);background-size:48px 48px"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-space-gutter">
+			<div class="flex flex-col justify-between gap-space-lg lg:flex-row lg:items-end">
+				<div class="max-w-3xl space-y-2">
+					<span class="inline-flex items-center gap-1 rounded bg-navy px-space-md py-1 text-label-badge uppercase tracking-wider text-amberprint shadow-sm">
+						<span class="inline-block size-1.5 rounded-full bg-copper"></span>
+						Academic Year 2026–2027 Curricula &amp; Accreditation
+					</span>
+					<h1 class="font-serif text-display-hero-mobile font-bold tracking-tight text-white md:text-display-hero">
+						Undergraduate Academic Programs
+					</h1>
+					<p class="text-body-lg leading-relaxed text-white/90">
+						Engineered for global technical leadership, environmental sustainability, and ethical
+						stewardship. Explore our four degree pathways certified by national and international
+						accreditation bodies.
+					</p>
+				</div>
+
+				<div class="flex shrink-0 flex-wrap items-center gap-space-md">
+					<div class="rounded-xl bg-canvas/10 px-space-lg py-space-md text-left backdrop-blur">
+						<span class="block text-label-badge uppercase tracking-wider text-amberprint">
+							Accreditations
+						</span>
+						<span class="text-headline-sm font-bold text-white">PTC-ACBET &amp; PAASCU</span>
+					</div>
+					<div class="rounded-xl bg-canvas/10 px-space-lg py-space-md text-left backdrop-blur">
+						<span class="block text-label-badge uppercase tracking-wider text-amberprint">
+							Board Readiness
+						</span>
+						<span class="text-headline-sm font-bold text-white">PRC Licensure Tracks</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--
+		The tab bar. Without scripting each tab is an anchor to its plate, so the
+		bar still navigates; the script upgrades those anchors into a filter.
+	-->
+	<nav
+		aria-label="Academic programs"
+		class="sticky top-space-header z-40 w-full bg-canvas shadow-elev-2"
+		data-program-nav
+	>
+		<div class="mx-auto flex max-w-7xl items-center justify-between gap-space-sm overflow-x-auto px-space-gutter py-space-sm">
+			<div class="flex shrink-0 items-center gap-1" role="group" aria-label="Filter programs">
+				<button
+					type="button"
+					data-program-tab="all"
+					aria-pressed="true"
+					class="shrink-0 rounded bg-navy px-space-md py-1 text-label-md text-white"
+				>
+					All Programs ({programs.length})
+				</button>
+				{programs.map((program) => (
+					<button
+						type="button"
+						data-program-tab={program.data.mark}
+						aria-pressed="false"
+						class="shrink-0 rounded bg-brand-50 px-space-md py-1 text-label-md text-navy transition-colors hover:bg-brand-100"
+					>
+						{program.data.name}
+					</button>
+				))}
+			</div>
+
+			<div class="flex shrink-0 items-center gap-space-sm">
+				<a
+					href="#comparison-matrix"
+					class="hidden items-center gap-1 rounded bg-subtle px-space-md py-1 text-label-md text-brand-700 transition-colors hover:bg-brand-50 sm:inline-flex"
+				>
+					<Icon name="compare" size="16px" />
+					Curriculum Matrix
+				</a>
+				<a
+					href={ENROLL_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hidden items-center gap-1 rounded bg-copper px-space-md py-1 text-label-md font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-accent-600 sm:inline-flex"
+				>
+					<Icon name="school" size="16px" />
+					Apply Online
+				</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- The four programme plates. -->
+	<div class="mx-auto w-full max-w-7xl space-y-space-xl px-space-gutter py-space-xl">
+		{programs.map((program, i) => (
+			<div class="reveal" data-program-panel={program.data.mark}>
+				<ProgramShowcase program={program} position={i + 1} />
+			</div>
+		))}
+	</div>
+
+	<!-- Comparison matrix. -->
+	<section
+		id="comparison-matrix"
+		class="w-full scroll-mt-space-scroll-header-tabs bg-subtle py-space-xl"
+	>
+		<div class="mx-auto max-w-7xl space-y-space-lg px-space-gutter">
+			<div class="mx-auto max-w-3xl space-y-1 text-center">
+				<span class="eyebrow">Comprehensive Evaluation</span>
+				<h2 class="font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg">
+					Curriculum &amp; Program Comparison Matrix
+				</h2>
+				<p class="text-body-md text-brand-700">
+					Direct comparative analysis of total credit units, industry practicum allocations, student
+					guild networks, and official PRC Board Examination paths.
+				</p>
+			</div>
+
+			<div class="overflow-x-auto rounded-xl bg-canvas shadow-elev-2">
+				<table class="w-full text-left text-body-sm">
+					<caption class="sr-only">
+						The four undergraduate programs compared by duration, academic units, practicum or OJT
+						hours, affiliated guild, licensure board and enrolment.
+					</caption>
+					<thead class="bg-navy text-label-md uppercase tracking-wider text-white">
+						<tr>
+							<th class="px-space-lg py-space-md" scope="col">
+								Academic Program
+							</th>
+							<th class="px-space-md py-space-md text-center" scope="col">
+								Duration
+							</th>
+							<th class="px-space-md py-space-md text-center" scope="col">
+								Academic Units
+							</th>
+							<th class="px-space-md py-space-md text-center" scope="col">
+								Practicum / OJT
+							</th>
+							<th class="px-space-md py-space-md" scope="col">
+								Affiliated Guild
+							</th>
+							<th class="px-space-md py-space-md" scope="col">
+								Licensure Board
+							</th>
+							<th class="px-space-lg py-space-md text-right" scope="col">
+								Direct Action
+							</th>
+						</tr>
+					</thead>
+					<tbody class="text-navy">
+						{programs.map((program, i) => {
+							const d = program.data;
+							return (
+								<tr
+									class:list={['transition-colors hover:bg-brand-50', i % 2 === 1 && 'bg-subtle']}
+								>
+									<th scope="row" class="px-space-lg py-space-md font-bold">
+										<a href={`/programs/${d.slug}`} class="text-headline-sm hover:text-copper">
+											{d.name}
+										</a>
+										<span class="block text-body-sm font-normal text-brand-700">
+											{d.accreditation}
+										</span>
+									</th>
+									<td class="px-space-md py-space-md text-center font-bold">{d.duration}</td>
+									<td class="px-space-md py-space-md text-center font-semibold">{d.units}</td>
+									<td class="px-space-md py-space-md text-center">{d.ojt}</td>
+									<td class="px-space-md py-space-md">
+										<span class="inline-flex items-center gap-1 text-label-md font-semibold">
+											<span class="inline-block size-2 rounded-full bg-copper" aria-hidden="true" />
+											{d.matrixGuild}
+										</span>
+									</td>
+									<td class="px-space-md py-space-md">
+										<span
+											class:list={[
+												'rounded px-2 py-1 text-label-badge font-bold uppercase',
+												d.board === 'CpE Certification Track'
+													? 'bg-brand-200 text-navy'
+													: 'bg-amberprint/20 text-navy',
+											]}
+										>
+											{d.board}
+										</span>
+									</td>
+									<td class="px-space-lg py-space-md text-right">
+										<a
+											href={ENROLL_URL}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="inline-flex items-center rounded bg-copper px-space-md py-1.5 text-label-md font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-accent-600"
+										>
+											Enroll
+										</a>
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Advisement and enrolment support. -->
+	<section class="relative w-full overflow-hidden bg-navy py-space-xl text-white">
+		<div class="relative mx-auto max-w-7xl px-space-gutter">
+			<div class="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+				<div class="space-y-2 lg:col-span-8">
+					<span class="inline-flex items-center gap-1 text-label-badge uppercase tracking-wider text-amberprint">
+						<Icon name="headset_mic" size="18px" />
+						Academic Consultation &amp; Enrollment Support
+					</span>
+					<h2 class="font-serif text-headline-lg-mobile font-bold leading-tight text-white md:text-headline-lg">
+						Have Questions About Program Prerequisites or Credit Transfers?
+					</h2>
+					<p class="max-w-2xl text-body-md leading-relaxed text-white/90">
+						Our Department Academic Advisors and Dean's Office are available for one-on-one
+						curriculum guidance, credit evaluations for transferees, and scholarship endorsement.
+					</p>
+
+					<dl class="flex flex-wrap gap-space-lg pt-2 text-body-sm text-white/90">
+						{CONTACT.rows
+							.filter((row) => ['location-on', 'call', 'mail'].includes(row.icon))
+							.map((row) => (
+								<div class="flex items-center gap-1">
+									<dt class="sr-only">{row.label}</dt>
+									<Icon name={row.icon} size="18px" class="text-amberprint" />
+									<dd>{row.value}</dd>
+								</div>
+							))}
+					</dl>
+				</div>
+
+				<div class="flex flex-col gap-space-sm lg:col-span-4">
+					<a
+						href={ENROLL_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-primary w-full uppercase tracking-wider shadow-md"
+					>
+						<Icon name="how_to_reg" size="20px" />
+						Start Enrollment Online
+					</a>
+					<a
+						href="mailto:cea@uic.edu.ph?subject=UIC-CEA%20Program%20Advisement"
+						class="btn on-dark w-full border border-white/25 bg-white/10 text-white hover:bg-white/20"
+					>
+						<Icon name="mail" size="20px" />
+						Contact Academic Dean
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		/*
+		 * The programme filter.
+		 *
+		 * Replaces the tab bar's five buttons with a real one-programme-at-a-time
+		 * filter, and nothing else on the page depends on it: without scripting
+		 * all four plates are present and every tab is a no-op button that simply
+		 * does not respond. `aria-pressed` carries the state, so the pressed tab is
+		 * announced rather than only drawn.
+		 *
+		 * A `hidden` attribute rather than a class, so a filtered-out plate leaves
+		 * the accessibility tree as well as the layout — the same reason the rest
+		 * of this site does not fake visibility with opacity.
+		 */
+		const nav = document.querySelector<HTMLElement>('[data-program-nav]');
+
+		if (nav) {
+			const tabs = Array.from(nav.querySelectorAll<HTMLButtonElement>('[data-program-tab]'));
+			const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-program-panel]'));
+
+			tabs.forEach((tab) => {
+				tab.addEventListener('click', () => {
+					const target = tab.dataset.programTab;
+
+					tabs.forEach((other) => {
+						const active = other === tab;
+						other.setAttribute('aria-pressed', String(active));
+						other.classList.toggle('bg-navy', active);
+						other.classList.toggle('text-white', active);
+						other.classList.toggle('bg-brand-50', !active);
+						other.classList.toggle('text-navy', !active);
+					});
+
+					let shown: HTMLElement | undefined;
+
+					panels.forEach((panel) => {
+						const match = target === 'all' || panel.dataset.programPanel === target;
+						panel.toggleAttribute('hidden', !match);
+						if (match && target !== 'all') shown = panel;
+					});
+
+					// The bar is 120px tall and the header above it another 120px,
+					// so the plate lands below both rather than under the chrome.
+					shown?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				});
+			});
+		}
+	</script>
+</Base>

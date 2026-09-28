@@ -1,0 +1,225 @@
+---
+import { getCollection } from 'astro:content';
+import { COPYRIGHT, FACULTY_FACEBOOK, IMAGES, POLICY_LINKS, UIC_SITE } from '../consts';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * The footer: a midnight bookend in four columns, then a bottom bar.
+ *
+ * The four columns are the design's own: identity and mission, the programme
+ * list, campus and contact, and the announcements column. The programme list is
+ * built from the programs collection rather than written out, so a fifth
+ * programme appears in the footer by being added to the collection.
+ *
+ * The design's footer also carried a newsletter field whose button was inert.
+ * There is no list to subscribe to and no backend to record a subscription, so
+ * the field is a real form that composes a mail to the College's own address —
+ * which is a thing that works, rather than a control that does nothing.
+ */
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<footer class="border-t border-white/10 bg-midnight text-white">
+	<div class="mx-auto max-w-7xl px-space-gutter py-space-xl">
+		<div class="mb-space-xl grid grid-cols-1 gap-space-xl md:grid-cols-2 lg:grid-cols-4">
+			<!-- Identity and mission. -->
+			<div class="space-y-space-md">
+				<div class="flex items-center gap-space-md">
+					<RemoteImage
+						src={IMAGES.emblem.src}
+						alt=""
+						width={32}
+						height={32}
+						loading="lazy"
+						class="size-8 object-contain"
+					/>
+				</div>
+				<div class="flex items-center gap-space-xs text-label-badge uppercase tracking-wider text-amberprint">
+					UIC-CEA
+				</div>
+				<p class="text-body-sm text-white/80">
+					University of the Immaculate Conception College of Engineering and Architecture commits to
+					producing ethical, globally competent, and transformative engineers and architects for the
+					community and industry.
+				</p>
+				<p class="flex items-start gap-space-xs text-body-sm text-white/80">
+					<Icon name="verified_user" size="18px" class="mt-px shrink-0 text-amberprint" />
+					PAASCU Level III • PTC-ACBET Accredited
+				</p>
+			</div>
+
+			<!-- Academic programs. -->
+			<div class="space-y-space-md">
+				<h2 class="text-headline-sm font-bold text-white">Academic Programs</h2>
+				<ul class="space-y-space-xs text-body-sm text-white/80">
+					{programs.map((program) => (
+						<li>
+							<a
+								href={`/programs/${program.data.slug}`}
+								class="flex items-center gap-space-xs transition-colors hover:text-copper"
+							>
+								<Icon name="chevron_right" size="14px" />
+								{program.data.name}
+							</a>
+						</li>
+					))}
+					<li>
+						<a
+							href="/scholarships-offered"
+							class="flex items-center gap-space-xs transition-colors hover:text-copper"
+						>
+							<Icon name="chevron_right" size="14px" />
+							CEA Scholarship Grants
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Campus and contact. -->
+			<div class="space-y-space-md">
+				<h2 class="text-headline-sm font-bold text-white">Campus &amp; Contact</h2>
+				<div class="space-y-space-sm text-body-sm text-white/80">
+					<p class="flex items-start gap-space-xs">
+						<Icon name="apartment" size="18px" class="mt-px shrink-0" />
+						Bonifacio Campus, Bonifacio Street, Davao City 8000, Philippines
+					</p>
+					<p class="flex items-center gap-space-xs">
+						<Icon name="call" size="18px" />
+						<a href="tel:+63822271573" class="transition-colors hover:text-amberprint">
+							(+63 82) 227-1573 Local 222
+						</a>
+					</p>
+					<p class="flex items-center gap-space-xs">
+						<Icon name="mail" size="18px" />
+						<a href="mailto:cea@uic.edu.ph" class="transition-colors hover:text-amberprint">
+							cea@uic.edu.ph
+						</a>
+					</p>
+					<div class="flex items-center gap-space-sm pt-space-xs">
+						<Icon name="public" size="18px" />
+						<a
+							href={FACULTY_FACEBOOK}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-space-xs text-white transition-colors hover:text-amberprint"
+						>
+							CEASO Wolves Facebook
+							<Icon name="open_in_new" size="14px" />
+						</a>
+					</div>
+					<a
+						href={UIC_SITE}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-space-xs text-amberprint transition-colors hover:underline"
+					>
+						<u>www.uic.edu.ph</u>
+						<Icon name="open_in_new" size="14px" />
+					</a>
+				</div>
+			</div>
+
+			<!-- Announcements. -->
+			<div class="space-y-space-md">
+				<h2 class="text-headline-sm font-bold text-white">Institutional Connect</h2>
+				<p class="text-body-sm text-white/80">
+					Stay updated with departmental announcements, board examination results, and technical
+					research forums.
+				</p>
+				<form
+					class="space-y-space-xs"
+					data-mailto-form
+					data-mailto-subject="CEA announcements — please add this address"
+					data-mailto-body="Please add this address to the College of Engineering and Architecture announcements list.&#10;&#10;"
+				>
+					<div class="flex">
+						<label class="sr-only" for="footer-email">
+							Your email address
+						</label>
+						<input
+							id="footer-email"
+							type="email"
+							name="email"
+							required
+							placeholder="Your email address"
+							autocomplete="email"
+							class="w-full rounded-l border border-brand-300 bg-canvas px-space-md py-space-sm text-body-sm text-navy focus:border-navy focus:outline-none"
+						/>
+						<button
+							type="submit"
+							class="rounded-r bg-copper px-space-md py-space-sm text-label-md text-white transition-colors hover:bg-accent-600"
+						>
+							<Icon name="send" size="16px" label="Request announcements" />
+						</button>
+					</div>
+					<p class="text-body-sm text-amberprint" data-mailto-status role="status" hidden>
+						Your email app is opening with the request — send it from there.
+					</p>
+				</form>
+				<a href="/contact-and-inquiries" class="arrow-link text-amberprint">
+					Direct Department Inquiry
+					<Icon name="arrow_forward" size="16px" />
+				</a>
+			</div>
+		</div>
+
+		<!-- Bottom bar. The three policy names are the design's own, rendered as
+		 text because this site publishes no such documents. -->
+		<div class="flex flex-col items-center justify-between gap-space-md border-t border-white/10 pt-space-lg text-body-sm text-white/60 md:flex-row">
+			<p class="text-label-md">{COPYRIGHT}</p>
+			<div class="flex items-center gap-space-lg text-label-md">
+				{POLICY_LINKS.map((label) => (
+					<span>{label}</span>
+				))}
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+	/*
+	 * The mail-to composer, shared by this footer's announcements field and the
+	 * Dean's Office inquiry form on /contact-and-inquiries.
+	 *
+	 * There is no backend on this site, so a form has nowhere to post. Rather
+	 * than intercept submit and show a confirmation for something that never
+	 * happened, each form composes a mail to the College's own address and opens
+	 * the visitor's mail client: the message really is addressed to
+	 * cea@uic.edu.ph, the visitor sees what they are about to send, and nothing
+	 * claims a delivery that did not happen.
+	 *
+	 * Every named, non-empty field is written into the body as "Label: value"
+	 * so the Dean's Office receives a readable message whatever the form looks
+	 * like.
+	 */
+	const humanise = (name: string) =>
+		name.charAt(0).toUpperCase() + name.slice(1).replace(/[-_]/g, ' ');
+
+	for (const form of document.querySelectorAll<HTMLFormElement>('[data-mailto-form]')) {
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+
+			const intro = form.dataset.mailtoBody ?? '';
+			const data = new FormData(form);
+
+			const lines: string[] = [];
+			for (const [name, value] of data.entries()) {
+				const text = String(value).trim();
+				// The announcements field is the address being asked about, not a
+				// detail being supplied, so it is the body rather than a field.
+				if (text) lines.push(`${humanise(name)}: ${text}`);
+			}
+
+			const subject =
+				form.dataset.mailtoSubject ?? 'Inquiry to the UIC College of Engineering and Architecture';
+
+			window.location.href =
+				`mailto:cea@uic.edu.ph?subject=${encodeURIComponent(subject)}` +
+				`&body=${encodeURIComponent([intro, ...lines].filter(Boolean).join('\n\n'))}`;
+
+			const status = form.querySelector<HTMLElement>('[data-mailto-status]');
+			if (status) status.hidden = false;
+		});
+	}
+</script>

@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { IMAGES } from '../consts';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * A student work, in the Featured Works grid.
+ *
+ * The design's card: a 15:10 image with a badge in its top-left corner, then
+ * the title, the abstract clamped to three lines, and a footer row carrying the
+ * proponent on the left and the abstract link on the right. The badge tone is
+ * per work — navy for two, copper for one — because in the design it encodes
+ * nothing else and reading it as a status would be inventing a distinction.
+ */
+interface Props {
+	work: CollectionEntry<'works'>;
+	/** Where the card's "Read Abstract" leads. */
+	href: string;
+	/** Programme name, for the link's accessible label. */
+	programmeName: string;
+}
+
+const { work, href, programmeName } = Astro.props;
+const image = IMAGES.works[work.data.image];
+---
+
+<article class="group card overflow-hidden">
+	<div class="relative h-60 overflow-hidden bg-subtle">
+		<RemoteImage
+			src={image.src}
+			alt={image.alt}
+			width={640}
+			height={427}
+			class="size-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:group-hover:scale-100"
+		/>
+		<span
+			class:list={[
+				'absolute left-space-sm top-space-sm rounded px-2.5 py-1 text-label-badge uppercase tracking-wider text-white',
+				work.data.badgeTone === 'copper' ? 'bg-copper' : 'bg-navy',
+			]}
+		>
+			{work.data.badge}
+		</span>
+	</div>
+
+	<div class="p-space-lg">
+		<h3 class="text-headline-sm font-bold text-navy transition-colors group-hover:text-copper">
+			{work.data.title}
+		</h3>
+		<p class="mt-2 line-clamp-3 text-body-sm text-brand-700">{work.data.abstract}</p>
+
+		<div class="mt-space-md flex items-center justify-between border-t border-grid pt-space-sm text-body-sm text-brand-700">
+			<span>{work.data.credit}</span>
+			<a
+				href={href}
+				aria-label={`Read the abstract of ${work.data.title} — ${programmeName}`}
+				class="arrow-link text-label-md text-copper"
+			>
+				Read Abstract
+				<Icon name="arrow_forward" size="14px" />
+			</a>
+		</div>
+	</div>
+</article>

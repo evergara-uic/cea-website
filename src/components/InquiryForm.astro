@@ -1,0 +1,178 @@
+---
+import { getCollection } from 'astro:content';
+import { ACADEMIC_YEAR, ENROLL_URL } from '../consts';
+import Icon from './Icon.astro';
+
+/*
+ * The Dean's Office inquiry form.
+ *
+ * The fields, labels, placeholders, options, required marks, the AY badge and
+ * the privacy note are the design's, verbatim. The one thing not carried over is
+ * its behaviour: the prototype intercepted submit, revealed a "thank you, your
+ * inquiry has been routed" panel and reset the form, having sent nothing
+ * anywhere. A green confirmation that fires whether or not anything happened is
+ * worse than no confirmation.
+ *
+ * There is no backend to post to, so the form composes a mail to the College's
+ * own address and opens the visitor's mail client. The message is genuinely
+ * addressed to cea@uic.edu.ph and the visitor sees it before sending, so nothing
+ * here asserts a delivery that did not happen.
+ */
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="flex items-center justify-between gap-space-md">
+	<h2 class="text-headline-md font-bold text-navy">Send an Inquiry to the Dean's Office</h2>
+	<span class="rounded bg-subtle px-2.5 py-1 text-label-badge font-bold uppercase text-copper">
+		{ACADEMIC_YEAR}
+	</span>
+</div>
+
+<p class="mb-space-lg mt-space-sm max-w-xl text-body-sm text-brand-700">
+	Have specific queries regarding credit evaluation, transferees, second-degrees, or scholarship
+	qualifying exams? Submit your details below.
+</p>
+
+<form
+	class="space-y-space-md"
+	data-mailto-form
+	data-mailto-subject="Inquiry to the CEA Dean's Office"
+	data-mailto-body="Details submitted from the UIC-CEA website."
+>
+	<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+		<div>
+			<label class="sr-only" for="inq-name">
+				Full Name
+			</label>
+			<input
+				id="inq-name"
+				name="name"
+				type="text"
+				required
+				autocomplete="name"
+				placeholder="e.g. Maria Clara Santos"
+				class="field"
+			/>
+			<span class="mt-1 block text-label-md text-brand-600">
+				Full Name <span aria-hidden="true">*</span>
+			</span>
+		</div>
+
+		<div>
+			<label class="sr-only" for="inq-email">
+				Email Address
+			</label>
+			<input
+				id="inq-email"
+				name="email"
+				type="email"
+				required
+				autocomplete="email"
+				placeholder="name@domain.com"
+				class="field"
+			/>
+			<span class="mt-1 block text-label-md text-brand-600">
+				Email Address <span aria-hidden="true">*</span>
+			</span>
+		</div>
+	</div>
+
+	<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2">
+		<div>
+			<label class="sr-only" for="inq-phone">
+				Contact Phone Number
+			</label>
+			<input
+				id="inq-phone"
+				name="phone"
+				type="tel"
+				autocomplete="tel"
+				placeholder="+63 900 000 0000"
+				class="field"
+			/>
+			<span class="mt-1 block text-label-md text-brand-600">Contact Phone Number</span>
+		</div>
+
+		<div>
+			<label class="sr-only" for="inq-program">
+				Program of Interest
+			</label>
+			<select id="inq-program" name="program" required class="field">
+				<option value="" selected disabled>
+					Select an Academic Track
+				</option>
+				{programs.map((program) => (
+					<option value={program.data.name}>
+						{program.data.name} (
+						{program.data.overline.startsWith('5-Year') ? '5 Years' : '4 Years'})
+					</option>
+				))}
+				<option value="Scholarships / Financial Aid">Scholarships / Financial Aid</option>
+			</select>
+			<span class="mt-1 block text-label-md text-brand-600">
+				Program of Interest <span aria-hidden="true">*</span>
+			</span>
+		</div>
+	</div>
+
+	<div>
+		<label class="sr-only" for="inq-message">
+			Message or Specific Inquiry
+		</label>
+		<textarea
+			id="inq-message"
+			name="message"
+			rows="4"
+			required
+			placeholder="Tell us about your educational background or ask questions regarding curriculum, requirements, and laboratory facilities..."
+			class="field"
+		></textarea>
+		<span class="mt-1 block text-label-md text-brand-600">
+			Message or Specific Inquiry <span aria-hidden="true">*</span>
+		</span>
+	</div>
+
+	<div class="flex items-center justify-between gap-space-md pt-space-xs">
+		<span class="flex items-center gap-1 text-body-sm text-brand-700">
+			<Icon name="shield" size="16px" />
+			Protected by UIC Data Privacy Policy
+		</span>
+		<button
+			type="submit"
+			class="inline-flex items-center gap-space-xs rounded bg-midnight px-space-xl py-3 text-label-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-navy"
+		>
+			Submit Inquiry
+			<Icon name="send" size="16px" />
+		</button>
+	</div>
+
+	<p
+		class="mt-space-md flex items-center gap-space-sm rounded bg-brand-100 p-space-md text-body-sm text-navy"
+		data-mailto-status
+		role="status"
+		hidden
+	>
+		<Icon name="check_circle" size="18px" class="shrink-0" />
+		Your email app is opening with this inquiry addressed to the CEA Dean's Office at cea@uic.edu.ph
+		— send it from there and a department coordinator will reply.
+	</p>
+</form>
+
+<div class="mt-space-lg flex flex-col items-center justify-between gap-space-sm rounded-lg bg-subtle p-space-md sm:flex-row">
+	<span class="flex items-center gap-space-sm">
+		<Icon name="rocket_launch" size="22px" class="shrink-0 text-copper" />
+		<span>
+			<span class="block text-headline-sm font-bold text-navy">Direct Portal Access</span>
+			<span class="block text-body-sm text-brand-700">Skip inquiry if ready for registration</span>
+		</span>
+	</span>
+	<a
+		href={ENROLL_URL}
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex shrink-0 items-center gap-space-xs rounded bg-copper px-space-md py-2 text-label-md font-bold uppercase tracking-wider text-white transition-colors hover:bg-accent-600"
+	>
+		Enroll Now
+		<Icon name="open_in_new" size="14px" />
+	</a>
+</div>

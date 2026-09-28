@@ -1,0 +1,30 @@
+# Source Control
+.git
+.github
+.gitlab-ci.yml
+
+# LaraKube Infrastructure
+.infrastructure
+!.infrastructure/**/local-ca.pem
+!.infrastructure/conf/
+.infrastructure/k8s/overlays/local/
+.larakube.json
+
+# Docker & Container Files
+Dockerfile*
+docker-*.yml
+.dockerignore
+
+# Secrets & Environment
+.env*
+
+# Next.js build output — rebuilt inside the image; never ship the host's copy.
+.next
+
+# Dependencies and build output: the image runs `npm ci` and the build itself.
+# A host node_modules copied over them carries the wrong platform's binaries.
+node_modules
+dist
+build
+.astro
+.docusaurus

@@ -1,0 +1,361 @@
+---
+import { ANNOUNCEMENT, ENROLL_URL, IMAGES, NAV, UTILITY_LINKS } from '../consts';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * The header: an announcement-and-contacts utility bar over a midnight
+ * navigation bar, both fixed.
+ *
+ * The prototype's menus are `group-hover` only, which means no keyboard and no
+ * touch device can open them — the whole "Programs Offered" list is unreachable
+ * on a phone. These are real disclosures instead: a chevron button per item
+ * carrying aria-expanded and aria-controls, with Escape, outside-click and
+ * focus-out all closing them. The panel itself is still shown from
+ * `aria-expanded` in the stylesheet, so the script's entire job is flipping one
+ * attribute.
+ *
+ * Each item with a submenu carries its label twice over: as a link to the
+ * section's own page, and as the button beside it that opens the list of pages
+ * underneath. A bar whose top-level items only opened panels would leave four of
+ * its six items looking clickable and doing nothing; this way the label is
+ * always the page, and only the chevron is the control.
+ *
+ * Under xl the whole navigation collapses behind one button, because a bar that
+ * needs horizontal room for six items plus a call to action cannot fit a phone.
+ */
+const path = Astro.url.pathname;
+
+/**
+ * Whether a nav item is the current page. "/" matches only itself, so it is not
+ * highlighted on every route; everything else matches its whole subtree, so
+ * "Programs Offered" stays lit while you are on a programme page.
+ */
+const isCurrent = (href: string) =>
+	href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+
+/**
+ * What to put in an element's aria-current. The page itself is `page`; a
+ * section that merely contains it is `true`, so a programme page does not end
+ * up with two elements both claiming to be the current page — the section link
+ * in the bar and the programme's own entry in the dropdown underneath it.
+ *
+ * Both spellings of a route count as the same page: the site is built in
+ * directory format, so "/programs" is requested and resolved as "/programs/".
+ */
+const ariaCurrent = (href: string) => {
+	if (path === href || path === `${href}/`) return 'page';
+	return isCurrent(href) ? 'true' : undefined;
+};
+
+/** Turns a route into a DOM-id-safe fragment, for the panels' aria-controls. */
+const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '');
+---
+
+<header class="fixed inset-x-0 top-0 z-50 bg-midnight text-white shadow-[0_1px_8px_rgb(0_0_0/0.08)]">
+	<!-- Utility bar. The announcement is the only thing on it that changes. -->
+	<div class="border-b border-white/10 bg-navy/95">
+		<div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-space-gutter text-body-sm">
+			<div class="flex items-center gap-space-lg">
+				<span class="hidden items-center gap-space-xs text-label-badge uppercase tracking-wider text-amberprint lg:inline-flex">
+					<span class="inline-block size-1.5 rounded-full bg-copper motion-safe:animate-pulse"></span>
+					{ANNOUNCEMENT}
+				</span>
+			</div>
+
+			<div class="flex items-center gap-space-lg text-white/80">
+				{UTILITY_LINKS.map((link) => (
+					<a
+						href={link.href}
+						class="hidden items-center gap-space-xs transition-colors hover:text-white md:flex"
+						{...('href' in link &&
+							link.href.startsWith('http') && {
+								rel: 'noopener noreferrer',
+								target: '_blank',
+							})}
+					>
+						{'icon' in link && link.icon && <Icon name={link.icon} size="14px" />}
+						{link.value}
+					</a>
+				))}
+				<a
+					href={ENROLL_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="ml-space-sm inline-flex items-center gap-space-xs rounded bg-white/15 px-space-md py-1 text-label-md text-white transition-colors hover:bg-white/25"
+				>
+					<Icon name="lock" size="14px" />
+					UIC Portal
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Navigation bar. -->
+	<div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-space-gutter">
+		<a href="/" class="flex items-center gap-space-md" aria-label="UIC CEA — home">
+			<RemoteImage
+				src={IMAGES.emblem.src}
+				alt=""
+				width={32}
+				height={32}
+				loading="eager"
+				fetchpriority="high"
+				class="size-8 object-contain"
+			/>
+			<span class="flex flex-col">
+				<span class="text-label-badge uppercase tracking-wider text-amberprint">UIC-CEA</span>
+				<span class="text-headline-sm font-bold text-white">
+					College of Engineering &amp; Architecture
+				</span>
+			</span>
+		</a>
+
+		<nav class="hidden items-center gap-space-sm text-label-lg xl:flex" aria-label="Primary">
+			{NAV.map((item) =>
+				item.children ? (
+					<div class="group relative flex items-center" data-dropdown>
+						{/*
+						 * The label is a link to the section's own page, so every
+						 * item in the bar goes somewhere; the chevron beside it is
+						 * a separate, separately-labelled button that opens the list
+						 * of pages underneath. One item, two destinations, no
+						 * guessing which half of it is a control.
+						 */}
+						<a
+							href={item.href}
+							aria-current={ariaCurrent(item.href)}
+							class:list={[
+								'rounded py-space-sm pl-space-md pr-1 text-white transition-colors group-hover:text-white/80',
+								isCurrent(item.href) && 'bg-navy font-bold',
+							]}
+						>
+							{item.label}
+						</a>
+						<button
+							type="button"
+							aria-expanded="false"
+							aria-controls={`menu-${slug(item.href)}`}
+							aria-label={`${item.label}: more pages`}
+							class:list={[
+								'rounded py-space-sm pl-1 pr-space-md text-white transition-colors group-hover:text-white/80',
+								isCurrent(item.href) && 'bg-navy font-bold',
+							]}
+						>
+							<Icon name="expand_more" size="16px" class="icon-rotate" />
+						</button>
+
+						<div
+							id={`menu-${slug(item.href)}`}
+							class="menu absolute left-0 top-full w-56 pt-space-xs"
+						>
+							<div class="rounded-lg border border-grid bg-canvas p-space-xs text-navy shadow-[0_20px_25px_-5px_rgb(10_25_47/0.12)]">
+								{item.children.map((child) => (
+									<a
+										href={child.href}
+										aria-current={isCurrent(child.href) ? 'page' : undefined}
+										class:list={[
+											'block rounded px-space-md py-space-sm text-brand-700 transition-colors hover:bg-brand-50 hover:text-navy',
+											isCurrent(child.href) && 'bg-brand-50 font-bold text-navy',
+										]}
+									>
+										{child.label}
+									</a>
+								))}
+							</div>
+						</div>
+					</div>
+				) : (
+					<a
+						href={item.href}
+						aria-current={isCurrent(item.href) ? 'page' : undefined}
+						class:list={[
+							'rounded px-space-md py-space-sm transition-colors hover:text-white/80',
+							isCurrent(item.href) ? 'bg-navy font-bold' : 'text-white',
+						]}
+					>
+						{item.label}
+					</a>
+				),
+			)}
+		</nav>
+
+		<nav class="flex items-center gap-space-md" aria-label="Enrol">
+			<a
+				href={ENROLL_URL}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="hidden items-center gap-space-xs rounded-lg bg-copper px-space-lg py-space-sm text-label-lg font-bold uppercase tracking-wider text-white transition-colors hover:bg-accent-600 sm:inline-flex"
+			>
+				<Icon name="how_to_reg" size="18px" />
+				Enroll Now
+			</a>
+
+			<button
+				type="button"
+				data-menu-toggle
+				aria-expanded="false"
+				aria-controls="mobile-nav"
+				class="flex size-8 items-center justify-center rounded-full bg-navy text-white transition-colors hover:bg-brand-800 xl:hidden"
+			>
+				<Icon name="menu" size="18px" label="Open navigation" />
+			</button>
+		</nav>
+	</div>
+
+	<!-- Mobile navigation. Children are listed flat rather than as nested
+	disclosures: a second tap target per item is a worse trade than a
+	slightly longer list on a phone. -->
+	<div id="mobile-nav" class="menu border-t border-white/10 bg-midnight xl:hidden">
+		<nav class="mx-auto max-w-7xl px-space-gutter py-space-md" aria-label="Primary, mobile">
+			{NAV.map((item) => (
+				<div class="border-b border-white/5 last:border-b-0">
+					<a
+						href={item.href}
+						aria-current={ariaCurrent(item.href)}
+						class:list={[
+							'block py-space-sm text-label-lg text-white',
+							isCurrent(item.href) && 'font-bold text-amberprint',
+						]}
+					>
+						{item.label}
+					</a>
+					{item.children && (
+						<div class="pb-space-sm pl-space-md">
+							{item.children.map((child) => (
+								<a
+									href={child.href}
+									aria-current={isCurrent(child.href) ? 'page' : undefined}
+									class:list={[
+										'block py-1.5 text-body-sm text-white/70',
+										isCurrent(child.href) && 'font-bold text-amberprint',
+									]}
+								>
+									{child.label}
+								</a>
+							))}
+						</div>
+					)}
+				</div>
+			))}
+			<a
+				href={ENROLL_URL}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-space-md inline-flex w-full items-center justify-center gap-space-xs rounded-lg bg-copper px-space-lg py-space-sm text-label-lg font-bold uppercase tracking-wider text-white sm:hidden"
+			>
+				<Icon name="how_to_reg" size="18px" />
+				Enroll Now
+			</a>
+		</nav>
+	</div>
+</header>
+
+<style>
+	/*
+	* The chevron points down when the menu is closed and up when it is open.
+	* Driven from the same aria-expanded the stylesheet keys the panel off, so
+	* the two cannot disagree.
+	*/
+	[data-dropdown] > button .icon-rotate {
+		transition: transform 0.2s var(--ease-out-soft);
+	}
+
+	[data-dropdown] > button[aria-expanded='true'] .icon-rotate {
+		transform: rotate(180deg);
+	}
+</style>
+
+<script>
+	/*
+	 * Disclosures and the mobile panel.
+	 *
+	 * One open at a time, Escape closes, an outside click closes, and moving the
+	 * focus out of a menu closes it — the four ways a keyboard or touch user
+	 * expects to be able to leave a menu that is covering the page.
+	 */
+	const dropdowns = document.querySelectorAll<HTMLElement>('[data-dropdown]');
+	const toggles = dropdowns.length > 0 ? [...dropdowns] : [];
+
+	// The mobile panel.
+	const mobileToggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+
+	const setOpen = (root: HTMLElement, open: boolean) => {
+		// The button owns the state, and the stylesheet keys the panel off the
+		// same attribute on the same element, so there is only ever one copy.
+		const button = root.querySelector('button[aria-expanded]');
+		if (button) button.setAttribute('aria-expanded', String(open));
+	};
+
+	const closeAll = (except?: HTMLElement) => {
+		for (const root of toggles) {
+			if (root !== except) setOpen(root, false);
+		}
+	};
+
+	for (const root of toggles) {
+		const button = root.querySelector('button[aria-expanded]');
+		if (!button) continue;
+
+		button.addEventListener('click', (event) => {
+			event.stopPropagation();
+			const open = button.getAttribute('aria-expanded') === 'true';
+			closeAll(root);
+			setOpen(root, !open);
+		});
+
+		// Once focus has left the menu entirely there is nothing left to keep
+		// open, so it closes rather than hanging over the page.
+		root.addEventListener('focusout', (event) => {
+			const next = event.relatedTarget;
+			if (next instanceof Node && root.contains(next)) return;
+			setOpen(root, false);
+		});
+	}
+
+	// The toggle carries its name on the icon, so the name has to move with the
+	// state: a button that says "Open navigation" while the panel is open is
+	// announcing the opposite of what it does.
+	const mobileLabel = mobileToggle?.querySelector('[aria-label]');
+
+	const setMobileOpen = (open: boolean) => {
+		mobileToggle?.setAttribute('aria-expanded', String(open));
+		mobileLabel?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+	};
+
+	document.addEventListener('click', (event) => {
+		const target = event.target;
+		if (!(target instanceof Node)) return;
+		if (target.closest('[data-dropdown]')) return;
+
+		// The toggle's own handler has already run by the time this does, so
+		// clicking it again here would close what it just opened.
+		if (target.closest('[data-menu-toggle]')) return;
+
+		closeAll();
+		setMobileOpen(false);
+	});
+
+	// Following a link out of the mobile panel should not leave it open over
+	// whatever the browser restores on the way back.
+	document.querySelector('#mobile-nav')?.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement | null)?.closest('a')) setMobileOpen(false);
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key !== 'Escape') return;
+		closeAll();
+		setMobileOpen(false);
+	});
+
+	// The mobile panel.
+	mobileToggle?.addEventListener('click', () => {
+		setMobileOpen(mobileToggle.getAttribute('aria-expanded') !== 'true');
+	});
+
+	// A resize past the xl breakpoint hands navigation back to the desktop bar,
+	// so a panel left open on a phone must not stay open behind it.
+	matchMedia('(min-width: 1280px)').addEventListener('change', (event) => {
+		if (event.matches) setMobileOpen(false);
+	});
+</script>

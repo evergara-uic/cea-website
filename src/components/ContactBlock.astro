@@ -1,0 +1,100 @@
+---
+import { CONTACT, IMAGES } from '../consts';
+import Icon, { type IconName } from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * The contact block: the midnight column of channels on the left, the campus map
+ * plate at the bottom of it, and whatever the page puts in the right-hand
+ * column. The form lives in the page rather than here, because only one page
+ * carries it.
+ */
+interface Props {
+	/** Heading level, so a page that owns an h1 does not get a second one here. */
+	headingLevel?: 'h2' | 'h3';
+	/** Shown where the home page's enquiries are a jump away rather than here. */
+	showInquiryCta?: boolean;
+}
+
+const { headingLevel: Heading = 'h3', showInquiryCta = false } = Astro.props;
+---
+
+<div class="rounded-2xl bg-canvas shadow-elev-3">
+	<div class="grid grid-cols-1 lg:grid-cols-12">
+		<div class="on-dark flex flex-col justify-between bg-midnight p-space-xl text-white lg:col-span-5">
+			<div>
+				<span class="eyebrow eyebrow-on-dark mb-1">{CONTACT.eyebrow}</span>
+				<Heading class="text-headline-lg font-bold leading-tight text-white">
+					{CONTACT.heading}
+				</Heading>
+				<p class="mt-space-sm text-body-md text-white/80">{CONTACT.lead}</p>
+
+				<div class="mt-space-xl space-y-space-md">
+					{CONTACT.rows.map((row) => (
+						<div class="flex items-start gap-space-md">
+							<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
+								<Icon name={row.icon as IconName} size="20px" />
+							</div>
+							<div>
+								<p class="text-label-md uppercase tracking-wider text-white/60">{row.label}</p>
+								{row.external ? (
+									<a
+										href={row.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center gap-1 text-headline-sm font-semibold text-amberprint hover:underline"
+									>
+										{row.value}
+										<Icon name="open_in_new" size="14px" />
+									</a>
+								) : (
+									<a
+										href={row.href}
+										class="inline-flex items-center gap-1 text-headline-sm font-semibold text-white transition-colors hover:text-amberprint"
+									>
+										{row.value}
+									</a>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div class="mt-space-xl pt-space-lg">
+				<a
+					href={CONTACT.campus.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex items-center justify-between gap-space-sm rounded-lg bg-cover bg-center p-space-sm text-body-sm text-white shadow-inner"
+					style={`background-image: url('${IMAGES.map.src}')`}
+				>
+					<span class="flex items-center gap-space-sm">
+						<Icon name="near_me" size="18px" />
+						<span>
+							<span class="block text-label-md uppercase tracking-wider text-white/70">
+								{CONTACT.campus.label}
+							</span>
+							{CONTACT.campus.action}
+						</span>
+					</span>
+					<Icon name="arrow_forward" size="18px" class="shrink-0" />
+				</a>
+				<p class="mt-2 text-body-sm text-white/60">{IMAGES.map.alt}</p>
+			</div>
+
+			{showInquiryCta && (
+				<div class="mt-space-lg flex items-center gap-space-sm border-t border-white/10 pt-space-md">
+					<Icon name="mail" size="18px" class="shrink-0 text-amberprint" />
+					<a href="/contact-and-inquiries" class="arrow-link text-label-md text-amberprint">
+						Send an Inquiry
+					</a>
+				</div>
+			)}
+		</div>
+
+		<div class="flex flex-col justify-between bg-canvas p-space-xl lg:col-span-7">
+			<slot />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+---
+/*
+ * A section opener: a copper eyebrow above a headline, with an optional lead
+ * paragraph under it.
+ *
+ * The heading is passed in as the default slot and rendered by the page, not by
+ * this component, so the tag is the page's decision: an h1 on the hero and an h2
+ * in every section below it. That keeps the type scale and the document outline
+ * honest together, which a `level` prop would let them drift apart on.
+ */
+interface Props {
+	/** Overline above the headline. Omit for no eyebrow. */
+	eyebrow?: string;
+	/** Light type, for a heading sitting on a midnight section. */
+	onDark?: boolean;
+	class?: string;
+}
+
+const { eyebrow, onDark = false, class: className } = Astro.props;
+---
+
+<div class={className}>
+	{eyebrow && <span class:list={['eyebrow mb-1', onDark && 'eyebrow-on-dark']}>{eyebrow}</span>}
+	<slot />
+	<slot name="lead" />
+</div>

@@ -1,0 +1,565 @@
+---
+import { getCollection } from 'astro:content';
+import { ENROLL_URL, IMAGES } from '../../consts';
+import type { IconName } from '../../components/Icon.astro';
+import FacultyCard from '../../components/FacultyCard.astro';
+import Icon from '../../components/Icon.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import Base from '../../layouts/Base.astro';
+
+/*
+ * Our Pride: Leadership & Faculty Directory.
+ *
+ * The design's own screen. A midnight header carrying the roster overline, the
+ * accreditation note and the department filter; the Office of the Dean, with the
+ * Dean's profile card and the administrative assistant's card; then the four
+ * departments, each a navy banner and a grid of faculty cards; then the council
+ * band and the Dean's Office contact card.
+ *
+ * The filter here is a section filter rather than a per-card one, so the same
+ * progressive-enhancement argument as the programme filter applies: with scripting
+ * off every section is present and every button simply does nothing.
+ */
+const faculty = (await getCollection('faculty')).sort((a, b) => a.data.order - b.data.order);
+
+const inSection = (section: string) => faculty.filter((person) => person.data.section === section);
+
+const [dean, assistant] = inSection('dean');
+
+/**
+ * The four teaching departments, in the design's order. Each carries its own
+ * banner wording and its two corner plates, so the departments are named here
+ * rather than inferred from the programme collection: the banner says
+ * "Creative Spatial Sciences" where the programme is called BS Architecture, and
+ * a department's strapline is not a programme description.
+ */
+const DEPARTMENTS = [
+	{
+		id: 'architecture',
+		icon: 'architecture',
+		overline: 'Creative Spatial Sciences',
+		title: 'Department of Architecture',
+		strapline: 'Mastering Spatial Design, Tropical Urbanism, and Architectural Heritage',
+		plate: 'UAP & PIA Aligned',
+		duration: '5-Year BS Arch',
+		/** The design draws architecture four across and the rest three. */
+		columns: 'md:grid-cols-2 lg:grid-cols-4',
+	},
+	{
+		id: 'civil',
+		icon: 'layers',
+		overline: 'Structural & Infrastructure Sciences',
+		title: 'Department of Civil Engineering',
+		strapline:
+			'Building Resilient Infrastructure, Earthquake Mechanics, and Environmental Engineering',
+		plate: 'PICE Accredited Chapter',
+		duration: '4-Year BS CE',
+		columns: 'md:grid-cols-3',
+	},
+	{
+		id: 'computer',
+		icon: 'memory',
+		overline: 'Computing Systems & Cyber-Physical Architecture',
+		title: 'Department of Computer Engineering',
+		strapline: 'Pioneering Embedded Systems, Cyber-Physical Hardware, and Software Solutions',
+		plate: 'ICpEP Center',
+		duration: '4-Year BS CpE',
+		columns: 'md:grid-cols-3',
+	},
+	{
+		id: 'electronics',
+		icon: 'cell_tower',
+		overline: 'Applied Telecommunications & Instrumentation',
+		title: 'Department of Electronics Engineering',
+		strapline: 'Advancing Telecommunications, Signal Processing, and Industrial Automation',
+		plate: 'IECEP Accredited',
+		duration: '4-Year BS ECE',
+		columns: 'md:grid-cols-2 lg:grid-cols-3',
+	},
+] as const satisfies ReadonlyArray<{
+	id: string;
+	icon: IconName;
+	overline: string;
+	title: string;
+	strapline: string;
+	plate: string;
+	duration: string;
+	columns: string;
+}>;
+
+/** The six councils the faculty are active in, as the design names them. */
+const COUNCILS = [
+	{
+		icon: 'shield',
+		name: 'PRC',
+		detail: 'Professional Regulation Commission',
+		tone: 'text-copper',
+	},
+	{
+		icon: 'apartment',
+		name: 'UAP & PIA',
+		detail: 'Architects of the Philippines',
+		tone: 'text-amberprint',
+	},
+	{ icon: 'layers', name: 'PICE', detail: 'Civil Engineers Institute', tone: 'text-navy' },
+	{ icon: 'memory', name: 'ICpEP', detail: 'Computer Engineers Institute', tone: 'text-copper' },
+	{
+		icon: 'cell_tower',
+		name: 'IECEP',
+		detail: 'Electronics Engineers Institute',
+		tone: 'text-amberprint',
+	},
+	{ icon: 'award', name: 'PTC-ACBET', detail: 'Washington Accord Compliant', tone: 'text-navy' },
+] as const;
+---
+
+<Base
+	title="Our Pride: Leadership & Faculty Directory"
+	description="The dean, the administrative assistant and the teaching faculty of the UIC College of Engineering and Architecture, by department, with their credentials and professional affiliations."
+>
+	<!-- Roster header, accreditation note and department filter. -->
+	<section class="relative overflow-hidden bg-midnight py-space-xl text-white">
+		<div
+			class="pointer-events-none absolute inset-0 opacity-10"
+			style="background-image:linear-gradient(to right, #E2E8F0 0.8px, transparent 0.8px),linear-gradient(to bottom, #E2E8F0 0.8px, transparent 0.8px);background-size:40px 40px"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-space-gutter">
+			<nav aria-label="Breadcrumb" class="mb-space-md">
+				<ol class="flex flex-wrap items-center gap-1 text-body-sm text-brand-300">
+					<li>
+						<a
+							href="/"
+							class="inline-flex items-center gap-1 transition-colors hover:text-amberprint"
+						>
+							<Icon name="home" size="16px" />
+							Home
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-brand-300/40">
+						/
+					</li>
+					<li>
+						<a href="/about/cea-logo-and-seal" class="transition-colors hover:text-amberprint">
+							About CEA
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-brand-300/40">
+						/
+					</li>
+					<li class="font-medium text-amberprint" aria-current="page">
+						Our Pride
+					</li>
+				</ol>
+			</nav>
+
+			<div class="grid grid-cols-1 items-end gap-space-lg lg:grid-cols-12">
+				<div class="space-y-2 lg:col-span-8">
+					<span class="inline-flex items-center gap-1 rounded-full border border-amberprint/30 bg-navy/80 px-3 py-1 text-label-badge uppercase tracking-widest text-amberprint">
+						<span class="size-2 rounded-full bg-copper"></span>
+						Academic Council &amp; Faculty Roster
+					</span>
+					<h1 class="font-serif text-headline-lg-mobile font-bold tracking-tight text-white md:text-headline-lg">
+						Our Pride: Leadership &amp; Faculty Directory
+					</h1>
+					<p class="max-w-3xl text-body-lg leading-relaxed text-white/90">
+						The visionary leaders, certified engineers, licensed architects, and academic mentors
+						guiding future technocrats and creators at the UIC College of Engineering and
+						Architecture.
+					</p>
+				</div>
+
+				<div class="lg:col-span-4 lg:flex lg:justify-end">
+					<div class="space-y-1 rounded-xl border border-grid/10 bg-navy/90 p-space-md text-body-sm text-white/80 shadow-lg">
+						<p class="flex items-center gap-1 text-label-md text-amberprint">
+							<Icon name="verified_user" size="18px" />
+							PAASCU Level III &amp; PTC-ACBET
+						</p>
+						<p class="text-body-sm text-white/80">
+							Upholding rigorous pedagogical mastery and international Washington Accord engineering
+							baselines.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-space-xl flex flex-wrap items-center gap-2 border-t border-grid/10 pt-space-md text-label-md">
+				<span class="mr-2 flex items-center gap-1 text-white/60">
+					<Icon name="filter_list" size="16px" />
+					Quick Filter:
+				</span>
+				<button
+					type="button"
+					data-dept-tab="all"
+					aria-pressed="true"
+					class="rounded-lg bg-copper font-bold text-white shadow-sm transition-all duration-200"
+				>
+					All Faculty
+				</button>
+				<button
+					type="button"
+					data-dept-tab="dean"
+					aria-pressed="false"
+					class="rounded-lg bg-navy text-white/70 transition-all duration-200 hover:bg-midnight hover:text-white"
+				>
+					Dean &amp; Administration
+				</button>
+				{DEPARTMENTS.map((department) => (
+					<button
+						type="button"
+						data-dept-tab={department.id}
+						aria-pressed="false"
+						class="rounded-lg bg-navy text-white/70 transition-all duration-200 hover:bg-midnight hover:text-white"
+					>
+						{department.title.replace('Department of ', '')}
+					</button>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<div class="mx-auto w-full max-w-7xl space-y-space-xl px-space-gutter py-space-xl">
+		<!-- Office of the Dean. -->
+		<section
+			id="section-dean"
+			class="scroll-mt-space-scroll-header space-y-space-lg"
+			data-dept-section="dean"
+		>
+			<div class="flex items-center gap-space-sm border-b border-grid pb-space-sm">
+				<Icon name="stars" size="28px" class="text-copper" />
+				<div>
+					<h2 class="font-serif text-headline-md font-bold text-navy">
+						Executive Leadership &amp; Office of the Dean
+					</h2>
+					<p class="text-body-sm text-brand-700">
+						Guiding strategic governance, curricular advancement, and collegiate development
+					</p>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 gap-space-lg lg:grid-cols-12">
+				<!-- Dean. -->
+				{dean && (
+					<div class="relative flex flex-col gap-space-lg overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 md:flex-row lg:col-span-8">
+						<span
+							class="pointer-events-none absolute right-0 top-0 size-32 rounded-bl-full bg-amberprint/10"
+							aria-hidden="true"
+						/>
+
+						<div class="flex shrink-0 flex-col items-center">
+							<picture class="relative size-44 overflow-hidden rounded-xl border-2 border-grid bg-brand-50 shadow-md md:size-52">
+								<RemoteImage
+									src={IMAGES.faculty.dean.src}
+									alt={IMAGES.faculty.dean.alt}
+									width={1024}
+									height={1024}
+									class="size-full object-cover object-top"
+								/>
+							</picture>
+							<div class="mt-space-sm flex flex-wrap justify-center gap-1">
+								{dean.data.postnominals.map((postnominal, i) => (
+									<span
+										class:list={[
+											'rounded px-2 py-0.5 text-label-badge font-bold uppercase tracking-wider',
+											i === 0 ? 'bg-navy text-white' : 'bg-amberprint text-midnight',
+										]}
+									>
+										{postnominal}
+									</span>
+								))}
+							</div>
+						</div>
+
+						<div class="flex-1 space-y-space-sm">
+							<div class="space-y-1">
+								<span class="inline-flex items-center gap-1.5 rounded bg-copper px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-white">
+									<Icon name="shield" size="14px" />
+									{dean.data.badge}
+								</span>
+								<h3 class="font-serif text-headline-md font-bold leading-tight text-navy">
+									{dean.data.name}
+								</h3>
+								<p class="text-label-lg font-semibold text-copper">{dean.data.role}</p>
+							</div>
+
+							<div class="space-y-1 rounded-lg border border-grid bg-subtle p-space-sm">
+								<p class="flex items-center gap-1 text-label-md font-bold uppercase tracking-wider text-navy">
+									<Icon name="verified_user" size="16px" class="text-amberprint" />
+									Verified Credentials &amp; Affiliations
+								</p>
+								<ul class="space-y-1 pl-1 text-body-sm text-brand-700">
+									{dean.data.credentials.map((credential) => (
+										<li class="flex items-start gap-2">
+											<Icon
+												name={
+													credential.kind === 'licence'
+														? 'verified'
+														: credential.kind === 'membership'
+															? 'badge'
+															: 'school'
+												}
+												size="16px"
+												class="mt-0.5 shrink-0 text-copper"
+											/>
+											<span>{credential.text}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+
+							{dean.data.quote && (
+								<blockquote class="border-l-2 border-amberprint py-1 pl-3 text-body-sm italic text-brand-700">
+									“{dean.data.quote}”
+								</blockquote>
+							)}
+
+							<div class="flex flex-wrap items-center gap-space-sm pt-2">
+								<a
+									href="mailto:cea@uic.edu.ph?subject=Inquiry%20for%20the%20Dean%27s%20Office"
+									class="inline-flex items-center gap-1 rounded bg-midnight px-space-md py-2 text-label-lg font-bold text-white transition-colors hover:bg-navy"
+								>
+									<Icon name="mail" size="18px" />
+									Inquire with Dean's Office
+								</a>
+								<span class="flex items-center gap-1 text-body-sm text-brand-700">
+									<Icon name="mail" size="16px" class="text-amberprint" />
+									cea@uic.edu.ph
+								</span>
+							</div>
+						</div>
+					</div>
+				)}
+
+				<!-- Administrative assistant. -->
+				{assistant && (
+					<div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-canvas p-space-lg shadow-elev-2 lg:col-span-4">
+						<div class="space-y-space-sm">
+							<div class="flex items-center justify-between gap-2">
+								<span class="inline-flex items-center gap-1 rounded bg-brand-200 px-2.5 py-0.5 text-label-badge font-bold uppercase tracking-wider text-navy">
+									<Icon name="person" size="14px" />
+									{assistant.data.badge}
+								</span>
+								<Icon name="menu_book" size="24px" class="text-brand-300" />
+							</div>
+
+							<div>
+								<h3 class="text-headline-sm font-bold text-navy">{assistant.data.name}</h3>
+								<p class="text-label-lg font-semibold text-copper">{assistant.data.role}</p>
+							</div>
+
+							{assistant.data.background && (
+								<div class="space-y-1 rounded-lg border border-grid bg-subtle p-space-sm">
+									<p class="text-label-badge font-bold uppercase tracking-wider text-navy">
+										Academic Background
+									</p>
+									<p class="text-body-sm text-navy">{assistant.data.background}</p>
+								</div>
+							)}
+
+							{assistant.data.functions && (
+								<div class="space-y-1 pt-1">
+									<p class="text-label-badge font-bold uppercase tracking-wider text-brand-400">
+										Key Functional Areas
+									</p>
+									<ul class="space-y-1 text-body-sm text-brand-700">
+										{assistant.data.functions.map((fn) => (
+											<li class="flex items-center gap-2">
+												<span
+													class="size-1.5 shrink-0 rounded-full bg-amberprint"
+													aria-hidden="true"
+												/>
+												<span>{fn}</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</div>
+
+						<div class="mt-space-md flex items-center justify-between border-t border-grid pt-space-md text-body-sm text-brand-700">
+							{assistant.data.hours && (
+								<span class="flex items-center gap-1">
+									<Icon name="schedule" size="16px" class="text-amberprint" />
+									{assistant.data.hours}
+								</span>
+							)}
+							{assistant.data.location && (
+								<span class="text-label-md font-bold text-navy">{assistant.data.location}</span>
+							)}
+						</div>
+					</div>
+				)}
+			</div>
+		</section>
+
+		<!-- The four teaching departments. -->
+		{DEPARTMENTS.map((department) => (
+			<section
+				id={`section-${department.id}`}
+				class="scroll-mt-space-scroll-header space-y-space-md"
+				data-dept-section={department.id}
+			>
+				<div class="flex flex-col justify-between gap-space-md rounded-xl border-l-4 border-amberprint bg-navy p-space-md text-white md:flex-row md:items-center md:p-space-lg">
+					<div>
+						<p class="flex items-center gap-2 text-label-badge uppercase tracking-wider text-amberprint">
+							<Icon name={department.icon} size="18px" />
+							{department.overline}
+						</p>
+						<h2 class="font-serif text-headline-md font-bold text-white">{department.title}</h2>
+						<p class="text-body-sm text-white/85">{department.strapline}</p>
+					</div>
+					<div class="flex shrink-0 items-center gap-2">
+						<span class="rounded bg-white/10 px-3 py-1 text-body-sm font-semibold text-white">
+							{department.plate}
+						</span>
+						<span class="rounded bg-amberprint px-3 py-1 text-body-sm font-bold text-midnight">
+							{department.duration}
+						</span>
+					</div>
+				</div>
+
+				<div class:list={['grid grid-cols-1 gap-space-md', department.columns]}>
+					{inSection(department.id).map((person) => (
+						<div class="reveal">
+							<FacultyCard person={person} />
+						</div>
+					))}
+				</div>
+			</section>
+		))}
+
+		<!-- The councils the faculty sit on. -->
+		<section class="space-y-space-md rounded-xl bg-canvas p-space-lg shadow-elev-1">
+			<div class="mx-auto max-w-2xl space-y-1 text-center">
+				<span class="eyebrow">Standard of Excellence</span>
+				<h2 class="text-headline-sm font-bold text-navy">
+					Professional Licensures &amp; Institutional Accreditations
+				</h2>
+				<p class="text-body-sm text-brand-700">
+					Our distinguished faculty members are active, licensed leaders across national regulatory
+					and professional engineering councils:
+				</p>
+			</div>
+
+			<ul class="grid grid-cols-2 gap-space-sm pt-1 md:grid-cols-3 lg:grid-cols-6">
+				{COUNCILS.map((council) => (
+					<li class="flex flex-col items-center justify-center gap-1 rounded-lg border border-grid bg-subtle p-space-sm text-center">
+						<Icon name={council.icon} size="28px" class={council.tone} />
+						<span class="text-headline-sm text-sm font-bold text-navy">{council.name}</span>
+						<span class="text-body-sm text-brand-700">{council.detail}</span>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<!-- Dean's Office contact. -->
+		<section class="relative overflow-hidden rounded-xl bg-linear-to-r from-navy to-midnight p-space-lg text-white shadow-elev-3 md:p-space-xl">
+			<div class="relative z-10 grid grid-cols-1 items-center gap-space-lg lg:grid-cols-12">
+				<div class="space-y-2 lg:col-span-8">
+					<span class="inline-flex items-center gap-1.5 rounded bg-amberprint px-3 py-1 text-label-badge font-bold uppercase tracking-wider text-midnight">
+						<Icon name="schedule" size="14px" />
+						Office Consultations &amp; Academic Inquiries
+					</span>
+					<h2 class="font-serif text-headline-md font-bold text-white">
+						Connect with the UIC-CEA Dean's Office
+					</h2>
+					<p class="max-w-2xl text-body-md text-white/90">
+						For academic advisement, prospective student transcript evaluations, research
+						partnerships, and board program inquiries, please coordinate with our administrative
+						council during university hours.
+					</p>
+
+					<dl class="grid grid-cols-1 gap-space-md pt-2 sm:grid-cols-3">
+						{[
+							{
+								label: 'Office Schedule',
+								value: 'Monday – Friday',
+								detail: '8:00 AM – 5:00 PM',
+							},
+							{
+								label: 'Telephone Access',
+								value: '227-1573 Loc. 222',
+								detail: 'Direct College Line',
+							},
+							{
+								label: 'Campus Location',
+								value: 'Bonifacio Campus',
+								detail: 'Bonifacio St., Davao City',
+							},
+						].map((row) => (
+							<div class="space-y-1">
+								<dt class="block text-body-sm font-bold uppercase tracking-wider text-amberprint">
+									{row.label}
+								</dt>
+								<dd class="text-body-sm font-semibold">{row.value}</dd>
+								<dd class="text-body-sm text-white/75">{row.detail}</dd>
+							</div>
+						))}
+					</dl>
+				</div>
+
+				<div class="flex flex-col gap-3 lg:col-span-4">
+					<a
+						href="mailto:cea@uic.edu.ph"
+						class="btn btn-primary w-full font-bold uppercase tracking-wider shadow-md"
+					>
+						<Icon name="mail" size="20px" />
+						Email: cea@uic.edu.ph
+					</a>
+					<a
+						href={ENROLL_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn w-full border border-grid bg-canvas font-bold text-navy shadow-sm hover:bg-subtle"
+					>
+						<Icon name="how_to_reg" size="20px" />
+						Online Admissions Portal
+					</a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script>
+		/*
+		 * The department filter.
+		 *
+		 * Same shape as the programme filter on /programs, and for the same
+		 * reason: the buttons are progressive enhancement over a page whose four
+		 * sections are all present in the HTML. A visitor without scripting sees
+		 * the whole directory.
+		 */
+		const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-dept-tab]'));
+		const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-dept-section]'));
+
+		if (tabs.length > 0 && sections.length > 0) {
+			const IDLE =
+				'rounded-lg bg-navy text-white/70 transition-all duration-200 hover:bg-midnight hover:text-white';
+			const ACTIVE =
+				'rounded-lg bg-copper font-bold text-white shadow-sm transition-all duration-200';
+
+			tabs.forEach((tab) => {
+				tab.addEventListener('click', () => {
+					const target = tab.dataset.deptTab;
+
+					tabs.forEach((other) => {
+						const active = other === tab;
+						other.setAttribute('aria-pressed', String(active));
+						other.className = active ? ACTIVE : IDLE;
+					});
+
+					let shown: HTMLElement | undefined;
+
+					sections.forEach((section) => {
+						const match = target === 'all' || section.dataset.deptSection === target;
+						section.toggleAttribute('hidden', !match);
+						if (match && target !== 'all') shown = section;
+					});
+
+					shown?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				});
+			});
+		}
+	</script>
+</Base>

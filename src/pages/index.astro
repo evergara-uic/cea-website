@@ -1,0 +1,452 @@
+---
+/*
+ * The homepage: the design's "Programs & Admissions" screen, in full and in its
+ * own order — hero, advisement, the four programmes, the UIC Advantage, the
+ * wings, Featured Works, enquiries, and the closing mission band.
+ *
+ * Every section and every word here is the design's. The only departures are
+ * recorded in CONTENT-SOURCING.md, and they are all things the prototype could
+ * not do: links that went nowhere, a control that could not discriminate, and a
+ * form that reported success without sending anything.
+ */
+import { ENROLL_URL, HERO_HEADLINE, HERO_METRICS, IMAGES, PARENT_INSTITUTION } from '../consts';
+import { getCollection } from 'astro:content';
+import ContactBlock from '../components/ContactBlock.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import RemoteImage from '../components/RemoteImage.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import WingCard from '../components/WingCard.astro';
+import WorkCard from '../components/WorkCard.astro';
+import Base from '../layouts/Base.astro';
+
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+const works = (await getCollection('works')).sort((a, b) => a.data.order - b.data.order);
+
+const programName = (slug: string) =>
+	programs.find((program) => program.data.slug === slug)?.data.name ?? '';
+
+/** The three claims under the UIC Advantage heading. */
+const ADVANTAGE = [
+	{
+		icon: 'verified_user',
+		title: 'PACUCOA & PTC Aligned Standards',
+		body: 'Accreditation benchmarks ensuring international comparability of engineering qualifications under Washington Accord guidelines.',
+	},
+	{
+		icon: 'precision_manufacturing',
+		title: 'Specialized Laboratory Ecosystem',
+		body: 'Materials testing, advanced surveying equipment, computer design workstations, and clean-power electronics prototyping stations.',
+	},
+	{
+		icon: 'military_tech',
+		title: 'Scholarships & Grants Offered',
+		body: 'Academic merit discounts, DOST scholarship accredited status, and CEASO alumni endowment incentives.',
+	},
+] as const;
+---
+
+<Base>
+	<!-- Hero. Midnight, with the dot grid and the two blurred orbs behind. -->
+	<section class="relative w-full overflow-hidden bg-midnight text-white">
+		<div
+			class="pointer-events-none absolute inset-0 opacity-15 [background-image:radial-gradient(#dce9ff_1px,transparent_1px)] [background-size:24px_24px]"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute -right-20 -top-24 size-96 rounded-full bg-copper/15 blur-3xl"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute -bottom-0 -left-20 size-80 rounded-full bg-brand-100/10 blur-3xl"
+			aria-hidden="true"
+		></div>
+
+		<div class="relative mx-auto max-w-7xl px-space-gutter py-space-xl">
+			<div class="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+				<div class="space-y-space-md lg:col-span-7">
+					<span class="inline-flex items-center gap-space-sm rounded bg-white/10 px-space-md py-1.5 text-label-badge uppercase tracking-widest text-amberprint backdrop-blur-md">
+						<svg
+							viewBox="0 0 24 24"
+							width="16"
+							height="16"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.6"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+							class="shrink-0"
+						>
+							<circle cx="12" cy="8" r="3.5"></circle>
+							<path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"></path>
+						</svg>
+						{PARENT_INSTITUTION} • Davao City
+					</span>
+
+					<h1 class="font-serif text-display-hero-mobile font-bold leading-[1.08] md:text-display-hero">
+						<span class="bg-gradient-to-r from-copper via-amberprint to-brand-200 bg-clip-text text-transparent">
+							{HERO_HEADLINE[0]}
+						</span>
+						<br />
+						{HERO_HEADLINE[1]}
+					</h1>
+
+					<p class="max-w-2xl text-body-lg leading-relaxed text-white/85">
+						Welcome to the UIC College of Engineering and Architecture (UIC-CEA). We mold
+						transformative, ethical, and board-ready professionals equipped with computational
+						mastery, sustainable vision, and world-class design discipline.
+					</p>
+
+					<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+						<a
+							href={ENROLL_URL}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="flex items-center gap-space-xs rounded bg-copper px-space-xl py-3.5 text-label-lg font-bold uppercase tracking-wider text-white shadow-lg shadow-copper/25 transition-all hover:-translate-y-px hover:bg-accent-600"
+						>
+							Enroll for SY 2025-2026
+							<svg
+								viewBox="0 0 24 24"
+								width="18"
+								height="18"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="shrink-0"
+							>
+								<path d="M4 12h15"></path>
+								<path d="m13 6 6 6-6 6"></path>
+							</svg>
+						</a>
+						<a
+							href="#academic-programs"
+							class="flex items-center gap-space-xs rounded bg-white/10 px-space-lg py-3.5 text-label-lg font-semibold tracking-wide text-white transition-colors hover:bg-white/20"
+						>
+							Explore Programs
+							<svg
+								viewBox="0 0 24 24"
+								width="18"
+								height="18"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="shrink-0"
+							>
+								<path d="M2.5 4.5h6a3 3 0 0 1 2.5 1.4A3 3 0 0 1 13.5 4.5h6a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-6a3 3 0 0 0-2.5 1.4A3 3 0 0 0 8.5 19.5h-6a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z"></path>
+								<path d="M12 6v13"></path>
+							</svg>
+						</a>
+					</div>
+
+					<dl class="grid grid-cols-2 gap-space-md pt-space-lg sm:grid-cols-4">
+						{HERO_METRICS.map((metric) => (
+							<div class="rounded bg-white/10 p-space-sm backdrop-blur-sm">
+								<dt class="sr-only">{metric.label}</dt>
+								<dd>
+									<span class="block font-serif text-headline-md font-bold text-amberprint">
+										{metric.value}
+									</span>
+									<span class="mt-0.5 block text-label-badge uppercase tracking-wider text-white/75">
+										{metric.label}
+									</span>
+								</dd>
+							</div>
+						))}
+					</dl>
+				</div>
+
+				<div class="relative lg:col-span-5">
+					<figure class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-navy/80 shadow-2xl">
+						<RemoteImage
+							src={IMAGES.hero.src}
+							alt={IMAGES.hero.alt}
+							width={1024}
+							height={768}
+							loading="eager"
+							fetchpriority="high"
+							class="size-full object-cover opacity-80 mix-blend-luminosity"
+						/>
+						<div
+							class="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+							aria-hidden="true"
+						></div>
+						<figcaption class="absolute inset-x-space-md bottom-space-md rounded-lg bg-navy/90 p-space-md shadow-xl backdrop-blur-md">
+							<span class="flex items-center gap-1 text-label-badge uppercase tracking-widest text-amberprint">
+								<span class="inline-block size-2 rounded-full bg-copper motion-safe:animate-ping"></span>
+								Admissions Status
+								<span>•</span>
+								Bonifacio Campus
+							</span>
+							<p class="mt-1 font-serif text-headline-sm font-bold text-white">
+								Ready for your next chapter?
+							</p>
+							<p class="mt-1 text-body-sm text-white/80">
+								Join the CEASO Wolves family. Scholarship slots and priority laboratory placements
+								now open.
+							</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Advisement. -->
+	<section class="w-full bg-brand-100 py-space-sm">
+		<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-space-sm px-space-gutter text-label-md md:flex-row">
+			<p class="flex items-center gap-space-sm text-navy">
+				<svg
+					viewBox="0 0 24 24"
+					width="18"
+					height="18"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.6"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="shrink-0 text-copper"
+				>
+					<path d="M4 9.5v5h3l7 4.5v-14L7 9.5H4Z"></path>
+					<path d="M17.5 8.5a5 5 0 0 1 0 7"></path>
+				</svg>
+				<span>
+					<strong>Official Advisement:</strong>
+					Entrance assessments for BS Architecture and Engineering degree tracks ongoing daily at
+					Bonifacio Hall.
+				</span>
+			</p>
+			<a
+				href={ENROLL_URL}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex shrink-0 items-center gap-1 text-label-badge font-bold uppercase tracking-wider text-copper transition-colors hover:text-accent-600"
+			>
+				Proceed to UIC Enrollment Portal
+				<svg
+					viewBox="0 0 24 24"
+					width="14"
+					height="14"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.6"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="shrink-0"
+				>
+					<path d="M14 4.5h5.5V10"></path>
+					<path d="M19.5 4.5 11 13"></path>
+					<path d="M18 14v4.5a2 2 0 0 1-2 2H5.5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2H10"></path>
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- The four programmes. -->
+	<section
+		id="academic-programs"
+		class="w-full scroll-mt-space-scroll-header bg-canvas py-space-xl"
+	>
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<SectionHeading class="mb-space-xl">
+				<span slot="eyebrow">Department of Undergraduate Curricula</span>
+				<h2 class="font-serif text-headline-lg-mobile font-bold tracking-tight text-navy md:text-headline-lg">
+					The College of Engineering and Architecture offers four academic programs:
+				</h2>
+				<p slot="lead" class="mt-2 max-w-2xl text-body-md text-brand-700">
+					Each degree is structured around rigorous theoretical mathematics, creative spatial
+					experimentation, cutting-edge software suites, and state board licensing preparation.
+				</p>
+			</SectionHeading>
+
+			<div class="grid grid-cols-1 gap-space-lg md:grid-cols-2 lg:grid-cols-4">
+				{programs.map((program) => (
+					<ProgramCard program={program} />
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- The UIC Advantage. -->
+	<section class="w-full bg-subtle py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<div class="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+				<div class="space-y-space-md lg:col-span-5">
+					<span class="eyebrow">The UIC Advantage</span>
+					<h2 class="font-serif text-headline-lg-mobile font-bold leading-tight text-navy md:text-headline-lg">
+						Nurturing Rigorous Technical Minds and Visionary Designers
+					</h2>
+					<p class="text-body-md leading-relaxed text-brand-700">
+						The College of Engineering and Architecture at UIC stands at the forefront of Mindanaoan
+						tertiary education. Through accredited outcome-based education (OBE), dedicated faculty
+						mentors, and comprehensive campus laboratory facilities, our graduates consistently
+						excel in professional licensure examinations and industry leadership.
+					</p>
+
+					<div class="space-y-space-sm pt-space-xs">
+						{ADVANTAGE.map((item) => (
+							<div class="flex items-start gap-space-sm">
+								<svg
+									viewBox="0 0 24 24"
+									width="22"
+									height="22"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.6"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+									class="mt-0.5 shrink-0 text-copper"
+								>
+									{item.icon === 'verified_user' && (
+										<>
+											<path d="M12 2.5 4.5 5.5v6c0 4.5 3.2 8.7 7.5 10 4.3-1.3 7.5-5.5 7.5-10v-6L12 2.5Z" />
+											<path d="m9 12 2.2 2.2L15.5 10" />
+										</>
+									)}
+									{item.icon === 'precision_manufacturing' && (
+										<>
+											<circle cx="12" cy="12" r="3" />
+											<path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1" />
+										</>
+									)}
+									{item.icon === 'military_tech' && (
+										<>
+											<circle cx="12" cy="9" r="5.5" />
+											<path d="m8.5 13.5-2 8 5.5-2.5 5.5 2.5-2-8" />
+										</>
+									)}
+								</svg>
+								<div>
+									<h3 class="text-headline-sm font-bold text-navy">{item.title}</h3>
+									<p class="mt-1 text-body-sm text-brand-700">{item.body}</p>
+								</div>
+							</div>
+						))}
+					</div>
+
+					<div class="pt-space-sm">
+						<a href="/scholarships-offered" class="arrow-link">
+							View Available CEA Scholarship Grants
+							<svg
+								viewBox="0 0 24 24"
+								width="18"
+								height="18"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+								class="shrink-0"
+							>
+								<path d="M4 12h15"></path>
+								<path d="m13 6 6 6-6 6"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 gap-space-md sm:grid-cols-2 lg:col-span-7">
+					{programs.map((program) => (
+						<WingCard program={program} />
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Works. -->
+	<section class="w-full bg-canvas py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<SectionHeading class="mb-space-lg">
+				<span slot="eyebrow">Excellence in Practice</span>
+				<h2 class="font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg">
+					Featured Works &amp; Thesis Innovations
+				</h2>
+				<p slot="lead" class="mt-2 max-w-xl text-body-md text-brand-700">
+					Selected capstone projects, architectural masterplans, and robotic prototypes from recent
+					UIC-CEA graduating cohorts.
+				</p>
+			</SectionHeading>
+
+			<div class="grid grid-cols-1 gap-space-lg md:grid-cols-3">
+				{works.map((work) => (
+					<WorkCard
+						work={work}
+						href={`/featured-works#${work.data.slug}`}
+						programmeName={programName(work.data.programme)}
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Enquiries: channels on the left, the form on the right. -->
+	<section
+		id="contact-inquiries"
+		class="w-full scroll-mt-space-scroll-header bg-brand-50/40 py-space-xl"
+	>
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<ContactBlock headingLevel="h2">
+				<InquiryForm />
+			</ContactBlock>
+		</div>
+	</section>
+
+	<!-- Closing mission band. -->
+	<section class="w-full bg-navy py-space-lg text-white">
+		<div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-space-md px-space-gutter md:flex-row">
+			<div class="flex items-center gap-space-md">
+				<div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-white/10">
+					<svg
+						viewBox="0 0 24 24"
+						width="24"
+						height="24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1.6"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path d="M12 2.5 4.5 5.5v6c0 4.5 3.2 8.7 7.5 10 4.3-1.3 7.5-5.5 7.5-10v-6L12 2.5Z" />
+						<path d="M9 12h6" />
+					</svg>
+				</div>
+				<div>
+					<h2 class="font-serif text-headline-md font-bold text-white">
+						Committed to Quality Catholic Engineering Education
+					</h2>
+					<p class="mt-1 text-body-sm text-white/75">
+						Affiliated with national councils and international student chapters • Davao City,
+						Philippines
+					</p>
+				</div>
+			</div>
+
+			<div class="flex shrink-0 items-center gap-space-sm">
+				<a
+					href="/about/our-pride"
+					class="rounded bg-white/10 px-space-md py-2 text-label-md font-bold text-white transition-colors hover:bg-white/20"
+				>
+					Our Pride
+				</a>
+				<a
+					href="/about/cea-logo-and-seal"
+					class="rounded bg-white/10 px-space-md py-2 text-label-md font-bold text-white transition-colors hover:bg-white/20"
+				>
+					CEA Logo &amp; Seal
+				</a>
+			</div>
+		</div>
+	</section>
+</Base>

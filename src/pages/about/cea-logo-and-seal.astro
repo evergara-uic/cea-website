@@ -1,0 +1,124 @@
+---
+/*
+ * CEA Logo & Seal.
+ *
+ * The design named this page in its About menu and drew it with the emblem, the
+ * acronym, the mission and the accreditation line. The College's actual seal
+ * files are not used on this site — the design's emblem is generated, not the
+ * College's mark, and the generated one is what the design calls for. That is
+ * recorded in CONTENT-SOURCING.md, because the emblem is the one image a
+ * visitor is most likely to read as the institution's own.
+ */
+import { getCollection } from 'astro:content';
+import { IMAGES, PARENT_INSTITUTION } from '../../consts';
+import Icon from '../../components/Icon.astro';
+import ProgramMark from '../../components/ProgramMark.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import Base from '../../layouts/Base.astro';
+
+const programs = (await getCollection('programs')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+	title="CEA Logo & Seal"
+	description="The emblem, acronym and mission of the University of the Immaculate Conception College of Engineering and Architecture."
+>
+	<!-- Header. -->
+	<section class="w-full bg-midnight py-space-xl text-white">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<nav aria-label="Breadcrumb" class="mb-space-md">
+				<ol class="flex items-center gap-1 text-label-md text-white/60">
+					<li>
+						<a href="/" class="transition-colors hover:text-copper">
+							Home
+						</a>
+					</li>
+					<li aria-hidden="true" class="text-white/30">
+						/
+					</li>
+					<li class="text-amberprint" aria-current="page">
+						CEA Logo &amp; Seal
+					</li>
+				</ol>
+			</nav>
+
+			<span class="eyebrow eyebrow-on-dark">About CEA</span>
+			<h1 class="mt-2 font-serif text-headline-lg-mobile font-bold text-white md:text-headline-lg">
+				CEA Logo &amp; Seal
+			</h1>
+		</div>
+	</section>
+
+	<!-- The emblem. -->
+	<section class="w-full bg-canvas py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<div class="grid grid-cols-1 items-center gap-space-xl md:grid-cols-2">
+				<figure class="flex aspect-square items-center justify-center rounded-2xl bg-subtle p-space-xl">
+					<RemoteImage
+						src={IMAGES.emblem.src}
+						alt={IMAGES.emblem.alt}
+						width={512}
+						height={512}
+						loading="eager"
+						class="max-h-full w-auto object-contain"
+					/>
+				</figure>
+
+				<div>
+					<span class="block text-label-badge font-bold uppercase tracking-widest text-amberprint">
+						{PARENT_INSTITUTION}
+					</span>
+					<p class="mt-1 font-serif text-display-hero-mobile font-bold text-navy md:text-display-hero">
+						UIC-CEA
+					</p>
+					<p class="mt-4 text-body-md leading-relaxed text-brand-700">
+						{PARENT_INSTITUTION} College of Engineering and Architecture commits to producing
+						ethical, globally competent, and transformative engineers and architects for the
+						community and industry.
+					</p>
+					<p class="mt-4 flex items-center gap-space-sm text-headline-sm font-semibold text-navy">
+						<Icon name="verified_user" size="20px" class="shrink-0 text-copper" />
+						PAASCU Level III • PTC-ACBET Accredited Academic Programs
+					</p>
+					<p class="mt-2 text-body-sm text-brand-700">
+						Affiliated with national councils and international student chapters • Davao City,
+						Philippines
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- The four marks. -->
+	<section class="w-full bg-subtle py-space-xl">
+		<div class="mx-auto max-w-7xl px-space-gutter">
+			<SectionHeading class="mb-space-lg">
+				<span slot="eyebrow">Academic Programs</span>
+				<h2 class="font-serif text-headline-lg-mobile font-bold text-navy md:text-headline-lg">
+					Four academic programs
+				</h2>
+				<p slot="lead" class="mt-2 max-w-2xl text-body-md text-brand-700">
+					Each degree carries its own mark and its own student guild, and is named after the
+					professional body its students join.
+				</p>
+			</SectionHeading>
+
+			<ul class="grid grid-cols-1 gap-space-md sm:grid-cols-2 lg:grid-cols-4">
+				{programs.map((program) => (
+					<li class="card items-center p-space-lg text-center">
+						<span class="mb-space-md flex size-20 items-center justify-center rounded-full bg-canvas p-3">
+							<ProgramMark mark={program.data.mark} label={program.data.badgeLabel} />
+						</span>
+						<span class="block text-headline-sm font-bold text-navy">{program.data.name}</span>
+						<span class="mt-1 block text-label-md text-copper">{program.data.overline}</span>
+						<a href={`/programs/${program.data.slug}`} class="arrow-link mt-space-md text-label-md">
+							View Curriculum &amp; Plan
+							<Icon name="arrow_forward" size="14px" />
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+</Base>

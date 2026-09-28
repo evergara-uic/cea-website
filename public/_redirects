@@ -1,0 +1,50 @@
+# Cloudflare Pages redirects.
+#
+# The College's site was published on Google Sites at
+# sites.google.com/uic.edu.ph/collegeofengineeringandarchi, and that address is
+# linked from the University site and from Facebook. The paths below are the
+# legacy ones mapped onto this site's routes, so any address already in
+# circulation keeps working.
+#
+# Syntax: /from  /to  [status]. Status defaults to 200 (a rewrite); 301 is used
+# throughout because these replacements are permanent.
+
+# About.
+#
+# "CEA Logo & Seal" is the only child of the About menu with a page of its own
+# under the design's own `data-path`; "Our Pride" sits at /about/our-pride for
+# symmetry with it.
+/about-cea/cea-logo-seal            /about/cea-logo-and-seal  301
+/about-cea/our-pride                /about/our-pride          301
+/about-cea/scholarships-offered     /scholarships-offered     301
+/about-cea                          /about/our-pride          301
+
+# Programmes. The legacy slugs are the design's `data-path` values, so the four
+# programme routes are the paths the design already named.
+/programs-offered/bs-architecture            /programs/bs-architecture             301
+/programs-offered/bs-civil-engineering       /programs/bs-civil-engineering        301
+/programs-offered/bs-computer-engineering    /programs/bs-computer-engineering     301
+/programs-offered/bs-electronics-engineering /programs/bs-electronics-engineering  301
+/programs-offered                   /programs                            301
+
+# Featured Works. The legacy site filed works under a school year. The works
+# themselves are now on one page and only one of the three states a year, so
+# all three years resolve to the full set rather than to two empty archives.
+/featured-works/sy-2024-2025  /featured-works  301
+/featured-works/sy-2025-2026  /featured-works  301
+/featured-works/sy-2026-2027  /featured-works  301
+/featured-works               /featured-works  301
+
+# Contact. The design's contact band is a page here as well as a homepage
+# section, so the legacy address lands on it directly.
+/contact-and-inquiries        /contact-and-inquiries  301
+/contact                      /contact-and-inquiries  301
+
+# The legacy faculty roster, the downloads index and the archives. None of these
+# have a page on this site: the design carries no faculty listing, no documents
+# and no separate archive. They are redirected rather than left to 404 so a
+# legacy link reaches the closest real page instead of a dead end.
+/faculty                      /about/our-pride          301
+/archives                     /featured-works           301
+/downloads                    /featured-works           301
+/home                         /                         301

@@ -1,0 +1,106 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { IMAGES } from '../consts';
+import type { IconName } from './Icon.astro';
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+
+/*
+ * One member of the faculty on the Our Pride directory.
+ *
+ * The design draws a photograph where it has one and a drafting-board monogram
+ * where it does not, and the two people it does have photographs of are the Dean
+ * and the Architecture programme coordinator. Everything else gets the monogram.
+ * That is not a placeholder this component invented: it is what the design
+ * itself does, and drawing an invented face for the other thirteen would be a
+ * worse lie than drawing no face. See CONTENT-SOURCING.md.
+ *
+ * The glyph beside each credential comes from the credential's `kind` rather
+ * than being written per entry, so editing somebody's record cannot end up
+ * pointing a mortarboard at a licence.
+ */
+interface Props {
+	person: CollectionEntry<'faculty'>;
+}
+
+const { person } = Astro.props;
+const d = person.data;
+
+const KIND_ICON: Record<string, IconName> = {
+	degree: 'school',
+	licence: 'verified',
+	certification: 'workspace_premium',
+	membership: 'badge',
+	leadership: 'military_tech',
+	industry: 'briefcase',
+};
+
+const portrait = d.portrait ? IMAGES.faculty[d.portrait] : undefined;
+---
+
+<article class="card p-space-md">
+	<div class="space-y-space-sm">
+		<div class="flex items-start justify-between gap-space-sm">
+			{portrait ? (
+				<picture class="size-16 shrink-0 overflow-hidden rounded-xl border border-grid bg-brand-50 shadow-inner">
+					<RemoteImage
+						src={portrait.src}
+						alt={portrait.alt}
+						width={1024}
+						height={1024}
+						class="size-full object-cover object-top"
+					/>
+				</picture>
+			) : (
+				<span
+					class="flex size-16 shrink-0 items-center justify-center rounded-xl border border-grid bg-brand-100 text-navy"
+					aria-hidden="true"
+				>
+					<Icon name="draw" size="32px" />
+				</span>
+			)}
+			<span
+				class:list={[
+					'rounded px-2 py-0.5 text-label-badge font-bold uppercase',
+					d.badgeTone === 'copper' ? 'bg-copper/10 text-copper' : 'bg-brand-200 text-navy',
+				]}
+			>
+				{d.badge}
+			</span>
+		</div>
+
+		<div>
+			{d.focus && (
+				<span class="text-label-badge font-bold uppercase tracking-wider text-copper">
+					{d.focus}
+				</span>
+			)}
+			<h3 class="text-headline-sm font-bold leading-snug text-navy">{d.name}</h3>
+			<p class="mt-0.5 text-label-md font-semibold text-brand-700">{d.role}</p>
+		</div>
+
+		{d.credentials.length > 0 && (
+			<ul class="space-y-1.5 border-t border-grid/60 pt-2 text-body-sm text-brand-700">
+				{d.credentials.map((credential) => (
+					<li class="flex items-start gap-1.5">
+						<Icon
+							name={KIND_ICON[credential.kind]}
+							size="15px"
+							class="mt-0.5 shrink-0 text-amberprint"
+						/>
+						<span>{credential.text}</span>
+					</li>
+				))}
+			</ul>
+		)}
+
+		{d.note && <p class="text-body-sm italic text-brand-700">{d.note}</p>}
+	</div>
+
+	<p class="mt-space-md border-t border-grid pt-2 text-right">
+		<span class="arrow-link text-label-md!">
+			{d.badgeTone === 'copper' ? 'Curricular Leadership' : 'Academic Faculty'}
+			<Icon name="arrow_forward" size="14px" />
+		</span>
+	</p>
+</article>
