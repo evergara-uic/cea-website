@@ -282,7 +282,7 @@ const COUNCILS = [
 						/>
 
 						<div class="flex shrink-0 flex-col items-center">
-							<picture class="relative size-44 overflow-hidden rounded-xl border-2 border-grid bg-brand-50 shadow-md md:size-52">
+							<picture class="portrait-frame relative size-44 md:size-52">
 								{deanPortrait ? (
 									<img
 										src={deanPortrait.src}
@@ -387,14 +387,13 @@ const COUNCILS = [
 
 							{assistantPortrait && (
 								/*
-								 * size-16, the same frame every roster card uses, and not
-								 * larger. This portrait is 64 CSS pixels inside a card that
-								 * is otherwise text, so anything bigger reads as a second
-								 * feature rather than as an identification. The Dean keeps
-								 * 176/208 because that card is a feature and this one is
-								 * not.
+								 * The same frame as every other portrait, and the same size
+								 * as the Dean's. Only the dimensions are set here; the
+								 * border, radius, background and shadow all come from
+								 * `.portrait-frame`, so the sixteen cannot drift apart
+								 * again. See the note on that class in global.css.
 								 */
-								<picture class="size-16 shrink-0 overflow-hidden rounded-xl border border-grid bg-brand-50">
+								<picture class="portrait-frame relative size-44 shrink-0 md:size-52">
 									<img
 										src={assistantPortrait.src}
 										alt=""

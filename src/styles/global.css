@@ -532,6 +532,31 @@
 	}
 
 	/*
+	 * The frame every faculty portrait is drawn in.
+	 *
+	 * Sixteen portraits at three sizes — fourteen at 64px in the roster cards,
+	 * the Dean and the administrative assistant at 176/208px in the two feature
+	 * cards above them — and they had drifted into three different frames: a 1px
+	 * border with an inner shadow on the fourteen, a 2px border with a drop
+	 * shadow on the Dean, and a 1px border with no shadow at all on the
+	 * assistant. Three spellings of one object is the same class of mistake as
+	 * the 116 dead `font-*` classes, only visible rather than silent, so it is
+	 * declared once here and the size alone is set at each call site.
+	 *
+	 * The values are the ones Tailwind's `rounded-xl`, `border`, `border-grid`,
+	 * `bg-brand-50` and `shadow-inner` expand to. There is no `@apply` anywhere
+	 * in this file, so they are written out, and `scripts/verify-classes.py`
+	 * keeps the rule honest by failing the build if a portrait stops using it.
+	 */
+	.portrait-frame {
+		overflow: hidden;
+		border-radius: var(--radius-xl);
+		border: 1px solid var(--color-grid);
+		background-color: var(--color-brand-50);
+		box-shadow: inset 0 2px 4px 0 #0000000d;
+	}
+
+	/*
 	 * The small surface-subtle pill: competency chips, the form's option labels
 	 * and the inline badges. One object rather than four slightly different
 	 * grey boxes.
