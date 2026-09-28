@@ -243,7 +243,7 @@ const CDN = 'https://lh3.googleusercontent.com/aida-public';
 
 export const IMAGES = {
 	emblem: {
-		src: `${CDN}/AB6AXuDaEG26WqKoPAjDrLXep1C1Kk3qTVN4VY-4ys4qxDdOiyuDQT9Ej_h0YqF_3wu-Jii_QVtg4T0We2xrgZhGPdzM0AM6CrZJf9YGu0oIbwBAmFa8SZmRUngFVzPEnCII2YvYekPLhlnNbA4KespSV6AIPRTm8PxRoJyP3CfPxYlN-uxEsJK24tSlb6Cj4tr8UBoBcZym1Sdz72q1H4FLjwzmAaa_MUjuWvx26DbT85zP9rHoayxEHVqzEw`,
+		src: '/logos/CEA logo icon.png',
 		alt: 'UIC College of Engineering and Architecture emblem',
 	},
 	hero: {
