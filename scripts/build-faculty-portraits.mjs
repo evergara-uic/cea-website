@@ -14,15 +14,25 @@
  * place. That meant fourteen real faculty were represented on the site by an
  * icon while two fictional people stood in for the roles.
  *
- * These render at 64 CSS pixels inside the card's `size-16` frame, so 128
- * device pixels on a 2x display and 192 on a 3x one. The originals are 1024 and
- * 1125 pixels square, and 15 MB for the set. 256px leaves the same comfortable
- * headroom the logos use and turns the whole set into a few tens of kilobytes.
+ * These are drawn in two sizes, and the larger one governs. Fourteen render at
+ * 64 CSS pixels in the roster card's `size-16` frame, but the Dean and the
+ * administrative assistant render at 176 and 208 — `size-44` and `md:size-52` —
+ * in the two feature cards at the top of the directory. 208 CSS pixels is 416
+ * device pixels on a 2x display and 624 on a 3x one, so 640px covers both with
+ * room to spare. The originals are 1024 and 1125 pixels square.
  *
- * Why 256 and not 512: this is the second time on this site that the answer
- * followed from measuring where an image actually lands rather than from a
- * round number. The 116 dead font classes and the 4,274 KB architecture logo
- * were both cases of a size nobody had checked.
+ * 640 was not the first answer, and the first one was wrong. Sizing from the
+ * roster card's 64px gave 256, which is comfortable for fourteen of sixteen and
+ * silently under-serves the other two by about 1.6x on a 2x display — a
+ * photograph the browser has to stretch and soften, which is the one artefact a
+ * face cannot afford. Sixteen files at 640px cost 432 KB, which is not a trade
+ * worth making an argument about; the whole site is 23 MB.
+ *
+ * This is the third time on this site that the answer has followed from
+ * measuring where an image actually lands rather than from a round number. The
+ * 116 dead font classes and the 4,274 KB architecture logo were the first two.
+ * The recurring lesson is that "where does this render" has more than one
+ * answer per asset, and the honest question is always the largest one.
  *
  * `portrait` in src/content/faculty.json is the key each of these is stored
  * under, and it is the same value as the entry's `id`. The mapping below is
@@ -40,8 +50,18 @@ import { join } from 'node:path';
 /** Output directory. Imported by FacultyCard, so Astro fingerprints it. */
 const OUT = 'src/assets/faculty';
 
-/** Device-pixel headroom over the 64px render, matching the logo script. */
-const WIDTH = 256;
+/**
+ * Output width, chosen for the two feature cards rather than the fourteen
+ * roster cards. See the note at the top: 208 CSS pixels on a 3x display is
+ * 624 device pixels, so 640 covers it.
+ *
+ * This constant and the committed WebPs have to agree. They did not once: a
+ * `git stash` reverted this file to 256 while the 640px images stayed
+ * committed, so the build looked correct and silently shrank every portrait
+ * again on the way to Cloudflare. If you change one, change both, and check the
+ * output dimensions rather than the build's exit code.
+ */
+const WIDTH = 640;
 
 /**
  * roster id -> supplied filename.
