@@ -181,20 +181,7 @@ const slug = (href: string) => href.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/
 						</div>
 					</div>
 				) : (
-					<a
-						href={item.href}
-						aria-current={isCurrent(item.href) ? 'page' : undefined}
-						class:list={[
-							'rounded px-space-md py-space-sm transition-colors hover:text-white/80',
-							isCurrent(item.href) ? 'bg-navy font-bold' : 'text-white',
-						]}
-					>
-						{item.href === '/' ? (
-							<img src="/logos/CEA logo icon.png" alt="CEA" width="24" height="24" class="shrink-0 object-contain" />
-						) : (
-							item.label
-						)}
-					</a>
+					<a href="/" aria-current="page" class="rounded px-space-md py-space-sm transition-colors hover:text-white/80 bg-navy font-bold" data-astro-cid-nen7h5rs>Home</a>
 				),
 			)}
 		</nav>
