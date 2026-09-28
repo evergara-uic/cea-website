@@ -530,7 +530,7 @@ const COUNCILS = [
 							<CoordinatorCard person={coordinatorOf(department.id)} />
 						</div>
 					)}
-					<div class:list={['grid grid-cols-1 gap-space-md', department.columns]}>
+					<div class="grid grid-cols-1 gap-space-md">
 						{inSection(department.id)
 							.filter((person) => person.data.id !== (coordinatorOf(department.id)?.data.id || ''))
 							.map((person) => (
